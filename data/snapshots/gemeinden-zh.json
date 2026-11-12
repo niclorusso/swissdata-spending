@@ -1,0 +1,7584 @@
+{
+ "meta": {
+  "id": "gemeinden-zh",
+  "title": "Zurigo – indicatori finanziari di tutti i Comuni, 2024",
+  "publisher": "Statistisches Amt des Kantons Zürich",
+  "publisher_url": "https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt.html",
+  "source_url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_431.csv",
+  "landing_url": "https://www.zh.ch/de/politik-staat/gemeinden/gemeindeportraet.html",
+  "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
+  "frequency": "annuale",
+  "level": "gemeinden",
+  "unit": "CHF per abitante",
+  "data_date": "2019–2024; Steuerfuss fino al 2026",
+  "published_at": "2026-03-23T03:17:14+00:00",
+  "retrieved_at": "2026-11-12T10:21:39+00:00",
+  "checked_at": "2026-11-12T10:55:47+00:00",
+  "sha256": "c34bfc7c94c8d1d705d353c18ec7a8de3eff5a01540c35d35f48a150a125008d",
+  "notes": "Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse.",
+  "coverage": "160 Comuni zurighesi: costo netto dei servizi per funzione, patrimonio/debito netto, investimenti netti, risultato, Steuerfuss, forza fiscale",
+  "generated_at": "2026-11-12T10:55:47+00:00"
+ },
+ "data": {
+  "year": 2024,
+  "kanton": "zh",
+  "measures": [
+   {
+    "key": "servizi_pc",
+    "label": "Costo netto dei servizi per abitante",
+    "unit": "chf",
+    "note": "Costo dei servizi comunali nel 2024, tolti i ricavi propri di ogni servizio (tasse d'uso, contributi ricevuti)"
+   },
+   {
+    "key": "debito_pc",
+    "label": "Debito netto per abitante",
+    "unit": "chf",
+    "diverging": true,
+    "note": "Debiti meno averi finanziari a fine 2024. Se negativo, il Comune ha più averi che debiti"
+   },
+   {
+    "key": "steuerfuss",
+    "label": "Moltiplicatore d'imposta",
+    "unit": "pct",
+    "note": "Percentuale dell'imposta cantonale che il Comune preleva, 2024, senza imposta di culto. Più è alta, più imposte comunali si pagano"
+   },
+   {
+    "key": "netinv_pc",
+    "label": "Investimenti netti per abitante",
+    "unit": "chf",
+    "note": "Spese per opere (strade, scuole, canalizzazioni) nel 2024, tolti i sussidi ricevuti"
+   },
+   {
+    "key": "risultato_pc",
+    "label": "Risultato d'esercizio per abitante",
+    "unit": "chf",
+    "diverging": true,
+    "note": "Ricavi meno spese nel 2024. Se negativo, è un disavanzo"
+   },
+   {
+    "key": "steuerkraft",
+    "label": "Forza fiscale per abitante",
+    "unit": "chf",
+    "note": "Gettito fiscale per abitante nel 2024, a moltiplicatore uguale per tutti"
+   }
+  ],
+  "gemeinden": {
+   "1": {
+    "name": "Aeugst a.A.",
+    "pop": 1995,
+    "values": {
+     "servizi_pc": 5053,
+     "debito_pc": -4280,
+     "steuerfuss": 92.0,
+     "netinv_pc": 571.0,
+     "risultato_pc": 195.0,
+     "steuerkraft": 5143.0
+    },
+    "funk": {
+     "Amministrazione generale": 588.0,
+     "Formazione": 2815.0,
+     "Sanità": 435.0,
+     "Cultura, sport e tempo libero": 87.0,
+     "Ordine pubblico e sicurezza": 265.0,
+     "Sicurezza sociale": 671.0,
+     "Ambiente e territorio": 101.0,
+     "Trasporti": 213.0,
+     "Economia": -122.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3010,
+      "2020": -3343,
+      "2021": -3976,
+      "2022": -4096,
+      "2023": -4229,
+      "2024": -4280
+     },
+     "steuerfuss": {
+      "2026": 92.0,
+      "2025": 92.0,
+      "2024": 92.0,
+      "2023": 95.0,
+      "2022": 95.0,
+      "2021": 95.0,
+      "2020": 95.0,
+      "2019": 95.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 92.0
+    }
+   },
+   "2": {
+    "name": "Affoltern a.A.",
+    "pop": 12882,
+    "values": {
+     "servizi_pc": 5114,
+     "debito_pc": 2908,
+     "steuerfuss": 124.0,
+     "netinv_pc": 624.0,
+     "risultato_pc": 819.0,
+     "steuerkraft": 2663.0
+    },
+    "funk": {
+     "Amministrazione generale": 503.0,
+     "Formazione": 2460.0,
+     "Sanità": 739.0,
+     "Cultura, sport e tempo libero": 132.0,
+     "Ordine pubblico e sicurezza": 264.0,
+     "Sicurezza sociale": 825.0,
+     "Ambiente e territorio": 58.0,
+     "Trasporti": 254.0,
+     "Economia": -121.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 2761,
+      "2020": 3301,
+      "2021": 3136,
+      "2022": 3622,
+      "2023": 3649,
+      "2024": 2908
+     },
+     "steuerfuss": {
+      "2026": 122.0,
+      "2025": 122.0,
+      "2024": 124.0,
+      "2023": 124.0,
+      "2022": 124.0,
+      "2021": 124.0,
+      "2020": 124.0,
+      "2019": 124.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 122.0
+    }
+   },
+   "3": {
+    "name": "Bonstetten",
+    "pop": 5712,
+    "values": {
+     "servizi_pc": 4036,
+     "debito_pc": -2678,
+     "steuerfuss": 110.0,
+     "netinv_pc": 1157.0,
+     "risultato_pc": 1356.0,
+     "steuerkraft": 3379.0
+    },
+    "funk": {
+     "Amministrazione generale": 460.0,
+     "Formazione": 2673.0,
+     "Sanità": 386.0,
+     "Cultura, sport e tempo libero": 129.0,
+     "Ordine pubblico e sicurezza": 163.0,
+     "Sicurezza sociale": 237.0,
+     "Ambiente e territorio": 115.0,
+     "Trasporti": -22.0,
+     "Economia": -105.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1199,
+      "2020": -1996,
+      "2021": -2603,
+      "2022": -1943,
+      "2023": -2463,
+      "2024": -2678
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 109.0,
+      "2024": 110.0,
+      "2023": 109.0,
+      "2022": 109.0,
+      "2021": 109.0,
+      "2020": 109.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "4": {
+    "name": "Hausen a.A.",
+    "pop": 3951,
+    "values": {
+     "servizi_pc": 4377,
+     "debito_pc": -8688,
+     "steuerfuss": 112.0,
+     "netinv_pc": 1874.0,
+     "risultato_pc": 961.0,
+     "steuerkraft": 3556.0
+    },
+    "funk": {
+     "Amministrazione generale": 368.0,
+     "Formazione": 2539.0,
+     "Sanità": 378.0,
+     "Cultura, sport e tempo libero": 118.0,
+     "Ordine pubblico e sicurezza": 238.0,
+     "Sicurezza sociale": 566.0,
+     "Ambiente e territorio": 125.0,
+     "Trasporti": 158.0,
+     "Economia": -113.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6758,
+      "2020": -7070,
+      "2021": -7613,
+      "2022": -9653,
+      "2023": -9106,
+      "2024": -8688
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 112.0,
+      "2020": 112.0,
+      "2019": 112.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "5": {
+    "name": "Hedingen",
+    "pop": 4002,
+    "values": {
+     "servizi_pc": 4725,
+     "debito_pc": -7102,
+     "steuerfuss": 100.0,
+     "netinv_pc": 469.0,
+     "risultato_pc": -18.0,
+     "steuerkraft": 3698.0
+    },
+    "funk": {
+     "Amministrazione generale": 577.0,
+     "Formazione": 2381.0,
+     "Sanità": 339.0,
+     "Cultura, sport e tempo libero": 180.0,
+     "Ordine pubblico e sicurezza": 197.0,
+     "Sicurezza sociale": 709.0,
+     "Ambiente e territorio": 206.0,
+     "Trasporti": 246.0,
+     "Economia": -110.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4161,
+      "2020": -4693,
+      "2021": -5502,
+      "2022": -7025,
+      "2023": -7316,
+      "2024": -7102
+     },
+     "steuerfuss": {
+      "2026": 100.0,
+      "2025": 100.0,
+      "2024": 100.0,
+      "2023": 100.0,
+      "2022": 105.0,
+      "2021": 105.0,
+      "2020": 105.0,
+      "2019": 105.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 100.0
+    }
+   },
+   "6": {
+    "name": "Kappel a.A.",
+    "pop": 1382,
+    "values": {
+     "servizi_pc": 4945,
+     "debito_pc": -8707,
+     "steuerfuss": 102.0,
+     "netinv_pc": 188.0,
+     "risultato_pc": 495.0,
+     "steuerkraft": 3946.0
+    },
+    "funk": {
+     "Amministrazione generale": 820.0,
+     "Formazione": 2900.0,
+     "Sanità": 329.0,
+     "Cultura, sport e tempo libero": 72.0,
+     "Ordine pubblico e sicurezza": 243.0,
+     "Sicurezza sociale": 549.0,
+     "Ambiente e territorio": 33.0,
+     "Trasporti": 85.0,
+     "Economia": -86.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -10131,
+      "2020": -9348,
+      "2021": -9579,
+      "2022": -9039,
+      "2023": -8708,
+      "2024": -8707
+     },
+     "steuerfuss": {
+      "2026": 102.0,
+      "2025": 102.0,
+      "2024": 102.0,
+      "2023": 102.0,
+      "2022": 102.0,
+      "2021": 102.0,
+      "2020": 102.0,
+      "2019": 102.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 102.0
+    }
+   },
+   "7": {
+    "name": "Knonau",
+    "pop": 2466,
+    "values": {
+     "servizi_pc": 4871,
+     "debito_pc": -6506,
+     "steuerfuss": 116.0,
+     "netinv_pc": 407.0,
+     "risultato_pc": 714.0,
+     "steuerkraft": 2809.0
+    },
+    "funk": {
+     "Amministrazione generale": 505.0,
+     "Formazione": 2998.0,
+     "Sanità": 321.0,
+     "Cultura, sport e tempo libero": 130.0,
+     "Ordine pubblico e sicurezza": 190.0,
+     "Sicurezza sociale": 583.0,
+     "Ambiente e territorio": 63.0,
+     "Trasporti": 185.0,
+     "Economia": -104.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2728,
+      "2020": -2699,
+      "2021": -3823,
+      "2022": -5186,
+      "2023": -5914,
+      "2024": -6506
+     },
+     "steuerfuss": {
+      "2026": 116.0,
+      "2025": 116.0,
+      "2024": 116.0,
+      "2023": 116.0,
+      "2022": 117.0,
+      "2021": 117.0,
+      "2020": 112.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 116.0
+    }
+   },
+   "8": {
+    "name": "Maschwanden",
+    "pop": 677,
+    "values": {
+     "servizi_pc": 6701,
+     "debito_pc": 2205,
+     "steuerfuss": 130.0,
+     "netinv_pc": 245.0,
+     "risultato_pc": 21.0,
+     "steuerkraft": 2237.0
+    },
+    "funk": {
+     "Amministrazione generale": 1014.0,
+     "Formazione": 3729.0,
+     "Sanità": 781.0,
+     "Cultura, sport e tempo libero": 412.0,
+     "Ordine pubblico e sicurezza": 127.0,
+     "Sicurezza sociale": 407.0,
+     "Ambiente e territorio": 178.0,
+     "Trasporti": 126.0,
+     "Economia": -73.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -793,
+      "2020": -425,
+      "2021": 96,
+      "2022": 555,
+      "2023": 2842,
+      "2024": 2205
+     },
+     "steuerfuss": {
+      "2026": 128.0,
+      "2025": 129.0,
+      "2024": 130.0,
+      "2023": 130.0,
+      "2022": 130.0,
+      "2021": 129.0,
+      "2020": 130.0,
+      "2019": 130.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 128.0
+    }
+   },
+   "9": {
+    "name": "Mettmenstetten",
+    "pop": 5763,
+    "values": {
+     "servizi_pc": 4675,
+     "debito_pc": -133,
+     "steuerfuss": 98.0,
+     "netinv_pc": 1055.0,
+     "risultato_pc": -60.0,
+     "steuerkraft": 3357.0
+    },
+    "funk": {
+     "Amministrazione generale": 385.0,
+     "Formazione": 3019.0,
+     "Sanità": 284.0,
+     "Cultura, sport e tempo libero": 103.0,
+     "Ordine pubblico e sicurezza": 180.0,
+     "Sicurezza sociale": 641.0,
+     "Ambiente e territorio": 52.0,
+     "Trasporti": 112.0,
+     "Economia": -101.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5935,
+      "2020": -4455,
+      "2021": -1876,
+      "2022": 28,
+      "2023": -846,
+      "2024": -133
+     },
+     "steuerfuss": {
+      "2026": 98.0,
+      "2025": 98.0,
+      "2024": 98.0,
+      "2023": 98.0,
+      "2022": 99.0,
+      "2021": 99.0,
+      "2020": 99.0,
+      "2019": 100.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 98.0
+    }
+   },
+   "10": {
+    "name": "Obfelden",
+    "pop": 5961,
+    "values": {
+     "servizi_pc": 5145,
+     "debito_pc": -5251,
+     "steuerfuss": 121.0,
+     "netinv_pc": 1225.0,
+     "risultato_pc": 309.0,
+     "steuerkraft": 2702.0
+    },
+    "funk": {
+     "Amministrazione generale": 419.0,
+     "Formazione": 3054.0,
+     "Sanità": 316.0,
+     "Cultura, sport e tempo libero": 163.0,
+     "Ordine pubblico e sicurezza": 192.0,
+     "Sicurezza sociale": 783.0,
+     "Ambiente e territorio": 64.0,
+     "Trasporti": 263.0,
+     "Economia": -109.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1964,
+      "2020": -2223,
+      "2021": -2800,
+      "2022": -3887,
+      "2023": -5699,
+      "2024": -5251
+     },
+     "steuerfuss": {
+      "2026": 118.0,
+      "2025": 119.0,
+      "2024": 121.0,
+      "2023": 121.0,
+      "2022": 121.0,
+      "2021": 121.0,
+      "2020": 121.0,
+      "2019": 121.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 118.0
+    }
+   },
+   "11": {
+    "name": "Ottenbach",
+    "pop": 2973,
+    "values": {
+     "servizi_pc": 4863,
+     "debito_pc": -2187,
+     "steuerfuss": 117.0,
+     "netinv_pc": 397.0,
+     "risultato_pc": 480.0,
+     "steuerkraft": 3090.0
+    },
+    "funk": {
+     "Amministrazione generale": 448.0,
+     "Formazione": 2807.0,
+     "Sanità": 472.0,
+     "Cultura, sport e tempo libero": 77.0,
+     "Ordine pubblico e sicurezza": 203.0,
+     "Sicurezza sociale": 652.0,
+     "Ambiente e territorio": 102.0,
+     "Trasporti": 192.0,
+     "Economia": -90.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -853,
+      "2020": -868,
+      "2021": -972,
+      "2022": -1169,
+      "2023": -1811,
+      "2024": -2187
+     },
+     "steuerfuss": {
+      "2026": 115.0,
+      "2025": 115.0,
+      "2024": 117.0,
+      "2023": 117.0,
+      "2022": 117.0,
+      "2021": 117.0,
+      "2020": 117.0,
+      "2019": 117.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 115.0
+    }
+   },
+   "12": {
+    "name": "Rifferswil",
+    "pop": 1180,
+    "values": {
+     "servizi_pc": 5083,
+     "debito_pc": -9420,
+     "steuerfuss": 122.0,
+     "netinv_pc": 850.0,
+     "risultato_pc": 762.0,
+     "steuerkraft": 3236.0
+    },
+    "funk": {
+     "Amministrazione generale": 799.0,
+     "Formazione": 3096.0,
+     "Sanità": 364.0,
+     "Cultura, sport e tempo libero": 144.0,
+     "Ordine pubblico e sicurezza": 323.0,
+     "Sicurezza sociale": 224.0,
+     "Ambiente e territorio": 64.0,
+     "Trasporti": 128.0,
+     "Economia": -59.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6321,
+      "2020": -7070,
+      "2021": -7861,
+      "2022": -8614,
+      "2023": -9433,
+      "2024": -9420
+     },
+     "steuerfuss": {
+      "2026": 120.0,
+      "2025": 122.0,
+      "2024": 122.0,
+      "2023": 122.0,
+      "2022": 125.0,
+      "2021": 125.0,
+      "2020": 128.0,
+      "2019": 128.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 120.0
+    }
+   },
+   "13": {
+    "name": "Stallikon",
+    "pop": 3909,
+    "values": {
+     "servizi_pc": 4624,
+     "debito_pc": -850,
+     "steuerfuss": 102.0,
+     "netinv_pc": 307.0,
+     "risultato_pc": 615.0,
+     "steuerkraft": 4074.0
+    },
+    "funk": {
+     "Amministrazione generale": 497.0,
+     "Formazione": 2767.0,
+     "Sanità": 355.0,
+     "Cultura, sport e tempo libero": 169.0,
+     "Ordine pubblico e sicurezza": 184.0,
+     "Sicurezza sociale": 309.0,
+     "Ambiente e territorio": 79.0,
+     "Trasporti": 371.0,
+     "Economia": -107.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 1726,
+      "2020": 1014,
+      "2021": 542,
+      "2022": 320,
+      "2023": 94,
+      "2024": -850
+     },
+     "steuerfuss": {
+      "2026": 101.0,
+      "2025": 103.0,
+      "2024": 102.0,
+      "2023": 101.0,
+      "2022": 101.0,
+      "2021": 101.0,
+      "2020": 101.0,
+      "2019": 101.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 101.0
+    }
+   },
+   "14": {
+    "name": "Wettswil a.A.",
+    "pop": 5337,
+    "values": {
+     "servizi_pc": 5017,
+     "debito_pc": -3637,
+     "steuerfuss": 90.0,
+     "netinv_pc": 311.0,
+     "risultato_pc": 411.0,
+     "steuerkraft": 6055.0
+    },
+    "funk": {
+     "Amministrazione generale": 291.0,
+     "Formazione": 3209.0,
+     "Sanità": 433.0,
+     "Cultura, sport e tempo libero": 161.0,
+     "Ordine pubblico e sicurezza": 223.0,
+     "Sicurezza sociale": 462.0,
+     "Ambiente e territorio": 83.0,
+     "Trasporti": 275.0,
+     "Economia": -120.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3173,
+      "2020": -3236,
+      "2021": -3042,
+      "2022": -2886,
+      "2023": -3146,
+      "2024": -3637
+     },
+     "steuerfuss": {
+      "2026": 89.0,
+      "2025": 91.0,
+      "2024": 90.0,
+      "2023": 89.0,
+      "2022": 89.0,
+      "2021": 85.0,
+      "2020": 85.0,
+      "2019": 88.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 89.0
+    }
+   },
+   "22": {
+    "name": "Benken",
+    "pop": 883,
+    "values": {
+     "servizi_pc": 4812,
+     "debito_pc": -2502,
+     "steuerfuss": 110.0,
+     "netinv_pc": 1200.0,
+     "risultato_pc": 118.0,
+     "steuerkraft": 3796.0
+    },
+    "funk": {
+     "Amministrazione generale": 416.0,
+     "Formazione": 2976.0,
+     "Sanità": 521.0,
+     "Cultura, sport e tempo libero": 67.0,
+     "Ordine pubblico e sicurezza": 212.0,
+     "Sicurezza sociale": 409.0,
+     "Ambiente e territorio": 164.0,
+     "Trasporti": 136.0,
+     "Economia": -89.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5329,
+      "2020": -5719,
+      "2021": -3924,
+      "2022": -3684,
+      "2023": -3998,
+      "2024": -2502
+     },
+     "steuerfuss": {
+      "2026": 110.0,
+      "2025": 110.0,
+      "2024": 110.0,
+      "2023": 110.0,
+      "2022": 114.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 118.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 110.0
+    }
+   },
+   "23": {
+    "name": "Berg a.I.",
+    "pop": 589,
+    "values": {
+     "servizi_pc": 6592,
+     "debito_pc": -9959,
+     "steuerfuss": 98.0,
+     "netinv_pc": 1066.0,
+     "risultato_pc": 1481.0,
+     "steuerkraft": 8964.0
+    },
+    "funk": {
+     "Amministrazione generale": 859.0,
+     "Formazione": 3712.0,
+     "Sanità": 556.0,
+     "Cultura, sport e tempo libero": 123.0,
+     "Ordine pubblico e sicurezza": 269.0,
+     "Sicurezza sociale": 563.0,
+     "Ambiente e territorio": 72.0,
+     "Trasporti": 303.0,
+     "Economia": 135.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8185,
+      "2020": -8532,
+      "2021": -8607,
+      "2022": -8707,
+      "2023": -9088,
+      "2024": -9959
+     },
+     "steuerfuss": {
+      "2026": 98.0,
+      "2025": 98.0,
+      "2024": 98.0,
+      "2023": 98.0,
+      "2022": 98.0,
+      "2021": 98.0,
+      "2020": 98.0,
+      "2019": 98.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 98.0
+    }
+   },
+   "24": {
+    "name": "Buch a.I.",
+    "pop": 1066,
+    "values": {
+     "servizi_pc": 4337,
+     "debito_pc": -7368,
+     "steuerfuss": 106.0,
+     "netinv_pc": 745.0,
+     "risultato_pc": 318.0,
+     "steuerkraft": 2764.0
+    },
+    "funk": {
+     "Amministrazione generale": 509.0,
+     "Formazione": 2499.0,
+     "Sanità": 477.0,
+     "Cultura, sport e tempo libero": 166.0,
+     "Ordine pubblico e sicurezza": 165.0,
+     "Sicurezza sociale": 311.0,
+     "Ambiente e territorio": 61.0,
+     "Trasporti": 160.0,
+     "Economia": -11.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -7312,
+      "2020": -7313,
+      "2021": -7068,
+      "2022": -7334,
+      "2023": -7534,
+      "2024": -7368
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 106.0,
+      "2024": 106.0,
+      "2023": 106.0,
+      "2022": 106.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "25": {
+    "name": "Dachsen",
+    "pop": 1926,
+    "values": {
+     "servizi_pc": 4623,
+     "debito_pc": -2955,
+     "steuerfuss": 111.0,
+     "netinv_pc": 428.0,
+     "risultato_pc": 717.0,
+     "steuerkraft": 2961.0
+    },
+    "funk": {
+     "Amministrazione generale": 347.0,
+     "Formazione": 2611.0,
+     "Sanità": 595.0,
+     "Cultura, sport e tempo libero": 151.0,
+     "Ordine pubblico e sicurezza": 210.0,
+     "Sicurezza sociale": 583.0,
+     "Ambiente e territorio": 34.0,
+     "Trasporti": 200.0,
+     "Economia": -108.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3391,
+      "2020": -1277,
+      "2021": -1683,
+      "2022": -2281,
+      "2023": -2259,
+      "2024": -2955
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 111.0,
+      "2024": 111.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 109.0,
+      "2020": 109.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "26": {
+    "name": "Dorf",
+    "pop": 728,
+    "values": {
+     "servizi_pc": 4230,
+     "debito_pc": -8218,
+     "steuerfuss": 104.0,
+     "netinv_pc": 1020.0,
+     "risultato_pc": 1366.0,
+     "steuerkraft": 2987.0
+    },
+    "funk": {
+     "Amministrazione generale": 688.0,
+     "Formazione": 2499.0,
+     "Sanità": 428.0,
+     "Cultura, sport e tempo libero": 149.0,
+     "Ordine pubblico e sicurezza": 137.0,
+     "Sicurezza sociale": 37.0,
+     "Ambiente e territorio": 129.0,
+     "Trasporti": 227.0,
+     "Economia": -64.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5273,
+      "2020": -5811,
+      "2021": -6377,
+      "2022": -7490,
+      "2023": -7496,
+      "2024": -8218
+     },
+     "steuerfuss": {
+      "2026": 99.0,
+      "2025": 104.0,
+      "2024": 104.0,
+      "2023": 109.0,
+      "2022": 109.0,
+      "2021": 109.0,
+      "2020": 109.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 99.0
+    }
+   },
+   "27": {
+    "name": "Feuerthalen",
+    "pop": 3848,
+    "values": {
+     "servizi_pc": 4552,
+     "debito_pc": -788,
+     "steuerfuss": 114.0,
+     "netinv_pc": 659.0,
+     "risultato_pc": 698.0,
+     "steuerkraft": 3234.0
+    },
+    "funk": {
+     "Amministrazione generale": 369.0,
+     "Formazione": 2642.0,
+     "Sanità": 561.0,
+     "Cultura, sport e tempo libero": 55.0,
+     "Ordine pubblico e sicurezza": 125.0,
+     "Sicurezza sociale": 533.0,
+     "Ambiente e territorio": 109.0,
+     "Trasporti": 262.0,
+     "Economia": -104.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1986,
+      "2020": -2292,
+      "2021": -1400,
+      "2022": -474,
+      "2023": -347,
+      "2024": -788
+     },
+     "steuerfuss": {
+      "2026": 114.0,
+      "2025": 114.0,
+      "2024": 114.0,
+      "2023": 114.0,
+      "2022": 114.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 114.0
+    }
+   },
+   "28": {
+    "name": "Flaach",
+    "pop": 1494,
+    "values": {
+     "servizi_pc": 4644,
+     "debito_pc": -9334,
+     "steuerfuss": 107.0,
+     "netinv_pc": 626.0,
+     "risultato_pc": 209.0,
+     "steuerkraft": 2713.0
+    },
+    "funk": {
+     "Amministrazione generale": 506.0,
+     "Formazione": 2499.0,
+     "Sanità": 563.0,
+     "Cultura, sport e tempo libero": 238.0,
+     "Ordine pubblico e sicurezza": 184.0,
+     "Sicurezza sociale": 439.0,
+     "Ambiente e territorio": 93.0,
+     "Trasporti": 171.0,
+     "Economia": -49.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -7768,
+      "2020": -8178,
+      "2021": -8774,
+      "2022": -9315,
+      "2023": -9422,
+      "2024": -9334
+     },
+     "steuerfuss": {
+      "2026": 107.0,
+      "2025": 107.0,
+      "2024": 107.0,
+      "2023": 107.0,
+      "2022": 107.0,
+      "2021": 107.0,
+      "2020": 107.0,
+      "2019": 107.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 107.0
+    }
+   },
+   "29": {
+    "name": "Flurlingen",
+    "pop": 1520,
+    "values": {
+     "servizi_pc": 4615,
+     "debito_pc": -3519,
+     "steuerfuss": 111.0,
+     "netinv_pc": 689.0,
+     "risultato_pc": 587.0,
+     "steuerkraft": 3766.0
+    },
+    "funk": {
+     "Amministrazione generale": 320.0,
+     "Formazione": 2647.0,
+     "Sanità": 681.0,
+     "Cultura, sport e tempo libero": 109.0,
+     "Ordine pubblico e sicurezza": 201.0,
+     "Sicurezza sociale": 362.0,
+     "Ambiente e territorio": 83.0,
+     "Trasporti": 254.0,
+     "Economia": -42.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3029,
+      "2020": -3340,
+      "2021": -3782,
+      "2022": -4120,
+      "2023": -3475,
+      "2024": -3519
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 111.0,
+      "2024": 111.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 112.0,
+      "2020": 112.0,
+      "2019": 112.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "31": {
+    "name": "Henggart",
+    "pop": 2343,
+    "values": {
+     "servizi_pc": 4538,
+     "debito_pc": -4741,
+     "steuerfuss": 102.0,
+     "netinv_pc": 746.0,
+     "risultato_pc": -267.0,
+     "steuerkraft": 2553.0
+    },
+    "funk": {
+     "Amministrazione generale": 733.0,
+     "Formazione": 2599.0,
+     "Sanità": 605.0,
+     "Cultura, sport e tempo libero": 65.0,
+     "Ordine pubblico e sicurezza": 134.0,
+     "Sicurezza sociale": 257.0,
+     "Ambiente e territorio": 77.0,
+     "Trasporti": 175.0,
+     "Economia": -107.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4367,
+      "2020": -5123,
+      "2021": -5288,
+      "2022": -4778,
+      "2023": -5051,
+      "2024": -4741
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 103.0,
+      "2024": 102.0,
+      "2023": 102.0,
+      "2022": 102.0,
+      "2021": 100.0,
+      "2020": 100.0,
+      "2019": 104.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "33": {
+    "name": "Kleinandelfingen",
+    "pop": 2238,
+    "values": {
+     "servizi_pc": 4640,
+     "debito_pc": -4633,
+     "steuerfuss": 112.0,
+     "netinv_pc": 961.0,
+     "risultato_pc": 21.0,
+     "steuerkraft": 2891.0
+    },
+    "funk": {
+     "Amministrazione generale": 484.0,
+     "Formazione": 2544.0,
+     "Sanità": 585.0,
+     "Cultura, sport e tempo libero": 212.0,
+     "Ordine pubblico e sicurezza": 235.0,
+     "Sicurezza sociale": 442.0,
+     "Ambiente e territorio": 76.0,
+     "Trasporti": 114.0,
+     "Economia": -52.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4042,
+      "2020": -3602,
+      "2021": -3926,
+      "2022": -5577,
+      "2023": -5237,
+      "2024": -4633
+     },
+     "steuerfuss": {
+      "2026": 118.0,
+      "2025": 116.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 118.0
+    }
+   },
+   "34": {
+    "name": "Laufen-Uhwiesen",
+    "pop": 1828,
+    "values": {
+     "servizi_pc": 4440,
+     "debito_pc": -7637,
+     "steuerfuss": 104.0,
+     "netinv_pc": 508.0,
+     "risultato_pc": 1062.0,
+     "steuerkraft": 4360.0
+    },
+    "funk": {
+     "Amministrazione generale": 469.0,
+     "Formazione": 2421.0,
+     "Sanità": 492.0,
+     "Cultura, sport e tempo libero": 60.0,
+     "Ordine pubblico e sicurezza": 241.0,
+     "Sicurezza sociale": 545.0,
+     "Ambiente e territorio": 142.0,
+     "Trasporti": 146.0,
+     "Economia": -76.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6962,
+      "2020": -6430,
+      "2021": -6208,
+      "2022": -6521,
+      "2023": -6741,
+      "2024": -7637
+     },
+     "steuerfuss": {
+      "2026": 104.0,
+      "2025": 104.0,
+      "2024": 104.0,
+      "2023": 104.0,
+      "2022": 102.0,
+      "2021": 102.0,
+      "2020": 102.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 104.0
+    }
+   },
+   "35": {
+    "name": "Marthalen",
+    "pop": 1990,
+    "values": {
+     "servizi_pc": 4577,
+     "debito_pc": -4455,
+     "steuerfuss": 107.0,
+     "netinv_pc": 583.0,
+     "risultato_pc": 941.0,
+     "steuerkraft": 2944.0
+    },
+    "funk": {
+     "Amministrazione generale": 526.0,
+     "Formazione": 2405.0,
+     "Sanità": 637.0,
+     "Cultura, sport e tempo libero": 140.0,
+     "Ordine pubblico e sicurezza": 216.0,
+     "Sicurezza sociale": 413.0,
+     "Ambiente e territorio": 84.0,
+     "Trasporti": 214.0,
+     "Economia": -58.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5726,
+      "2020": -5781,
+      "2021": -5678,
+      "2022": -4404,
+      "2023": -3839,
+      "2024": -4455
+     },
+     "steuerfuss": {
+      "2026": 107.0,
+      "2025": 107.0,
+      "2024": 107.0,
+      "2023": 105.0,
+      "2022": 105.0,
+      "2021": 109.0,
+      "2020": 109.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 107.0
+    }
+   },
+   "37": {
+    "name": "Ossingen",
+    "pop": 1835,
+    "values": {
+     "servizi_pc": 4336,
+     "debito_pc": -5336,
+     "steuerfuss": 99.0,
+     "netinv_pc": 338.0,
+     "risultato_pc": 117.0,
+     "steuerkraft": 2528.0
+    },
+    "funk": {
+     "Amministrazione generale": 492.0,
+     "Formazione": 2575.0,
+     "Sanità": 470.0,
+     "Cultura, sport e tempo libero": 69.0,
+     "Ordine pubblico e sicurezza": 178.0,
+     "Sicurezza sociale": 272.0,
+     "Ambiente e territorio": 111.0,
+     "Trasporti": 235.0,
+     "Economia": -66.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -7095,
+      "2020": -6986,
+      "2021": -7687,
+      "2022": -7341,
+      "2023": -5594,
+      "2024": -5336
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 99.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 99.0,
+      "2021": 99.0,
+      "2020": 99.0,
+      "2019": 104.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "38": {
+    "name": "Rheinau",
+    "pop": 1321,
+    "values": {
+     "servizi_pc": 4732,
+     "debito_pc": -106,
+     "steuerfuss": 114.0,
+     "netinv_pc": 1591.0,
+     "risultato_pc": 272.0,
+     "steuerkraft": 2584.0
+    },
+    "funk": {
+     "Amministrazione generale": 665.0,
+     "Formazione": 2578.0,
+     "Sanità": 551.0,
+     "Cultura, sport e tempo libero": 144.0,
+     "Ordine pubblico e sicurezza": 312.0,
+     "Sicurezza sociale": 349.0,
+     "Ambiente e territorio": 62.0,
+     "Trasporti": 235.0,
+     "Economia": -164.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -415,
+      "2020": -949,
+      "2021": -1594,
+      "2022": -1487,
+      "2023": -1154,
+      "2024": -106
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 114.0,
+      "2023": 116.0,
+      "2022": 118.0,
+      "2021": 118.0,
+      "2020": 122.0,
+      "2019": 126.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "39": {
+    "name": "Thalheim a.d.Th.",
+    "pop": 1004,
+    "values": {
+     "servizi_pc": 4648,
+     "debito_pc": -5859,
+     "steuerfuss": 108.0,
+     "netinv_pc": 439.0,
+     "risultato_pc": 480.0,
+     "steuerkraft": 2494.0
+    },
+    "funk": {
+     "Amministrazione generale": 490.0,
+     "Formazione": 2990.0,
+     "Sanità": 285.0,
+     "Cultura, sport e tempo libero": 53.0,
+     "Ordine pubblico e sicurezza": 233.0,
+     "Sicurezza sociale": 509.0,
+     "Ambiente e territorio": 68.0,
+     "Trasporti": 87.0,
+     "Economia": -67.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8003,
+      "2020": -8202,
+      "2021": -7633,
+      "2022": -6866,
+      "2023": -5510,
+      "2024": -5859
+     },
+     "steuerfuss": {
+      "2026": 117.0,
+      "2025": 115.0,
+      "2024": 108.0,
+      "2023": 104.0,
+      "2022": 104.0,
+      "2021": 102.0,
+      "2020": 102.0,
+      "2019": 105.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 117.0
+    }
+   },
+   "40": {
+    "name": "Trüllikon",
+    "pop": 1104,
+    "values": {
+     "servizi_pc": 4798,
+     "debito_pc": -3413,
+     "steuerfuss": 110.0,
+     "netinv_pc": 560.0,
+     "risultato_pc": 392.0,
+     "steuerkraft": 2390.0
+    },
+    "funk": {
+     "Amministrazione generale": 439.0,
+     "Formazione": 2541.0,
+     "Sanità": 598.0,
+     "Cultura, sport e tempo libero": 144.0,
+     "Ordine pubblico e sicurezza": 289.0,
+     "Sicurezza sociale": 508.0,
+     "Ambiente e territorio": 93.0,
+     "Trasporti": 126.0,
+     "Economia": 60.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5190,
+      "2020": -4392,
+      "2021": -4185,
+      "2022": -3237,
+      "2023": -3358,
+      "2024": -3413
+     },
+     "steuerfuss": {
+      "2026": 110.0,
+      "2025": 110.0,
+      "2024": 110.0,
+      "2023": 114.0,
+      "2022": 114.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 110.0
+    }
+   },
+   "41": {
+    "name": "Truttikon",
+    "pop": 458,
+    "values": {
+     "servizi_pc": 5102,
+     "debito_pc": -12430,
+     "steuerfuss": 109.0,
+     "netinv_pc": 1279.0,
+     "risultato_pc": 729.0,
+     "steuerkraft": 2420.0
+    },
+    "funk": {
+     "Amministrazione generale": 731.0,
+     "Formazione": 2856.0,
+     "Sanità": 434.0,
+     "Cultura, sport e tempo libero": 111.0,
+     "Ordine pubblico e sicurezza": 263.0,
+     "Sicurezza sociale": 441.0,
+     "Ambiente e territorio": 105.0,
+     "Trasporti": 196.0,
+     "Economia": -35.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -11507,
+      "2020": -11597,
+      "2021": -11329,
+      "2022": -11495,
+      "2023": -12260,
+      "2024": -12430
+     },
+     "steuerfuss": {
+      "2026": 107.0,
+      "2025": 107.0,
+      "2024": 109.0,
+      "2023": 113.0,
+      "2022": 115.0,
+      "2021": 118.0,
+      "2020": 120.0,
+      "2019": 124.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 107.0
+    }
+   },
+   "43": {
+    "name": "Volken",
+    "pop": 382,
+    "values": {
+     "servizi_pc": 5748,
+     "debito_pc": -8972,
+     "steuerfuss": 111.0,
+     "netinv_pc": 386.0,
+     "risultato_pc": 562.0,
+     "steuerkraft": 2555.0
+    },
+    "funk": {
+     "Amministrazione generale": 1214.0,
+     "Formazione": 2502.0,
+     "Sanità": 737.0,
+     "Cultura, sport e tempo libero": 51.0,
+     "Ordine pubblico e sicurezza": 232.0,
+     "Sicurezza sociale": 549.0,
+     "Ambiente e territorio": 152.0,
+     "Trasporti": 266.0,
+     "Economia": 45.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -7988,
+      "2020": -9102,
+      "2021": -9059,
+      "2022": -8975,
+      "2023": -8502,
+      "2024": -8972
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 111.0,
+      "2024": 111.0,
+      "2023": 111.0,
+      "2022": 111.0,
+      "2021": 111.0,
+      "2020": 111.0,
+      "2019": 111.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "51": {
+    "name": "Bachenbülach",
+    "pop": 4286,
+    "values": {
+     "servizi_pc": 4989,
+     "debito_pc": -7820,
+     "steuerfuss": 106.0,
+     "netinv_pc": 2085.0,
+     "risultato_pc": 72.0,
+     "steuerkraft": 3402.0
+    },
+    "funk": {
+     "Amministrazione generale": 557.0,
+     "Formazione": 2567.0,
+     "Sanità": 540.0,
+     "Cultura, sport e tempo libero": 119.0,
+     "Ordine pubblico e sicurezza": 199.0,
+     "Sicurezza sociale": 869.0,
+     "Ambiente e territorio": 62.0,
+     "Trasporti": 198.0,
+     "Economia": -122.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3179,
+      "2020": -3385,
+      "2021": -3874,
+      "2022": -5347,
+      "2023": -9405,
+      "2024": -7820
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 106.0,
+      "2024": 106.0,
+      "2023": 106.0,
+      "2022": 106.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "52": {
+    "name": "Bassersdorf",
+    "pop": 12301,
+    "values": {
+     "servizi_pc": 4592,
+     "debito_pc": -639,
+     "steuerfuss": 114.0,
+     "netinv_pc": 511.0,
+     "risultato_pc": 376.0,
+     "steuerkraft": 2999.0
+    },
+    "funk": {
+     "Amministrazione generale": 496.0,
+     "Formazione": 2477.0,
+     "Sanità": 503.0,
+     "Cultura, sport e tempo libero": 147.0,
+     "Ordine pubblico e sicurezza": 177.0,
+     "Sicurezza sociale": 601.0,
+     "Ambiente e territorio": 49.0,
+     "Trasporti": 240.0,
+     "Economia": -98.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 1169,
+      "2020": 1160,
+      "2021": 876,
+      "2022": 71,
+      "2023": -161,
+      "2024": -639
+     },
+     "steuerfuss": {
+      "2026": 114.0,
+      "2025": 114.0,
+      "2024": 114.0,
+      "2023": 114.0,
+      "2022": 114.0,
+      "2021": 109.0,
+      "2020": 109.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 114.0
+    }
+   },
+   "53": {
+    "name": "Bülach",
+    "pop": 24508,
+    "values": {
+     "servizi_pc": 4599,
+     "debito_pc": -1864,
+     "steuerfuss": 110.0,
+     "netinv_pc": 1361.0,
+     "risultato_pc": 1013.0,
+     "steuerkraft": 2783.0
+    },
+    "funk": {
+     "Amministrazione generale": 480.0,
+     "Formazione": 2425.0,
+     "Sanità": 437.0,
+     "Cultura, sport e tempo libero": 202.0,
+     "Ordine pubblico e sicurezza": 244.0,
+     "Sicurezza sociale": 630.0,
+     "Ambiente e territorio": 61.0,
+     "Trasporti": 170.0,
+     "Economia": -50.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1261,
+      "2020": -814,
+      "2021": -868,
+      "2022": -1496,
+      "2023": -1556,
+      "2024": -1864
+     },
+     "steuerfuss": {
+      "2026": 114.0,
+      "2025": 114.0,
+      "2024": 110.0,
+      "2023": 110.0,
+      "2022": 110.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 114.0
+    }
+   },
+   "54": {
+    "name": "Dietlikon",
+    "pop": 8027,
+    "values": {
+     "servizi_pc": 4782,
+     "debito_pc": 750,
+     "steuerfuss": 105.0,
+     "netinv_pc": 1032.0,
+     "risultato_pc": -131.0,
+     "steuerkraft": 3747.0
+    },
+    "funk": {
+     "Amministrazione generale": 429.0,
+     "Formazione": 2590.0,
+     "Sanità": 537.0,
+     "Cultura, sport e tempo libero": 260.0,
+     "Ordine pubblico e sicurezza": 174.0,
+     "Sicurezza sociale": 556.0,
+     "Ambiente e territorio": 54.0,
+     "Trasporti": 279.0,
+     "Economia": -97.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2941,
+      "2020": -754,
+      "2021": 15,
+      "2022": 376,
+      "2023": 612,
+      "2024": 750
+     },
+     "steuerfuss": {
+      "2026": 105.0,
+      "2025": 105.0,
+      "2024": 105.0,
+      "2023": 102.0,
+      "2022": 102.0,
+      "2021": 98.0,
+      "2020": 92.0,
+      "2019": 92.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 105.0
+    }
+   },
+   "55": {
+    "name": "Eglisau",
+    "pop": 5750,
+    "values": {
+     "servizi_pc": 4578,
+     "debito_pc": -2323,
+     "steuerfuss": 113.0,
+     "netinv_pc": 2685.0,
+     "risultato_pc": 154.0,
+     "steuerkraft": 2931.0
+    },
+    "funk": {
+     "Amministrazione generale": 421.0,
+     "Formazione": 2681.0,
+     "Sanità": 410.0,
+     "Cultura, sport e tempo libero": 171.0,
+     "Ordine pubblico e sicurezza": 127.0,
+     "Sicurezza sociale": 527.0,
+     "Ambiente e territorio": 58.0,
+     "Trasporti": 283.0,
+     "Economia": -100.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4679,
+      "2020": -4197,
+      "2021": -4359,
+      "2022": -4381,
+      "2023": -4270,
+      "2024": -2323
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 113.0,
+      "2021": 113.0,
+      "2020": 113.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "56": {
+    "name": "Embrach",
+    "pop": 10356,
+    "values": {
+     "servizi_pc": 4033,
+     "debito_pc": -2246,
+     "steuerfuss": 114.0,
+     "netinv_pc": 760.0,
+     "risultato_pc": 365.0,
+     "steuerkraft": 2485.0
+    },
+    "funk": {
+     "Amministrazione generale": 380.0,
+     "Formazione": 2382.0,
+     "Sanità": 472.0,
+     "Cultura, sport e tempo libero": 200.0,
+     "Ordine pubblico e sicurezza": 177.0,
+     "Sicurezza sociale": 338.0,
+     "Ambiente e territorio": 52.0,
+     "Trasporti": 178.0,
+     "Economia": -146.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -328,
+      "2020": -1116,
+      "2021": -1363,
+      "2022": -1452,
+      "2023": -1613,
+      "2024": -2246
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 114.0,
+      "2024": 114.0,
+      "2023": 118.0,
+      "2022": 118.0,
+      "2021": 118.0,
+      "2020": 118.0,
+      "2019": 118.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "57": {
+    "name": "Freienstein-Teufen",
+    "pop": 2372,
+    "values": {
+     "servizi_pc": 4525,
+     "debito_pc": -3666,
+     "steuerfuss": 99.0,
+     "netinv_pc": 647.0,
+     "risultato_pc": -46.0,
+     "steuerkraft": 2895.0
+    },
+    "funk": {
+     "Amministrazione generale": 420.0,
+     "Formazione": 2673.0,
+     "Sanità": 419.0,
+     "Cultura, sport e tempo libero": 114.0,
+     "Ordine pubblico e sicurezza": 194.0,
+     "Sicurezza sociale": 503.0,
+     "Ambiente e territorio": 46.0,
+     "Trasporti": 298.0,
+     "Economia": -142.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5176,
+      "2020": -4740,
+      "2021": -4249,
+      "2022": -4132,
+      "2023": -3937,
+      "2024": -3666
+     },
+     "steuerfuss": {
+      "2026": 99.0,
+      "2025": 99.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 99.0,
+      "2021": 99.0,
+      "2020": 99.0,
+      "2019": 99.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 99.0
+    }
+   },
+   "58": {
+    "name": "Glattfelden",
+    "pop": 5438,
+    "values": {
+     "servizi_pc": 4828,
+     "debito_pc": -4978,
+     "steuerfuss": 120.0,
+     "netinv_pc": 711.0,
+     "risultato_pc": 399.0,
+     "steuerkraft": 2479.0
+    },
+    "funk": {
+     "Amministrazione generale": 347.0,
+     "Formazione": 2567.0,
+     "Sanità": 411.0,
+     "Cultura, sport e tempo libero": 207.0,
+     "Ordine pubblico e sicurezza": 223.0,
+     "Sicurezza sociale": 706.0,
+     "Ambiente e territorio": 69.0,
+     "Trasporti": 393.0,
+     "Economia": -95.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2145,
+      "2020": -2215,
+      "2021": -2890,
+      "2022": -4468,
+      "2023": -4811,
+      "2024": -4978
+     },
+     "steuerfuss": {
+      "2026": 120.0,
+      "2025": 120.0,
+      "2024": 120.0,
+      "2023": 120.0,
+      "2022": 120.0,
+      "2021": 120.0,
+      "2020": 115.0,
+      "2019": 115.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 120.0
+    }
+   },
+   "59": {
+    "name": "Hochfelden",
+    "pop": 2015,
+    "values": {
+     "servizi_pc": 4499,
+     "debito_pc": -6759,
+     "steuerfuss": 116.0,
+     "netinv_pc": 396.0,
+     "risultato_pc": 401.0,
+     "steuerkraft": 2859.0
+    },
+    "funk": {
+     "Amministrazione generale": 538.0,
+     "Formazione": 2804.0,
+     "Sanità": 313.0,
+     "Cultura, sport e tempo libero": 83.0,
+     "Ordine pubblico e sicurezza": 226.0,
+     "Sicurezza sociale": 444.0,
+     "Ambiente e territorio": 52.0,
+     "Trasporti": 168.0,
+     "Economia": -129.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4236,
+      "2020": -4410,
+      "2021": -4785,
+      "2022": -5402,
+      "2023": -6513,
+      "2024": -6759
+     },
+     "steuerfuss": {
+      "2026": 116.0,
+      "2025": 116.0,
+      "2024": 116.0,
+      "2023": 116.0,
+      "2022": 116.0,
+      "2021": 116.0,
+      "2020": 116.0,
+      "2019": 116.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 116.0
+    }
+   },
+   "60": {
+    "name": "Höri",
+    "pop": 3564,
+    "values": {
+     "servizi_pc": 4704,
+     "debito_pc": -7009,
+     "steuerfuss": 110.0,
+     "netinv_pc": 246.0,
+     "risultato_pc": 104.0,
+     "steuerkraft": 2442.0
+    },
+    "funk": {
+     "Amministrazione generale": 620.0,
+     "Formazione": 2639.0,
+     "Sanità": 404.0,
+     "Cultura, sport e tempo libero": 57.0,
+     "Ordine pubblico e sicurezza": 233.0,
+     "Sicurezza sociale": 685.0,
+     "Ambiente e territorio": 58.0,
+     "Trasporti": 102.0,
+     "Economia": -94.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4005,
+      "2020": -4574,
+      "2021": -6017,
+      "2022": -6873,
+      "2023": -6898,
+      "2024": -7009
+     },
+     "steuerfuss": {
+      "2026": 110.0,
+      "2025": 110.0,
+      "2024": 110.0,
+      "2023": 110.0,
+      "2022": 115.0,
+      "2021": 117.0,
+      "2020": 117.0,
+      "2019": 117.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 110.0
+    }
+   },
+   "61": {
+    "name": "Hüntwangen",
+    "pop": 1094,
+    "values": {
+     "servizi_pc": 4590,
+     "debito_pc": -7091,
+     "steuerfuss": 108.0,
+     "netinv_pc": 274.0,
+     "risultato_pc": 1120.0,
+     "steuerkraft": 3304.0
+    },
+    "funk": {
+     "Amministrazione generale": 671.0,
+     "Formazione": 2642.0,
+     "Sanità": 453.0,
+     "Cultura, sport e tempo libero": 82.0,
+     "Ordine pubblico e sicurezza": 222.0,
+     "Sicurezza sociale": 501.0,
+     "Ambiente e territorio": 73.0,
+     "Trasporti": 163.0,
+     "Economia": -217.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8350,
+      "2020": -8260,
+      "2021": -6740,
+      "2022": -5763,
+      "2023": -5180,
+      "2024": -7091
+     },
+     "steuerfuss": {
+      "2026": 108.0,
+      "2025": 108.0,
+      "2024": 108.0,
+      "2023": 108.0,
+      "2022": 108.0,
+      "2021": 104.0,
+      "2020": 104.0,
+      "2019": 104.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 108.0
+    }
+   },
+   "62": {
+    "name": "Kloten",
+    "pop": 21737,
+    "values": {
+     "servizi_pc": 4952,
+     "debito_pc": -5273,
+     "steuerfuss": 103.0,
+     "netinv_pc": 2032.0,
+     "risultato_pc": 2148.0,
+     "steuerkraft": 7737.0
+    },
+    "funk": {
+     "Amministrazione generale": 467.0,
+     "Formazione": 1913.0,
+     "Sanità": 628.0,
+     "Cultura, sport e tempo libero": 422.0,
+     "Ordine pubblico e sicurezza": 215.0,
+     "Sicurezza sociale": 942.0,
+     "Ambiente e territorio": 161.0,
+     "Trasporti": 301.0,
+     "Economia": -97.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3107,
+      "2020": -2026,
+      "2021": -2349,
+      "2022": -2933,
+      "2023": -3537,
+      "2024": -5273
+     },
+     "steuerfuss": {
+      "2026": 100.0,
+      "2025": 100.0,
+      "2024": 103.0,
+      "2023": 103.0,
+      "2022": 103.0,
+      "2021": 103.0,
+      "2020": 103.0,
+      "2019": 103.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 100.0
+    }
+   },
+   "63": {
+    "name": "Lufingen",
+    "pop": 2840,
+    "values": {
+     "servizi_pc": 4043,
+     "debito_pc": 1153,
+     "steuerfuss": 92.0,
+     "netinv_pc": 451.0,
+     "risultato_pc": 287.0,
+     "steuerkraft": 3353.0
+    },
+    "funk": {
+     "Amministrazione generale": 390.0,
+     "Formazione": 2786.0,
+     "Sanità": 283.0,
+     "Cultura, sport e tempo libero": 25.0,
+     "Ordine pubblico e sicurezza": 130.0,
+     "Sicurezza sociale": 297.0,
+     "Ambiente e territorio": 63.0,
+     "Trasporti": 166.0,
+     "Economia": -97.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1396,
+      "2020": -1813,
+      "2021": -1644,
+      "2022": -63,
+      "2023": 1465,
+      "2024": 1153
+     },
+     "steuerfuss": {
+      "2026": 97.0,
+      "2025": 92.0,
+      "2024": 92.0,
+      "2023": 89.0,
+      "2022": 89.0,
+      "2021": 89.0,
+      "2020": 89.0,
+      "2019": 89.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 97.0
+    }
+   },
+   "64": {
+    "name": "Nürensdorf",
+    "pop": 5862,
+    "values": {
+     "servizi_pc": 3939,
+     "debito_pc": -3056,
+     "steuerfuss": 90.0,
+     "netinv_pc": 257.0,
+     "risultato_pc": 327.0,
+     "steuerkraft": 3904.0
+    },
+    "funk": {
+     "Amministrazione generale": 473.0,
+     "Formazione": 2185.0,
+     "Sanità": 467.0,
+     "Cultura, sport e tempo libero": 107.0,
+     "Ordine pubblico e sicurezza": 188.0,
+     "Sicurezza sociale": 382.0,
+     "Ambiente e territorio": 90.0,
+     "Trasporti": 133.0,
+     "Economia": -86.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3161,
+      "2020": -3296,
+      "2021": -2825,
+      "2022": -2794,
+      "2023": -2771,
+      "2024": -3056
+     },
+     "steuerfuss": {
+      "2026": 90.0,
+      "2025": 90.0,
+      "2024": 90.0,
+      "2023": 90.0,
+      "2022": 90.0,
+      "2021": 90.0,
+      "2020": 90.0,
+      "2019": 90.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 90.0
+    }
+   },
+   "65": {
+    "name": "Oberembrach",
+    "pop": 1130,
+    "values": {
+     "servizi_pc": 4625,
+     "debito_pc": -2031,
+     "steuerfuss": 122.0,
+     "netinv_pc": 1801.0,
+     "risultato_pc": 326.0,
+     "steuerkraft": 2730.0
+    },
+    "funk": {
+     "Amministrazione generale": 544.0,
+     "Formazione": 2583.0,
+     "Sanità": 409.0,
+     "Cultura, sport e tempo libero": 68.0,
+     "Ordine pubblico e sicurezza": 223.0,
+     "Sicurezza sociale": 531.0,
+     "Ambiente e territorio": 120.0,
+     "Trasporti": 143.0,
+     "Economia": 4.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2659,
+      "2020": -2823,
+      "2021": -2638,
+      "2022": -2128,
+      "2023": -2912,
+      "2024": -2031
+     },
+     "steuerfuss": {
+      "2026": 117.0,
+      "2025": 122.0,
+      "2024": 122.0,
+      "2023": 117.0,
+      "2022": 117.0,
+      "2021": 117.0,
+      "2020": 117.0,
+      "2019": 117.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 117.0
+    }
+   },
+   "66": {
+    "name": "Opfikon",
+    "pop": 21554,
+    "values": {
+     "servizi_pc": 5352,
+     "debito_pc": -246,
+     "steuerfuss": 94.0,
+     "netinv_pc": 1072.0,
+     "risultato_pc": 1143.0,
+     "steuerkraft": 7720.0
+    },
+    "funk": {
+     "Amministrazione generale": 409.0,
+     "Formazione": 2824.0,
+     "Sanità": 432.0,
+     "Cultura, sport e tempo libero": 276.0,
+     "Ordine pubblico e sicurezza": 137.0,
+     "Sicurezza sociale": 942.0,
+     "Ambiente e territorio": 93.0,
+     "Trasporti": 344.0,
+     "Economia": -105.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3464,
+      "2020": -2064,
+      "2021": -1310,
+      "2022": -798,
+      "2023": 336,
+      "2024": -246
+     },
+     "steuerfuss": {
+      "2026": 94.0,
+      "2025": 94.0,
+      "2024": 94.0,
+      "2023": 94.0,
+      "2022": 94.0,
+      "2021": 94.0,
+      "2020": 94.0,
+      "2019": 94.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 94.0
+    }
+   },
+   "67": {
+    "name": "Rafz",
+    "pop": 4769,
+    "values": {
+     "servizi_pc": 4393,
+     "debito_pc": -1457,
+     "steuerfuss": 113.0,
+     "netinv_pc": 664.0,
+     "risultato_pc": 542.0,
+     "steuerkraft": 2820.0
+    },
+    "funk": {
+     "Amministrazione generale": 589.0,
+     "Formazione": 2595.0,
+     "Sanità": 412.0,
+     "Cultura, sport e tempo libero": 285.0,
+     "Ordine pubblico e sicurezza": 248.0,
+     "Sicurezza sociale": 79.0,
+     "Ambiente e territorio": 47.0,
+     "Trasporti": 229.0,
+     "Economia": -91.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1936,
+      "2020": -1933,
+      "2021": -1578,
+      "2022": -846,
+      "2023": -1050,
+      "2024": -1457
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 113.0,
+      "2021": 113.0,
+      "2020": 113.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "68": {
+    "name": "Rorbas",
+    "pop": 3008,
+    "values": {
+     "servizi_pc": 4410,
+     "debito_pc": -6875,
+     "steuerfuss": 103.0,
+     "netinv_pc": 1076.0,
+     "risultato_pc": 170.0,
+     "steuerkraft": 2016.0
+    },
+    "funk": {
+     "Amministrazione generale": 453.0,
+     "Formazione": 2680.0,
+     "Sanità": 323.0,
+     "Cultura, sport e tempo libero": 99.0,
+     "Ordine pubblico e sicurezza": 158.0,
+     "Sicurezza sociale": 598.0,
+     "Ambiente e territorio": 42.0,
+     "Trasporti": 159.0,
+     "Economia": -102.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8533,
+      "2020": -7569,
+      "2021": -7322,
+      "2022": -7353,
+      "2023": -7468,
+      "2024": -6875
+     },
+     "steuerfuss": {
+      "2026": 103.0,
+      "2025": 103.0,
+      "2024": 103.0,
+      "2023": 103.0,
+      "2022": 103.0,
+      "2021": 103.0,
+      "2020": 103.0,
+      "2019": 103.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 103.0
+    }
+   },
+   "69": {
+    "name": "Wallisellen",
+    "pop": 17765,
+    "values": {
+     "servizi_pc": 5086,
+     "debito_pc": -1464,
+     "steuerfuss": 95.0,
+     "netinv_pc": 779.0,
+     "risultato_pc": 897.0,
+     "steuerkraft": 7535.0
+    },
+    "funk": {
+     "Amministrazione generale": 616.0,
+     "Formazione": 2332.0,
+     "Sanità": 577.0,
+     "Cultura, sport e tempo libero": 235.0,
+     "Ordine pubblico e sicurezza": 251.0,
+     "Sicurezza sociale": 678.0,
+     "Ambiente e territorio": 52.0,
+     "Trasporti": 329.0,
+     "Economia": 16.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 773,
+      "2020": 786,
+      "2021": 782,
+      "2022": 397,
+      "2023": -996,
+      "2024": -1464
+     },
+     "steuerfuss": {
+      "2026": 93.0,
+      "2025": 93.0,
+      "2024": 95.0,
+      "2023": 95.0,
+      "2022": 97.0,
+      "2021": 97.0,
+      "2020": 97.0,
+      "2019": 97.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 93.0
+    }
+   },
+   "70": {
+    "name": "Wasterkingen",
+    "pop": 594,
+    "values": {
+     "servizi_pc": 4880,
+     "debito_pc": -9885,
+     "steuerfuss": 116.0,
+     "netinv_pc": 944.0,
+     "risultato_pc": 218.0,
+     "steuerkraft": 2780.0
+    },
+    "funk": {
+     "Amministrazione generale": 948.0,
+     "Formazione": 2642.0,
+     "Sanità": 547.0,
+     "Cultura, sport e tempo libero": 100.0,
+     "Ordine pubblico e sicurezza": 220.0,
+     "Sicurezza sociale": 230.0,
+     "Ambiente e territorio": 126.0,
+     "Trasporti": 107.0,
+     "Economia": -40.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6654,
+      "2020": -7602,
+      "2021": -7955,
+      "2022": -8850,
+      "2023": -10149,
+      "2024": -9885
+     },
+     "steuerfuss": {
+      "2026": 116.0,
+      "2025": 116.0,
+      "2024": 116.0,
+      "2023": 116.0,
+      "2022": 116.0,
+      "2021": 116.0,
+      "2020": 116.0,
+      "2019": 116.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 116.0
+    }
+   },
+   "71": {
+    "name": "Wil",
+    "pop": 1572,
+    "values": {
+     "servizi_pc": 4171,
+     "debito_pc": -6375,
+     "steuerfuss": 99.0,
+     "netinv_pc": 981.0,
+     "risultato_pc": 534.0,
+     "steuerkraft": 3612.0
+    },
+    "funk": {
+     "Amministrazione generale": 92.0,
+     "Formazione": 2642.0,
+     "Sanità": 473.0,
+     "Cultura, sport e tempo libero": 134.0,
+     "Ordine pubblico e sicurezza": 237.0,
+     "Sicurezza sociale": 293.0,
+     "Ambiente e territorio": 147.0,
+     "Trasporti": 256.0,
+     "Economia": -103.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4802,
+      "2020": -5678,
+      "2021": -5546,
+      "2022": -6144,
+      "2023": -6329,
+      "2024": -6375
+     },
+     "steuerfuss": {
+      "2026": 97.0,
+      "2025": 99.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 104.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 97.0
+    }
+   },
+   "72": {
+    "name": "Winkel",
+    "pop": 5086,
+    "values": {
+     "servizi_pc": 4353,
+     "debito_pc": -6879,
+     "steuerfuss": 76.0,
+     "netinv_pc": 416.0,
+     "risultato_pc": 385.0,
+     "steuerkraft": 5569.0
+    },
+    "funk": {
+     "Amministrazione generale": 506.0,
+     "Formazione": 2453.0,
+     "Sanità": 396.0,
+     "Cultura, sport e tempo libero": 82.0,
+     "Ordine pubblico e sicurezza": 228.0,
+     "Sicurezza sociale": 495.0,
+     "Ambiente e territorio": 59.0,
+     "Trasporti": 204.0,
+     "Economia": -70.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8051,
+      "2020": -7021,
+      "2021": -7573,
+      "2022": -7083,
+      "2023": -6669,
+      "2024": -6879
+     },
+     "steuerfuss": {
+      "2026": 76.0,
+      "2025": 76.0,
+      "2024": 76.0,
+      "2023": 76.0,
+      "2022": 76.0,
+      "2021": 76.0,
+      "2020": 76.0,
+      "2019": 76.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 76.0
+    }
+   },
+   "81": {
+    "name": "Bachs",
+    "pop": 678,
+    "values": {
+     "servizi_pc": 4141,
+     "debito_pc": -2787,
+     "steuerfuss": 128.0,
+     "netinv_pc": 530.0,
+     "risultato_pc": 1845.0,
+     "steuerkraft": 2514.0
+    },
+    "funk": {
+     "Amministrazione generale": 754.0,
+     "Formazione": 3310.0,
+     "Sanità": 225.0,
+     "Cultura, sport e tempo libero": 54.0,
+     "Ordine pubblico e sicurezza": 184.0,
+     "Sicurezza sociale": -758.0,
+     "Ambiente e territorio": 92.0,
+     "Trasporti": 385.0,
+     "Economia": -105.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -829,
+      "2020": -1476,
+      "2021": -1646,
+      "2022": -1390,
+      "2023": -2095,
+      "2024": -2787
+     },
+     "steuerfuss": {
+      "2026": 128.0,
+      "2025": 128.0,
+      "2024": 128.0,
+      "2023": 128.0,
+      "2022": 127.0,
+      "2021": 127.0,
+      "2020": 127.0,
+      "2019": 127.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 128.0
+    }
+   },
+   "82": {
+    "name": "Boppelsen",
+    "pop": 1425,
+    "values": {
+     "servizi_pc": 5091,
+     "debito_pc": -5021,
+     "steuerfuss": 94.0,
+     "netinv_pc": 504.0,
+     "risultato_pc": 97.0,
+     "steuerkraft": 5455.0
+    },
+    "funk": {
+     "Amministrazione generale": 681.0,
+     "Formazione": 3243.0,
+     "Sanità": 308.0,
+     "Cultura, sport e tempo libero": 78.0,
+     "Ordine pubblico e sicurezza": 234.0,
+     "Sicurezza sociale": 409.0,
+     "Ambiente e territorio": 78.0,
+     "Trasporti": 153.0,
+     "Economia": -93.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4296,
+      "2020": -4611,
+      "2021": -4813,
+      "2022": -5293,
+      "2023": -5048,
+      "2024": -5021
+     },
+     "steuerfuss": {
+      "2026": 94.0,
+      "2025": 94.0,
+      "2024": 94.0,
+      "2023": 96.0,
+      "2022": 94.0,
+      "2021": 94.0,
+      "2020": 91.0,
+      "2019": 91.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 94.0
+    }
+   },
+   "83": {
+    "name": "Buchs",
+    "pop": 6808,
+    "values": {
+     "servizi_pc": 4260,
+     "debito_pc": -5940,
+     "steuerfuss": 105.0,
+     "netinv_pc": 485.0,
+     "risultato_pc": 545.0,
+     "steuerkraft": 3063.0
+    },
+    "funk": {
+     "Amministrazione generale": 481.0,
+     "Formazione": 2477.0,
+     "Sanità": 395.0,
+     "Cultura, sport e tempo libero": 78.0,
+     "Ordine pubblico e sicurezza": 159.0,
+     "Sicurezza sociale": 553.0,
+     "Ambiente e territorio": 32.0,
+     "Trasporti": 196.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3772,
+      "2020": -3507,
+      "2021": -3647,
+      "2022": -4337,
+      "2023": -5573,
+      "2024": -5940
+     },
+     "steuerfuss": {
+      "2026": 105.0,
+      "2025": 105.0,
+      "2024": 105.0,
+      "2023": 110.0,
+      "2022": 110.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 111.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 105.0
+    }
+   },
+   "84": {
+    "name": "Dällikon",
+    "pop": 4466,
+    "values": {
+     "servizi_pc": 4844,
+     "debito_pc": -12007,
+     "steuerfuss": 108.0,
+     "netinv_pc": 350.0,
+     "risultato_pc": 85.0,
+     "steuerkraft": 2813.0
+    },
+    "funk": {
+     "Amministrazione generale": 586.0,
+     "Formazione": 2822.0,
+     "Sanità": 437.0,
+     "Cultura, sport e tempo libero": 185.0,
+     "Ordine pubblico e sicurezza": 178.0,
+     "Sicurezza sociale": 595.0,
+     "Ambiente e territorio": 37.0,
+     "Trasporti": 102.0,
+     "Economia": -98.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8812,
+      "2020": -9254,
+      "2021": -10008,
+      "2022": -10870,
+      "2023": -12161,
+      "2024": -12007
+     },
+     "steuerfuss": {
+      "2026": 107.0,
+      "2025": 107.0,
+      "2024": 108.0,
+      "2023": 108.0,
+      "2022": 108.0,
+      "2021": 108.0,
+      "2020": 108.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 107.0
+    }
+   },
+   "85": {
+    "name": "Dänikon",
+    "pop": 1866,
+    "values": {
+     "servizi_pc": 5434,
+     "debito_pc": -3852,
+     "steuerfuss": 122.0,
+     "netinv_pc": 1554.0,
+     "risultato_pc": 498.0,
+     "steuerkraft": 3020.0
+    },
+    "funk": {
+     "Amministrazione generale": 576.0,
+     "Formazione": 3426.0,
+     "Sanità": 402.0,
+     "Cultura, sport e tempo libero": 101.0,
+     "Ordine pubblico e sicurezza": 270.0,
+     "Sicurezza sociale": 469.0,
+     "Ambiente e territorio": 77.0,
+     "Trasporti": 219.0,
+     "Economia": -106.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4225,
+      "2020": -3805,
+      "2021": -3974,
+      "2022": -4794,
+      "2023": -4252,
+      "2024": -3852
+     },
+     "steuerfuss": {
+      "2026": 120.0,
+      "2025": 120.0,
+      "2024": 122.0,
+      "2023": 122.0,
+      "2022": 120.0,
+      "2021": 120.0,
+      "2020": 120.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 120.0
+    }
+   },
+   "86": {
+    "name": "Dielsdorf",
+    "pop": 6725,
+    "values": {
+     "servizi_pc": 4004,
+     "debito_pc": -2578,
+     "steuerfuss": 105.0,
+     "netinv_pc": 425.0,
+     "risultato_pc": 649.0,
+     "steuerkraft": 3181.0
+    },
+    "funk": {
+     "Amministrazione generale": 288.0,
+     "Formazione": 2167.0,
+     "Sanità": 589.0,
+     "Cultura, sport e tempo libero": 224.0,
+     "Ordine pubblico e sicurezza": 232.0,
+     "Sicurezza sociale": 323.0,
+     "Ambiente e territorio": 121.0,
+     "Trasporti": 171.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -337,
+      "2020": -602,
+      "2021": -1615,
+      "2022": -2417,
+      "2023": -2248,
+      "2024": -2578
+     },
+     "steuerfuss": {
+      "2026": 105.0,
+      "2025": 105.0,
+      "2024": 105.0,
+      "2023": 105.0,
+      "2022": 105.0,
+      "2021": 105.0,
+      "2020": 105.0,
+      "2019": 105.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 105.0
+    }
+   },
+   "87": {
+    "name": "Hüttikon",
+    "pop": 957,
+    "values": {
+     "servizi_pc": 5526,
+     "debito_pc": -3394,
+     "steuerfuss": 115.0,
+     "netinv_pc": 1592.0,
+     "risultato_pc": 506.0,
+     "steuerkraft": 3412.0
+    },
+    "funk": {
+     "Amministrazione generale": 839.0,
+     "Formazione": 3425.0,
+     "Sanità": 455.0,
+     "Cultura, sport e tempo libero": 34.0,
+     "Ordine pubblico e sicurezza": 221.0,
+     "Sicurezza sociale": 434.0,
+     "Ambiente e territorio": 42.0,
+     "Trasporti": 175.0,
+     "Economia": -99.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2252,
+      "2020": -2858,
+      "2021": -3402,
+      "2022": -4345,
+      "2023": -4028,
+      "2024": -3394
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 115.0,
+      "2023": 117.0,
+      "2022": 115.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 116.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "88": {
+    "name": "Neerach",
+    "pop": 3328,
+    "values": {
+     "servizi_pc": 4452,
+     "debito_pc": -6287,
+     "steuerfuss": 77.0,
+     "netinv_pc": 666.0,
+     "risultato_pc": 19.0,
+     "steuerkraft": 6800.0
+    },
+    "funk": {
+     "Amministrazione generale": 570.0,
+     "Formazione": 2743.0,
+     "Sanità": 386.0,
+     "Cultura, sport e tempo libero": 96.0,
+     "Ordine pubblico e sicurezza": 167.0,
+     "Sicurezza sociale": 384.0,
+     "Ambiente e territorio": 53.0,
+     "Trasporti": 165.0,
+     "Economia": -112.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8709,
+      "2020": -9180,
+      "2021": -9027,
+      "2022": -7436,
+      "2023": -6573,
+      "2024": -6287
+     },
+     "steuerfuss": {
+      "2026": 77.0,
+      "2025": 77.0,
+      "2024": 77.0,
+      "2023": 77.0,
+      "2022": 76.0,
+      "2021": 76.0,
+      "2020": 76.0,
+      "2019": 76.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 77.0
+    }
+   },
+   "89": {
+    "name": "Niederglatt",
+    "pop": 5507,
+    "values": {
+     "servizi_pc": 4503,
+     "debito_pc": -4617,
+     "steuerfuss": 106.0,
+     "netinv_pc": 1096.0,
+     "risultato_pc": 333.0,
+     "steuerkraft": 2601.0
+    },
+    "funk": {
+     "Amministrazione generale": 513.0,
+     "Formazione": 2583.0,
+     "Sanità": 546.0,
+     "Cultura, sport e tempo libero": 73.0,
+     "Ordine pubblico e sicurezza": 202.0,
+     "Sicurezza sociale": 433.0,
+     "Ambiente e territorio": 38.0,
+     "Trasporti": 221.0,
+     "Economia": -106.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5065,
+      "2020": -4707,
+      "2021": -4201,
+      "2022": -4291,
+      "2023": -5018,
+      "2024": -4617
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 106.0,
+      "2024": 106.0,
+      "2023": 106.0,
+      "2022": 107.0,
+      "2021": 107.0,
+      "2020": 107.0,
+      "2019": 107.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "90": {
+    "name": "Niederhasli",
+    "pop": 9648,
+    "values": {
+     "servizi_pc": 5043,
+     "debito_pc": -4793,
+     "steuerfuss": 112.0,
+     "netinv_pc": 634.0,
+     "risultato_pc": 23.0,
+     "steuerkraft": 2610.0
+    },
+    "funk": {
+     "Amministrazione generale": 338.0,
+     "Formazione": 2816.0,
+     "Sanità": 485.0,
+     "Cultura, sport e tempo libero": 245.0,
+     "Ordine pubblico e sicurezza": 275.0,
+     "Sicurezza sociale": 756.0,
+     "Ambiente e territorio": 43.0,
+     "Trasporti": 180.0,
+     "Economia": -95.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3678,
+      "2020": -3786,
+      "2021": -3906,
+      "2022": -4446,
+      "2023": -4593,
+      "2024": -4793
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 116.0,
+      "2021": 116.0,
+      "2020": 116.0,
+      "2019": 116.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "91": {
+    "name": "Niederweningen",
+    "pop": 3349,
+    "values": {
+     "servizi_pc": 4489,
+     "debito_pc": -4419,
+     "steuerfuss": 102.0,
+     "netinv_pc": 611.0,
+     "risultato_pc": 1014.0,
+     "steuerkraft": 3895.0
+    },
+    "funk": {
+     "Amministrazione generale": 423.0,
+     "Formazione": 2397.0,
+     "Sanità": 450.0,
+     "Cultura, sport e tempo libero": 136.0,
+     "Ordine pubblico e sicurezza": 236.0,
+     "Sicurezza sociale": 449.0,
+     "Ambiente e territorio": 39.0,
+     "Trasporti": 284.0,
+     "Economia": 75.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4844,
+      "2020": -3827,
+      "2021": -3850,
+      "2022": -3658,
+      "2023": -3780,
+      "2024": -4419
+     },
+     "steuerfuss": {
+      "2026": 100.0,
+      "2025": 102.0,
+      "2024": 102.0,
+      "2023": 102.0,
+      "2022": 104.0,
+      "2021": 104.0,
+      "2020": 104.0,
+      "2019": 104.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 100.0
+    }
+   },
+   "92": {
+    "name": "Oberglatt",
+    "pop": 7772,
+    "values": {
+     "servizi_pc": 5211,
+     "debito_pc": -4610,
+     "steuerfuss": 117.0,
+     "netinv_pc": 858.0,
+     "risultato_pc": 4.0,
+     "steuerkraft": 2138.0
+    },
+    "funk": {
+     "Amministrazione generale": 548.0,
+     "Formazione": 2733.0,
+     "Sanità": 409.0,
+     "Cultura, sport e tempo libero": 108.0,
+     "Ordine pubblico e sicurezza": 280.0,
+     "Sicurezza sociale": 890.0,
+     "Ambiente e territorio": 45.0,
+     "Trasporti": 288.0,
+     "Economia": -90.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4516,
+      "2020": -4933,
+      "2021": -5135,
+      "2022": -5464,
+      "2023": -5097,
+      "2024": -4610
+     },
+     "steuerfuss": {
+      "2026": 119.0,
+      "2025": 117.0,
+      "2024": 117.0,
+      "2023": 117.0,
+      "2022": 122.0,
+      "2021": 122.0,
+      "2020": 122.0,
+      "2019": 122.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 119.0
+    }
+   },
+   "93": {
+    "name": "Oberweningen",
+    "pop": 1905,
+    "values": {
+     "servizi_pc": 4244,
+     "debito_pc": -3512,
+     "steuerfuss": 96.0,
+     "netinv_pc": 357.0,
+     "risultato_pc": 208.0,
+     "steuerkraft": 3357.0
+    },
+    "funk": {
+     "Amministrazione generale": 345.0,
+     "Formazione": 2397.0,
+     "Sanità": 314.0,
+     "Cultura, sport e tempo libero": 51.0,
+     "Ordine pubblico e sicurezza": 204.0,
+     "Sicurezza sociale": 726.0,
+     "Ambiente e territorio": 63.0,
+     "Trasporti": 221.0,
+     "Economia": -77.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3600,
+      "2020": -2890,
+      "2021": -2581,
+      "2022": -2570,
+      "2023": -3273,
+      "2024": -3512
+     },
+     "steuerfuss": {
+      "2026": 94.0,
+      "2025": 96.0,
+      "2024": 96.0,
+      "2023": 96.0,
+      "2022": 98.0,
+      "2021": 98.0,
+      "2020": 98.0,
+      "2019": 100.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 94.0
+    }
+   },
+   "94": {
+    "name": "Otelfingen",
+    "pop": 2924,
+    "values": {
+     "servizi_pc": 5051,
+     "debito_pc": -6137,
+     "steuerfuss": 112.0,
+     "netinv_pc": 244.0,
+     "risultato_pc": 300.0,
+     "steuerkraft": 3845.0
+    },
+    "funk": {
+     "Amministrazione generale": 555.0,
+     "Formazione": 2824.0,
+     "Sanità": 659.0,
+     "Cultura, sport e tempo libero": 28.0,
+     "Ordine pubblico e sicurezza": 197.0,
+     "Sicurezza sociale": 552.0,
+     "Ambiente e territorio": 33.0,
+     "Trasporti": 243.0,
+     "Economia": -40.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4819,
+      "2020": -4883,
+      "2021": -5126,
+      "2022": -5392,
+      "2023": -5474,
+      "2024": -6137
+     },
+     "steuerfuss": {
+      "2026": 108.0,
+      "2025": 112.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 110.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 107.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 108.0
+    }
+   },
+   "95": {
+    "name": "Regensberg",
+    "pop": 478,
+    "values": {
+     "servizi_pc": 5968,
+     "debito_pc": -5472,
+     "steuerfuss": 111.0,
+     "netinv_pc": 651.0,
+     "risultato_pc": -89.0,
+     "steuerkraft": 3951.0
+    },
+    "funk": {
+     "Amministrazione generale": 1245.0,
+     "Formazione": 3012.0,
+     "Sanità": 519.0,
+     "Cultura, sport e tempo libero": 235.0,
+     "Ordine pubblico e sicurezza": 187.0,
+     "Sicurezza sociale": 461.0,
+     "Ambiente e territorio": 85.0,
+     "Trasporti": 265.0,
+     "Economia": -41.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6653,
+      "2020": -6700,
+      "2021": -6916,
+      "2022": -5963,
+      "2023": -5819,
+      "2024": -5472
+     },
+     "steuerfuss": {
+      "2026": 115.0,
+      "2025": 110.0,
+      "2024": 111.0,
+      "2023": 111.0,
+      "2022": 106.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 108.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 115.0
+    }
+   },
+   "96": {
+    "name": "Regensdorf",
+    "pop": 20282,
+    "values": {
+     "servizi_pc": 5000,
+     "debito_pc": -3460,
+     "steuerfuss": 118.0,
+     "netinv_pc": 654.0,
+     "risultato_pc": 284.0,
+     "steuerkraft": 2909.0
+    },
+    "funk": {
+     "Amministrazione generale": 472.0,
+     "Formazione": 2533.0,
+     "Sanità": 646.0,
+     "Cultura, sport e tempo libero": 150.0,
+     "Ordine pubblico e sicurezza": 116.0,
+     "Sicurezza sociale": 922.0,
+     "Ambiente e territorio": 42.0,
+     "Trasporti": 234.0,
+     "Economia": -115.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2749,
+      "2020": -3282,
+      "2021": -3562,
+      "2022": -3652,
+      "2023": -3461,
+      "2024": -3460
+     },
+     "steuerfuss": {
+      "2026": 117.0,
+      "2025": 117.0,
+      "2024": 118.0,
+      "2023": 118.0,
+      "2022": 118.0,
+      "2021": 118.0,
+      "2020": 118.0,
+      "2019": 118.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 117.0
+    }
+   },
+   "97": {
+    "name": "Rümlang",
+    "pop": 8243,
+    "values": {
+     "servizi_pc": 5330,
+     "debito_pc": -100,
+     "steuerfuss": 109.0,
+     "netinv_pc": 530.0,
+     "risultato_pc": -343.0,
+     "steuerkraft": 3113.0
+    },
+    "funk": {
+     "Amministrazione generale": 444.0,
+     "Formazione": 2856.0,
+     "Sanità": 668.0,
+     "Cultura, sport e tempo libero": 240.0,
+     "Ordine pubblico e sicurezza": 303.0,
+     "Sicurezza sociale": 470.0,
+     "Ambiente e territorio": 115.0,
+     "Trasporti": 325.0,
+     "Economia": -91.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1580,
+      "2020": -1654,
+      "2021": -806,
+      "2022": -1417,
+      "2023": -538,
+      "2024": -100
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 109.0,
+      "2024": 109.0,
+      "2023": 109.0,
+      "2022": 109.0,
+      "2021": 109.0,
+      "2020": 109.0,
+      "2019": 107.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "98": {
+    "name": "Schleinikon",
+    "pop": 868,
+    "values": {
+     "servizi_pc": 4413,
+     "debito_pc": -2945,
+     "steuerfuss": 108.0,
+     "netinv_pc": 1210.0,
+     "risultato_pc": 434.0,
+     "steuerkraft": 2555.0
+    },
+    "funk": {
+     "Amministrazione generale": 895.0,
+     "Formazione": 2397.0,
+     "Sanità": 244.0,
+     "Cultura, sport e tempo libero": 88.0,
+     "Ordine pubblico e sicurezza": 246.0,
+     "Sicurezza sociale": 419.0,
+     "Ambiente e territorio": 68.0,
+     "Trasporti": 47.0,
+     "Economia": 9.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4430,
+      "2020": -3970,
+      "2021": -2683,
+      "2022": -2796,
+      "2023": -3354,
+      "2024": -2945
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 108.0,
+      "2024": 108.0,
+      "2023": 108.0,
+      "2022": 110.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "99": {
+    "name": "Schöfflisdorf",
+    "pop": 1412,
+    "values": {
+     "servizi_pc": 4203,
+     "debito_pc": -5911,
+     "steuerfuss": 99.0,
+     "netinv_pc": 88.0,
+     "risultato_pc": 333.0,
+     "steuerkraft": 3426.0
+    },
+    "funk": {
+     "Amministrazione generale": 467.0,
+     "Formazione": 2397.0,
+     "Sanità": 435.0,
+     "Cultura, sport e tempo libero": 55.0,
+     "Ordine pubblico e sicurezza": 188.0,
+     "Sicurezza sociale": 391.0,
+     "Ambiente e territorio": 82.0,
+     "Trasporti": 274.0,
+     "Economia": -86.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5429,
+      "2020": -5048,
+      "2021": -4273,
+      "2022": -4479,
+      "2023": -5131,
+      "2024": -5911
+     },
+     "steuerfuss": {
+      "2026": 94.0,
+      "2025": 99.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 101.0,
+      "2021": 101.0,
+      "2020": 101.0,
+      "2019": 104.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 94.0
+    }
+   },
+   "100": {
+    "name": "Stadel",
+    "pop": 2455,
+    "values": {
+     "servizi_pc": 4130,
+     "debito_pc": -2898,
+     "steuerfuss": 113.0,
+     "netinv_pc": 743.0,
+     "risultato_pc": 886.0,
+     "steuerkraft": 2670.0
+    },
+    "funk": {
+     "Amministrazione generale": 348.0,
+     "Formazione": 2539.0,
+     "Sanità": 388.0,
+     "Cultura, sport e tempo libero": 57.0,
+     "Ordine pubblico e sicurezza": 205.0,
+     "Sicurezza sociale": 410.0,
+     "Ambiente e territorio": 79.0,
+     "Trasporti": 241.0,
+     "Economia": -137.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1848,
+      "2020": -1303,
+      "2021": -1340,
+      "2022": -2187,
+      "2023": -2366,
+      "2024": -2898
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 112.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "101": {
+    "name": "Steinmaur",
+    "pop": 3716,
+    "values": {
+     "servizi_pc": 4506,
+     "debito_pc": -708,
+     "steuerfuss": 112.0,
+     "netinv_pc": 394.0,
+     "risultato_pc": 419.0,
+     "steuerkraft": 2814.0
+    },
+    "funk": {
+     "Amministrazione generale": 444.0,
+     "Formazione": 2654.0,
+     "Sanità": 433.0,
+     "Cultura, sport e tempo libero": 199.0,
+     "Ordine pubblico e sicurezza": 139.0,
+     "Sicurezza sociale": 460.0,
+     "Ambiente e territorio": 53.0,
+     "Trasporti": 229.0,
+     "Economia": -105.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -952,
+      "2020": 293,
+      "2021": 67,
+      "2022": 863,
+      "2023": -375,
+      "2024": -708
+     },
+     "steuerfuss": {
+      "2026": 108.0,
+      "2025": 108.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 114.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 108.0
+    }
+   },
+   "102": {
+    "name": "Weiach",
+    "pop": 2123,
+    "values": {
+     "servizi_pc": 4861,
+     "debito_pc": -11114,
+     "steuerfuss": 96.0,
+     "netinv_pc": 1111.0,
+     "risultato_pc": -77.0,
+     "steuerkraft": 2492.0
+    },
+    "funk": {
+     "Amministrazione generale": 628.0,
+     "Formazione": 2931.0,
+     "Sanità": 321.0,
+     "Cultura, sport e tempo libero": 55.0,
+     "Ordine pubblico e sicurezza": 188.0,
+     "Sicurezza sociale": 566.0,
+     "Ambiente e territorio": 69.0,
+     "Trasporti": 192.0,
+     "Economia": -89.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -9411,
+      "2020": -10223,
+      "2021": -10545,
+      "2022": -10533,
+      "2023": -11355,
+      "2024": -11114
+     },
+     "steuerfuss": {
+      "2026": 96.0,
+      "2025": 96.0,
+      "2024": 96.0,
+      "2023": 90.0,
+      "2022": 89.0,
+      "2021": 89.0,
+      "2020": 89.0,
+      "2019": 89.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 96.0
+    }
+   },
+   "111": {
+    "name": "Bäretswil",
+    "pop": 5148,
+    "values": {
+     "servizi_pc": 4383,
+     "debito_pc": -2196,
+     "steuerfuss": 106.0,
+     "netinv_pc": 433.0,
+     "risultato_pc": 555.0,
+     "steuerkraft": 2606.0
+    },
+    "funk": {
+     "Amministrazione generale": 402.0,
+     "Formazione": 2664.0,
+     "Sanità": 483.0,
+     "Cultura, sport e tempo libero": 129.0,
+     "Ordine pubblico e sicurezza": 171.0,
+     "Sicurezza sociale": 362.0,
+     "Ambiente e territorio": 114.0,
+     "Trasporti": 157.0,
+     "Economia": -99.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1876,
+      "2020": -2019,
+      "2021": -1180,
+      "2022": -1245,
+      "2023": -1810,
+      "2024": -2196
+     },
+     "steuerfuss": {
+      "2026": 104.0,
+      "2025": 106.0,
+      "2024": 106.0,
+      "2023": 106.0,
+      "2022": 106.0,
+      "2021": 102.0,
+      "2020": 102.0,
+      "2019": 105.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 104.0
+    }
+   },
+   "112": {
+    "name": "Bubikon",
+    "pop": 7661,
+    "values": {
+     "servizi_pc": 4515,
+     "debito_pc": -2435,
+     "steuerfuss": 118.0,
+     "netinv_pc": 444.0,
+     "risultato_pc": 1294.0,
+     "steuerkraft": 3295.0
+    },
+    "funk": {
+     "Amministrazione generale": 387.0,
+     "Formazione": 2527.0,
+     "Sanità": 577.0,
+     "Cultura, sport e tempo libero": 114.0,
+     "Ordine pubblico e sicurezza": 211.0,
+     "Sicurezza sociale": 397.0,
+     "Ambiente e territorio": 80.0,
+     "Trasporti": 326.0,
+     "Economia": -104.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 2027,
+      "2020": 1851,
+      "2021": 1345,
+      "2022": 920,
+      "2023": -1276,
+      "2024": -2435
+     },
+     "steuerfuss": {
+      "2026": 118.0,
+      "2025": 118.0,
+      "2024": 118.0,
+      "2023": 118.0,
+      "2022": 118.0,
+      "2021": 118.0,
+      "2020": 112.0,
+      "2019": 112.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 118.0
+    }
+   },
+   "113": {
+    "name": "Dürnten",
+    "pop": 8048,
+    "values": {
+     "servizi_pc": 4921,
+     "debito_pc": -3601,
+     "steuerfuss": 113.0,
+     "netinv_pc": 1439.0,
+     "risultato_pc": 120.0,
+     "steuerkraft": 2347.0
+    },
+    "funk": {
+     "Amministrazione generale": 435.0,
+     "Formazione": 2758.0,
+     "Sanità": 519.0,
+     "Cultura, sport e tempo libero": 124.0,
+     "Ordine pubblico e sicurezza": 179.0,
+     "Sicurezza sociale": 615.0,
+     "Ambiente e territorio": 94.0,
+     "Trasporti": 293.0,
+     "Economia": -96.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3402,
+      "2020": -3683,
+      "2021": -4033,
+      "2022": -3870,
+      "2023": -4293,
+      "2024": -3601
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 115.0,
+      "2021": 115.0,
+      "2020": 115.0,
+      "2019": 115.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "114": {
+    "name": "Fischenthal",
+    "pop": 2666,
+    "values": {
+     "servizi_pc": 6031,
+     "debito_pc": -6075,
+     "steuerfuss": 122.0,
+     "netinv_pc": 346.0,
+     "risultato_pc": 491.0,
+     "steuerkraft": 1857.0
+    },
+    "funk": {
+     "Amministrazione generale": 980.0,
+     "Formazione": 3116.0,
+     "Sanità": 418.0,
+     "Cultura, sport e tempo libero": 151.0,
+     "Ordine pubblico e sicurezza": 252.0,
+     "Sicurezza sociale": 588.0,
+     "Ambiente e territorio": 157.0,
+     "Trasporti": 344.0,
+     "Economia": 25.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -328,
+      "2020": -1987,
+      "2021": -2292,
+      "2022": -3341,
+      "2023": -5172,
+      "2024": -6075
+     },
+     "steuerfuss": {
+      "2026": 122.0,
+      "2025": 122.0,
+      "2024": 122.0,
+      "2023": 124.0,
+      "2022": 124.0,
+      "2021": 124.0,
+      "2020": 124.0,
+      "2019": 124.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 122.0
+    }
+   },
+   "115": {
+    "name": "Gossau",
+    "pop": 10605,
+    "values": {
+     "servizi_pc": 5101,
+     "debito_pc": 26,
+     "steuerfuss": 117.0,
+     "netinv_pc": 934.0,
+     "risultato_pc": 8.0,
+     "steuerkraft": 2903.0
+    },
+    "funk": {
+     "Amministrazione generale": 1240.0,
+     "Formazione": 2337.0,
+     "Sanità": 572.0,
+     "Cultura, sport e tempo libero": 111.0,
+     "Ordine pubblico e sicurezza": 223.0,
+     "Sicurezza sociale": 387.0,
+     "Ambiente e territorio": 87.0,
+     "Trasporti": 250.0,
+     "Economia": -106.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 392,
+      "2020": -181,
+      "2021": -2,
+      "2022": -396,
+      "2023": -334,
+      "2024": 26
+     },
+     "steuerfuss": {
+      "2026": 117.0,
+      "2025": 117.0,
+      "2024": 117.0,
+      "2023": 117.0,
+      "2022": 119.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 117.0
+    }
+   },
+   "116": {
+    "name": "Grüningen",
+    "pop": 3886,
+    "values": {
+     "servizi_pc": 4896,
+     "debito_pc": 1392,
+     "steuerfuss": 113.0,
+     "netinv_pc": 124.0,
+     "risultato_pc": 49.0,
+     "steuerkraft": 3013.0
+    },
+    "funk": {
+     "Amministrazione generale": 460.0,
+     "Formazione": 2976.0,
+     "Sanità": 513.0,
+     "Cultura, sport e tempo libero": 107.0,
+     "Ordine pubblico e sicurezza": 188.0,
+     "Sicurezza sociale": 503.0,
+     "Ambiente e territorio": 74.0,
+     "Trasporti": 158.0,
+     "Economia": -83.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 895,
+      "2020": 1794,
+      "2021": 2313,
+      "2022": 1646,
+      "2023": 1686,
+      "2024": 1392
+     },
+     "steuerfuss": {
+      "2026": 116.0,
+      "2025": 116.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 113.0,
+      "2021": 113.0,
+      "2020": 113.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 116.0
+    }
+   },
+   "117": {
+    "name": "Hinwil",
+    "pop": 11961,
+    "values": {
+     "servizi_pc": 4553,
+     "debito_pc": 2342,
+     "steuerfuss": 112.0,
+     "netinv_pc": 375.0,
+     "risultato_pc": -145.0,
+     "steuerkraft": 2569.0
+    },
+    "funk": {
+     "Amministrazione generale": 262.0,
+     "Formazione": 2615.0,
+     "Sanità": 499.0,
+     "Cultura, sport e tempo libero": 155.0,
+     "Ordine pubblico e sicurezza": 202.0,
+     "Sicurezza sociale": 499.0,
+     "Ambiente e territorio": 109.0,
+     "Trasporti": 300.0,
+     "Economia": -88.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -926,
+      "2020": -1775,
+      "2021": 2,
+      "2022": 1814,
+      "2023": 2043,
+      "2024": 2342
+     },
+     "steuerfuss": {
+      "2026": 116.0,
+      "2025": 119.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 112.0,
+      "2020": 112.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 116.0
+    }
+   },
+   "118": {
+    "name": "Rüti",
+    "pop": 12971,
+    "values": {
+     "servizi_pc": 4712,
+     "debito_pc": -1665,
+     "steuerfuss": 119.0,
+     "netinv_pc": 1397.0,
+     "risultato_pc": 428.0,
+     "steuerkraft": 2243.0
+    },
+    "funk": {
+     "Amministrazione generale": 467.0,
+     "Formazione": 2597.0,
+     "Sanità": 540.0,
+     "Cultura, sport e tempo libero": 160.0,
+     "Ordine pubblico e sicurezza": 205.0,
+     "Sicurezza sociale": 522.0,
+     "Ambiente e territorio": 110.0,
+     "Trasporti": 209.0,
+     "Economia": -98.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1437,
+      "2020": -1278,
+      "2021": -1391,
+      "2022": -1179,
+      "2023": -1857,
+      "2024": -1665
+     },
+     "steuerfuss": {
+      "2026": 119.0,
+      "2025": 119.0,
+      "2024": 119.0,
+      "2023": 119.0,
+      "2022": 121.0,
+      "2021": 121.0,
+      "2020": 121.0,
+      "2019": 121.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 119.0
+    }
+   },
+   "119": {
+    "name": "Seegräben",
+    "pop": 1460,
+    "values": {
+     "servizi_pc": 4580,
+     "debito_pc": -972,
+     "steuerfuss": 113.0,
+     "netinv_pc": 730.0,
+     "risultato_pc": 464.0,
+     "steuerkraft": 3404.0
+    },
+    "funk": {
+     "Amministrazione generale": 747.0,
+     "Formazione": 2495.0,
+     "Sanità": 487.0,
+     "Cultura, sport e tempo libero": 63.0,
+     "Ordine pubblico e sicurezza": 233.0,
+     "Sicurezza sociale": 346.0,
+     "Ambiente e territorio": 53.0,
+     "Trasporti": 262.0,
+     "Economia": -106.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -38,
+      "2020": 453,
+      "2021": 239,
+      "2022": 225,
+      "2023": -901,
+      "2024": -972
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 111.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 115.0,
+      "2021": 115.0,
+      "2020": 113.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "120": {
+    "name": "Wald",
+    "pop": 10620,
+    "values": {
+     "servizi_pc": 5132,
+     "debito_pc": 1537,
+     "steuerfuss": 122.0,
+     "netinv_pc": 1586.0,
+     "risultato_pc": 414.0,
+     "steuerkraft": 2072.0
+    },
+    "funk": {
+     "Amministrazione generale": 425.0,
+     "Formazione": 2680.0,
+     "Sanità": 676.0,
+     "Cultura, sport e tempo libero": 171.0,
+     "Ordine pubblico e sicurezza": 192.0,
+     "Sicurezza sociale": 694.0,
+     "Ambiente e territorio": 108.0,
+     "Trasporti": 284.0,
+     "Economia": -98.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 1577,
+      "2020": 1560,
+      "2021": 1139,
+      "2022": 738,
+      "2023": 1182,
+      "2024": 1537
+     },
+     "steuerfuss": {
+      "2026": 122.0,
+      "2025": 122.0,
+      "2024": 122.0,
+      "2023": 122.0,
+      "2022": 122.0,
+      "2021": 122.0,
+      "2020": 122.0,
+      "2019": 122.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 122.0
+    }
+   },
+   "121": {
+    "name": "Wetzikon",
+    "pop": 26977,
+    "values": {
+     "servizi_pc": 5168,
+     "debito_pc": -5572,
+     "steuerfuss": 119.0,
+     "netinv_pc": 1281.0,
+     "risultato_pc": 219.0,
+     "steuerkraft": 2545.0
+    },
+    "funk": {
+     "Amministrazione generale": 402.0,
+     "Formazione": 2475.0,
+     "Sanità": 659.0,
+     "Cultura, sport e tempo libero": 154.0,
+     "Ordine pubblico e sicurezza": 181.0,
+     "Sicurezza sociale": 1014.0,
+     "Ambiente e territorio": 146.0,
+     "Trasporti": 262.0,
+     "Economia": -125.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5006,
+      "2020": -5033,
+      "2021": -5239,
+      "2022": -5367,
+      "2023": -5854,
+      "2024": -5572
+     },
+     "steuerfuss": {
+      "2026": 119.0,
+      "2025": 119.0,
+      "2024": 119.0,
+      "2023": 119.0,
+      "2022": 119.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 119.0
+    }
+   },
+   "131": {
+    "name": "Adliswil",
+    "pop": 19893,
+    "values": {
+     "servizi_pc": 5116,
+     "debito_pc": 3963,
+     "steuerfuss": 102.0,
+     "netinv_pc": 784.0,
+     "risultato_pc": -127.0,
+     "steuerkraft": 3994.0
+    },
+    "funk": {
+     "Amministrazione generale": 637.0,
+     "Formazione": 2372.0,
+     "Sanità": 548.0,
+     "Cultura, sport e tempo libero": 274.0,
+     "Ordine pubblico e sicurezza": 157.0,
+     "Sicurezza sociale": 862.0,
+     "Ambiente e territorio": 41.0,
+     "Trasporti": 307.0,
+     "Economia": -82.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 812,
+      "2020": 3134,
+      "2021": 4829,
+      "2022": 4547,
+      "2023": 3710,
+      "2024": 3963
+     },
+     "steuerfuss": {
+      "2026": 104.0,
+      "2025": 102.0,
+      "2024": 102.0,
+      "2023": 102.0,
+      "2022": 102.0,
+      "2021": 100.0,
+      "2020": 100.0,
+      "2019": 100.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 104.0
+    }
+   },
+   "135": {
+    "name": "Kilchberg",
+    "pop": 9483,
+    "values": {
+     "servizi_pc": 4930,
+     "debito_pc": -2162,
+     "steuerfuss": 72.0,
+     "netinv_pc": 867.0,
+     "risultato_pc": 1062.0,
+     "steuerkraft": 13134.0
+    },
+    "funk": {
+     "Amministrazione generale": 670.0,
+     "Formazione": 2281.0,
+     "Sanità": 494.0,
+     "Cultura, sport e tempo libero": 236.0,
+     "Ordine pubblico e sicurezza": 214.0,
+     "Sicurezza sociale": 670.0,
+     "Ambiente e territorio": 130.0,
+     "Trasporti": 349.0,
+     "Economia": -114.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1615,
+      "2020": -1651,
+      "2021": -1990,
+      "2022": -1749,
+      "2023": -1596,
+      "2024": -2162
+     },
+     "steuerfuss": {
+      "2026": 72.0,
+      "2025": 72.0,
+      "2024": 72.0,
+      "2023": 72.0,
+      "2022": 72.0,
+      "2021": 72.0,
+      "2020": 72.0,
+      "2019": 72.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 72.0
+    }
+   },
+   "136": {
+    "name": "Langnau a.A.",
+    "pop": 8224,
+    "values": {
+     "servizi_pc": 4239,
+     "debito_pc": -3032,
+     "steuerfuss": 106.0,
+     "netinv_pc": 746.0,
+     "risultato_pc": 1460.0,
+     "steuerkraft": 3767.0
+    },
+    "funk": {
+     "Amministrazione generale": 409.0,
+     "Formazione": 2331.0,
+     "Sanità": 629.0,
+     "Cultura, sport e tempo libero": 216.0,
+     "Ordine pubblico e sicurezza": 200.0,
+     "Sicurezza sociale": 161.0,
+     "Ambiente e territorio": 100.0,
+     "Trasporti": 295.0,
+     "Economia": -102.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1145,
+      "2020": -1278,
+      "2021": -1444,
+      "2022": -1839,
+      "2023": -1941,
+      "2024": -3032
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 106.0,
+      "2024": 106.0,
+      "2023": 106.0,
+      "2022": 106.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "137": {
+    "name": "Oberrieden",
+    "pop": 5392,
+    "values": {
+     "servizi_pc": 5493,
+     "debito_pc": -3420,
+     "steuerfuss": 88.0,
+     "netinv_pc": 632.0,
+     "risultato_pc": 938.0,
+     "steuerkraft": 6195.0
+    },
+    "funk": {
+     "Amministrazione generale": 722.0,
+     "Formazione": 2621.0,
+     "Sanità": 676.0,
+     "Cultura, sport e tempo libero": 294.0,
+     "Ordine pubblico e sicurezza": 170.0,
+     "Sicurezza sociale": 715.0,
+     "Ambiente e territorio": 71.0,
+     "Trasporti": 327.0,
+     "Economia": -103.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6,
+      "2020": -645,
+      "2021": -1307,
+      "2022": -2093,
+      "2023": -2797,
+      "2024": -3420
+     },
+     "steuerfuss": {
+      "2026": 84.0,
+      "2025": 84.0,
+      "2024": 88.0,
+      "2023": 88.0,
+      "2022": 88.0,
+      "2021": 88.0,
+      "2020": 88.0,
+      "2019": 88.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 84.0
+    }
+   },
+   "138": {
+    "name": "Richterswil",
+    "pop": 14378,
+    "values": {
+     "servizi_pc": 4652,
+     "debito_pc": 1171,
+     "steuerfuss": 99.0,
+     "netinv_pc": 1717.0,
+     "risultato_pc": 443.0,
+     "steuerkraft": 3913.0
+    },
+    "funk": {
+     "Amministrazione generale": 415.0,
+     "Formazione": 2440.0,
+     "Sanità": 499.0,
+     "Cultura, sport e tempo libero": 81.0,
+     "Ordine pubblico e sicurezza": 137.0,
+     "Sicurezza sociale": 712.0,
+     "Ambiente e territorio": 102.0,
+     "Trasporti": 315.0,
+     "Economia": -49.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1129,
+      "2020": -389,
+      "2021": 238,
+      "2022": 460,
+      "2023": 246,
+      "2024": 1171
+     },
+     "steuerfuss": {
+      "2026": 99.0,
+      "2025": 99.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 101.0,
+      "2021": 101.0,
+      "2020": 101.0,
+      "2019": 101.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 99.0
+    }
+   },
+   "139": {
+    "name": "Rüschlikon",
+    "pop": 6406,
+    "values": {
+     "servizi_pc": 5652,
+     "debito_pc": -13405,
+     "steuerfuss": 75.0,
+     "netinv_pc": 3064.0,
+     "risultato_pc": 6138.0,
+     "steuerkraft": 19724.0
+    },
+    "funk": {
+     "Amministrazione generale": 778.0,
+     "Formazione": 2802.0,
+     "Sanità": 580.0,
+     "Cultura, sport e tempo libero": 347.0,
+     "Ordine pubblico e sicurezza": 190.0,
+     "Sicurezza sociale": 725.0,
+     "Ambiente e territorio": 67.0,
+     "Trasporti": 274.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -15199,
+      "2020": -13830,
+      "2021": -11077,
+      "2022": -9740,
+      "2023": -10092,
+      "2024": -13405
+     },
+     "steuerfuss": {
+      "2026": 75.0,
+      "2025": 75.0,
+      "2024": 75.0,
+      "2023": 75.0,
+      "2022": 75.0,
+      "2021": 73.0,
+      "2020": 73.0,
+      "2019": 73.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 75.0
+    }
+   },
+   "141": {
+    "name": "Thalwil",
+    "pop": 18513,
+    "values": {
+     "servizi_pc": 4439,
+     "debito_pc": -1520,
+     "steuerfuss": 83.0,
+     "netinv_pc": 1168.0,
+     "risultato_pc": 894.0,
+     "steuerkraft": 6366.0
+    },
+    "funk": {
+     "Amministrazione generale": 453.0,
+     "Formazione": 2406.0,
+     "Sanità": 559.0,
+     "Cultura, sport e tempo libero": 304.0,
+     "Ordine pubblico e sicurezza": 237.0,
+     "Sicurezza sociale": 216.0,
+     "Ambiente e territorio": 129.0,
+     "Trasporti": 260.0,
+     "Economia": -125.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -843,
+      "2020": -899,
+      "2021": -1223,
+      "2022": -1348,
+      "2023": -1293,
+      "2024": -1520
+     },
+     "steuerfuss": {
+      "2026": 78.0,
+      "2025": 78.0,
+      "2024": 83.0,
+      "2023": 85.0,
+      "2022": 85.0,
+      "2021": 85.0,
+      "2020": 85.0,
+      "2019": 85.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 78.0
+    }
+   },
+   "151": {
+    "name": "Erlenbach",
+    "pop": 5505,
+    "values": {
+     "servizi_pc": 6023,
+     "debito_pc": -7686,
+     "steuerfuss": 76.0,
+     "netinv_pc": 516.0,
+     "risultato_pc": 848.0,
+     "steuerkraft": 19302.0
+    },
+    "funk": {
+     "Amministrazione generale": 1053.0,
+     "Formazione": 2642.0,
+     "Sanità": 500.0,
+     "Cultura, sport e tempo libero": 295.0,
+     "Ordine pubblico e sicurezza": 286.0,
+     "Sicurezza sociale": 685.0,
+     "Ambiente e territorio": 117.0,
+     "Trasporti": 480.0,
+     "Economia": -35.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 2394,
+      "2020": 1660,
+      "2021": 782,
+      "2022": -1108,
+      "2023": -6496,
+      "2024": -7686
+     },
+     "steuerfuss": {
+      "2026": 76.0,
+      "2025": 76.0,
+      "2024": 76.0,
+      "2023": 79.0,
+      "2022": 79.0,
+      "2021": 79.0,
+      "2020": 79.0,
+      "2019": 79.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 76.0
+    }
+   },
+   "152": {
+    "name": "Herrliberg",
+    "pop": 6780,
+    "values": {
+     "servizi_pc": 5501,
+     "debito_pc": -4252,
+     "steuerfuss": 75.0,
+     "netinv_pc": 846.0,
+     "risultato_pc": 1481.0,
+     "steuerkraft": 13226.0
+    },
+    "funk": {
+     "Amministrazione generale": 797.0,
+     "Formazione": 2667.0,
+     "Sanità": 475.0,
+     "Cultura, sport e tempo libero": 280.0,
+     "Ordine pubblico e sicurezza": 242.0,
+     "Sicurezza sociale": 503.0,
+     "Ambiente e territorio": 191.0,
+     "Trasporti": 428.0,
+     "Economia": -82.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1554,
+      "2020": -1469,
+      "2021": -1680,
+      "2022": -2420,
+      "2023": -2898,
+      "2024": -4252
+     },
+     "steuerfuss": {
+      "2026": 73.0,
+      "2025": 75.0,
+      "2024": 75.0,
+      "2023": 75.0,
+      "2022": 78.0,
+      "2021": 78.0,
+      "2020": 78.0,
+      "2019": 78.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 73.0
+    }
+   },
+   "153": {
+    "name": "Hombrechtikon",
+    "pop": 9176,
+    "values": {
+     "servizi_pc": 4779,
+     "debito_pc": -5097,
+     "steuerfuss": 113.0,
+     "netinv_pc": 629.0,
+     "risultato_pc": 565.0,
+     "steuerkraft": 3089.0
+    },
+    "funk": {
+     "Amministrazione generale": 521.0,
+     "Formazione": 2375.0,
+     "Sanità": 541.0,
+     "Cultura, sport e tempo libero": 59.0,
+     "Ordine pubblico e sicurezza": 245.0,
+     "Sicurezza sociale": 728.0,
+     "Ambiente e territorio": 89.0,
+     "Trasporti": 326.0,
+     "Economia": -105.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3604,
+      "2020": -3599,
+      "2021": -3929,
+      "2022": -4474,
+      "2023": -4882,
+      "2024": -5097
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 116.0,
+      "2022": 119.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "154": {
+    "name": "Küsnacht",
+    "pop": 15168,
+    "values": {
+     "servizi_pc": 5931,
+     "debito_pc": 4703,
+     "steuerfuss": 73.0,
+     "netinv_pc": 1515.0,
+     "risultato_pc": 766.0,
+     "steuerkraft": 15222.0
+    },
+    "funk": {
+     "Amministrazione generale": 459.0,
+     "Formazione": 2810.0,
+     "Sanità": 662.0,
+     "Cultura, sport e tempo libero": 419.0,
+     "Ordine pubblico e sicurezza": 264.0,
+     "Sicurezza sociale": 671.0,
+     "Ambiente e territorio": 153.0,
+     "Trasporti": 564.0,
+     "Economia": -71.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 6899,
+      "2020": 5450,
+      "2021": 4627,
+      "2022": 5512,
+      "2023": 4877,
+      "2024": 4703
+     },
+     "steuerfuss": {
+      "2026": 73.0,
+      "2025": 73.0,
+      "2024": 73.0,
+      "2023": 75.0,
+      "2022": 75.0,
+      "2021": 77.0,
+      "2020": 77.0,
+      "2019": 77.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 73.0
+    }
+   },
+   "155": {
+    "name": "Männedorf",
+    "pop": 11767,
+    "values": {
+     "servizi_pc": 5024,
+     "debito_pc": -685,
+     "steuerfuss": 93.0,
+     "netinv_pc": 443.0,
+     "risultato_pc": 536.0,
+     "steuerkraft": 5491.0
+    },
+    "funk": {
+     "Amministrazione generale": 623.0,
+     "Formazione": 2468.0,
+     "Sanità": 671.0,
+     "Cultura, sport e tempo libero": 176.0,
+     "Ordine pubblico e sicurezza": 233.0,
+     "Sicurezza sociale": 504.0,
+     "Ambiente e territorio": 142.0,
+     "Trasporti": 263.0,
+     "Economia": -56.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 296,
+      "2020": 731,
+      "2021": 458,
+      "2022": 10,
+      "2023": 120,
+      "2024": -685
+     },
+     "steuerfuss": {
+      "2026": 87.0,
+      "2025": 91.0,
+      "2024": 93.0,
+      "2023": 93.0,
+      "2022": 95.0,
+      "2021": 95.0,
+      "2020": 95.0,
+      "2019": 95.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 87.0
+    }
+   },
+   "156": {
+    "name": "Meilen",
+    "pop": 14848,
+    "values": {
+     "servizi_pc": 5611,
+     "debito_pc": -2340,
+     "steuerfuss": 79.0,
+     "netinv_pc": 1339.0,
+     "risultato_pc": 70.0,
+     "steuerkraft": 8413.0
+    },
+    "funk": {
+     "Amministrazione generale": 717.0,
+     "Formazione": 2619.0,
+     "Sanità": 673.0,
+     "Cultura, sport e tempo libero": 349.0,
+     "Ordine pubblico e sicurezza": 290.0,
+     "Sicurezza sociale": 503.0,
+     "Ambiente e territorio": 120.0,
+     "Trasporti": 397.0,
+     "Economia": -57.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1059,
+      "2020": -1320,
+      "2021": -1392,
+      "2022": -2336,
+      "2023": -3064,
+      "2024": -2340
+     },
+     "steuerfuss": {
+      "2026": 79.0,
+      "2025": 79.0,
+      "2024": 79.0,
+      "2023": 79.0,
+      "2022": 84.0,
+      "2021": 84.0,
+      "2020": 84.0,
+      "2019": 84.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 79.0
+    }
+   },
+   "157": {
+    "name": "Oetwil a.S.",
+    "pop": 5150,
+    "values": {
+     "servizi_pc": 4584,
+     "debito_pc": -8025,
+     "steuerfuss": 116.0,
+     "netinv_pc": 508.0,
+     "risultato_pc": 741.0,
+     "steuerkraft": 2514.0
+    },
+    "funk": {
+     "Amministrazione generale": 530.0,
+     "Formazione": 2598.0,
+     "Sanità": 391.0,
+     "Cultura, sport e tempo libero": 188.0,
+     "Ordine pubblico e sicurezza": 235.0,
+     "Sicurezza sociale": 448.0,
+     "Ambiente e territorio": 74.0,
+     "Trasporti": 237.0,
+     "Economia": -117.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5523,
+      "2020": -6047,
+      "2021": -6617,
+      "2022": -7920,
+      "2023": -7746,
+      "2024": -8025
+     },
+     "steuerfuss": {
+      "2026": 114.0,
+      "2025": 116.0,
+      "2024": 116.0,
+      "2023": 116.0,
+      "2022": 119.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 114.0
+    }
+   },
+   "158": {
+    "name": "Stäfa",
+    "pop": 15152,
+    "values": {
+     "servizi_pc": 4717,
+     "debito_pc": -5295,
+     "steuerfuss": 78.0,
+     "netinv_pc": 1532.0,
+     "risultato_pc": 1026.0,
+     "steuerkraft": 5969.0
+    },
+    "funk": {
+     "Amministrazione generale": 459.0,
+     "Formazione": 2306.0,
+     "Sanità": 731.0,
+     "Cultura, sport e tempo libero": 17.0,
+     "Ordine pubblico e sicurezza": 234.0,
+     "Sicurezza sociale": 643.0,
+     "Ambiente e territorio": 109.0,
+     "Trasporti": 287.0,
+     "Economia": -69.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3583,
+      "2020": -4639,
+      "2021": -5638,
+      "2022": -6189,
+      "2023": -5245,
+      "2024": -5295
+     },
+     "steuerfuss": {
+      "2026": 83.0,
+      "2025": 78.0,
+      "2024": 78.0,
+      "2023": 78.0,
+      "2022": 80.0,
+      "2021": 88.0,
+      "2020": 88.0,
+      "2019": 88.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 83.0
+    }
+   },
+   "159": {
+    "name": "Uetikon a.S.",
+    "pop": 6663,
+    "values": {
+     "servizi_pc": 4575,
+     "debito_pc": -3492,
+     "steuerfuss": 84.0,
+     "netinv_pc": 423.0,
+     "risultato_pc": 605.0,
+     "steuerkraft": 5745.0
+    },
+    "funk": {
+     "Amministrazione generale": 681.0,
+     "Formazione": 2092.0,
+     "Sanità": 470.0,
+     "Cultura, sport e tempo libero": 496.0,
+     "Ordine pubblico e sicurezza": 268.0,
+     "Sicurezza sociale": 204.0,
+     "Ambiente e territorio": 130.0,
+     "Trasporti": 341.0,
+     "Economia": -107.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3233,
+      "2020": -3569,
+      "2021": -4302,
+      "2022": -4363,
+      "2023": -3218,
+      "2024": -3492
+     },
+     "steuerfuss": {
+      "2026": 84.0,
+      "2025": 84.0,
+      "2024": 84.0,
+      "2023": 84.0,
+      "2022": 87.0,
+      "2021": 87.0,
+      "2020": 87.0,
+      "2019": 87.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 84.0
+    }
+   },
+   "160": {
+    "name": "Zumikon",
+    "pop": 5754,
+    "values": {
+     "servizi_pc": 6173,
+     "debito_pc": -9000,
+     "steuerfuss": 77.0,
+     "netinv_pc": 2183.0,
+     "risultato_pc": 546.0,
+     "steuerkraft": 13538.0
+    },
+    "funk": {
+     "Amministrazione generale": 1050.0,
+     "Formazione": 2301.0,
+     "Sanità": 649.0,
+     "Cultura, sport e tempo libero": 496.0,
+     "Ordine pubblico e sicurezza": 289.0,
+     "Sicurezza sociale": 667.0,
+     "Ambiente e territorio": 92.0,
+     "Trasporti": 555.0,
+     "Economia": 74.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1574,
+      "2020": -1833,
+      "2021": -1256,
+      "2022": -6130,
+      "2023": -9720,
+      "2024": -9000
+     },
+     "steuerfuss": {
+      "2026": 71.0,
+      "2025": 75.0,
+      "2024": 77.0,
+      "2023": 81.0,
+      "2022": 81.0,
+      "2021": 85.0,
+      "2020": 85.0,
+      "2019": 85.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 71.0
+    }
+   },
+   "161": {
+    "name": "Zollikon",
+    "pop": 13584,
+    "values": {
+     "servizi_pc": 5596,
+     "debito_pc": -7985,
+     "steuerfuss": 76.0,
+     "netinv_pc": 819.0,
+     "risultato_pc": 314.0,
+     "steuerkraft": 12109.0
+    },
+    "funk": {
+     "Amministrazione generale": 799.0,
+     "Formazione": 2562.0,
+     "Sanità": 715.0,
+     "Cultura, sport e tempo libero": 448.0,
+     "Ordine pubblico e sicurezza": 217.0,
+     "Sicurezza sociale": 476.0,
+     "Ambiente e territorio": 117.0,
+     "Trasporti": 357.0,
+     "Economia": -95.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -456,
+      "2020": -2299,
+      "2021": -4076,
+      "2022": -6637,
+      "2023": -7559,
+      "2024": -7985
+     },
+     "steuerfuss": {
+      "2026": 76.0,
+      "2025": 76.0,
+      "2024": 76.0,
+      "2023": 79.0,
+      "2022": 82.0,
+      "2021": 85.0,
+      "2020": 85.0,
+      "2019": 85.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 76.0
+    }
+   },
+   "172": {
+    "name": "Fehraltorf",
+    "pop": 6883,
+    "values": {
+     "servizi_pc": 4609,
+     "debito_pc": 1902,
+     "steuerfuss": 109.0,
+     "netinv_pc": 2572.0,
+     "risultato_pc": 679.0,
+     "steuerkraft": 3683.0
+    },
+    "funk": {
+     "Amministrazione generale": 503.0,
+     "Formazione": 2633.0,
+     "Sanità": 387.0,
+     "Cultura, sport e tempo libero": 98.0,
+     "Ordine pubblico e sicurezza": 235.0,
+     "Sicurezza sociale": 546.0,
+     "Ambiente e territorio": 78.0,
+     "Trasporti": 237.0,
+     "Economia": -108.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2676,
+      "2020": -2289,
+      "2021": -2083,
+      "2022": -655,
+      "2023": 552,
+      "2024": 1902
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 111.0,
+      "2024": 109.0,
+      "2023": 109.0,
+      "2022": 107.0,
+      "2021": 107.0,
+      "2020": 107.0,
+      "2019": 107.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "173": {
+    "name": "Hittnau",
+    "pop": 3970,
+    "values": {
+     "servizi_pc": 4438,
+     "debito_pc": -4617,
+     "steuerfuss": 113.0,
+     "netinv_pc": 893.0,
+     "risultato_pc": 617.0,
+     "steuerkraft": 2985.0
+    },
+    "funk": {
+     "Amministrazione generale": 655.0,
+     "Formazione": 2599.0,
+     "Sanità": 369.0,
+     "Cultura, sport e tempo libero": 65.0,
+     "Ordine pubblico e sicurezza": 178.0,
+     "Sicurezza sociale": 318.0,
+     "Ambiente e territorio": 121.0,
+     "Trasporti": 217.0,
+     "Economia": -84.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5984,
+      "2020": -6196,
+      "2021": -5650,
+      "2022": -5437,
+      "2023": -4704,
+      "2024": -4617
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 116.0,
+      "2021": 116.0,
+      "2020": 116.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "176": {
+    "name": "Lindau",
+    "pop": 5871,
+    "values": {
+     "servizi_pc": 5183,
+     "debito_pc": -4507,
+     "steuerfuss": 106.0,
+     "netinv_pc": 799.0,
+     "risultato_pc": -448.0,
+     "steuerkraft": 3918.0
+    },
+    "funk": {
+     "Amministrazione generale": 809.0,
+     "Formazione": 2565.0,
+     "Sanità": 444.0,
+     "Cultura, sport e tempo libero": 179.0,
+     "Ordine pubblico e sicurezza": 137.0,
+     "Sicurezza sociale": 757.0,
+     "Ambiente e territorio": 75.0,
+     "Trasporti": 302.0,
+     "Economia": -85.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2737,
+      "2020": -2106,
+      "2021": -3603,
+      "2022": -4090,
+      "2023": -5126,
+      "2024": -4507
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 106.0,
+      "2024": 106.0,
+      "2023": 106.0,
+      "2022": 108.0,
+      "2021": 108.0,
+      "2020": 108.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "177": {
+    "name": "Pfäffikon",
+    "pop": 12750,
+    "values": {
+     "servizi_pc": 4750,
+     "debito_pc": -1111,
+     "steuerfuss": 110.0,
+     "netinv_pc": 624.0,
+     "risultato_pc": 224.0,
+     "steuerkraft": 3185.0
+    },
+    "funk": {
+     "Amministrazione generale": 202.0,
+     "Formazione": 2614.0,
+     "Sanità": 583.0,
+     "Cultura, sport e tempo libero": 188.0,
+     "Ordine pubblico e sicurezza": 244.0,
+     "Sicurezza sociale": 664.0,
+     "Ambiente e territorio": 103.0,
+     "Trasporti": 235.0,
+     "Economia": -83.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1243,
+      "2020": -1424,
+      "2021": -1199,
+      "2022": -1033,
+      "2023": -1135,
+      "2024": -1111
+     },
+     "steuerfuss": {
+      "2026": 110.0,
+      "2025": 110.0,
+      "2024": 110.0,
+      "2023": 110.0,
+      "2022": 113.0,
+      "2021": 113.0,
+      "2020": 110.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 110.0
+    }
+   },
+   "178": {
+    "name": "Russikon",
+    "pop": 4634,
+    "values": {
+     "servizi_pc": 4772,
+     "debito_pc": -435,
+     "steuerfuss": 113.0,
+     "netinv_pc": 2855.0,
+     "risultato_pc": 493.0,
+     "steuerkraft": 3498.0
+    },
+    "funk": {
+     "Amministrazione generale": 608.0,
+     "Formazione": 2642.0,
+     "Sanità": 485.0,
+     "Cultura, sport e tempo libero": 99.0,
+     "Ordine pubblico e sicurezza": 255.0,
+     "Sicurezza sociale": 507.0,
+     "Ambiente e territorio": 86.0,
+     "Trasporti": 173.0,
+     "Economia": -83.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3718,
+      "2020": -4177,
+      "2021": -4481,
+      "2022": -4417,
+      "2023": -2485,
+      "2024": -435
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 113.0,
+      "2023": 113.0,
+      "2022": 113.0,
+      "2021": 113.0,
+      "2020": 113.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "180": {
+    "name": "Weisslingen",
+    "pop": 3496,
+    "values": {
+     "servizi_pc": 4347,
+     "debito_pc": -3750,
+     "steuerfuss": 116.0,
+     "netinv_pc": 722.0,
+     "risultato_pc": 1407.0,
+     "steuerkraft": 3327.0
+    },
+    "funk": {
+     "Amministrazione generale": 601.0,
+     "Formazione": 2250.0,
+     "Sanità": 427.0,
+     "Cultura, sport e tempo libero": 83.0,
+     "Ordine pubblico e sicurezza": 230.0,
+     "Sicurezza sociale": 543.0,
+     "Ambiente e territorio": 85.0,
+     "Trasporti": 267.0,
+     "Economia": -139.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4061,
+      "2020": -3769,
+      "2021": -3247,
+      "2022": -3078,
+      "2023": -2833,
+      "2024": -3750
+     },
+     "steuerfuss": {
+      "2026": 116.0,
+      "2025": 116.0,
+      "2024": 116.0,
+      "2023": 116.0,
+      "2022": 116.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 116.0
+    }
+   },
+   "181": {
+    "name": "Wila",
+    "pop": 2113,
+    "values": {
+     "servizi_pc": 4361,
+     "debito_pc": -4283,
+     "steuerfuss": 125.0,
+     "netinv_pc": 1264.0,
+     "risultato_pc": 962.0,
+     "steuerkraft": 1953.0
+    },
+    "funk": {
+     "Amministrazione generale": 707.0,
+     "Formazione": 2577.0,
+     "Sanità": 402.0,
+     "Cultura, sport e tempo libero": 79.0,
+     "Ordine pubblico e sicurezza": 221.0,
+     "Sicurezza sociale": -42.0,
+     "Ambiente e territorio": 143.0,
+     "Trasporti": 333.0,
+     "Economia": -59.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2042,
+      "2020": -2506,
+      "2021": -3536,
+      "2022": -3328,
+      "2023": -3957,
+      "2024": -4283
+     },
+     "steuerfuss": {
+      "2026": 122.0,
+      "2025": 125.0,
+      "2024": 125.0,
+      "2023": 126.0,
+      "2022": 129.0,
+      "2021": 129.0,
+      "2020": 130.0,
+      "2019": 127.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 122.0
+    }
+   },
+   "182": {
+    "name": "Wildberg",
+    "pop": 1013,
+    "values": {
+     "servizi_pc": 5069,
+     "debito_pc": -6659,
+     "steuerfuss": 127.0,
+     "netinv_pc": 655.0,
+     "risultato_pc": 1172.0,
+     "steuerkraft": 2818.0
+    },
+    "funk": {
+     "Amministrazione generale": 985.0,
+     "Formazione": 2986.0,
+     "Sanità": 386.0,
+     "Cultura, sport e tempo libero": 125.0,
+     "Ordine pubblico e sicurezza": 189.0,
+     "Sicurezza sociale": 239.0,
+     "Ambiente e territorio": 133.0,
+     "Trasporti": 117.0,
+     "Economia": -91.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3670,
+      "2020": -3844,
+      "2021": -4247,
+      "2022": -4617,
+      "2023": -5414,
+      "2024": -6659
+     },
+     "steuerfuss": {
+      "2026": 124.0,
+      "2025": 127.0,
+      "2024": 127.0,
+      "2023": 127.0,
+      "2022": 129.0,
+      "2021": 129.0,
+      "2020": 127.0,
+      "2019": 127.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 124.0
+    }
+   },
+   "191": {
+    "name": "Dübendorf",
+    "pop": 32571,
+    "values": {
+     "servizi_pc": 4987,
+     "debito_pc": -3256,
+     "steuerfuss": 96.0,
+     "netinv_pc": 1230.0,
+     "risultato_pc": 210.0,
+     "steuerkraft": 3490.0
+    },
+    "funk": {
+     "Amministrazione generale": 414.0,
+     "Formazione": 2850.0,
+     "Sanità": 375.0,
+     "Cultura, sport e tempo libero": 173.0,
+     "Ordine pubblico e sicurezza": 242.0,
+     "Sicurezza sociale": 696.0,
+     "Ambiente e territorio": 52.0,
+     "Trasporti": 283.0,
+     "Economia": -98.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2854,
+      "2020": -2405,
+      "2021": -2855,
+      "2022": -3673,
+      "2023": -3179,
+      "2024": -3256
+     },
+     "steuerfuss": {
+      "2026": 92.0,
+      "2025": 96.0,
+      "2024": 96.0,
+      "2023": 96.0,
+      "2022": 99.0,
+      "2021": 99.0,
+      "2020": 99.0,
+      "2019": 99.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 92.0
+    }
+   },
+   "192": {
+    "name": "Egg",
+    "pop": 8815,
+    "values": {
+     "servizi_pc": 4839,
+     "debito_pc": -1176,
+     "steuerfuss": 101.0,
+     "netinv_pc": 837.0,
+     "risultato_pc": 121.0,
+     "steuerkraft": 4331.0
+    },
+    "funk": {
+     "Amministrazione generale": 359.0,
+     "Formazione": 2500.0,
+     "Sanità": 587.0,
+     "Cultura, sport e tempo libero": 92.0,
+     "Ordine pubblico e sicurezza": 208.0,
+     "Sicurezza sociale": 686.0,
+     "Ambiente e territorio": 127.0,
+     "Trasporti": 371.0,
+     "Economia": -91.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1563,
+      "2020": -1559,
+      "2021": -1727,
+      "2022": -2009,
+      "2023": -1397,
+      "2024": -1176
+     },
+     "steuerfuss": {
+      "2026": 101.0,
+      "2025": 101.0,
+      "2024": 101.0,
+      "2023": 101.0,
+      "2022": 101.0,
+      "2021": 98.0,
+      "2020": 98.0,
+      "2019": 98.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 101.0
+    }
+   },
+   "193": {
+    "name": "Fällanden",
+    "pop": 9637,
+    "values": {
+     "servizi_pc": 4582,
+     "debito_pc": -3768,
+     "steuerfuss": 99.0,
+     "netinv_pc": 532.0,
+     "risultato_pc": 290.0,
+     "steuerkraft": 3914.0
+    },
+    "funk": {
+     "Amministrazione generale": 525.0,
+     "Formazione": 2370.0,
+     "Sanità": 414.0,
+     "Cultura, sport e tempo libero": 67.0,
+     "Ordine pubblico e sicurezza": 276.0,
+     "Sicurezza sociale": 699.0,
+     "Ambiente e territorio": 41.0,
+     "Trasporti": 283.0,
+     "Economia": -93.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2113,
+      "2020": -2925,
+      "2021": -3420,
+      "2022": -4168,
+      "2023": -3572,
+      "2024": -3768
+     },
+     "steuerfuss": {
+      "2026": 99.0,
+      "2025": 99.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 103.0,
+      "2021": 103.0,
+      "2020": 103.0,
+      "2019": 103.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 99.0
+    }
+   },
+   "194": {
+    "name": "Greifensee",
+    "pop": 5421,
+    "values": {
+     "servizi_pc": 4727,
+     "debito_pc": -2245,
+     "steuerfuss": 94.0,
+     "netinv_pc": 430.0,
+     "risultato_pc": -100.0,
+     "steuerkraft": 4680.0
+    },
+    "funk": {
+     "Amministrazione generale": 387.0,
+     "Formazione": 2720.0,
+     "Sanità": 473.0,
+     "Cultura, sport e tempo libero": 162.0,
+     "Ordine pubblico e sicurezza": 262.0,
+     "Sicurezza sociale": 638.0,
+     "Ambiente e territorio": 55.0,
+     "Trasporti": 133.0,
+     "Economia": -103.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2839,
+      "2020": -2886,
+      "2021": -2935,
+      "2022": -3040,
+      "2023": -2610,
+      "2024": -2245
+     },
+     "steuerfuss": {
+      "2026": 101.0,
+      "2025": 96.0,
+      "2024": 94.0,
+      "2023": 94.0,
+      "2022": 94.0,
+      "2021": 94.0,
+      "2020": 94.0,
+      "2019": 94.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 101.0
+    }
+   },
+   "195": {
+    "name": "Maur",
+    "pop": 10884,
+    "values": {
+     "servizi_pc": 4772,
+     "debito_pc": -9243,
+     "steuerfuss": 85.0,
+     "netinv_pc": 162.0,
+     "risultato_pc": 376.0,
+     "steuerkraft": 5649.0
+    },
+    "funk": {
+     "Amministrazione generale": 583.0,
+     "Formazione": 2389.0,
+     "Sanità": 457.0,
+     "Cultura, sport e tempo libero": 215.0,
+     "Ordine pubblico e sicurezza": 205.0,
+     "Sicurezza sociale": 524.0,
+     "Ambiente e territorio": 127.0,
+     "Trasporti": 381.0,
+     "Economia": -109.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -9124,
+      "2020": -7542,
+      "2021": -7591,
+      "2022": -7911,
+      "2023": -8166,
+      "2024": -9243
+     },
+     "steuerfuss": {
+      "2026": 81.0,
+      "2025": 85.0,
+      "2024": 85.0,
+      "2023": 85.0,
+      "2022": 87.0,
+      "2021": 87.0,
+      "2020": 87.0,
+      "2019": 87.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 81.0
+    }
+   },
+   "196": {
+    "name": "Mönchaltorf",
+    "pop": 4310,
+    "values": {
+     "servizi_pc": 4769,
+     "debito_pc": -5447,
+     "steuerfuss": 108.0,
+     "netinv_pc": 835.0,
+     "risultato_pc": 180.0,
+     "steuerkraft": 2591.0
+    },
+    "funk": {
+     "Amministrazione generale": 594.0,
+     "Formazione": 2477.0,
+     "Sanità": 468.0,
+     "Cultura, sport e tempo libero": 185.0,
+     "Ordine pubblico e sicurezza": 269.0,
+     "Sicurezza sociale": 553.0,
+     "Ambiente e territorio": 77.0,
+     "Trasporti": 247.0,
+     "Economia": -101.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2877,
+      "2020": -3769,
+      "2021": -5765,
+      "2022": -5702,
+      "2023": -5868,
+      "2024": -5447
+     },
+     "steuerfuss": {
+      "2026": 108.0,
+      "2025": 108.0,
+      "2024": 108.0,
+      "2023": 108.0,
+      "2022": 111.0,
+      "2021": 111.0,
+      "2020": 111.0,
+      "2019": 111.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 108.0
+    }
+   },
+   "197": {
+    "name": "Schwerzenbach",
+    "pop": 5250,
+    "values": {
+     "servizi_pc": 4679,
+     "debito_pc": -300,
+     "steuerfuss": 101.0,
+     "netinv_pc": 1645.0,
+     "risultato_pc": -83.0,
+     "steuerkraft": 3588.0
+    },
+    "funk": {
+     "Amministrazione generale": 420.0,
+     "Formazione": 2601.0,
+     "Sanità": 318.0,
+     "Cultura, sport e tempo libero": 131.0,
+     "Ordine pubblico e sicurezza": 296.0,
+     "Sicurezza sociale": 711.0,
+     "Ambiente e territorio": 92.0,
+     "Trasporti": 227.0,
+     "Economia": -117.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4200,
+      "2020": -3775,
+      "2021": -3121,
+      "2022": -2388,
+      "2023": -1753,
+      "2024": -300
+     },
+     "steuerfuss": {
+      "2026": 103.0,
+      "2025": 104.0,
+      "2024": 101.0,
+      "2023": 101.0,
+      "2022": 101.0,
+      "2021": 99.0,
+      "2020": 99.0,
+      "2019": 99.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 103.0
+    }
+   },
+   "198": {
+    "name": "Uster",
+    "pop": 36563,
+    "values": {
+     "servizi_pc": 5189,
+     "debito_pc": -133,
+     "steuerfuss": 112.0,
+     "netinv_pc": 1347.0,
+     "risultato_pc": -59.0,
+     "steuerkraft": 3391.0
+    },
+    "funk": {
+     "Amministrazione generale": 466.0,
+     "Formazione": 2525.0,
+     "Sanità": 526.0,
+     "Cultura, sport e tempo libero": 281.0,
+     "Ordine pubblico e sicurezza": 292.0,
+     "Sicurezza sociale": 767.0,
+     "Ambiente e territorio": 104.0,
+     "Trasporti": 300.0,
+     "Economia": -72.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1281,
+      "2020": -872,
+      "2021": -732,
+      "2022": -908,
+      "2023": -943,
+      "2024": -133
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 112.0,
+      "2020": 109.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "199": {
+    "name": "Volketswil",
+    "pop": 19854,
+    "values": {
+     "servizi_pc": 4303,
+     "debito_pc": -2258,
+     "steuerfuss": 101.0,
+     "netinv_pc": 549.0,
+     "risultato_pc": 223.0,
+     "steuerkraft": 3102.0
+    },
+    "funk": {
+     "Amministrazione generale": 260.0,
+     "Formazione": 2385.0,
+     "Sanità": 500.0,
+     "Cultura, sport e tempo libero": 149.0,
+     "Ordine pubblico e sicurezza": 278.0,
+     "Sicurezza sociale": 605.0,
+     "Ambiente e territorio": 54.0,
+     "Trasporti": 186.0,
+     "Economia": -114.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1806,
+      "2020": -1461,
+      "2021": -835,
+      "2022": -1373,
+      "2023": -2237,
+      "2024": -2258
+     },
+     "steuerfuss": {
+      "2026": 101.0,
+      "2025": 101.0,
+      "2024": 101.0,
+      "2023": 103.0,
+      "2022": 103.0,
+      "2021": 103.0,
+      "2020": 103.0,
+      "2019": 103.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 101.0
+    }
+   },
+   "200": {
+    "name": "Wangen-Brüttisellen",
+    "pop": 8292,
+    "values": {
+     "servizi_pc": 4289,
+     "debito_pc": -1581,
+     "steuerfuss": 101.0,
+     "netinv_pc": 895.0,
+     "risultato_pc": -273.0,
+     "steuerkraft": 3482.0
+    },
+    "funk": {
+     "Amministrazione generale": 492.0,
+     "Formazione": 2325.0,
+     "Sanità": 312.0,
+     "Cultura, sport e tempo libero": 173.0,
+     "Ordine pubblico e sicurezza": 232.0,
+     "Sicurezza sociale": 541.0,
+     "Ambiente e territorio": 95.0,
+     "Trasporti": 216.0,
+     "Economia": -97.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2410,
+      "2020": -1866,
+      "2021": -1616,
+      "2022": -2368,
+      "2023": -2531,
+      "2024": -1581
+     },
+     "steuerfuss": {
+      "2026": 101.0,
+      "2025": 101.0,
+      "2024": 101.0,
+      "2023": 101.0,
+      "2022": 101.0,
+      "2021": 101.0,
+      "2020": 98.0,
+      "2019": 98.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 101.0
+    }
+   },
+   "211": {
+    "name": "Altikon",
+    "pop": 774,
+    "values": {
+     "servizi_pc": 4599,
+     "debito_pc": -3063,
+     "steuerfuss": 114.0,
+     "netinv_pc": 1704.0,
+     "risultato_pc": 35.0,
+     "steuerkraft": 2195.0
+    },
+    "funk": {
+     "Amministrazione generale": 942.0,
+     "Formazione": 2698.0,
+     "Sanità": 290.0,
+     "Cultura, sport e tempo libero": 51.0,
+     "Ordine pubblico e sicurezza": 239.0,
+     "Sicurezza sociale": 279.0,
+     "Ambiente e territorio": 89.0,
+     "Trasporti": 2.0,
+     "Economia": 9.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3357,
+      "2020": -3744,
+      "2021": -4426,
+      "2022": -4113,
+      "2023": -3639,
+      "2024": -3063
+     },
+     "steuerfuss": {
+      "2026": 114.0,
+      "2025": 114.0,
+      "2024": 114.0,
+      "2023": 114.0,
+      "2022": 114.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 114.0
+    }
+   },
+   "213": {
+    "name": "Brütten",
+    "pop": 2247,
+    "values": {
+     "servizi_pc": 3936,
+     "debito_pc": -2266,
+     "steuerfuss": 89.0,
+     "netinv_pc": 811.0,
+     "risultato_pc": 1028.0,
+     "steuerkraft": 4567.0
+    },
+    "funk": {
+     "Amministrazione generale": 530.0,
+     "Formazione": 2181.0,
+     "Sanità": 226.0,
+     "Cultura, sport e tempo libero": 146.0,
+     "Ordine pubblico e sicurezza": 172.0,
+     "Sicurezza sociale": 359.0,
+     "Ambiente e territorio": 106.0,
+     "Trasporti": 302.0,
+     "Economia": -86.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3300,
+      "2020": -3023,
+      "2021": -3447,
+      "2022": -2936,
+      "2023": -1554,
+      "2024": -2266
+     },
+     "steuerfuss": {
+      "2026": 85.0,
+      "2025": 85.0,
+      "2024": 89.0,
+      "2023": 89.0,
+      "2022": 89.0,
+      "2021": 89.0,
+      "2020": 89.0,
+      "2019": 89.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 85.0
+    }
+   },
+   "214": {
+    "name": "Dägerlen",
+    "pop": 1159,
+    "values": {
+     "servizi_pc": 4210,
+     "debito_pc": -6125,
+     "steuerfuss": 105.0,
+     "netinv_pc": 635.0,
+     "risultato_pc": 872.0,
+     "steuerkraft": 2564.0
+    },
+    "funk": {
+     "Amministrazione generale": 540.0,
+     "Formazione": 2693.0,
+     "Sanità": 282.0,
+     "Cultura, sport e tempo libero": 58.0,
+     "Ordine pubblico e sicurezza": 196.0,
+     "Sicurezza sociale": 326.0,
+     "Ambiente e territorio": 50.0,
+     "Trasporti": 130.0,
+     "Economia": -65.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -4452,
+      "2020": -4381,
+      "2021": -5398,
+      "2022": -6239,
+      "2023": -5718,
+      "2024": -6125
+     },
+     "steuerfuss": {
+      "2026": 106.0,
+      "2025": 106.0,
+      "2024": 105.0,
+      "2023": 105.0,
+      "2022": 117.0,
+      "2021": 117.0,
+      "2020": 119.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 106.0
+    }
+   },
+   "215": {
+    "name": "Dättlikon",
+    "pop": 839,
+    "values": {
+     "servizi_pc": 5078,
+     "debito_pc": -2792,
+     "steuerfuss": 116.0,
+     "netinv_pc": 378.0,
+     "risultato_pc": 871.0,
+     "steuerkraft": 3974.0
+    },
+    "funk": {
+     "Amministrazione generale": 901.0,
+     "Formazione": 3093.0,
+     "Sanità": 289.0,
+     "Cultura, sport e tempo libero": 98.0,
+     "Ordine pubblico e sicurezza": 215.0,
+     "Sicurezza sociale": 388.0,
+     "Ambiente e territorio": 94.0,
+     "Trasporti": 87.0,
+     "Economia": -87.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1528,
+      "2020": -2194,
+      "2021": -2692,
+      "2022": -2124,
+      "2023": -1929,
+      "2024": -2792
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 114.0,
+      "2024": 116.0,
+      "2023": 116.0,
+      "2022": 116.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "216": {
+    "name": "Dinhard",
+    "pop": 1731,
+    "values": {
+     "servizi_pc": 3719,
+     "debito_pc": -6558,
+     "steuerfuss": 83.0,
+     "netinv_pc": 763.0,
+     "risultato_pc": 156.0,
+     "steuerkraft": 3019.0
+    },
+    "funk": {
+     "Amministrazione generale": 294.0,
+     "Formazione": 2395.0,
+     "Sanità": 332.0,
+     "Cultura, sport e tempo libero": 83.0,
+     "Ordine pubblico e sicurezza": 176.0,
+     "Sicurezza sociale": 335.0,
+     "Ambiente e territorio": 75.0,
+     "Trasporti": 130.0,
+     "Economia": -101.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6910,
+      "2020": -7146,
+      "2021": -7315,
+      "2022": -7278,
+      "2023": -7036,
+      "2024": -6558
+     },
+     "steuerfuss": {
+      "2026": 90.0,
+      "2025": 90.0,
+      "2024": 83.0,
+      "2023": 87.0,
+      "2022": 87.0,
+      "2021": 87.0,
+      "2020": 89.0,
+      "2019": 89.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 90.0
+    }
+   },
+   "218": {
+    "name": "Ellikon a.d.Th.",
+    "pop": 1024,
+    "values": {
+     "servizi_pc": 4865,
+     "debito_pc": -6084,
+     "steuerfuss": 115.0,
+     "netinv_pc": 638.0,
+     "risultato_pc": 735.0,
+     "steuerkraft": 2671.0
+    },
+    "funk": {
+     "Amministrazione generale": 751.0,
+     "Formazione": 2822.0,
+     "Sanità": 288.0,
+     "Cultura, sport e tempo libero": 182.0,
+     "Ordine pubblico e sicurezza": 259.0,
+     "Sicurezza sociale": 366.0,
+     "Ambiente e territorio": 71.0,
+     "Trasporti": 148.0,
+     "Economia": -22.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5056,
+      "2020": -5544,
+      "2021": -5007,
+      "2022": -5478,
+      "2023": -6650,
+      "2024": -6084
+     },
+     "steuerfuss": {
+      "2026": 117.0,
+      "2025": 117.0,
+      "2024": 115.0,
+      "2023": 119.0,
+      "2022": 119.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 121.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 117.0
+    }
+   },
+   "219": {
+    "name": "Elsau",
+    "pop": 3898,
+    "values": {
+     "servizi_pc": 4744,
+     "debito_pc": -4032,
+     "steuerfuss": 120.0,
+     "netinv_pc": 1309.0,
+     "risultato_pc": 735.0,
+     "steuerkraft": 2549.0
+    },
+    "funk": {
+     "Amministrazione generale": 328.0,
+     "Formazione": 2865.0,
+     "Sanità": 541.0,
+     "Cultura, sport e tempo libero": 187.0,
+     "Ordine pubblico e sicurezza": 181.0,
+     "Sicurezza sociale": 256.0,
+     "Ambiente e territorio": 73.0,
+     "Trasporti": 353.0,
+     "Economia": -40.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3091,
+      "2020": -4555,
+      "2021": -4389,
+      "2022": -4891,
+      "2023": -4436,
+      "2024": -4032
+     },
+     "steuerfuss": {
+      "2026": 117.0,
+      "2025": 117.0,
+      "2024": 120.0,
+      "2023": 120.0,
+      "2022": 120.0,
+      "2021": 118.0,
+      "2020": 118.0,
+      "2019": 121.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 117.0
+    }
+   },
+   "220": {
+    "name": "Hagenbuch",
+    "pop": 1168,
+    "values": {
+     "servizi_pc": 4910,
+     "debito_pc": -3472,
+     "steuerfuss": 118.0,
+     "netinv_pc": 1378.0,
+     "risultato_pc": 425.0,
+     "steuerkraft": 2033.0
+    },
+    "funk": {
+     "Amministrazione generale": 742.0,
+     "Formazione": 2914.0,
+     "Sanità": 222.0,
+     "Cultura, sport e tempo libero": 61.0,
+     "Ordine pubblico e sicurezza": 260.0,
+     "Sicurezza sociale": 444.0,
+     "Ambiente e territorio": 97.0,
+     "Trasporti": 214.0,
+     "Economia": -44.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -6003,
+      "2020": -5756,
+      "2021": -5226,
+      "2022": -4331,
+      "2023": -4150,
+      "2024": -3472
+     },
+     "steuerfuss": {
+      "2026": 121.0,
+      "2025": 123.0,
+      "2024": 118.0,
+      "2023": 116.0,
+      "2022": 116.0,
+      "2021": 114.0,
+      "2020": 114.0,
+      "2019": 112.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 121.0
+    }
+   },
+   "221": {
+    "name": "Hettlingen",
+    "pop": 3227,
+    "values": {
+     "servizi_pc": 4419,
+     "debito_pc": -3216,
+     "steuerfuss": 96.0,
+     "netinv_pc": 1026.0,
+     "risultato_pc": 225.0,
+     "steuerkraft": 3866.0
+    },
+    "funk": {
+     "Amministrazione generale": 428.0,
+     "Formazione": 2591.0,
+     "Sanità": 536.0,
+     "Cultura, sport e tempo libero": 187.0,
+     "Ordine pubblico e sicurezza": 150.0,
+     "Sicurezza sociale": 322.0,
+     "Ambiente e territorio": 78.0,
+     "Trasporti": 224.0,
+     "Economia": -97.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2226,
+      "2020": -2527,
+      "2021": -3180,
+      "2022": -3232,
+      "2023": -3780,
+      "2024": -3216
+     },
+     "steuerfuss": {
+      "2026": 97.0,
+      "2025": 97.0,
+      "2024": 96.0,
+      "2023": 96.0,
+      "2022": 96.0,
+      "2021": 96.0,
+      "2020": 98.0,
+      "2019": 98.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 97.0
+    }
+   },
+   "223": {
+    "name": "Neftenbach",
+    "pop": 5765,
+    "values": {
+     "servizi_pc": 3949,
+     "debito_pc": -4538,
+     "steuerfuss": 105.0,
+     "netinv_pc": 430.0,
+     "risultato_pc": 778.0,
+     "steuerkraft": 3789.0
+    },
+    "funk": {
+     "Amministrazione generale": 274.0,
+     "Formazione": 2539.0,
+     "Sanità": 394.0,
+     "Cultura, sport e tempo libero": 200.0,
+     "Ordine pubblico e sicurezza": 154.0,
+     "Sicurezza sociale": 301.0,
+     "Ambiente e territorio": 56.0,
+     "Trasporti": 182.0,
+     "Economia": -151.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3809,
+      "2020": -3234,
+      "2021": -3320,
+      "2022": -3492,
+      "2023": -3808,
+      "2024": -4538
+     },
+     "steuerfuss": {
+      "2026": 98.0,
+      "2025": 102.0,
+      "2024": 105.0,
+      "2023": 105.0,
+      "2022": 107.0,
+      "2021": 107.0,
+      "2020": 107.0,
+      "2019": 109.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 98.0
+    }
+   },
+   "224": {
+    "name": "Pfungen",
+    "pop": 4150,
+    "values": {
+     "servizi_pc": 4245,
+     "debito_pc": -1904,
+     "steuerfuss": 117.0,
+     "netinv_pc": 549.0,
+     "risultato_pc": 721.0,
+     "steuerkraft": 2725.0
+    },
+    "funk": {
+     "Amministrazione generale": 437.0,
+     "Formazione": 2511.0,
+     "Sanità": 371.0,
+     "Cultura, sport e tempo libero": 124.0,
+     "Ordine pubblico e sicurezza": 179.0,
+     "Sicurezza sociale": 371.0,
+     "Ambiente e territorio": 63.0,
+     "Trasporti": 265.0,
+     "Economia": -76.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 428,
+      "2020": -261,
+      "2021": -1301,
+      "2022": -1956,
+      "2023": -1236,
+      "2024": -1904
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 117.0,
+      "2024": 117.0,
+      "2023": 117.0,
+      "2022": 117.0,
+      "2021": 117.0,
+      "2020": 117.0,
+      "2019": 117.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "225": {
+    "name": "Rickenbach",
+    "pop": 2850,
+    "values": {
+     "servizi_pc": 4911,
+     "debito_pc": -572,
+     "steuerfuss": 102.0,
+     "netinv_pc": 2112.0,
+     "risultato_pc": -24.0,
+     "steuerkraft": 2477.0
+    },
+    "funk": {
+     "Amministrazione generale": 437.0,
+     "Formazione": 3095.0,
+     "Sanità": 415.0,
+     "Cultura, sport e tempo libero": 157.0,
+     "Ordine pubblico e sicurezza": 153.0,
+     "Sicurezza sociale": 521.0,
+     "Ambiente e territorio": 49.0,
+     "Trasporti": 195.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2892,
+      "2020": -2659,
+      "2021": -2670,
+      "2022": -2733,
+      "2023": -2426,
+      "2024": -572
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 108.0,
+      "2024": 102.0,
+      "2023": 106.0,
+      "2022": 106.0,
+      "2021": 106.0,
+      "2020": 106.0,
+      "2019": 106.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "226": {
+    "name": "Schlatt",
+    "pop": 785,
+    "values": {
+     "servizi_pc": 5067,
+     "debito_pc": 1080,
+     "steuerfuss": 125.0,
+     "netinv_pc": 5171.0,
+     "risultato_pc": 1697.0,
+     "steuerkraft": 2223.0
+    },
+    "funk": {
+     "Amministrazione generale": 623.0,
+     "Formazione": 2871.0,
+     "Sanità": 333.0,
+     "Cultura, sport e tempo libero": 253.0,
+     "Ordine pubblico e sicurezza": 246.0,
+     "Sicurezza sociale": 437.0,
+     "Ambiente e territorio": 96.0,
+     "Trasporti": 237.0,
+     "Economia": -29.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1998,
+      "2020": -2330,
+      "2021": -3037,
+      "2022": -3281,
+      "2023": -2033,
+      "2024": 1080
+     },
+     "steuerfuss": {
+      "2026": 123.0,
+      "2025": 125.0,
+      "2024": 125.0,
+      "2023": 125.0,
+      "2022": 125.0,
+      "2021": 125.0,
+      "2020": 125.0,
+      "2019": 128.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 123.0
+    }
+   },
+   "227": {
+    "name": "Seuzach",
+    "pop": 7990,
+    "values": {
+     "servizi_pc": 4201,
+     "debito_pc": -1876,
+     "steuerfuss": 99.0,
+     "netinv_pc": 697.0,
+     "risultato_pc": 774.0,
+     "steuerkraft": 4208.0
+    },
+    "funk": {
+     "Amministrazione generale": 309.0,
+     "Formazione": 2293.0,
+     "Sanità": 675.0,
+     "Cultura, sport e tempo libero": 151.0,
+     "Ordine pubblico e sicurezza": 205.0,
+     "Sicurezza sociale": 456.0,
+     "Ambiente e territorio": 54.0,
+     "Trasporti": 169.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 623,
+      "2020": 875,
+      "2021": 254,
+      "2022": -1430,
+      "2023": -1541,
+      "2024": -1876
+     },
+     "steuerfuss": {
+      "2026": 100.0,
+      "2025": 100.0,
+      "2024": 99.0,
+      "2023": 99.0,
+      "2022": 99.0,
+      "2021": 99.0,
+      "2020": 101.0,
+      "2019": 101.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 100.0
+    }
+   },
+   "228": {
+    "name": "Turbenthal",
+    "pop": 5300,
+    "values": {
+     "servizi_pc": 5294,
+     "debito_pc": -511,
+     "steuerfuss": 122.0,
+     "netinv_pc": 590.0,
+     "risultato_pc": 358.0,
+     "steuerkraft": 1968.0
+    },
+    "funk": {
+     "Amministrazione generale": 359.0,
+     "Formazione": 2982.0,
+     "Sanità": 455.0,
+     "Cultura, sport e tempo libero": 143.0,
+     "Ordine pubblico e sicurezza": 246.0,
+     "Sicurezza sociale": 832.0,
+     "Ambiente e territorio": 133.0,
+     "Trasporti": 206.0,
+     "Economia": -62.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 1187,
+      "2020": 449,
+      "2021": 63,
+      "2022": -134,
+      "2023": -41,
+      "2024": -511
+     },
+     "steuerfuss": {
+      "2026": 122.0,
+      "2025": 122.0,
+      "2024": 122.0,
+      "2023": 122.0,
+      "2022": 124.0,
+      "2021": 126.0,
+      "2020": 122.0,
+      "2019": 122.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 122.0
+    }
+   },
+   "230": {
+    "name": "Winterthur",
+    "pop": 120376,
+    "values": {
+     "servizi_pc": 6125,
+     "debito_pc": 8900,
+     "steuerfuss": 125.0,
+     "netinv_pc": 1389.0,
+     "risultato_pc": 349.0,
+     "steuerkraft": 2914.0
+    },
+    "funk": {
+     "Amministrazione generale": 178.0,
+     "Formazione": 2680.0,
+     "Sanità": 547.0,
+     "Cultura, sport e tempo libero": 492.0,
+     "Ordine pubblico e sicurezza": 471.0,
+     "Sicurezza sociale": 1414.0,
+     "Ambiente e territorio": 90.0,
+     "Trasporti": 353.0,
+     "Economia": -100.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 10389,
+      "2020": 10062,
+      "2021": 8429,
+      "2022": 7786,
+      "2023": 9072,
+      "2024": 8900
+     },
+     "steuerfuss": {
+      "2026": 125.0,
+      "2025": 125.0,
+      "2024": 125.0,
+      "2023": 125.0,
+      "2022": 125.0,
+      "2021": 125.0,
+      "2020": 122.0,
+      "2019": 122.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 125.0
+    }
+   },
+   "231": {
+    "name": "Zell",
+    "pop": 6809,
+    "values": {
+     "servizi_pc": 4460,
+     "debito_pc": -1870,
+     "steuerfuss": 118.0,
+     "netinv_pc": 1417.0,
+     "risultato_pc": 827.0,
+     "steuerkraft": 2002.0
+    },
+    "funk": {
+     "Amministrazione generale": 469.0,
+     "Formazione": 2659.0,
+     "Sanità": 497.0,
+     "Cultura, sport e tempo libero": 79.0,
+     "Ordine pubblico e sicurezza": 164.0,
+     "Sicurezza sociale": 477.0,
+     "Ambiente e territorio": 66.0,
+     "Trasporti": 156.0,
+     "Economia": -107.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1413,
+      "2020": -1766,
+      "2021": -1843,
+      "2022": -2049,
+      "2023": -2102,
+      "2024": -1870
+     },
+     "steuerfuss": {
+      "2026": 115.0,
+      "2025": 118.0,
+      "2024": 118.0,
+      "2023": 118.0,
+      "2022": 118.0,
+      "2021": 118.0,
+      "2020": 118.0,
+      "2019": 118.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 115.0
+    }
+   },
+   "241": {
+    "name": "Aesch ZH",
+    "pop": 1659,
+    "values": {
+     "servizi_pc": 5451,
+     "debito_pc": -2165,
+     "steuerfuss": 91.0,
+     "netinv_pc": 1215.0,
+     "risultato_pc": -261.0,
+     "steuerkraft": 5477.0
+    },
+    "funk": {
+     "Amministrazione generale": 840.0,
+     "Formazione": 3233.0,
+     "Sanità": 443.0,
+     "Cultura, sport e tempo libero": 190.0,
+     "Ordine pubblico e sicurezza": 175.0,
+     "Sicurezza sociale": 329.0,
+     "Ambiente e territorio": 101.0,
+     "Trasporti": 232.0,
+     "Economia": -92.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3142,
+      "2020": -4517,
+      "2021": -3392,
+      "2022": -4601,
+      "2023": -3327,
+      "2024": -2165
+     },
+     "steuerfuss": {
+      "2026": 91.0,
+      "2025": 91.0,
+      "2024": 91.0,
+      "2023": 91.0,
+      "2022": 89.0,
+      "2021": 87.0,
+      "2020": 87.0,
+      "2019": 87.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 91.0
+    }
+   },
+   "242": {
+    "name": "Birmensdorf",
+    "pop": 7380,
+    "values": {
+     "servizi_pc": 4561,
+     "debito_pc": -480,
+     "steuerfuss": 112.0,
+     "netinv_pc": 870.0,
+     "risultato_pc": 744.0,
+     "steuerkraft": 3245.0
+    },
+    "funk": {
+     "Amministrazione generale": 507.0,
+     "Formazione": 2431.0,
+     "Sanità": 438.0,
+     "Cultura, sport e tempo libero": 138.0,
+     "Ordine pubblico e sicurezza": 184.0,
+     "Sicurezza sociale": 601.0,
+     "Ambiente e territorio": 28.0,
+     "Trasporti": 341.0,
+     "Economia": -107.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3144,
+      "2020": -2569,
+      "2021": -1252,
+      "2022": -1029,
+      "2023": -175,
+      "2024": -480
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 112.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 110.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "243": {
+    "name": "Dietikon",
+    "pop": 28295,
+    "values": {
+     "servizi_pc": 5544,
+     "debito_pc": 437,
+     "steuerfuss": 123.0,
+     "netinv_pc": 1081.0,
+     "risultato_pc": 240.0,
+     "steuerkraft": 2410.0
+    },
+    "funk": {
+     "Amministrazione generale": 589.0,
+     "Formazione": 2565.0,
+     "Sanità": 631.0,
+     "Cultura, sport e tempo libero": 212.0,
+     "Ordine pubblico e sicurezza": 211.0,
+     "Sicurezza sociale": 1126.0,
+     "Ambiente e territorio": 104.0,
+     "Trasporti": 202.0,
+     "Economia": -96.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1368,
+      "2020": -997,
+      "2021": -434,
+      "2022": 345,
+      "2023": -10,
+      "2024": 437
+     },
+     "steuerfuss": {
+      "2026": 121.0,
+      "2025": 121.0,
+      "2024": 123.0,
+      "2023": 123.0,
+      "2022": 123.0,
+      "2021": 123.0,
+      "2020": 123.0,
+      "2019": 123.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 121.0
+    }
+   },
+   "244": {
+    "name": "Geroldswil",
+    "pop": 5312,
+    "values": {
+     "servizi_pc": 4978,
+     "debito_pc": -546,
+     "steuerfuss": 110.0,
+     "netinv_pc": 1177.0,
+     "risultato_pc": 108.0,
+     "steuerkraft": 3572.0
+    },
+    "funk": {
+     "Amministrazione generale": 437.0,
+     "Formazione": 2561.0,
+     "Sanità": 480.0,
+     "Cultura, sport e tempo libero": 217.0,
+     "Ordine pubblico e sicurezza": 250.0,
+     "Sicurezza sociale": 912.0,
+     "Ambiente e territorio": 42.0,
+     "Trasporti": 197.0,
+     "Economia": -118.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1689,
+      "2020": -1613,
+      "2021": -1855,
+      "2022": -1424,
+      "2023": -1366,
+      "2024": -546
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 110.0,
+      "2023": 110.0,
+      "2022": 110.0,
+      "2021": 108.0,
+      "2020": 111.0,
+      "2019": 111.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "245": {
+    "name": "Oberengstringen",
+    "pop": 6914,
+    "values": {
+     "servizi_pc": 4773,
+     "debito_pc": -5232,
+     "steuerfuss": 109.0,
+     "netinv_pc": 309.0,
+     "risultato_pc": 208.0,
+     "steuerkraft": 3130.0
+    },
+    "funk": {
+     "Amministrazione generale": 462.0,
+     "Formazione": 2240.0,
+     "Sanità": 658.0,
+     "Cultura, sport e tempo libero": 118.0,
+     "Ordine pubblico e sicurezza": 168.0,
+     "Sicurezza sociale": 1054.0,
+     "Ambiente e territorio": 51.0,
+     "Trasporti": 133.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3502,
+      "2020": -3789,
+      "2021": -4530,
+      "2022": -4832,
+      "2023": -5210,
+      "2024": -5232
+     },
+     "steuerfuss": {
+      "2026": 109.0,
+      "2025": 109.0,
+      "2024": 109.0,
+      "2023": 112.0,
+      "2022": 112.0,
+      "2021": 112.0,
+      "2020": 112.0,
+      "2019": 112.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 109.0
+    }
+   },
+   "246": {
+    "name": "Oetwil a.d.L.",
+    "pop": 2573,
+    "values": {
+     "servizi_pc": 4803,
+     "debito_pc": -5430,
+     "steuerfuss": 105.0,
+     "netinv_pc": 1093.0,
+     "risultato_pc": 264.0,
+     "steuerkraft": 4171.0
+    },
+    "funk": {
+     "Amministrazione generale": 556.0,
+     "Formazione": 2623.0,
+     "Sanità": 463.0,
+     "Cultura, sport e tempo libero": 119.0,
+     "Ordine pubblico e sicurezza": 283.0,
+     "Sicurezza sociale": 517.0,
+     "Ambiente e territorio": 76.0,
+     "Trasporti": 248.0,
+     "Economia": -82.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2876,
+      "2020": -3241,
+      "2021": -4303,
+      "2022": -5869,
+      "2023": -6086,
+      "2024": -5430
+     },
+     "steuerfuss": {
+      "2026": 107.0,
+      "2025": 107.0,
+      "2024": 105.0,
+      "2023": 105.0,
+      "2022": 108.0,
+      "2021": 103.0,
+      "2020": 103.0,
+      "2019": 103.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 107.0
+    }
+   },
+   "247": {
+    "name": "Schlieren",
+    "pop": 20391,
+    "values": {
+     "servizi_pc": 4794,
+     "debito_pc": 1626,
+     "steuerfuss": 111.0,
+     "netinv_pc": 737.0,
+     "risultato_pc": 437.0,
+     "steuerkraft": 3681.0
+    },
+    "funk": {
+     "Amministrazione generale": 650.0,
+     "Formazione": 2357.0,
+     "Sanità": 522.0,
+     "Cultura, sport e tempo libero": 206.0,
+     "Ordine pubblico e sicurezza": 207.0,
+     "Sicurezza sociale": 686.0,
+     "Ambiente e territorio": 63.0,
+     "Trasporti": 213.0,
+     "Economia": -110.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 2073,
+      "2020": 1937,
+      "2021": 2207,
+      "2022": 1971,
+      "2023": 2052,
+      "2024": 1626
+     },
+     "steuerfuss": {
+      "2026": 111.0,
+      "2025": 111.0,
+      "2024": 111.0,
+      "2023": 111.0,
+      "2022": 111.0,
+      "2021": 111.0,
+      "2020": 111.0,
+      "2019": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 111.0
+    }
+   },
+   "248": {
+    "name": "Uitikon",
+    "pop": 5699,
+    "values": {
+     "servizi_pc": 5268,
+     "debito_pc": -1579,
+     "steuerfuss": 80.0,
+     "netinv_pc": 3265.0,
+     "risultato_pc": 883.0,
+     "steuerkraft": 8754.0
+    },
+    "funk": {
+     "Amministrazione generale": 671.0,
+     "Formazione": 2636.0,
+     "Sanità": 528.0,
+     "Cultura, sport e tempo libero": 303.0,
+     "Ordine pubblico e sicurezza": 206.0,
+     "Sicurezza sociale": 552.0,
+     "Ambiente e territorio": 68.0,
+     "Trasporti": 400.0,
+     "Economia": -96.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -8088,
+      "2020": -7322,
+      "2021": -6430,
+      "2022": -4695,
+      "2023": -3448,
+      "2024": -1579
+     },
+     "steuerfuss": {
+      "2026": 78.0,
+      "2025": 78.0,
+      "2024": 80.0,
+      "2023": 80.0,
+      "2022": 80.0,
+      "2021": 80.0,
+      "2020": 80.0,
+      "2019": 82.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 78.0
+    }
+   },
+   "249": {
+    "name": "Unterengstringen",
+    "pop": 4345,
+    "values": {
+     "servizi_pc": 4481,
+     "debito_pc": 474,
+     "steuerfuss": 100.0,
+     "netinv_pc": 1312.0,
+     "risultato_pc": 11.0,
+     "steuerkraft": 3738.0
+    },
+    "funk": {
+     "Amministrazione generale": 588.0,
+     "Formazione": 2234.0,
+     "Sanità": 510.0,
+     "Cultura, sport e tempo libero": 179.0,
+     "Ordine pubblico e sicurezza": 211.0,
+     "Sicurezza sociale": 608.0,
+     "Ambiente e territorio": 26.0,
+     "Trasporti": 223.0,
+     "Economia": -98.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -57,
+      "2020": 473,
+      "2021": -341,
+      "2022": -612,
+      "2023": -461,
+      "2024": 474
+     },
+     "steuerfuss": {
+      "2026": 102.0,
+      "2025": 102.0,
+      "2024": 100.0,
+      "2023": 100.0,
+      "2022": 100.0,
+      "2021": 100.0,
+      "2020": 100.0,
+      "2019": 102.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 102.0
+    }
+   },
+   "250": {
+    "name": "Urdorf",
+    "pop": 10503,
+    "values": {
+     "servizi_pc": 4403,
+     "debito_pc": -1504,
+     "steuerfuss": 115.0,
+     "netinv_pc": 525.0,
+     "risultato_pc": 651.0,
+     "steuerkraft": 3393.0
+    },
+    "funk": {
+     "Amministrazione generale": 434.0,
+     "Formazione": 2363.0,
+     "Sanità": 465.0,
+     "Cultura, sport e tempo libero": 296.0,
+     "Ordine pubblico e sicurezza": 254.0,
+     "Sicurezza sociale": 362.0,
+     "Ambiente e territorio": 105.0,
+     "Trasporti": 235.0,
+     "Economia": -111.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -268,
+      "2020": -308,
+      "2021": -415,
+      "2022": -700,
+      "2023": -1050,
+      "2024": -1504
+     },
+     "steuerfuss": {
+      "2026": 115.0,
+      "2025": 115.0,
+      "2024": 115.0,
+      "2023": 115.0,
+      "2022": 118.0,
+      "2021": 118.0,
+      "2020": 118.0,
+      "2019": 118.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 115.0
+    }
+   },
+   "251": {
+    "name": "Weiningen",
+    "pop": 5108,
+    "values": {
+     "servizi_pc": 3722,
+     "debito_pc": -68,
+     "steuerfuss": 103.0,
+     "netinv_pc": 754.0,
+     "risultato_pc": 1101.0,
+     "steuerkraft": 3101.0
+    },
+    "funk": {
+     "Amministrazione generale": 388.0,
+     "Formazione": 2534.0,
+     "Sanità": 335.0,
+     "Cultura, sport e tempo libero": 36.0,
+     "Ordine pubblico e sicurezza": 288.0,
+     "Sicurezza sociale": 3.0,
+     "Ambiente e territorio": 46.0,
+     "Trasporti": 196.0,
+     "Economia": -104.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -26,
+      "2020": 1251,
+      "2021": 1819,
+      "2022": 1060,
+      "2023": 514,
+      "2024": -68
+     },
+     "steuerfuss": {
+      "2026": 107.0,
+      "2025": 107.0,
+      "2024": 103.0,
+      "2023": 103.0,
+      "2022": 103.0,
+      "2021": 103.0,
+      "2020": 103.0,
+      "2019": 103.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 107.0
+    }
+   },
+   "261": {
+    "name": "Zürich",
+    "pop": 436551,
+    "values": {
+     "servizi_pc": 7620,
+     "debito_pc": 10715,
+     "steuerfuss": 119.0,
+     "netinv_pc": 3089.0,
+     "risultato_pc": 1190.0,
+     "steuerkraft": 6164.0
+    },
+    "funk": {
+     "Amministrazione generale": 793.0,
+     "Formazione": 2812.0,
+     "Sanità": 969.0,
+     "Cultura, sport e tempo libero": 718.0,
+     "Ordine pubblico e sicurezza": 831.0,
+     "Sicurezza sociale": 1063.0,
+     "Ambiente e territorio": 158.0,
+     "Trasporti": 524.0,
+     "Economia": -248.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 9678,
+      "2020": 10135,
+      "2021": 10646,
+      "2022": 11126,
+      "2023": 10954,
+      "2024": 10715
+     },
+     "steuerfuss": {
+      "2026": 119.0,
+      "2025": 119.0,
+      "2024": 119.0,
+      "2023": 119.0,
+      "2022": 119.0,
+      "2021": 119.0,
+      "2020": 119.0,
+      "2019": 119.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 119.0
+    }
+   },
+   "291": {
+    "name": "Andelfingen",
+    "pop": 3681,
+    "values": {
+     "servizi_pc": 4441,
+     "debito_pc": -1049,
+     "steuerfuss": 114.0,
+     "netinv_pc": 851.0,
+     "risultato_pc": 538.0,
+     "steuerkraft": 3246.0
+    },
+    "funk": {
+     "Amministrazione generale": 432.0,
+     "Formazione": 2543.0,
+     "Sanità": 532.0,
+     "Cultura, sport e tempo libero": 176.0,
+     "Ordine pubblico e sicurezza": 214.0,
+     "Sicurezza sociale": 341.0,
+     "Ambiente e territorio": 30.0,
+     "Trasporti": 211.0,
+     "Economia": -38.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -1878,
+      "2020": -2050,
+      "2021": -1591,
+      "2022": -1430,
+      "2023": -1066,
+      "2024": -1049
+     },
+     "steuerfuss": {
+      "2026": 119.0,
+      "2025": 117.0,
+      "2024": 114.0,
+      "2023": 114.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 119.0
+    }
+   },
+   "292": {
+    "name": "Stammheim",
+    "pop": 2947,
+    "values": {
+     "servizi_pc": 4482,
+     "debito_pc": -8309,
+     "steuerfuss": 114.0,
+     "netinv_pc": 1467.0,
+     "risultato_pc": 689.0,
+     "steuerkraft": 2677.0
+    },
+    "funk": {
+     "Amministrazione generale": 472.0,
+     "Formazione": 2746.0,
+     "Sanità": 451.0,
+     "Cultura, sport e tempo libero": 165.0,
+     "Ordine pubblico e sicurezza": 176.0,
+     "Sicurezza sociale": 447.0,
+     "Ambiente e territorio": 84.0,
+     "Trasporti": 115.0,
+     "Economia": -174.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -5456,
+      "2020": -5606,
+      "2021": -7847,
+      "2022": -8608,
+      "2023": -8676,
+      "2024": -8309
+     },
+     "steuerfuss": {
+      "2026": 112.0,
+      "2025": 114.0,
+      "2024": 114.0,
+      "2023": 114.0,
+      "2022": 119.0,
+      "2021": 124.0,
+      "2020": 124.0,
+      "2019": 124.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 112.0
+    }
+   },
+   "293": {
+    "name": "Wädenswil",
+    "pop": 25704,
+    "values": {
+     "servizi_pc": 4745,
+     "debito_pc": 180,
+     "steuerfuss": 104.0,
+     "netinv_pc": 2107.0,
+     "risultato_pc": 1639.0,
+     "steuerkraft": 4149.0
+    },
+    "funk": {
+     "Amministrazione generale": 233.0,
+     "Formazione": 2503.0,
+     "Sanità": 468.0,
+     "Cultura, sport e tempo libero": 191.0,
+     "Ordine pubblico e sicurezza": 232.0,
+     "Sicurezza sociale": 862.0,
+     "Ambiente e territorio": 137.0,
+     "Trasporti": 249.0,
+     "Economia": -130.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -23,
+      "2020": 504,
+      "2021": 680,
+      "2022": 520,
+      "2023": 120,
+      "2024": 180
+     },
+     "steuerfuss": {
+      "2026": 102.0,
+      "2025": 103.0,
+      "2024": 104.0,
+      "2023": 105.0,
+      "2022": 105.0,
+      "2021": 105.0,
+      "2020": 104.0,
+      "2019": 104.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 102.0
+    }
+   },
+   "294": {
+    "name": "Elgg",
+    "pop": 5175,
+    "values": {
+     "servizi_pc": 4860,
+     "debito_pc": -3489,
+     "steuerfuss": 119.0,
+     "netinv_pc": 856.0,
+     "risultato_pc": 613.0,
+     "steuerkraft": 2646.0
+    },
+    "funk": {
+     "Amministrazione generale": 463.0,
+     "Formazione": 2626.0,
+     "Sanità": 463.0,
+     "Cultura, sport e tempo libero": 180.0,
+     "Ordine pubblico e sicurezza": 261.0,
+     "Sicurezza sociale": 612.0,
+     "Ambiente e territorio": 112.0,
+     "Trasporti": 218.0,
+     "Economia": -75.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -2657,
+      "2020": -3039,
+      "2021": -3395,
+      "2022": -3176,
+      "2023": -3089,
+      "2024": -3489
+     },
+     "steuerfuss": {
+      "2026": 119.0,
+      "2025": 121.0,
+      "2024": 119.0,
+      "2023": 115.0,
+      "2022": 115.0,
+      "2021": 117.0,
+      "2020": 117.0,
+      "2019": 117.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 119.0
+    }
+   },
+   "295": {
+    "name": "Horgen",
+    "pop": 24549,
+    "values": {
+     "servizi_pc": 5003,
+     "debito_pc": 99,
+     "steuerfuss": 90.0,
+     "netinv_pc": 888.0,
+     "risultato_pc": 169.0,
+     "steuerkraft": 5569.0
+    },
+    "funk": {
+     "Amministrazione generale": 454.0,
+     "Formazione": 2413.0,
+     "Sanità": 500.0,
+     "Cultura, sport e tempo libero": 186.0,
+     "Ordine pubblico e sicurezza": 239.0,
+     "Sicurezza sociale": 985.0,
+     "Ambiente e territorio": 73.0,
+     "Trasporti": 316.0,
+     "Economia": -163.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -446,
+      "2020": -372,
+      "2021": 279,
+      "2022": -39,
+      "2023": -207,
+      "2024": 99
+     },
+     "steuerfuss": {
+      "2026": 90.0,
+      "2025": 90.0,
+      "2024": 90.0,
+      "2023": 90.0,
+      "2022": 90.0,
+      "2021": 87.0,
+      "2020": 87.0,
+      "2019": 84.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 90.0
+    }
+   },
+   "296": {
+    "name": "Illnau-Effretikon",
+    "pop": 17756,
+    "values": {
+     "servizi_pc": 4688,
+     "debito_pc": 1574,
+     "steuerfuss": 110.0,
+     "netinv_pc": 1167.0,
+     "risultato_pc": -86.0,
+     "steuerkraft": 2545.0
+    },
+    "funk": {
+     "Amministrazione generale": 332.0,
+     "Formazione": 2383.0,
+     "Sanità": 554.0,
+     "Cultura, sport e tempo libero": 175.0,
+     "Ordine pubblico e sicurezza": 153.0,
+     "Sicurezza sociale": 705.0,
+     "Ambiente e territorio": 118.0,
+     "Trasporti": 247.0,
+     "Economia": 21.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 5,
+      "2020": -391,
+      "2021": 117,
+      "2022": 473,
+      "2023": 789,
+      "2024": 1574
+     },
+     "steuerfuss": {
+      "2026": 113.0,
+      "2025": 113.0,
+      "2024": 110.0,
+      "2023": 110.0,
+      "2022": 110.0,
+      "2021": 110.0,
+      "2020": 110.0,
+      "2019": 113.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 113.0
+    }
+   },
+   "297": {
+    "name": "Bauma",
+    "pop": 5112,
+    "values": {
+     "servizi_pc": 5838,
+     "debito_pc": 996,
+     "steuerfuss": 120.0,
+     "netinv_pc": 1057.0,
+     "risultato_pc": 170.0,
+     "steuerkraft": 2239.0
+    },
+    "funk": {
+     "Amministrazione generale": 1195.0,
+     "Formazione": 2570.0,
+     "Sanità": 508.0,
+     "Cultura, sport e tempo libero": 348.0,
+     "Ordine pubblico e sicurezza": 221.0,
+     "Sicurezza sociale": 649.0,
+     "Ambiente e territorio": 186.0,
+     "Trasporti": 263.0,
+     "Economia": -102.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": 2752,
+      "2020": 1666,
+      "2021": 1184,
+      "2022": 898,
+      "2023": 1022,
+      "2024": 996
+     },
+     "steuerfuss": {
+      "2026": 120.0,
+      "2025": 120.0,
+      "2024": 120.0,
+      "2023": 120.0,
+      "2022": 120.0,
+      "2021": 120.0,
+      "2020": 120.0,
+      "2019": 120.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 120.0
+    }
+   },
+   "298": {
+    "name": "Wiesendangen",
+    "pop": 6798,
+    "values": {
+     "servizi_pc": 4074,
+     "debito_pc": -2883,
+     "steuerfuss": 88.0,
+     "netinv_pc": 549.0,
+     "risultato_pc": -37.0,
+     "steuerkraft": 2953.0
+    },
+    "funk": {
+     "Amministrazione generale": 223.0,
+     "Formazione": 2279.0,
+     "Sanità": 535.0,
+     "Cultura, sport e tempo libero": 235.0,
+     "Ordine pubblico e sicurezza": 187.0,
+     "Sicurezza sociale": 495.0,
+     "Ambiente e territorio": 72.0,
+     "Trasporti": 141.0,
+     "Economia": -93.0
+    },
+    "series": {
+     "debito_pc": {
+      "2019": -3517,
+      "2020": -3074,
+      "2021": -2998,
+      "2022": -3035,
+      "2023": -3256,
+      "2024": -2883
+     },
+     "steuerfuss": {
+      "2026": 86.0,
+      "2025": 88.0,
+      "2024": 88.0,
+      "2023": 88.0,
+      "2022": 90.0,
+      "2021": 90.0,
+      "2020": 90.0,
+      "2019": 90.0
+     }
+    },
+    "steuerfuss_latest": {
+     "year": 2026,
+     "value": 86.0
+    }
+   }
+  }
+ }
+}

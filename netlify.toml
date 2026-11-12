@@ -1,0 +1,15 @@
+# Sito "Spesa pubblica" di SwissData: https://spending.swissdata-platform.ch
+# Netlify compila il sito statico da web/ e pubblica la cartella web/out.
+[build]
+  base = "web"
+  command = "pnpm build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# I file con l'impronta nel nome non cambiano mai: il browser può tenerli.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

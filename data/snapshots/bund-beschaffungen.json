@@ -1,0 +1,3100 @@
+{
+ "meta": {
+  "id": "bund-beschaffungen",
+  "title": "Confederazione – appalti ≥ 50 000 CHF (riepilogo)",
+  "publisher": "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)",
+  "publisher_url": "https://www.bkb.admin.ch",
+  "source_url": "https://www.bkb.admin.ch/dam/de/sd-web/mhYFV5ZlNhYV/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202024%20DE.xlsx",
+  "landing_url": "https://opendata.swiss/de/organization/bkb",
+  "license": "opendata.swiss: Freie Nutzung (terms_open)",
+  "frequency": "annuale (settembre dell'anno successivo)",
+  "level": "bund",
+  "unit": "CHF (IVA inclusa)",
+  "data_date": "2021–2024",
+  "published_at": null,
+  "retrieved_at": "2026-09-09T09:21:33+00:00",
+  "checked_at": "2026-09-09T09:21:33+00:00",
+  "sha256": null,
+  "notes": "Il dataset 'Beschaffungen 2024' su opendata.swiss contiene i contratti 2023 (l'anno del titolo è l'anno di pubblicazione).",
+  "coverage": "38103 contratti, 11741 fornitori, 29.8 mld CHF in 4 anni",
+  "generated_at": "2026-11-12T10:18:24+00:00"
+ },
+ "data": {
+  "years": {
+   "2021": {
+    "total_chf": 5689029524,
+    "n": 9400,
+    "n_suppliers": 4452,
+    "identical_rows": {
+     "n": 64,
+     "chf": 17207103
+    },
+    "late_additions": {
+     "n": 0,
+     "chf_added": 0
+    },
+    "largest": {
+     "supplier": "ARGE Marti Brienzersee",
+     "object": "Bauten Nationalstrassen, Bauleistungen (Werkverträge)",
+     "chf": 186295897
+    },
+    "by_department": [
+     {
+      "name": "UVEK",
+      "chf": 2155114675,
+      "n": 1949
+     },
+     {
+      "name": "VBS",
+      "chf": 2116566873,
+      "n": 3959
+     },
+     {
+      "name": "EFD",
+      "chf": 827041772,
+      "n": 1895
+     },
+     {
+      "name": "EDI",
+      "chf": 155739804,
+      "n": 547
+     },
+     {
+      "name": "EDA",
+      "chf": 152784072,
+      "n": 422
+     },
+     {
+      "name": "WBF",
+      "chf": 149442545,
+      "n": 320
+     },
+     {
+      "name": "EJPD",
+      "chf": 98614342,
+      "n": 214
+     },
+     {
+      "name": "PARL, BR, BK",
+      "chf": 33725441,
+      "n": 94
+     }
+    ],
+    "by_procedure": [
+     {
+      "name": "Offenes Verfahren",
+      "chf": 3131652218,
+      "n": 2756
+     },
+     {
+      "name": "Freihändiges Verfahren",
+      "chf": 1513135807,
+      "n": 5242
+     },
+     {
+      "name": "Einladungsverfahren",
+      "chf": 686860154,
+      "n": 1144
+     },
+     {
+      "name": "Selektives Verfahren",
+      "chf": 357381345,
+      "n": 258
+     }
+    ],
+    "top_suppliers": [
+     {
+      "name": "ARGE Marti Brienzersee",
+      "chf": 204501220,
+      "n": 3
+     },
+     {
+      "name": "ARGE Stadtautobahn",
+      "chf": 177831159,
+      "n": 2
+     },
+     {
+      "name": "Swisscom (Schweiz) AG",
+      "chf": 118196958,
+      "n": 64
+     },
+     {
+      "name": "ARGE secondo tubo",
+      "chf": 93155024,
+      "n": 1
+     },
+     {
+      "name": "Thales LAS France SAS",
+      "chf": 85721979,
+      "n": 2
+     },
+     {
+      "name": "RUAG Simulation & Training AG",
+      "chf": 83684240,
+      "n": 56
+     },
+     {
+      "name": "Paul Boyé Technologies",
+      "chf": 81980234,
+      "n": 3
+     },
+     {
+      "name": "Consorzio Cunicolo Gottardo (CCG)",
+      "chf": 78856088,
+      "n": 1
+     },
+     {
+      "name": "ARGE HUW",
+      "chf": 76892507,
+      "n": 3
+     },
+     {
+      "name": "ARGE PUN",
+      "chf": 72826038,
+      "n": 1
+     },
+     {
+      "name": "RUAG Ammotec AG",
+      "chf": 71708172,
+      "n": 8
+     },
+     {
+      "name": "SAP (Schweiz) AG Datenverarbeitung",
+      "chf": 68327307,
+      "n": 12
+     },
+     {
+      "name": "RUAG AG Bereich Neo Services",
+      "chf": 66608303,
+      "n": 96
+     },
+     {
+      "name": "Thales Suisse SA Defence & Homeland Security",
+      "chf": 52499634,
+      "n": 13
+     },
+     {
+      "name": "PORR SUISSE AG",
+      "chf": 51065862,
+      "n": 3
+     },
+     {
+      "name": "PILATUS Flugzeugwerke AG",
+      "chf": 50249877,
+      "n": 11
+     },
+     {
+      "name": "ESRI Schweiz AG",
+      "chf": 47573282,
+      "n": 4
+     },
+     {
+      "name": "ARGE Urschwyz 1",
+      "chf": 47279280,
+      "n": 2
+     },
+     {
+      "name": "AWK Group AG",
+      "chf": 45367759,
+      "n": 97
+     },
+     {
+      "name": "Consortium CUYC",
+      "chf": 43078164,
+      "n": 1
+     },
+     {
+      "name": "Atos AG",
+      "chf": 38854023,
+      "n": 48
+     },
+     {
+      "name": "Implenia Schweiz AG",
+      "chf": 38749177,
+      "n": 11
+     },
+     {
+      "name": "ARGE ABA N2",
+      "chf": 38579161,
+      "n": 4
+     },
+     {
+      "name": "Rheinmetall Waffe Munition GmbH",
+      "chf": 37487450,
+      "n": 1
+     },
+     {
+      "name": "Consortium N5 Lot Ouest",
+      "chf": 36309281,
+      "n": 1
+     },
+     {
+      "name": "Consorzio CS Campaccio 202",
+      "chf": 34786446,
+      "n": 2
+     },
+     {
+      "name": "Saab Bofors Dynamics Switzerland Ltd",
+      "chf": 31592103,
+      "n": 7
+     },
+     {
+      "name": "RUAG AG Bereich Military Aviation",
+      "chf": 29731477,
+      "n": 44
+     },
+     {
+      "name": "TotalEnergies Aviation Suisse SA",
+      "chf": 28513428,
+      "n": 6
+     },
+     {
+      "name": "adesso Schweiz AG Zweigniederlassung Bern",
+      "chf": 27710435,
+      "n": 11
+     },
+     {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "chf": 27303121,
+      "n": 101
+     },
+     {
+      "name": "Kongsberg Defence and Aerospace AS Business area Kongsberg Protech Systems",
+      "chf": 27025880,
+      "n": 23
+     },
+     {
+      "name": "Marti AG Solothurn Bauunternehmung, Kieswerk",
+      "chf": 26050174,
+      "n": 5
+     },
+     {
+      "name": "Consorzio CMS Giornico",
+      "chf": 23473215,
+      "n": 1
+     },
+     {
+      "name": "Frutiger AG",
+      "chf": 22776368,
+      "n": 10
+     },
+     {
+      "name": "Implenia Suisse SA",
+      "chf": 22543624,
+      "n": 4
+     },
+     {
+      "name": "ITV Consult AG",
+      "chf": 22507361,
+      "n": 1
+     },
+     {
+      "name": "Groupement ESCIENT",
+      "chf": 22185446,
+      "n": 2
+     },
+     {
+      "name": "Elisra Electronic Systems Ltd.",
+      "chf": 21201685,
+      "n": 2
+     },
+     {
+      "name": "Business IT AG",
+      "chf": 20802414,
+      "n": 30
+     },
+     {
+      "name": "RUAG AG Bereich Land Systems",
+      "chf": 20060457,
+      "n": 35
+     },
+     {
+      "name": "Honegger AG",
+      "chf": 20037034,
+      "n": 94
+     },
+     {
+      "name": "IBM Schweiz AG",
+      "chf": 19475467,
+      "n": 18
+     },
+     {
+      "name": "ti&m AG",
+      "chf": 19471556,
+      "n": 15
+     },
+     {
+      "name": "Elbit Systems C4I and Cyber Division",
+      "chf": 18984900,
+      "n": 2
+     },
+     {
+      "name": "MEDGATE AG",
+      "chf": 18650000,
+      "n": 3
+     },
+     {
+      "name": "Rosenbauer Schweiz AG",
+      "chf": 18325005,
+      "n": 4
+     },
+     {
+      "name": "NTT DATA Business Solutions AG Zweigniederlassung Bern",
+      "chf": 17922589,
+      "n": 27
+     },
+     {
+      "name": "Raytheon Missiles & Defense",
+      "chf": 17795457,
+      "n": 1
+     },
+     {
+      "name": "trueIT GmbH",
+      "chf": 17405289,
+      "n": 4
+     }
+    ],
+    "top_units": [
+     {
+      "name": "NAF",
+      "chf": 1964102970,
+      "n": 1422
+     },
+     {
+      "name": "V",
+      "chf": 1569274677,
+      "n": 2244
+     },
+     {
+      "name": "ar Immo",
+      "chf": 463983241,
+      "n": 1392
+     },
+     {
+      "name": "BBL",
+      "chf": 406934096,
+      "n": 1158
+     },
+     {
+      "name": "BIT",
+      "chf": 312791375,
+      "n": 447
+     },
+     {
+      "name": "EDA",
+      "chf": 152784072,
+      "n": 422
+     },
+     {
+      "name": "BAG",
+      "chf": 79318944,
+      "n": 230
+     },
+     {
+      "name": "BAFU",
+      "chf": 55363248,
+      "n": 226
+     },
+     {
+      "name": "BFE",
+      "chf": 45979816,
+      "n": 109
+     },
+     {
+      "name": "BAZG",
+      "chf": 44999715,
+      "n": 128
+     },
+     {
+      "name": "SEM",
+      "chf": 43010250,
+      "n": 64
+     },
+     {
+      "name": "ISC-EJPD",
+      "chf": 41340840,
+      "n": 97
+     },
+     {
+      "name": "ALV",
+      "chf": 41071418,
+      "n": 61
+     },
+     {
+      "name": "SECO",
+      "chf": 33414935,
+      "n": 66
+     },
+     {
+      "name": "BABS",
+      "chf": 31007475,
+      "n": 60
+     },
+     {
+      "name": "BFS",
+      "chf": 30834671,
+      "n": 87
+     },
+     {
+      "name": "ISCeco",
+      "chf": 30541622,
+      "n": 42
+     },
+     {
+      "name": "BAZL",
+      "chf": 27335421,
+      "n": 21
+     },
+     {
+      "name": "armasuisse",
+      "chf": 23635496,
+      "n": 101
+     },
+     {
+      "name": "ASTRA",
+      "chf": 22526269,
+      "n": 64
+     },
+     {
+      "name": "EPA",
+      "chf": 20816730,
+      "n": 43
+     },
+     {
+      "name": "ZAS",
+      "chf": 20349920,
+      "n": 49
+     },
+     {
+      "name": "PARL",
+      "chf": 18873494,
+      "n": 53
+     },
+     {
+      "name": "ZIVI",
+      "chf": 17573723,
+      "n": 14
+     },
+     {
+      "name": "BLV",
+      "chf": 17173682,
+      "n": 69
+     },
+     {
+      "name": "BK",
+      "chf": 14851946,
+      "n": 41
+     },
+     {
+      "name": "BLW",
+      "chf": 13133454,
+      "n": 38
+     },
+     {
+      "name": "BAKOM",
+      "chf": 11176864,
+      "n": 19
+     },
+     {
+      "name": "GS-UVEK",
+      "chf": 9878002,
+      "n": 11
+     },
+     {
+      "name": "fedpol",
+      "chf": 8606446,
+      "n": 29
+     }
+    ],
+    "top_objects": [
+     {
+      "name": "Bauten Nationalstrassen, Bauleistungen (Werkverträge)",
+      "chf": 1519105772,
+      "n": 639
+     },
+     {
+      "name": "Informatikdienstleistungen im Bereich IKT, exkl. Personalverleih",
+      "chf": 683313406,
+      "n": 1105
+     },
+     {
+      "name": "Bauten Nationalstrassen, Honorare",
+      "chf": 432014548,
+      "n": 755
+     },
+     {
+      "name": "Militärische Bauten, Bauleistungen",
+      "chf": 415629260,
+      "n": 1087
+     },
+     {
+      "name": "Software und Lizenzen",
+      "chf": 191812577,
+      "n": 222
+     },
+     {
+      "name": "Waffen, Munition, Sprengstoffe",
+      "chf": 172286491,
+      "n": 88
+     },
+     {
+      "name": "Aufklärungs- und Auswertesysteme",
+      "chf": 154980957,
+      "n": 269
+     },
+     {
+      "name": "Luftfahrtsysteme",
+      "chf": 140402924,
+      "n": 83
+     },
+     {
+      "name": "Bekleidung",
+      "chf": 134090422,
+      "n": 121
+     },
+     {
+      "name": "Diverse Dienstleistungen für die öffentliche Verwaltung",
+      "chf": 120896752,
+      "n": 366
+     },
+     {
+      "name": "Fahrzeuge",
+      "chf": 118953227,
+      "n": 264
+     },
+     {
+      "name": "Beratungs- und Unterstützungs-DL im Fachbereich, exkl. IKT",
+      "chf": 113319804,
+      "n": 458
+     },
+     {
+      "name": "Umsetzung und Begleitung von Projekten der internationalen Zusammenarbeit",
+      "chf": 113238735,
+      "n": 162
+     },
+     {
+      "name": "Zivile Bauten, Bauleistungen",
+      "chf": 103853889,
+      "n": 300
+     },
+     {
+      "name": "Maschinen und Apparate",
+      "chf": 102786729,
+      "n": 193
+     },
+     {
+      "name": "Software für militärische Systeme (inkl. Lizenzen)",
+      "chf": 102495303,
+      "n": 26
+     },
+     {
+      "name": "Ausbildungssysteme (Simulatoren)",
+      "chf": 83389787,
+      "n": 45
+     },
+     {
+      "name": "Hardware",
+      "chf": 67468656,
+      "n": 200
+     },
+     {
+      "name": "Zivile Bauten, Betrieb und Instandsetzung",
+      "chf": 57836428,
+      "n": 395
+     },
+     {
+      "name": "Führungs- und Informatiksysteme",
+      "chf": 54119182,
+      "n": 90
+     },
+     {
+      "name": "Militärische Bauten, Honorare",
+      "chf": 48459129,
+      "n": 306
+     },
+     {
+      "name": "Waffen, Munition, Sprengstoffe | Maschinen und Apparate",
+      "chf": 47864955,
+      "n": 9
+     },
+     {
+      "name": "Brennstoffe",
+      "chf": 47431412,
+      "n": 18
+     },
+     {
+      "name": "Informationsarbeit",
+      "chf": 45201411,
+      "n": 81
+     },
+     {
+      "name": "Forschung, Auftragsforschung",
+      "chf": 36091779,
+      "n": 271
+     },
+     {
+      "name": "Zivile Bauten, Honorare",
+      "chf": 32340144,
+      "n": 116
+     },
+     {
+      "name": "Publikationen inkl. Agenturleistungen",
+      "chf": 31168359,
+      "n": 115
+     },
+     {
+      "name": "Managements- und Organisationsberatung inkl. Unterstützung sowie Coaching",
+      "chf": 30722064,
+      "n": 142
+     },
+     {
+      "name": "Ausbildungssysteme (Simulatoren) | Dienstleistungen für Betrieb und Unterhalt von Gütern, militärisch",
+      "chf": 29370679,
+      "n": 30
+     },
+     {
+      "name": "Aus- und Weiterbildung",
+      "chf": 29341151,
+      "n": 87
+     }
+    ],
+    "source_url": "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/06/28/dd1ea653-914e-496a-812b-4b8a71eb5e1b.xlsx",
+    "dataset_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20211",
+    "retrieved_at": "2026-09-09T09:21:15+00:00",
+    "published_at": "2024-06-28T13:34:25+00:00",
+    "sha256": "5b4b12dd4bc18746d33d7e2032fc421fad71743e9c24576797a55f12e363545f"
+   },
+   "2022": {
+    "total_chf": 13346679591,
+    "n": 10097,
+    "n_suppliers": 4857,
+    "identical_rows": {
+     "n": 26,
+     "chf": 4909376
+    },
+    "late_additions": {
+     "n": 798,
+     "chf_added": 576966352
+    },
+    "largest": {
+     "supplier": "US Air Force FMS",
+     "object": "Luftfahrtsysteme",
+     "chf": 5458656056
+    },
+    "by_department": [
+     {
+      "name": "VBS",
+      "chf": 9192837288,
+      "n": 4366
+     },
+     {
+      "name": "UVEK",
+      "chf": 2576105756,
+      "n": 1964
+     },
+     {
+      "name": "EFD",
+      "chf": 877747751,
+      "n": 2068
+     },
+     {
+      "name": "EJPD",
+      "chf": 182722040,
+      "n": 282
+     },
+     {
+      "name": "EDA",
+      "chf": 182493047,
+      "n": 428
+     },
+     {
+      "name": "WBF",
+      "chf": 170094597,
+      "n": 325
+     },
+     {
+      "name": "EDI",
+      "chf": 135566373,
+      "n": 559
+     },
+     {
+      "name": "PARL, BR, BK",
+      "chf": 29112738,
+      "n": 105
+     }
+    ],
+    "by_procedure": [
+     {
+      "name": "Einladungsverfahren",
+      "chf": 7494058161,
+      "n": 1201
+     },
+     {
+      "name": "Offenes Verfahren",
+      "chf": 3623633994,
+      "n": 2740
+     },
+     {
+      "name": "Freihändiges Verfahren",
+      "chf": 1908735013,
+      "n": 5895
+     },
+     {
+      "name": "Selektives Verfahren",
+      "chf": 320252423,
+      "n": 261
+     }
+    ],
+    "top_suppliers": [
+     {
+      "name": "US Air Force FMS",
+      "chf": 5461242351,
+      "n": 2
+     },
+     {
+      "name": "US Army FMS",
+      "chf": 1547189939,
+      "n": 1
+     },
+     {
+      "name": "Consorzio Gottardo Sud, Lotto 341 c/o Marti Tunnel AG",
+      "chf": 498868205,
+      "n": 1
+     },
+     {
+      "name": "ARGE secondo tubo c/o Implenia Schweiz AG",
+      "chf": 466808953,
+      "n": 1
+     },
+     {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "chf": 370740540,
+      "n": 126
+     },
+     {
+      "name": "Arge GUBRI c/o Anliker AGBauunternehmung",
+      "chf": 184029603,
+      "n": 1
+     },
+     {
+      "name": "Iveco Magirus AG",
+      "chf": 77119265,
+      "n": 9
+     },
+     {
+      "name": "RUAG AG Business Area Ground",
+      "chf": 71568126,
+      "n": 68
+     },
+     {
+      "name": "ARGE IPC - AmGö c/o PORR Suisse AG",
+      "chf": 62430895,
+      "n": 1
+     },
+     {
+      "name": "swenex - swiss energy exchange Ltd",
+      "chf": 58392969,
+      "n": 71
+     },
+     {
+      "name": "SwissP Defence AG",
+      "chf": 47026008,
+      "n": 10
+     },
+     {
+      "name": "AdNovum Informatik AG",
+      "chf": 43801735,
+      "n": 18
+     },
+     {
+      "name": "TSM Treuhand GmbH",
+      "chf": 42730800,
+      "n": 1
+     },
+     {
+      "name": "Saab Bofors Dynamics Switzerland Ltd",
+      "chf": 40388854,
+      "n": 8
+     },
+     {
+      "name": "RUAG AG Bereich Military Aviation",
+      "chf": 40343013,
+      "n": 33
+     },
+     {
+      "name": "Thales DIS Schweiz AG",
+      "chf": 39506564,
+      "n": 27
+     },
+     {
+      "name": "Marti Gesamtleistungen AG",
+      "chf": 39018554,
+      "n": 5
+     },
+     {
+      "name": "Swisscom (Schweiz) AG",
+      "chf": 38609795,
+      "n": 62
+     },
+     {
+      "name": "Elbit Systems Ltd Advanced Technology Center",
+      "chf": 37997571,
+      "n": 5
+     },
+     {
+      "name": "Walo Bertschinger AG",
+      "chf": 37537674,
+      "n": 11
+     },
+     {
+      "name": "IBM Schweiz AG",
+      "chf": 37517429,
+      "n": 20
+     },
+     {
+      "name": "ARGE HB Simplon c/o Frutiger AG",
+      "chf": 35422535,
+      "n": 1
+     },
+     {
+      "name": "Consortium Lac de Bienne p.a. Weibel AG",
+      "chf": 32876548,
+      "n": 1
+     },
+     {
+      "name": "Novo Business Consultants AG",
+      "chf": 31973609,
+      "n": 21
+     },
+     {
+      "name": "Eraneos Switzerland AG",
+      "chf": 31670030,
+      "n": 67
+     },
+     {
+      "name": "CONSORZIO TORRETTA c/o csc costruzioni sa",
+      "chf": 31535528,
+      "n": 1
+     },
+     {
+      "name": "Global IT AG",
+      "chf": 30682031,
+      "n": 57
+     },
+     {
+      "name": "Arge Bella c/o Infra Tunnel SA",
+      "chf": 29521108,
+      "n": 1
+     },
+     {
+      "name": "Honegger AG",
+      "chf": 28096316,
+      "n": 84
+     },
+     {
+      "name": "Business IT AG",
+      "chf": 25239667,
+      "n": 34
+     },
+     {
+      "name": "Proviande Genossenschaft",
+      "chf": 24607175,
+      "n": 1
+     },
+     {
+      "name": "RUAG AG Bereich Land Systems",
+      "chf": 23065742,
+      "n": 29
+     },
+     {
+      "name": "Saltech AG",
+      "chf": 22972443,
+      "n": 5
+     },
+     {
+      "name": "Rheinmetall Electronics GmbH",
+      "chf": 22881999,
+      "n": 11
+     },
+     {
+      "name": "Atos AG",
+      "chf": 22777171,
+      "n": 46
+     },
+     {
+      "name": "IG BoeHDZ c/o HDZ Elektroingenieure AG",
+      "chf": 21813582,
+      "n": 2
+     },
+     {
+      "name": "Etat du Valais, Service immobilier et patrimoine (SIP)",
+      "chf": 21500000,
+      "n": 1
+     },
+     {
+      "name": "Business & Decision AG",
+      "chf": 21301005,
+      "n": 22
+     },
+     {
+      "name": "Consorzio 101 Gaggio c/o csc costruzioni sa",
+      "chf": 20877631,
+      "n": 1
+     },
+     {
+      "name": "APP Unternehmensberatung AG",
+      "chf": 20676785,
+      "n": 32
+     },
+     {
+      "name": "TotalEnergies Aviation Suisse SA",
+      "chf": 20087119,
+      "n": 2
+     },
+     {
+      "name": "EBP Schweiz AG",
+      "chf": 20000290,
+      "n": 40
+     },
+     {
+      "name": "ARGE BM Guisanplatz Bern c/o Wirz AG Bauunternehmung",
+      "chf": 19211210,
+      "n": 2
+     },
+     {
+      "name": "Arge W3 c/o Weibel AG",
+      "chf": 19167650,
+      "n": 1
+     },
+     {
+      "name": "Thales Simulation & Training AG",
+      "chf": 18990090,
+      "n": 57
+     },
+     {
+      "name": "NOVO Business Consultants AG",
+      "chf": 18415415,
+      "n": 11
+     },
+     {
+      "name": "Officine Ghidoni SA",
+      "chf": 18079033,
+      "n": 8
+     },
+     {
+      "name": "Thales Suisse SA Defence & Homeland Security",
+      "chf": 17701426,
+      "n": 12
+     },
+     {
+      "name": "IG BCL BHU BSA c/o Bachofner & Partner AG",
+      "chf": 17617512,
+      "n": 2
+     },
+     {
+      "name": "Anliker AG Bauunternehmung",
+      "chf": 17392525,
+      "n": 5
+     }
+    ],
+    "top_units": [
+     {
+      "name": "V",
+      "chf": 8654305236,
+      "n": 2314
+     },
+     {
+      "name": "NAF",
+      "chf": 2441739437,
+      "n": 1457
+     },
+     {
+      "name": "BBL",
+      "chf": 449792100,
+      "n": 1326
+     },
+     {
+      "name": "ar Immo",
+      "chf": 424968805,
+      "n": 1657
+     },
+     {
+      "name": "BIT",
+      "chf": 329835055,
+      "n": 429
+     },
+     {
+      "name": "EDA",
+      "chf": 182493047,
+      "n": 428
+     },
+     {
+      "name": "SEM",
+      "chf": 77099631,
+      "n": 72
+     },
+     {
+      "name": "ISC-EJPD",
+      "chf": 75233922,
+      "n": 129
+     },
+     {
+      "name": "BLW",
+      "chf": 73173995,
+      "n": 28
+     },
+     {
+      "name": "BAG",
+      "chf": 58905459,
+      "n": 234
+     },
+     {
+      "name": "BAZG",
+      "chf": 44161282,
+      "n": 144
+     },
+     {
+      "name": "BFE",
+      "chf": 42364594,
+      "n": 123
+     },
+     {
+      "name": "BAFU",
+      "chf": 38093599,
+      "n": 212
+     },
+     {
+      "name": "SECO",
+      "chf": 34118708,
+      "n": 79
+     },
+     {
+      "name": "ALV",
+      "chf": 31847357,
+      "n": 54
+     },
+     {
+      "name": "BABS",
+      "chf": 28178555,
+      "n": 76
+     },
+     {
+      "name": "BASPO",
+      "chf": 25759915,
+      "n": 48
+     },
+     {
+      "name": "GS-VBS",
+      "chf": 21925559,
+      "n": 45
+     },
+     {
+      "name": "BLV",
+      "chf": 20652315,
+      "n": 80
+     },
+     {
+      "name": "ASTRA",
+      "chf": 20617664,
+      "n": 68
+     },
+     {
+      "name": "BK",
+      "chf": 20295468,
+      "n": 50
+     },
+     {
+      "name": "BFS",
+      "chf": 19984339,
+      "n": 54
+     },
+     {
+      "name": "armasuisse",
+      "chf": 18797427,
+      "n": 100
+     },
+     {
+      "name": "MeteoSchweiz",
+      "chf": 16985481,
+      "n": 56
+     },
+     {
+      "name": "fedpol",
+      "chf": 15254374,
+      "n": 37
+     },
+     {
+      "name": "ZAS",
+      "chf": 15081502,
+      "n": 30
+     },
+     {
+      "name": "EFV",
+      "chf": 11113200,
+      "n": 9
+     },
+     {
+      "name": "ISCeco",
+      "chf": 11044157,
+      "n": 40
+     },
+     {
+      "name": "GS-UVEK",
+      "chf": 10878880,
+      "n": 13
+     },
+     {
+      "name": "ar W+T",
+      "chf": 10378617,
+      "n": 78
+     }
+    ],
+    "top_objects": [
+     {
+      "name": "Luftfahrtsysteme",
+      "chf": 7108863977,
+      "n": 56
+     },
+     {
+      "name": "Bauten Nationalstrassen, Bauleistungen (Werkverträge)",
+      "chf": 1996359113,
+      "n": 649
+     },
+     {
+      "name": "Informatikdienstleistungen im Bereich IKT, exkl. Personalverleih",
+      "chf": 646250862,
+      "n": 1130
+     },
+     {
+      "name": "Fahrzeuge",
+      "chf": 499295324,
+      "n": 404
+     },
+     {
+      "name": "Bauten Nationalstrassen, Honorare",
+      "chf": 406838861,
+      "n": 757
+     },
+     {
+      "name": "Militärische Bauten, Bauleistungen",
+      "chf": 346559809,
+      "n": 1231
+     },
+     {
+      "name": "Waffen, Munition, Sprengstoffe",
+      "chf": 246686044,
+      "n": 118
+     },
+     {
+      "name": "Zivile Bauten, Bauleistungen",
+      "chf": 198019945,
+      "n": 487
+     },
+     {
+      "name": "Diverse Dienstleistungen für die öffentliche Verwaltung",
+      "chf": 174667848,
+      "n": 375
+     },
+     {
+      "name": "Beratungs- und Unterstützungs-DL im Fachbereich, exkl. IKT",
+      "chf": 155300540,
+      "n": 438
+     },
+     {
+      "name": "Aufklärungs- und Auswertesysteme",
+      "chf": 147618490,
+      "n": 256
+     },
+     {
+      "name": "Umsetzung und Begleitung von Projekten der internationalen Zusammenarbeit",
+      "chf": 138519806,
+      "n": 152
+     },
+     {
+      "name": "Dienstleistungen für Betrieb und Unterhalt von Gütern, militärisch",
+      "chf": 97109898,
+      "n": 261
+     },
+     {
+      "name": "Software und Lizenzen",
+      "chf": 95208462,
+      "n": 232
+     },
+     {
+      "name": "Hardware",
+      "chf": 84271234,
+      "n": 158
+     },
+     {
+      "name": "Bekleidung",
+      "chf": 81171236,
+      "n": 134
+     },
+     {
+      "name": "Maschinen und Apparate",
+      "chf": 81017033,
+      "n": 241
+     },
+     {
+      "name": "Militärische Bauten, Honorare",
+      "chf": 77755106,
+      "n": 423
+     },
+     {
+      "name": "Brennstoffe",
+      "chf": 73616869,
+      "n": 22
+     },
+     {
+      "name": "Zivile Bauten, Betrieb und Instandsetzung",
+      "chf": 56420552,
+      "n": 334
+     },
+     {
+      "name": "Sicherheitsdokumente",
+      "chf": 40995113,
+      "n": 29
+     },
+     {
+      "name": "Zivile Bauten, Honorare",
+      "chf": 40695390,
+      "n": 150
+     },
+     {
+      "name": "Forschung, Auftragsforschung",
+      "chf": 34435868,
+      "n": 262
+     },
+     {
+      "name": "Führungs- und Informatiksysteme",
+      "chf": 33099863,
+      "n": 89
+     },
+     {
+      "name": "Ausbildungssysteme (Simulatoren)",
+      "chf": 32794351,
+      "n": 19
+     },
+     {
+      "name": "Managements- und Organisationsberatung inkl. Unterstützung sowie Coaching",
+      "chf": 31282625,
+      "n": 152
+     },
+     {
+      "name": "Medizinische Produkte und Pharmabereich",
+      "chf": 30826015,
+      "n": 50
+     },
+     {
+      "name": "Textilien",
+      "chf": 25697808,
+      "n": 35
+     },
+     {
+      "name": "Publikationen inkl. Agenturleistungen",
+      "chf": 25635878,
+      "n": 154
+     },
+     {
+      "name": "Hardware | Informatikdienstleistungen im Bereich IKT, exkl. Personalverleih",
+      "chf": 23538726,
+      "n": 29
+     }
+    ],
+    "source_url": "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/06/28/3d0a1157-63da-4e6c-b933-90dac67c45c9.xlsx",
+    "dataset_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20221",
+    "retrieved_at": "2026-09-09T09:21:16+00:00",
+    "published_at": "2024-06-28T13:35:32+00:00",
+    "sha256": "8ed4bbf5381d3356265d46d0cba02e6dbf64b12d280c2dc3fbf2925f4aad427d"
+   },
+   "2023": {
+    "total_chf": 5381075400,
+    "n": 9557,
+    "n_suppliers": 4392,
+    "identical_rows": {
+     "n": 41,
+     "chf": 14132512
+    },
+    "late_additions": {
+     "n": 981,
+     "chf_added": 605590499
+    },
+    "largest": {
+     "supplier": "US Army FMS",
+     "object": "Luftfahrtsysteme",
+     "chf": 234880964
+    },
+    "by_department": [
+     {
+      "name": "VBS",
+      "chf": 2025684797,
+      "n": 4122
+     },
+     {
+      "name": "UVEK",
+      "chf": 1815147975,
+      "n": 1851
+     },
+     {
+      "name": "EFD",
+      "chf": 872939116,
+      "n": 1931
+     },
+     {
+      "name": "EDA",
+      "chf": 201238009,
+      "n": 418
+     },
+     {
+      "name": "EDI",
+      "chf": 160387290,
+      "n": 590
+     },
+     {
+      "name": "EJPD",
+      "chf": 142632097,
+      "n": 248
+     },
+     {
+      "name": "WBF",
+      "chf": 128999977,
+      "n": 308
+     },
+     {
+      "name": "PARL, BR, BK",
+      "chf": 34046137,
+      "n": 89
+     }
+    ],
+    "by_procedure": [
+     {
+      "name": "Offenes Verfahren",
+      "chf": 2883894969,
+      "n": 2734
+     },
+     {
+      "name": "Freihändiges Verfahren",
+      "chf": 1482624277,
+      "n": 5520
+     },
+     {
+      "name": "Einladungsverfahren",
+      "chf": 703404455,
+      "n": 1043
+     },
+     {
+      "name": "Selektives Verfahren",
+      "chf": 311151698,
+      "n": 260
+     }
+    ],
+    "top_suppliers": [
+     {
+      "name": "US Army FMS",
+      "chf": 234880964,
+      "n": 1
+     },
+     {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "chf": 169776233,
+      "n": 137
+     },
+     {
+      "name": "mediatonic SA",
+      "chf": 112008000,
+      "n": 1
+     },
+     {
+      "name": "Consorzio CasCa",
+      "chf": 93547428,
+      "n": 1
+     },
+     {
+      "name": "Consortium Vennes-Chexbres TP4",
+      "chf": 88827139,
+      "n": 1
+     },
+     {
+      "name": "Implenia Schweiz AG",
+      "chf": 71125040,
+      "n": 12
+     },
+     {
+      "name": "RUAG AG Business Area Ground",
+      "chf": 64898997,
+      "n": 58
+     },
+     {
+      "name": "swenex - swiss energy exchange Ltd",
+      "chf": 63110191,
+      "n": 34
+     },
+     {
+      "name": "Swisscom (Schweiz) AG",
+      "chf": 58846723,
+      "n": 71
+     },
+     {
+      "name": "Consorzio NUBE 101",
+      "chf": 58737685,
+      "n": 2
+     },
+     {
+      "name": "Eviden AG",
+      "chf": 57506097,
+      "n": 61
+     },
+     {
+      "name": "AEM T202",
+      "chf": 55429229,
+      "n": 1
+     },
+     {
+      "name": "Elbit Systems Ltd Advanced Technology Center",
+      "chf": 55147105,
+      "n": 5
+     },
+     {
+      "name": "Consortium TP3",
+      "chf": 54834104,
+      "n": 1
+     },
+     {
+      "name": "ARGE URSCHWYZ - Seedorf",
+      "chf": 46227708,
+      "n": 1
+     },
+     {
+      "name": "SwissP Defence AG",
+      "chf": 42778509,
+      "n": 8
+     },
+     {
+      "name": "Consortium Chauderon-Criblette",
+      "chf": 39105870,
+      "n": 1
+     },
+     {
+      "name": "Saltech AG",
+      "chf": 35343915,
+      "n": 9
+     },
+     {
+      "name": "Axpo Systems AG",
+      "chf": 34068382,
+      "n": 7
+     },
+     {
+      "name": "Innovation Process Technology AG",
+      "chf": 32579677,
+      "n": 17
+     },
+     {
+      "name": "ARGE-RoadTEC SWOKA.071",
+      "chf": 32199534,
+      "n": 1
+     },
+     {
+      "name": "Orange Business Digital Switzerland AG",
+      "chf": 30379595,
+      "n": 18
+     },
+     {
+      "name": "adesso Schweiz AG, Zweigniederlassung Bern",
+      "chf": 27967026,
+      "n": 17
+     },
+     {
+      "name": "Thales DIS Schweiz AG",
+      "chf": 27808656,
+      "n": 33
+     },
+     {
+      "name": "BUSINESS IT AG",
+      "chf": 26650460,
+      "n": 54
+     },
+     {
+      "name": "ARGE EL-TECH Los 1",
+      "chf": 26280633,
+      "n": 1
+     },
+     {
+      "name": "KIBAG Bauleistungen AG",
+      "chf": 26030221,
+      "n": 3
+     },
+     {
+      "name": "TotalEnergies Aviation Suisse SA",
+      "chf": 24975768,
+      "n": 8
+     },
+     {
+      "name": "ARGE F4 TOHA",
+      "chf": 24373755,
+      "n": 1
+     },
+     {
+      "name": "RUAG AG Bereich Military Aviation",
+      "chf": 23917596,
+      "n": 25
+     },
+     {
+      "name": "Consortium Matran Jonction 1",
+      "chf": 23659331,
+      "n": 1
+     },
+     {
+      "name": "NOVO Business Consultants AG",
+      "chf": 22996007,
+      "n": 19
+     },
+     {
+      "name": "SAP (Schweiz) AG",
+      "chf": 22817583,
+      "n": 10
+     },
+     {
+      "name": "Swisscontact, Schweizerische Stiftung für technische Entwicklungszusammenarbeit",
+      "chf": 22761657,
+      "n": 10
+     },
+     {
+      "name": "Eraneos Switzerland AG",
+      "chf": 22668966,
+      "n": 70
+     },
+     {
+      "name": "IBM Schweiz AG",
+      "chf": 22411423,
+      "n": 12
+     },
+     {
+      "name": "Thales Simulation & Training AG",
+      "chf": 22170293,
+      "n": 54
+     },
+     {
+      "name": "Wilhelm AG Bern",
+      "chf": 22005431,
+      "n": 62
+     },
+     {
+      "name": "ARGE Rheintal",
+      "chf": 21846746,
+      "n": 1
+     },
+     {
+      "name": "Yunex AG",
+      "chf": 21667511,
+      "n": 9
+     },
+     {
+      "name": "PORR SUISSE AG",
+      "chf": 21634052,
+      "n": 5
+     },
+     {
+      "name": "ti&m AG",
+      "chf": 21067089,
+      "n": 32
+     },
+     {
+      "name": "Rheinmetall Waffe Munition GmbH",
+      "chf": 20936248,
+      "n": 2
+     },
+     {
+      "name": "Post CH AG",
+      "chf": 20567295,
+      "n": 9
+     },
+     {
+      "name": "PILATUS Flugzeugwerke AG",
+      "chf": 20102246,
+      "n": 15
+     },
+     {
+      "name": "SPIE ICS AG",
+      "chf": 19682402,
+      "n": 40
+     },
+     {
+      "name": "Iveco Magirus AG",
+      "chf": 19049579,
+      "n": 3
+     },
+     {
+      "name": "HELVETAS Swiss Intercooperation",
+      "chf": 18979764,
+      "n": 10
+     },
+     {
+      "name": "Kongsberg Defence and Aerospace AS Business area Kongsberg Protech Systems",
+      "chf": 18786269,
+      "n": 35
+     },
+     {
+      "name": "BearingPoint AG",
+      "chf": 18566633,
+      "n": 4
+     }
+    ],
+    "top_units": [
+     {
+      "name": "NAF",
+      "chf": 1571143780,
+      "n": 1401
+     },
+     {
+      "name": "V",
+      "chf": 1516029793,
+      "n": 2236
+     },
+     {
+      "name": "BBL",
+      "chf": 404673935,
+      "n": 1242
+     },
+     {
+      "name": "ar Immo",
+      "chf": 399619568,
+      "n": 1505
+     },
+     {
+      "name": "BIT",
+      "chf": 363680406,
+      "n": 405
+     },
+     {
+      "name": "EDA",
+      "chf": 201238009,
+      "n": 418
+     },
+     {
+      "name": "BFE",
+      "chf": 150956398,
+      "n": 110
+     },
+     {
+      "name": "ISC-EJPD",
+      "chf": 71828215,
+      "n": 121
+     },
+     {
+      "name": "BAG",
+      "chf": 68389114,
+      "n": 256
+     },
+     {
+      "name": "SEM",
+      "chf": 47182844,
+      "n": 56
+     },
+     {
+      "name": "BAFU",
+      "chf": 46959639,
+      "n": 192
+     },
+     {
+      "name": "BABS",
+      "chf": 46696589,
+      "n": 73
+     },
+     {
+      "name": "BAZG",
+      "chf": 42975743,
+      "n": 143
+     },
+     {
+      "name": "SECO",
+      "chf": 37886501,
+      "n": 63
+     },
+     {
+      "name": "swisstopo",
+      "chf": 28348348,
+      "n": 77
+     },
+     {
+      "name": "MeteoSchweiz",
+      "chf": 24783536,
+      "n": 81
+     },
+     {
+      "name": "ZIVI",
+      "chf": 21670872,
+      "n": 10
+     },
+     {
+      "name": "BFS",
+      "chf": 21163157,
+      "n": 70
+     },
+     {
+      "name": "BK",
+      "chf": 20845604,
+      "n": 38
+     },
+     {
+      "name": "EPA",
+      "chf": 20079779,
+      "n": 42
+     },
+     {
+      "name": "BLW",
+      "chf": 19585568,
+      "n": 46
+     },
+     {
+      "name": "fedpol",
+      "chf": 17000658,
+      "n": 38
+     },
+     {
+      "name": "ALV",
+      "chf": 16000281,
+      "n": 44
+     },
+     {
+      "name": "ASTRA",
+      "chf": 15965725,
+      "n": 46
+     },
+     {
+      "name": "BLV",
+      "chf": 13873638,
+      "n": 59
+     },
+     {
+      "name": "armasuisse",
+      "chf": 13573570,
+      "n": 94
+     },
+     {
+      "name": "PARL",
+      "chf": 13200534,
+      "n": 51
+     },
+     {
+      "name": "GS-EDI",
+      "chf": 12819633,
+      "n": 11
+     },
+     {
+      "name": "ZAS",
+      "chf": 12809844,
+      "n": 22
+     },
+     {
+      "name": "ISCeco",
+      "chf": 11792838,
+      "n": 34
+     }
+    ],
+    "top_objects": [
+     {
+      "name": "Bauten Nationalstrassen, Bauleistungen (Werkverträge)",
+      "chf": 1069892165,
+      "n": 562
+     },
+     {
+      "name": "Informatikdienstleistungen im Bereich IKT, exkl. Personalverleih",
+      "chf": 670928589,
+      "n": 1044
+     },
+     {
+      "name": "Bauten Nationalstrassen, Honorare",
+      "chf": 459614977,
+      "n": 776
+     },
+     {
+      "name": "Luftfahrtsysteme",
+      "chf": 347320360,
+      "n": 90
+     },
+     {
+      "name": "Militärische Bauten, Bauleistungen",
+      "chf": 345088716,
+      "n": 1132
+     },
+     {
+      "name": "Fahrzeuge",
+      "chf": 271225073,
+      "n": 393
+     },
+     {
+      "name": "Waffen, Munition, Sprengstoffe",
+      "chf": 199666028,
+      "n": 130
+     },
+     {
+      "name": "Zivile Bauten, Bauleistungen",
+      "chf": 177368354,
+      "n": 411
+     },
+     {
+      "name": "Umsetzung und Begleitung von Projekten der internationalen Zusammenarbeit",
+      "chf": 155237257,
+      "n": 133
+     },
+     {
+      "name": "Publikationen inkl. Agenturleistungen",
+      "chf": 151304710,
+      "n": 177
+     },
+     {
+      "name": "Diverse Dienstleistungen für die öffentliche Verwaltung",
+      "chf": 140397233,
+      "n": 399
+     },
+     {
+      "name": "Aufklärungs- und Auswertesysteme",
+      "chf": 131286380,
+      "n": 262
+     },
+     {
+      "name": "Software und Lizenzen",
+      "chf": 97800099,
+      "n": 218
+     },
+     {
+      "name": "Führungs- und Informatiksysteme",
+      "chf": 92930041,
+      "n": 190
+     },
+     {
+      "name": "Brennstoffe",
+      "chf": 91071543,
+      "n": 32
+     },
+     {
+      "name": "Beratungs- und Unterstützungs-DL im Fachbereich, exkl. IKT",
+      "chf": 85953789,
+      "n": 384
+     },
+     {
+      "name": "Hardware",
+      "chf": 81682709,
+      "n": 201
+     },
+     {
+      "name": "Militärische Bauten, Honorare",
+      "chf": 54411812,
+      "n": 370
+     },
+     {
+      "name": "Bekleidung",
+      "chf": 54078849,
+      "n": 102
+     },
+     {
+      "name": "Militärische Bauten, Betrieb Immobilien",
+      "chf": 52623190,
+      "n": 132
+     },
+     {
+      "name": "Zivile Bauten, Betrieb und Instandsetzung",
+      "chf": 49303661,
+      "n": 311
+     },
+     {
+      "name": "Maschinen und Apparate",
+      "chf": 47156253,
+      "n": 166
+     },
+     {
+      "name": "IKT für die Bestandteile der Nationalstrassen",
+      "chf": 33002827,
+      "n": 20
+     },
+     {
+      "name": "Forschung, Auftragsforschung",
+      "chf": 30660591,
+      "n": 242
+     },
+     {
+      "name": "Personalverleih und temporäres Personal, exkl. Bereich IKT",
+      "chf": 30589157,
+      "n": 118
+     },
+     {
+      "name": "Medizinische Produkte und Pharmabereich",
+      "chf": 29001078,
+      "n": 77
+     },
+     {
+      "name": "Sicherheitsdokumente",
+      "chf": 26610499,
+      "n": 35
+     },
+     {
+      "name": "Zivile Bauten, Honorare",
+      "chf": 24765387,
+      "n": 98
+     },
+     {
+      "name": "Managements- und Organisationsberatung inkl. Unterstützung sowie Coaching",
+      "chf": 24623989,
+      "n": 131
+     },
+     {
+      "name": "Textilien",
+      "chf": 23183769,
+      "n": 40
+     }
+    ],
+    "source_url": "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/11/14/65a1a791-d80e-44bb-8da8-08d2e95afe9c.xlsx",
+    "dataset_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20241",
+    "retrieved_at": "2026-09-09T09:21:17+00:00",
+    "published_at": "2024-11-14T09:57:00+00:00",
+    "sha256": "a90a9cc6bad99cecbb8e30ff8caf9dc95263d98a60aafca66675012285cf1157"
+   },
+   "2024": {
+    "total_chf": 5377625335,
+    "n": 9049,
+    "n_suppliers": 4174,
+    "identical_rows": {
+     "n": 61,
+     "chf": 55002552
+    },
+    "late_additions": {
+     "n": 1177,
+     "chf_added": 489290061
+    },
+    "largest": {
+     "supplier": "Consorzio GL 202",
+     "object": "Bauten Nationalstrassen, Bauleistungen (Werkverträge)",
+     "chf": 170292084
+    },
+    "by_department": [
+     {
+      "name": "UVEK",
+      "chf": 1982849045,
+      "n": 2036
+     },
+     {
+      "name": "VBS",
+      "chf": 1555458784,
+      "n": 3409
+     },
+     {
+      "name": "EFD",
+      "chf": 965252906,
+      "n": 2048
+     },
+     {
+      "name": "EJPD",
+      "chf": 389267141,
+      "n": 233
+     },
+     {
+      "name": "WBF",
+      "chf": 164835095,
+      "n": 394
+     },
+     {
+      "name": "EDA",
+      "chf": 148854690,
+      "n": 376
+     },
+     {
+      "name": "EDI",
+      "chf": 129154984,
+      "n": 450
+     },
+     {
+      "name": "PARL, BR, BK",
+      "chf": 41952690,
+      "n": 103
+     }
+    ],
+    "by_procedure": [
+     {
+      "name": "Offenes Verfahren",
+      "chf": 3234960425,
+      "n": 2734
+     },
+     {
+      "name": "Freihändiges Verfahren",
+      "chf": 1530397333,
+      "n": 5188
+     },
+     {
+      "name": "Einladungsverfahren",
+      "chf": 405286828,
+      "n": 833
+     },
+     {
+      "name": "Selektives Verfahren",
+      "chf": 206980748,
+      "n": 294
+     }
+    ],
+    "top_suppliers": [
+     {
+      "name": "Consorzio GL 202",
+      "chf": 170292084,
+      "n": 1
+     },
+     {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "chf": 156755575,
+      "n": 141
+     },
+     {
+      "name": "ARGE MGM Le Locle",
+      "chf": 139958947,
+      "n": 1
+     },
+     {
+      "name": "ARGE Niesen",
+      "chf": 111305101,
+      "n": 2
+     },
+     {
+      "name": "ARGE Rose",
+      "chf": 111103944,
+      "n": 1
+     },
+     {
+      "name": "Caritas Schweiz",
+      "chf": 101203918,
+      "n": 5
+     },
+     {
+      "name": "swenex - swiss energy exchange Ltd",
+      "chf": 69910684,
+      "n": 35
+     },
+     {
+      "name": "Arge Conventus",
+      "chf": 68731484,
+      "n": 1
+     },
+     {
+      "name": "Berner Rechtsberatungsstelle für Menschen in Not",
+      "chf": 67000000,
+      "n": 2
+     },
+     {
+      "name": "SwissP Defence AG",
+      "chf": 61277213,
+      "n": 10
+     },
+     {
+      "name": "RUAG AG Business Area Ground",
+      "chf": 54325514,
+      "n": 39
+     },
+     {
+      "name": "Swisscom (Schweiz) AG",
+      "chf": 50398610,
+      "n": 76
+     },
+     {
+      "name": "Calag Carrosserie Langenthal AG",
+      "chf": 49809563,
+      "n": 8
+     },
+     {
+      "name": "NATRAS AG",
+      "chf": 48969147,
+      "n": 1
+     },
+     {
+      "name": "Walo Bertschinger AG Bern, Zweigniederlassung Muri b. Bern",
+      "chf": 42018672,
+      "n": 2
+     },
+     {
+      "name": "Thales Simulation & Training AG",
+      "chf": 38896925,
+      "n": 53
+     },
+     {
+      "name": "IBM Schweiz AG",
+      "chf": 36723286,
+      "n": 11
+     },
+     {
+      "name": "Eraneos Switzerland AG",
+      "chf": 36097749,
+      "n": 76
+     },
+     {
+      "name": "Hilfswerk der Evangelisch-reformierten Kirche Schweiz (HEKS)",
+      "chf": 35000000,
+      "n": 1
+     },
+     {
+      "name": "Eviden AG",
+      "chf": 34203178,
+      "n": 46
+     },
+     {
+      "name": "Eurobus welti-furrer AG",
+      "chf": 32608100,
+      "n": 6
+     },
+     {
+      "name": "Thales DIS Schweiz AG",
+      "chf": 32359014,
+      "n": 22
+     },
+     {
+      "name": "Consorzio NUBE 201",
+      "chf": 31024011,
+      "n": 1
+     },
+     {
+      "name": "Vebego AG",
+      "chf": 30914888,
+      "n": 91
+     },
+     {
+      "name": "Adnovum AG",
+      "chf": 30008329,
+      "n": 19
+     },
+     {
+      "name": "NOVO Business Consultants AG",
+      "chf": 28456362,
+      "n": 20
+     },
+     {
+      "name": "Orange Business Digital Switzerland AG",
+      "chf": 26246039,
+      "n": 18
+     },
+     {
+      "name": "ARGE EP Hagnau - Augst",
+      "chf": 26016984,
+      "n": 1
+     },
+     {
+      "name": "VOGT AG Oberdiessbach",
+      "chf": 24624788,
+      "n": 15
+     },
+     {
+      "name": "EBP Schweiz AG",
+      "chf": 24210645,
+      "n": 46
+     },
+     {
+      "name": "TotalEnergies Aviation Suisse SA",
+      "chf": 22916172,
+      "n": 4
+     },
+     {
+      "name": "Consortium TP2 VoMa Vennes-Chexbres",
+      "chf": 22892541,
+      "n": 1
+     },
+     {
+      "name": "KIBAG Bauleistungen AG",
+      "chf": 22696448,
+      "n": 7
+     },
+     {
+      "name": "Global IT AG",
+      "chf": 22618509,
+      "n": 53
+     },
+     {
+      "name": "Consortium CSC OFROU",
+      "chf": 21184491,
+      "n": 2
+     },
+     {
+      "name": "ti&m AG",
+      "chf": 21106166,
+      "n": 30
+     },
+     {
+      "name": "Sonio AG",
+      "chf": 20641191,
+      "n": 41
+     },
+     {
+      "name": "Innovation Process Technology AG",
+      "chf": 20569412,
+      "n": 12
+     },
+     {
+      "name": "integon GmbH",
+      "chf": 20399524,
+      "n": 2
+     },
+     {
+      "name": "INGE G_By_LU",
+      "chf": 20133260,
+      "n": 2
+     },
+     {
+      "name": "Elbit Systems C4I and Cyber Divisio",
+      "chf": 19385702,
+      "n": 5
+     },
+     {
+      "name": "Axpo Systems AG",
+      "chf": 19024416,
+      "n": 4
+     },
+     {
+      "name": "Jungheinrich AG",
+      "chf": 18912636,
+      "n": 1
+     },
+     {
+      "name": "Consorzio Ponte Valnit",
+      "chf": 18742290,
+      "n": 1
+     },
+     {
+      "name": "Consortium Yverdon-Arrissoules 2023",
+      "chf": 18282209,
+      "n": 2
+     },
+     {
+      "name": "ELCA Informatique SA",
+      "chf": 18098708,
+      "n": 18
+     },
+     {
+      "name": "Saab Bofors Dynamics Switzerland Ltd",
+      "chf": 17971122,
+      "n": 10
+     },
+     {
+      "name": "BUSINESS IT AG",
+      "chf": 17560641,
+      "n": 21
+     },
+     {
+      "name": "Saltech AG",
+      "chf": 17471604,
+      "n": 9
+     },
+     {
+      "name": "IG BEK",
+      "chf": 17458907,
+      "n": 1
+     }
+    ],
+    "top_units": [
+     {
+      "name": "NAF",
+      "chf": 1845388628,
+      "n": 1628
+     },
+     {
+      "name": "V",
+      "chf": 1195544156,
+      "n": 2010
+     },
+     {
+      "name": "BIT",
+      "chf": 450679224,
+      "n": 492
+     },
+     {
+      "name": "BBL",
+      "chf": 344786007,
+      "n": 1219
+     },
+     {
+      "name": "SEM",
+      "chf": 316970600,
+      "n": 64
+     },
+     {
+      "name": "ar Immo",
+      "chf": 275526532,
+      "n": 1031
+     },
+     {
+      "name": "EDA",
+      "chf": 148854690,
+      "n": 376
+     },
+     {
+      "name": "BAZG",
+      "chf": 116046436,
+      "n": 185
+     },
+     {
+      "name": "SECO",
+      "chf": 64199598,
+      "n": 94
+     },
+     {
+      "name": "ALV",
+      "chf": 54320573,
+      "n": 68
+     },
+     {
+      "name": "ISC-EJPD",
+      "chf": 54044021,
+      "n": 108
+     },
+     {
+      "name": "BAG",
+      "chf": 43682733,
+      "n": 194
+     },
+     {
+      "name": "BAFU",
+      "chf": 35278508,
+      "n": 167
+     },
+     {
+      "name": "ASTRA",
+      "chf": 32472016,
+      "n": 48
+     },
+     {
+      "name": "BK",
+      "chf": 31745174,
+      "n": 54
+     },
+     {
+      "name": "BFE",
+      "chf": 28844570,
+      "n": 83
+     },
+     {
+      "name": "BFS",
+      "chf": 27645607,
+      "n": 45
+     },
+     {
+      "name": "BABS",
+      "chf": 25458932,
+      "n": 71
+     },
+     {
+      "name": "armasuisse",
+      "chf": 20131686,
+      "n": 80
+     },
+     {
+      "name": "MeteoSchweiz",
+      "chf": 18704337,
+      "n": 48
+     },
+     {
+      "name": "BLV",
+      "chf": 15431833,
+      "n": 37
+     },
+     {
+      "name": "ESTV",
+      "chf": 15409096,
+      "n": 22
+     },
+     {
+      "name": "GS-UVEK",
+      "chf": 15281486,
+      "n": 48
+     },
+     {
+      "name": "swisstopo",
+      "chf": 15211874,
+      "n": 70
+     },
+     {
+      "name": "EPA",
+      "chf": 13860184,
+      "n": 51
+     },
+     {
+      "name": "ISCeco",
+      "chf": 11225765,
+      "n": 38
+     },
+     {
+      "name": "GS-EFD",
+      "chf": 11031960,
+      "n": 16
+     },
+     {
+      "name": "Agroscope",
+      "chf": 10536001,
+      "n": 87
+     },
+     {
+      "name": "BLW",
+      "chf": 10291514,
+      "n": 46
+     },
+     {
+      "name": "PARL",
+      "chf": 10207516,
+      "n": 49
+     }
+    ],
+    "top_objects": [
+     {
+      "name": "Bauten Nationalstrassen, Bauleistungen (Werkverträge)",
+      "chf": 1331046499,
+      "n": 666
+     },
+     {
+      "name": "Informatikdienstleistungen im Bereich IKT, exkl. Personalverleih",
+      "chf": 755836411,
+      "n": 1082
+     },
+     {
+      "name": "Bauten Nationalstrassen, Honorare",
+      "chf": 446585014,
+      "n": 874
+     },
+     {
+      "name": "Diverse Dienstleistungen für die öffentliche Verwaltung",
+      "chf": 355789931,
+      "n": 406
+     },
+     {
+      "name": "Fahrzeuge",
+      "chf": 250795594,
+      "n": 292
+     },
+     {
+      "name": "Militärische Bauten, Bauleistungen",
+      "chf": 209716932,
+      "n": 703
+     },
+     {
+      "name": "Waffen, Munition, Sprengstoffe",
+      "chf": 153428160,
+      "n": 142
+     },
+     {
+      "name": "Umsetzung und Begleitung von Projekten der internationalen Zusammenarbeit",
+      "chf": 115323595,
+      "n": 88
+     },
+     {
+      "name": "Beratungs- und Unterstützungs-DL im Fachbereich, exkl. IKT",
+      "chf": 112303718,
+      "n": 417
+     },
+     {
+      "name": "Software und Lizenzen",
+      "chf": 102598050,
+      "n": 229
+     },
+     {
+      "name": "Zivile Bauten, Bauleistungen",
+      "chf": 96581548,
+      "n": 350
+     },
+     {
+      "name": "Brennstoffe",
+      "chf": 92001147,
+      "n": 26
+     },
+     {
+      "name": "Dienstleistungen im Zusammenhang mit Personentransporten, Hotels, usw.",
+      "chf": 88304658,
+      "n": 40
+     },
+     {
+      "name": "Aufklärungs- und Auswertesysteme",
+      "chf": 85810242,
+      "n": 176
+     },
+     {
+      "name": "Hardware",
+      "chf": 85395499,
+      "n": 182
+     },
+     {
+      "name": "Zivile Bauten, Betrieb und Instandsetzung",
+      "chf": 79680456,
+      "n": 408
+     },
+     {
+      "name": "Maschinen und Apparate",
+      "chf": 71590707,
+      "n": 188
+     },
+     {
+      "name": "Führungs- und Informatiksysteme",
+      "chf": 71018010,
+      "n": 173
+     },
+     {
+      "name": "Bekleidung",
+      "chf": 69856101,
+      "n": 122
+     },
+     {
+      "name": "Militärische Bauten, Honorare",
+      "chf": 63404352,
+      "n": 326
+     },
+     {
+      "name": "IKT für die Bestandteile der Nationalstrassen",
+      "chf": 49515118,
+      "n": 26
+     },
+     {
+      "name": "Militärische Bauten, Betrieb Immobilien",
+      "chf": 45483553,
+      "n": 113
+     },
+     {
+      "name": "Zivile Bauten, Honorare",
+      "chf": 38458759,
+      "n": 138
+     },
+     {
+      "name": "Waffen, Munition, Sprengstoffe | Maschinen und Apparate",
+      "chf": 38271015,
+      "n": 16
+     },
+     {
+      "name": "Forschung, Auftragsforschung",
+      "chf": 38110278,
+      "n": 236
+     },
+     {
+      "name": "Publikationen inkl. Agenturleistungen",
+      "chf": 36068023,
+      "n": 170
+     },
+     {
+      "name": "Sicherheitsdokumente",
+      "chf": 32489955,
+      "n": 23
+     },
+     {
+      "name": "Ausbildungssysteme (Simulatoren)",
+      "chf": 30897209,
+      "n": 19
+     },
+     {
+      "name": "Aufklärungs- und Auswertesysteme | Ausbildungssysteme (Simulatoren)",
+      "chf": 29373559,
+      "n": 2
+     },
+     {
+      "name": "Hardware | Informatikdienstleistungen im Bereich IKT, exkl. Personalverleih",
+      "chf": 26521653,
+      "n": 37
+     }
+    ],
+    "source_url": "https://www.bkb.admin.ch/dam/de/sd-web/mhYFV5ZlNhYV/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202024%20DE.xlsx",
+    "dataset_url": "https://www.bkb.admin.ch/de/berichterstattung-ab-50000",
+    "retrieved_at": "2026-09-09T09:21:33+00:00",
+    "published_at": "2025-09-12T07:01:36+00:00",
+    "sha256": "5912a8a3f5b37cfae7af3f956fe02a7dd49981865deb8326457dfdd4ebcabb33"
+   }
+  },
+  "top_suppliers_all": [
+   {
+    "name": "US Air Force FMS",
+    "chf": 5461242351,
+    "n": 2
+   },
+   {
+    "name": "US Army FMS",
+    "chf": 1782070903,
+    "n": 2
+   },
+   {
+    "name": "General Dynamics European Land Systems - Mowag GmbH",
+    "chf": 724575469,
+    "n": 505
+   },
+   {
+    "name": "Consorzio Gottardo Sud, Lotto 341 c/o Marti Tunnel AG",
+    "chf": 498868205,
+    "n": 1
+   },
+   {
+    "name": "ARGE secondo tubo c/o Implenia Schweiz AG",
+    "chf": 466808953,
+    "n": 1
+   },
+   {
+    "name": "Swisscom (Schweiz) AG",
+    "chf": 266052085,
+    "n": 273
+   },
+   {
+    "name": "ARGE Marti Brienzersee",
+    "chf": 204501220,
+    "n": 3
+   },
+   {
+    "name": "swenex - swiss energy exchange Ltd",
+    "chf": 198241437,
+    "n": 146
+   },
+   {
+    "name": "RUAG AG Business Area Ground",
+    "chf": 190792637,
+    "n": 165
+   },
+   {
+    "name": "Arge GUBRI c/o Anliker AGBauunternehmung",
+    "chf": 184029603,
+    "n": 1
+   },
+   {
+    "name": "ARGE Stadtautobahn",
+    "chf": 177831159,
+    "n": 2
+   },
+   {
+    "name": "Consorzio GL 202",
+    "chf": 170292084,
+    "n": 1
+   },
+   {
+    "name": "SwissP Defence AG",
+    "chf": 151081730,
+    "n": 28
+   },
+   {
+    "name": "ARGE MGM Le Locle",
+    "chf": 139958947,
+    "n": 1
+   },
+   {
+    "name": "Implenia Schweiz AG",
+    "chf": 137539263,
+    "n": 42
+   },
+   {
+    "name": "IBM Schweiz AG",
+    "chf": 116127605,
+    "n": 61
+   },
+   {
+    "name": "mediatonic SA",
+    "chf": 112008000,
+    "n": 1
+   },
+   {
+    "name": "ARGE Niesen",
+    "chf": 111305101,
+    "n": 2
+   },
+   {
+    "name": "ARGE Rose",
+    "chf": 111103944,
+    "n": 1
+   },
+   {
+    "name": "Caritas Schweiz",
+    "chf": 108581679,
+    "n": 10
+   },
+   {
+    "name": "Thales DIS Schweiz AG",
+    "chf": 105367058,
+    "n": 87
+   },
+   {
+    "name": "Iveco Magirus AG",
+    "chf": 105284341,
+    "n": 18
+   },
+   {
+    "name": "RUAG AG Bereich Military Aviation",
+    "chf": 105239516,
+    "n": 117
+   },
+   {
+    "name": "Thales LAS France SAS",
+    "chf": 98833929,
+    "n": 17
+   },
+   {
+    "name": "Elbit Systems Ltd Advanced Technology Center",
+    "chf": 97458899,
+    "n": 14
+   },
+   {
+    "name": "TotalEnergies Aviation Suisse SA",
+    "chf": 96492487,
+    "n": 20
+   },
+   {
+    "name": "Consorzio CasCa",
+    "chf": 93547428,
+    "n": 1
+   },
+   {
+    "name": "ARGE secondo tubo",
+    "chf": 93155024,
+    "n": 1
+   },
+   {
+    "name": "Saab Bofors Dynamics Switzerland Ltd",
+    "chf": 92677333,
+    "n": 33
+   },
+   {
+    "name": "Eviden AG",
+    "chf": 91709275,
+    "n": 107
+   },
+   {
+    "name": "Eraneos Switzerland AG",
+    "chf": 90436745,
+    "n": 213
+   },
+   {
+    "name": "Consortium Vennes-Chexbres TP4",
+    "chf": 88827139,
+    "n": 1
+   },
+   {
+    "name": "Global IT AG",
+    "chf": 84341309,
+    "n": 194
+   },
+   {
+    "name": "RUAG Simulation & Training AG",
+    "chf": 83684240,
+    "n": 56
+   },
+   {
+    "name": "Paul Boyé Technologies",
+    "chf": 82233314,
+    "n": 4
+   },
+   {
+    "name": "NOVO Business Consultants AG",
+    "chf": 81353675,
+    "n": 59
+   },
+   {
+    "name": "Thales Suisse SA Defence & Homeland Security",
+    "chf": 80532818,
+    "n": 49
+   },
+   {
+    "name": "Thales Simulation & Training AG",
+    "chf": 80057308,
+    "n": 164
+   },
+   {
+    "name": "Consorzio Cunicolo Gottardo (CCG)",
+    "chf": 78856088,
+    "n": 1
+   },
+   {
+    "name": "ARGE HUW",
+    "chf": 76892507,
+    "n": 3
+   },
+   {
+    "name": "Saltech AG",
+    "chf": 76493402,
+    "n": 25
+   },
+   {
+    "name": "PILATUS Flugzeugwerke AG",
+    "chf": 75290672,
+    "n": 41
+   },
+   {
+    "name": "PORR SUISSE AG",
+    "chf": 74092138,
+    "n": 16
+   },
+   {
+    "name": "ARGE PUN",
+    "chf": 73120700,
+    "n": 2
+   },
+   {
+    "name": "Rheinmetall Waffe Munition GmbH",
+    "chf": 73029948,
+    "n": 4
+   },
+   {
+    "name": "RUAG Ammotec AG",
+    "chf": 71708172,
+    "n": 8
+   },
+   {
+    "name": "ti&m AG",
+    "chf": 71482640,
+    "n": 95
+   },
+   {
+    "name": "Berner Rechtsberatungsstelle für Menschen in Not",
+    "chf": 69197977,
+    "n": 4
+   },
+   {
+    "name": "Honegger AG",
+    "chf": 69000587,
+    "n": 315
+   },
+   {
+    "name": "Arge Conventus",
+    "chf": 68731484,
+    "n": 1
+   },
+   {
+    "name": "SAP (Schweiz) AG Datenverarbeitung",
+    "chf": 68327307,
+    "n": 12
+   },
+   {
+    "name": "Axpo Systems AG",
+    "chf": 68014396,
+    "n": 21
+   },
+   {
+    "name": "KIBAG Bauleistungen AG",
+    "chf": 67418499,
+    "n": 18
+   },
+   {
+    "name": "RUAG AG Bereich Neo Services",
+    "chf": 66608303,
+    "n": 96
+   },
+   {
+    "name": "Post CH AG",
+    "chf": 65959784,
+    "n": 40
+   },
+   {
+    "name": "EBP Schweiz AG",
+    "chf": 65415136,
+    "n": 182
+   },
+   {
+    "name": "Kongsberg Defence and Aerospace AS Business area Kongsberg Protech Systems",
+    "chf": 63048504,
+    "n": 109
+   },
+   {
+    "name": "ARGE IPC - AmGö c/o PORR Suisse AG",
+    "chf": 62430895,
+    "n": 1
+   },
+   {
+    "name": "Vebego AG",
+    "chf": 62044697,
+    "n": 240
+   },
+   {
+    "name": "Atos AG",
+    "chf": 61631193,
+    "n": 94
+   },
+   {
+    "name": "Consorzio NUBE 101",
+    "chf": 58737685,
+    "n": 2
+   },
+   {
+    "name": "Calag Carrosserie Langenthal AG",
+    "chf": 57407719,
+    "n": 32
+   },
+   {
+    "name": "Innovation Process Technology AG",
+    "chf": 57070704,
+    "n": 32
+   },
+   {
+    "name": "Orange Business Digital Switzerland AG",
+    "chf": 56625633,
+    "n": 36
+   },
+   {
+    "name": "SPIE ICS AG",
+    "chf": 55442192,
+    "n": 157
+   },
+   {
+    "name": "AEM T202",
+    "chf": 55429229,
+    "n": 1
+   },
+   {
+    "name": "Swisscontact, Schweizerische Stiftung für technische Entwicklungszusammenarbeit",
+    "chf": 55181188,
+    "n": 26
+   },
+   {
+    "name": "Consortium TP3",
+    "chf": 54834104,
+    "n": 1
+   },
+   {
+    "name": "APP Unternehmensberatung AG",
+    "chf": 54493398,
+    "n": 122
+   },
+   {
+    "name": "Agrola AG Mineralölprodukte",
+    "chf": 54244201,
+    "n": 19
+   },
+   {
+    "name": "AdNovum Informatik AG",
+    "chf": 52334672,
+    "n": 25
+   },
+   {
+    "name": "RUAG AG Bereich Land Systems",
+    "chf": 52089457,
+    "n": 103
+   },
+   {
+    "name": "Rheinmetall Electronics GmbH",
+    "chf": 52039030,
+    "n": 36
+   },
+   {
+    "name": "Walo Bertschinger AG",
+    "chf": 51957704,
+    "n": 27
+   },
+   {
+    "name": "ESRI Schweiz AG",
+    "chf": 51323621,
+    "n": 9
+   },
+   {
+    "name": "SAP (Schweiz) AG",
+    "chf": 50796657,
+    "n": 30
+   },
+   {
+    "name": "Hewlett-Packard (Schweiz) GmbH",
+    "chf": 50750778,
+    "n": 65
+   },
+   {
+    "name": "Mercedes-Benz Schweiz AG",
+    "chf": 50710627,
+    "n": 95
+   },
+   {
+    "name": "Novo Business Consultants AG",
+    "chf": 48973285,
+    "n": 36
+   },
+   {
+    "name": "NATRAS AG",
+    "chf": 48969147,
+    "n": 1
+   },
+   {
+    "name": "SIG SAUER AG",
+    "chf": 48951740,
+    "n": 131
+   },
+   {
+    "name": "ARGE Urschwyz 1",
+    "chf": 47279280,
+    "n": 2
+   },
+   {
+    "name": "BUSINESS IT AG",
+    "chf": 46895049,
+    "n": 94
+   },
+   {
+    "name": "Rexult AG",
+    "chf": 46467425,
+    "n": 95
+   },
+   {
+    "name": "ARGE URSCHWYZ - Seedorf",
+    "chf": 46441205,
+    "n": 2
+   },
+   {
+    "name": "Business IT AG",
+    "chf": 46042081,
+    "n": 64
+   },
+   {
+    "name": "AWK Group AG",
+    "chf": 45576078,
+    "n": 99
+   },
+   {
+    "name": "Frutiger AG",
+    "chf": 45399134,
+    "n": 39
+   },
+   {
+    "name": "Adnovum AG",
+    "chf": 45217627,
+    "n": 39
+   },
+   {
+    "name": "HP Schweiz GmbH",
+    "chf": 44355740,
+    "n": 20
+   },
+   {
+    "name": "Consortium CUYC",
+    "chf": 43078164,
+    "n": 1
+   },
+   {
+    "name": "TSM Treuhand GmbH",
+    "chf": 42730800,
+    "n": 1
+   },
+   {
+    "name": "Ironforge Consulting AG",
+    "chf": 42716162,
+    "n": 73
+   },
+   {
+    "name": "Walo Bertschinger AG Bern, Zweigniederlassung Muri b. Bern",
+    "chf": 42320857,
+    "n": 3
+   },
+   {
+    "name": "NTT DATA Business Solutions AG Zweigniederlassung Bern",
+    "chf": 41421722,
+    "n": 55
+   },
+   {
+    "name": "Grisoni-Zaugg SA Succ. de Domdidier",
+    "chf": 40148285,
+    "n": 48
+   },
+   {
+    "name": "Marti Gesamtleistungen AG",
+    "chf": 39877222,
+    "n": 7
+   },
+   {
+    "name": "Consortium Chauderon-Criblette",
+    "chf": 39105870,
+    "n": 1
+   },
+   {
+    "name": "ARGE ABA N2",
+    "chf": 38579161,
+    "n": 4
+   },
+   {
+    "name": "Yunex AG",
+    "chf": 38290275,
+    "n": 25
+   }
+  ]
+ }
+}

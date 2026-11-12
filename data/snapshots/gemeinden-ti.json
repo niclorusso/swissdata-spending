@@ -1,0 +1,2117 @@
+{
+ "meta": {
+  "id": "gemeinden-ti",
+  "title": "Ticino – conti di tutti i Comuni, 2024",
+  "publisher": "Cantone Ticino, Sezione degli enti locali (SEL)",
+  "publisher_url": "https://www4.ti.ch/di/sel",
+  "source_url": "https://www4.ti.ch/fileadmin/DI/DI_DI/SEL/Comuni/DatiFinanziari/StatisticaFinanziaria/2024-allegato.xlsx",
+  "landing_url": "https://www4.ti.ch/di/sel/comuni/dati-finanziari/statistica-finanziaria",
+  "license": "nessuna licenza indicata dalla fonte; citazione della fonte",
+  "frequency": "annuale",
+  "level": "gemeinden",
+  "unit": "CHF",
+  "data_date": "2024",
+  "published_at": "2025-12-09T08:20:24+00:00",
+  "retrieved_at": "2026-11-12T10:21:38+00:00",
+  "checked_at": "2026-11-12T10:55:46+00:00",
+  "sha256": "51b46683fcc10e4a7c75ff9e8394063997d3c15a04e589491989bac3060236c9",
+  "notes": "I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti.",
+  "coverage": "106 Comuni ticinesi del 2024, riportati ai 100 Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatore, risorse fiscali",
+  "unmatched": [],
+  "generated_at": "2026-11-12T10:55:46+00:00"
+ },
+ "data": {
+  "year": 2024,
+  "kanton": "ti",
+  "measures": [
+   {
+    "key": "spese_pc",
+    "label": "Spese operative per abitante",
+    "unit": "chf",
+    "note": "Spese correnti del Comune nel 2024, senza investimenti"
+   },
+   {
+    "key": "debito_pc",
+    "label": "Debito netto per abitante",
+    "unit": "chf",
+    "diverging": true,
+    "note": "Debiti meno averi finanziari a fine 2024. Se negativo, il Comune ha più averi che debiti"
+   },
+   {
+    "key": "moltiplicatore",
+    "label": "Moltiplicatore d'imposta",
+    "unit": "pct",
+    "note": "Percentuale dell'imposta cantonale che il Comune preleva, 2025. Più è alta, più imposte comunali si pagano"
+   },
+   {
+    "key": "netinv_pc",
+    "label": "Investimenti netti per abitante",
+    "unit": "chf",
+    "note": "Spese per opere (strade, scuole, canalizzazioni) nel 2024, tolti i sussidi ricevuti. Se negativo, i sussidi incassati superano le spese"
+   },
+   {
+    "key": "risultato_pc",
+    "label": "Risultato d'esercizio per abitante",
+    "unit": "chf",
+    "diverging": true,
+    "note": "Ricavi meno spese nel 2024. Se negativo, è un disavanzo"
+   },
+   {
+    "key": "risorse_pc",
+    "label": "Risorse fiscali per abitante",
+    "unit": "chf",
+    "note": "Gettito fiscale per abitante nel 2022: misura la forza fiscale del Comune"
+   }
+  ],
+  "gemeinden": {
+   "5048": {
+    "name": "Acquarossa",
+    "pop": 1796,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5267,
+     "risultato_pc": -28,
+     "netinv_pc": 533,
+     "debito_pc": 8846,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3116
+    },
+    "abs": {
+     "spese": 9459890,
+     "ricavi": 9613918,
+     "netinv": 957434,
+     "debito": 15887176
+    }
+   },
+   "5141": {
+    "name": "Agno",
+    "pop": 4554,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4718,
+     "risultato_pc": 24,
+     "netinv_pc": 450,
+     "debito_pc": 4901,
+     "moltiplicatore": 84.0,
+     "risorse_pc": 3269
+    },
+    "abs": {
+     "spese": 21486593,
+     "ricavi": 21502774,
+     "netinv": 2047702,
+     "debito": 22320098
+    }
+   },
+   "5061": {
+    "name": "Airolo",
+    "pop": 1452,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6727,
+     "risultato_pc": 77,
+     "netinv_pc": 412,
+     "debito_pc": 6973,
+     "moltiplicatore": 87.0,
+     "risorse_pc": 3190
+    },
+    "abs": {
+     "spese": 9767190,
+     "ricavi": 9282752,
+     "netinv": 598434,
+     "debito": 10124600
+    }
+   },
+   "5237": {
+    "name": "Alto Malcantone",
+    "pop": 1390,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4610,
+     "risultato_pc": 127,
+     "netinv_pc": 416,
+     "debito_pc": 7349,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 3178
+    },
+    "abs": {
+     "spese": 6408384,
+     "ricavi": 6700357,
+     "netinv": 577709,
+     "debito": 10215247
+    }
+   },
+   "5143": {
+    "name": "Aranno",
+    "pop": 351,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4662,
+     "risultato_pc": 243,
+     "netinv_pc": 633,
+     "debito_pc": 8031,
+     "moltiplicatore": 92.0,
+     "risorse_pc": 2993
+    },
+    "abs": {
+     "spese": 1636302,
+     "ricavi": 1744808,
+     "netinv": 222193,
+     "debito": 2818966
+    }
+   },
+   "5001": {
+    "name": "Arbedo-Castione",
+    "pop": 5160,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4035,
+     "risultato_pc": 27,
+     "netinv_pc": 483,
+     "debito_pc": 3998,
+     "moltiplicatore": 91.0,
+     "risorse_pc": 2953
+    },
+    "abs": {
+     "spese": 20822417,
+     "ricavi": 20978473,
+     "netinv": 2493555,
+     "debito": 20631687
+    }
+   },
+   "5144": {
+    "name": "Arogno",
+    "pop": 938,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4528,
+     "risultato_pc": 124,
+     "netinv_pc": 331,
+     "debito_pc": 8565,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3247
+    },
+    "abs": {
+     "spese": 4246834,
+     "ricavi": 4422305,
+     "netinv": 310110,
+     "debito": 8033852
+    }
+   },
+   "5091": {
+    "name": "Ascona",
+    "pop": 5322,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7201,
+     "risultato_pc": 434,
+     "netinv_pc": 1107,
+     "debito_pc": 2360,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 6030
+    },
+    "abs": {
+     "spese": 38325467,
+     "ricavi": 38123557,
+     "netinv": 5891173,
+     "debito": 12562075
+    }
+   },
+   "5395": {
+    "name": "Lema",
+    "pop": 2662,
+    "water_included": true,
+    "merged_from": [
+     {
+      "name": "Astano",
+      "pop": 313,
+      "moltiplicatore": 95.0
+     },
+     {
+      "name": "Bedigliora",
+      "pop": 619,
+      "moltiplicatore": 95.0
+     },
+     {
+      "name": "Curio",
+      "pop": 587,
+      "moltiplicatore": 95.0
+     },
+     {
+      "name": "Miglieglia",
+      "pop": 293,
+      "moltiplicatore": 95.0
+     },
+     {
+      "name": "Novaggio",
+      "pop": 850,
+      "moltiplicatore": 95.0
+     }
+    ],
+    "values": {
+     "spese_pc": 4741,
+     "risultato_pc": 78,
+     "netinv_pc": 400,
+     "debito_pc": 4478,
+     "moltiplicatore": 95.0,
+     "risorse_pc": null
+    },
+    "abs": {
+     "spese": 12619278,
+     "ricavi": 12813050,
+     "netinv": 1064667,
+     "debito": 11920719
+    }
+   },
+   "5324": {
+    "name": "Avegno Gordevio",
+    "pop": 1534,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4549,
+     "risultato_pc": 88,
+     "netinv_pc": 337,
+     "debito_pc": 5306,
+     "moltiplicatore": 98.0,
+     "risorse_pc": 3184
+    },
+    "abs": {
+     "spese": 6977946,
+     "ricavi": 7155511,
+     "netinv": 516270,
+     "debito": 8139775
+    }
+   },
+   "5242": {
+    "name": "Balerna",
+    "pop": 3356,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5707,
+     "risultato_pc": -136,
+     "netinv_pc": 130,
+     "debito_pc": 2599,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 5744
+    },
+    "abs": {
+     "spese": 19154315,
+     "ricavi": 17996874,
+     "netinv": 436978,
+     "debito": 8722451
+    }
+   },
+   "5148": {
+    "name": "Bedano",
+    "pop": 1510,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4866,
+     "risultato_pc": 311,
+     "netinv_pc": 231,
+     "debito_pc": 8062,
+     "moltiplicatore": 78.0,
+     "risorse_pc": 4575
+    },
+    "abs": {
+     "spese": 7347995,
+     "ricavi": 7822059,
+     "netinv": 349400,
+     "debito": 12173765
+    }
+   },
+   "5063": {
+    "name": "Bedretto",
+    "pop": 108,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 12976,
+     "risultato_pc": 508,
+     "netinv_pc": 2443,
+     "debito_pc": 8851,
+     "moltiplicatore": 60.0,
+     "risorse_pc": 10377
+    },
+    "abs": {
+     "spese": 1401424,
+     "ricavi": 1373695,
+     "netinv": 263813,
+     "debito": 955907
+    }
+   },
+   "5002": {
+    "name": "Bellinzona",
+    "pop": 45305,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4918,
+     "risultato_pc": -43,
+     "netinv_pc": 520,
+     "debito_pc": 6367,
+     "moltiplicatore": 93.0,
+     "risorse_pc": 3077
+    },
+    "abs": {
+     "spese": 222816829,
+     "ricavi": 214284914,
+     "netinv": 23578734,
+     "debito": 288467271
+    }
+   },
+   "5281": {
+    "name": "Biasca",
+    "pop": 6201,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4547,
+     "risultato_pc": 200,
+     "netinv_pc": 1278,
+     "debito_pc": 3765,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3146
+    },
+    "abs": {
+     "spese": 28198115,
+     "ricavi": 28689060,
+     "netinv": 7922363,
+     "debito": 23344728
+    }
+   },
+   "5151": {
+    "name": "Bioggio",
+    "pop": 2801,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6703,
+     "risultato_pc": 107,
+     "netinv_pc": 472,
+     "debito_pc": 9527,
+     "moltiplicatore": 68.0,
+     "risorse_pc": 5101
+    },
+    "abs": {
+     "spese": 18774279,
+     "ricavi": 19176638,
+     "netinv": 1323250,
+     "debito": 26685644
+    }
+   },
+   "5154": {
+    "name": "Bissone",
+    "pop": 930,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6461,
+     "risultato_pc": 45,
+     "netinv_pc": 824,
+     "debito_pc": 8797,
+     "moltiplicatore": 69.0,
+     "risorse_pc": 5792
+    },
+    "abs": {
+     "spese": 6008871,
+     "ricavi": 5903202,
+     "netinv": 765990,
+     "debito": 8181285
+    }
+   },
+   "5049": {
+    "name": "Blenio",
+    "pop": 1747,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5469,
+     "risultato_pc": 93,
+     "netinv_pc": 976,
+     "debito_pc": 9726,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 2959
+    },
+    "abs": {
+     "spese": 9555175,
+     "ricavi": 9851645,
+     "netinv": 1705720,
+     "debito": 16991534
+    }
+   },
+   "5073": {
+    "name": "Giornico",
+    "pop": 1762,
+    "water_included": true,
+    "merged_from": [
+     {
+      "name": "Bodio",
+      "pop": 961,
+      "moltiplicatore": 95.0
+     },
+     {
+      "name": "Giornico",
+      "pop": 801,
+      "moltiplicatore": 95.0
+     }
+    ],
+    "values": {
+     "spese_pc": 5010,
+     "risultato_pc": 162,
+     "netinv_pc": 528,
+     "debito_pc": 3869,
+     "moltiplicatore": 95.0,
+     "risorse_pc": null
+    },
+    "abs": {
+     "spese": 8827371,
+     "ricavi": 8981652,
+     "netinv": 930690,
+     "debito": 6816482
+    }
+   },
+   "5304": {
+    "name": "Bosco Gurin",
+    "pop": 47,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 17392,
+     "risultato_pc": -2129,
+     "netinv_pc": 5131,
+     "debito_pc": 67173,
+     "moltiplicatore": 100.0,
+     "risorse_pc": 3973
+    },
+    "abs": {
+     "spese": 817403,
+     "ricavi": 772400,
+     "netinv": 241145,
+     "debito": 3157123
+    }
+   },
+   "5269": {
+    "name": "Breggia",
+    "pop": 1889,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4746,
+     "risultato_pc": -150,
+     "netinv_pc": 967,
+     "debito_pc": 13163,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3164
+    },
+    "abs": {
+     "spese": 8965835,
+     "ricavi": 8892029,
+     "netinv": 1826759,
+     "debito": 24865302
+    }
+   },
+   "5096": {
+    "name": "Brione Sopra Minusio",
+    "pop": 436,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6887,
+     "risultato_pc": 369,
+     "netinv_pc": 487,
+     "debito_pc": 10862,
+     "moltiplicatore": 78.0,
+     "risorse_pc": 5695
+    },
+    "abs": {
+     "spese": 3002633,
+     "ricavi": 2995145,
+     "netinv": 212383,
+     "debito": 4735784
+    }
+   },
+   "5097": {
+    "name": "Brissago",
+    "pop": 1619,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 8076,
+     "risultato_pc": 152,
+     "netinv_pc": 2642,
+     "debito_pc": 14416,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 5274
+    },
+    "abs": {
+     "spese": 13074472,
+     "ricavi": 12725242,
+     "netinv": 4277164,
+     "debito": 23339033
+    }
+   },
+   "5160": {
+    "name": "Brusino Arsizio",
+    "pop": 474,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5126,
+     "risultato_pc": 878,
+     "netinv_pc": 2316,
+     "debito_pc": 7147,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3771
+    },
+    "abs": {
+     "spese": 2429741,
+     "ricavi": 2456744,
+     "netinv": 1097663,
+     "debito": 3387870
+    }
+   },
+   "5161": {
+    "name": "Cademario",
+    "pop": 790,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4471,
+     "risultato_pc": 24,
+     "netinv_pc": 1251,
+     "debito_pc": 10197,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3472
+    },
+    "abs": {
+     "spese": 3532340,
+     "ricavi": 3622763,
+     "netinv": 988464,
+     "debito": 8055826
+    }
+   },
+   "5162": {
+    "name": "Cadempino",
+    "pop": 1585,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7319,
+     "risultato_pc": -1673,
+     "netinv_pc": 449,
+     "debito_pc": 3922,
+     "moltiplicatore": 70.0,
+     "risorse_pc": 332
+    },
+    "abs": {
+     "spese": 11601041,
+     "ricavi": 8460201,
+     "netinv": 711902,
+     "debito": 6216517
+    }
+   },
+   "5003": {
+    "name": "Cadenazzo",
+    "pop": 3132,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3979,
+     "risultato_pc": 94,
+     "netinv_pc": 736,
+     "debito_pc": 3727,
+     "moltiplicatore": 88.0,
+     "risorse_pc": 2729
+    },
+    "abs": {
+     "spese": 12461666,
+     "ricavi": 12583723,
+     "netinv": 2305336,
+     "debito": 11671553
+    }
+   },
+   "5307": {
+    "name": "Campo (Vallemaggia)",
+    "pop": 49,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 11160,
+     "risultato_pc": 5154,
+     "netinv_pc": 2349,
+     "debito_pc": -17318,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 2947
+    },
+    "abs": {
+     "spese": 546859,
+     "ricavi": 542504,
+     "netinv": 115088,
+     "debito": -848585
+    }
+   },
+   "5167": {
+    "name": "Canobbio",
+    "pop": 2404,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4024,
+     "risultato_pc": -45,
+     "netinv_pc": 262,
+     "debito_pc": 4363,
+     "moltiplicatore": 78.0,
+     "risorse_pc": 3779
+    },
+    "abs": {
+     "spese": 9672692,
+     "ricavi": 9604071,
+     "netinv": 629042,
+     "debito": 10488783
+    }
+   },
+   "5226": {
+    "name": "Capriasca",
+    "pop": 6717,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4682,
+     "risultato_pc": 74,
+     "netinv_pc": 420,
+     "debito_pc": 9030,
+     "moltiplicatore": 94.0,
+     "risorse_pc": 3196
+    },
+    "abs": {
+     "spese": 31450076,
+     "ricavi": 31718320,
+     "netinv": 2821672,
+     "debito": 60657349
+    }
+   },
+   "5171": {
+    "name": "Caslano",
+    "pop": 4400,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4214,
+     "risultato_pc": -12,
+     "netinv_pc": 1291,
+     "debito_pc": 6280,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3260
+    },
+    "abs": {
+     "spese": 18542923,
+     "ricavi": 18752820,
+     "netinv": 5680598,
+     "debito": 27630109
+    }
+   },
+   "5249": {
+    "name": "Castel San Pietro",
+    "pop": 2262,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6424,
+     "risultato_pc": -1294,
+     "netinv_pc": 861,
+     "debito_pc": 6425,
+     "moltiplicatore": 66.0,
+     "risorse_pc": 5623
+    },
+    "abs": {
+     "spese": 14531417,
+     "ricavi": 11366103,
+     "netinv": 1947148,
+     "debito": 14534320
+    }
+   },
+   "5397": {
+    "name": "Centovalli",
+    "pop": 1070,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5586,
+     "risultato_pc": 167,
+     "netinv_pc": 1377,
+     "debito_pc": 10401,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3015
+    },
+    "abs": {
+     "spese": 5977102,
+     "ricavi": 6101798,
+     "netinv": 1473601,
+     "debito": 11128972
+    }
+   },
+   "5309": {
+    "name": "Cerentino",
+    "pop": 37,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 11484,
+     "risultato_pc": -622,
+     "netinv_pc": 4867,
+     "debito_pc": 75074,
+     "moltiplicatore": 100.0,
+     "risorse_pc": 2439
+    },
+    "abs": {
+     "spese": 424903,
+     "ricavi": 467998,
+     "netinv": 180093,
+     "debito": 2777720
+    }
+   },
+   "5310": {
+    "name": "Cevio",
+    "pop": 1111,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5571,
+     "risultato_pc": -294,
+     "netinv_pc": 453,
+     "debito_pc": 7083,
+     "moltiplicatore": 97.0,
+     "risorse_pc": 2759
+    },
+    "abs": {
+     "spese": 6189197,
+     "ricavi": 5870562,
+     "netinv": 503485,
+     "debito": 7868975
+    }
+   },
+   "5250": {
+    "name": "Chiasso",
+    "pop": 7564,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 9605,
+     "risultato_pc": -20,
+     "netinv_pc": 899,
+     "debito_pc": 8733,
+     "moltiplicatore": 88.0,
+     "risorse_pc": 4886
+    },
+    "abs": {
+     "spese": 72650077,
+     "ricavi": 68665967,
+     "netinv": 6796274,
+     "debito": 66057067
+    }
+   },
+   "5251": {
+    "name": "Coldrerio",
+    "pop": 2834,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4078,
+     "risultato_pc": 6,
+     "netinv_pc": 441,
+     "debito_pc": 9071,
+     "moltiplicatore": 80.0,
+     "risorse_pc": 2596
+    },
+    "abs": {
+     "spese": 11556095,
+     "ricavi": 10808618,
+     "netinv": 1249151,
+     "debito": 25706375
+    }
+   },
+   "5236": {
+    "name": "Collina d'Oro",
+    "pop": 4903,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 8806,
+     "risultato_pc": 338,
+     "netinv_pc": 929,
+     "debito_pc": 2016,
+     "moltiplicatore": 60.0,
+     "risorse_pc": 10180
+    },
+    "abs": {
+     "spese": 43176635,
+     "ricavi": 44440242,
+     "netinv": 4554787,
+     "debito": 9883082
+    }
+   },
+   "5176": {
+    "name": "Comano",
+    "pop": 2186,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5200,
+     "risultato_pc": -456,
+     "netinv_pc": 429,
+     "debito_pc": 3875,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 4364
+    },
+    "abs": {
+     "spese": 11368196,
+     "ricavi": 10298731,
+     "netinv": 936899,
+     "debito": 8470210
+    }
+   },
+   "5138": {
+    "name": "Cugnasco-Gerra",
+    "pop": 2858,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4130,
+     "risultato_pc": 130,
+     "netinv_pc": 493,
+     "debito_pc": 2594,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 2935
+    },
+    "abs": {
+     "spese": 11803063,
+     "ricavi": 12221540,
+     "netinv": 1410054,
+     "debito": 7413082
+    }
+   },
+   "5180": {
+    "name": "Cureglia",
+    "pop": 1483,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4737,
+     "risultato_pc": -355,
+     "netinv_pc": 766,
+     "debito_pc": 3933,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 4447
+    },
+    "abs": {
+     "spese": 7024926,
+     "ricavi": 6553386,
+     "netinv": 1136530,
+     "debito": 5832788
+    }
+   },
+   "5071": {
+    "name": "Dalpe",
+    "pop": 185,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5593,
+     "risultato_pc": 365,
+     "netinv_pc": -39,
+     "debito_pc": 1529,
+     "moltiplicatore": 70.0,
+     "risorse_pc": 3547
+    },
+    "abs": {
+     "spese": 1034639,
+     "ricavi": 1068188,
+     "netinv": -7190,
+     "debito": 282901
+    }
+   },
+   "5072": {
+    "name": "Faido",
+    "pop": 2705,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5662,
+     "risultato_pc": 18,
+     "netinv_pc": 381,
+     "debito_pc": 6284,
+     "moltiplicatore": 94.0,
+     "risorse_pc": 2693
+    },
+    "abs": {
+     "spese": 15316773,
+     "ricavi": 15438699,
+     "netinv": 1031479,
+     "debito": 16996943
+    }
+   },
+   "5398": {
+    "name": "Gambarogno",
+    "pop": 5024,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5357,
+     "risultato_pc": -440,
+     "netinv_pc": 994,
+     "debito_pc": 9883,
+     "moltiplicatore": 87.0,
+     "risorse_pc": 3543
+    },
+    "abs": {
+     "spese": 26912780,
+     "ricavi": 24835576,
+     "netinv": 4991872,
+     "debito": 49653687
+    }
+   },
+   "5108": {
+    "name": "Gordola",
+    "pop": 4831,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4232,
+     "risultato_pc": 96,
+     "netinv_pc": 916,
+     "debito_pc": 5928,
+     "moltiplicatore": 86.0,
+     "risorse_pc": 2966
+    },
+    "abs": {
+     "spese": 20445306,
+     "ricavi": 20949759,
+     "netinv": 4423946,
+     "debito": 28638351
+    }
+   },
+   "5186": {
+    "name": "Grancia",
+    "pop": 468,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6212,
+     "risultato_pc": 634,
+     "netinv_pc": 441,
+     "debito_pc": 3227,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 8988
+    },
+    "abs": {
+     "spese": 2907022,
+     "ricavi": 3285335,
+     "netinv": 206408,
+     "debito": 1510013
+    }
+   },
+   "5187": {
+    "name": "Gravesano",
+    "pop": 1398,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4525,
+     "risultato_pc": -115,
+     "netinv_pc": 590,
+     "debito_pc": 4130,
+     "moltiplicatore": 70.0,
+     "risorse_pc": 4755
+    },
+    "abs": {
+     "spese": 6325555,
+     "ricavi": 5892730,
+     "netinv": 824655,
+     "debito": 5773454
+    }
+   },
+   "5009": {
+    "name": "Isone",
+    "pop": 404,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4432,
+     "risultato_pc": 107,
+     "netinv_pc": 378,
+     "debito_pc": 15552,
+     "moltiplicatore": 92.0,
+     "risorse_pc": 2984
+    },
+    "abs": {
+     "spese": 1790513,
+     "ricavi": 1897380,
+     "netinv": 152811,
+     "debito": 6282957
+    }
+   },
+   "5189": {
+    "name": "Lamone",
+    "pop": 1757,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5847,
+     "risultato_pc": 318,
+     "netinv_pc": 2947,
+     "debito_pc": 9066,
+     "moltiplicatore": 88.0,
+     "risorse_pc": 3698
+    },
+    "abs": {
+     "spese": 10272466,
+     "ricavi": 10868743,
+     "netinv": 5177126,
+     "debito": 15928284
+    }
+   },
+   "5112": {
+    "name": "Lavertezzo",
+    "pop": 1253,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4475,
+     "risultato_pc": 227,
+     "netinv_pc": 281,
+     "debito_pc": 2564,
+     "moltiplicatore": 100.0,
+     "risorse_pc": 3114
+    },
+    "abs": {
+     "spese": 5606690,
+     "ricavi": 5827039,
+     "netinv": 352710,
+     "debito": 3212735
+    }
+   },
+   "5323": {
+    "name": "Lavizzara",
+    "pop": 498,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7403,
+     "risultato_pc": 12,
+     "netinv_pc": -472,
+     "debito_pc": 3590,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 2784
+    },
+    "abs": {
+     "spese": 3686750,
+     "ricavi": 3666373,
+     "netinv": -234813,
+     "debito": 1787693
+    }
+   },
+   "5315": {
+    "name": "Linescio",
+    "pop": 41,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6350,
+     "risultato_pc": -598,
+     "netinv_pc": 2813,
+     "debito_pc": 9809,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 3305
+    },
+    "abs": {
+     "spese": 260350,
+     "ricavi": 247303,
+     "netinv": 115349,
+     "debito": 402159
+    }
+   },
+   "5113": {
+    "name": "Locarno",
+    "pop": 16374,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4801,
+     "risultato_pc": 55,
+     "netinv_pc": 718,
+     "debito_pc": 5169,
+     "moltiplicatore": 91.0,
+     "risorse_pc": 3336
+    },
+    "abs": {
+     "spese": 78613805,
+     "ricavi": 74390636,
+     "netinv": 11751067,
+     "debito": 84630873
+    }
+   },
+   "5115": {
+    "name": "Losone",
+    "pop": 6727,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3869,
+     "risultato_pc": 175,
+     "netinv_pc": 642,
+     "debito_pc": 3711,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 3086
+    },
+    "abs": {
+     "spese": 26024672,
+     "ricavi": 27119264,
+     "netinv": 4317071,
+     "debito": 24964554
+    }
+   },
+   "5192": {
+    "name": "Lugano",
+    "pop": 63629,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7338,
+     "risultato_pc": -32,
+     "netinv_pc": 1186,
+     "debito_pc": 10302,
+     "moltiplicatore": 78.0,
+     "risorse_pc": 6788
+    },
+    "abs": {
+     "spese": 466927681,
+     "ricavi": 432637403,
+     "netinv": 75483381,
+     "debito": 655536688
+    }
+   },
+   "5010": {
+    "name": "Lumino",
+    "pop": 1684,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3845,
+     "risultato_pc": 3,
+     "netinv_pc": 1180,
+     "debito_pc": 7769,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 3028
+    },
+    "abs": {
+     "spese": 6475319,
+     "ricavi": 6531939,
+     "netinv": 1987661,
+     "debito": 13082243
+    }
+   },
+   "5317": {
+    "name": "Maggia",
+    "pop": 2674,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4821,
+     "risultato_pc": -169,
+     "netinv_pc": 592,
+     "debito_pc": 5828,
+     "moltiplicatore": 93.0,
+     "risorse_pc": 2959
+    },
+    "abs": {
+     "spese": 12891619,
+     "ricavi": 12556377,
+     "netinv": 1584173,
+     "debito": 15584013
+    }
+   },
+   "5193": {
+    "name": "Magliaso",
+    "pop": 1622,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4385,
+     "risultato_pc": 176,
+     "netinv_pc": -37,
+     "debito_pc": 223,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 3978
+    },
+    "abs": {
+     "spese": 7111686,
+     "ricavi": 7214332,
+     "netinv": -59839,
+     "debito": 361308
+    }
+   },
+   "5194": {
+    "name": "Manno",
+    "pop": 1373,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 11200,
+     "risultato_pc": 1779,
+     "netinv_pc": 1039,
+     "debito_pc": -16149,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 10969
+    },
+    "abs": {
+     "spese": 15378102,
+     "ricavi": 17343195,
+     "netinv": 1426256,
+     "debito": -22173083
+    }
+   },
+   "5196": {
+    "name": "Massagno",
+    "pop": 6799,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4814,
+     "risultato_pc": 525,
+     "netinv_pc": 309,
+     "debito_pc": 3600,
+     "moltiplicatore": 70.0,
+     "risorse_pc": 4375
+    },
+    "abs": {
+     "spese": 32733479,
+     "ricavi": 36022206,
+     "netinv": 2097799,
+     "debito": 24474928
+    }
+   },
+   "5198": {
+    "name": "Melide",
+    "pop": 1785,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5100,
+     "risultato_pc": 59,
+     "netinv_pc": 641,
+     "debito_pc": 5481,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 4556
+    },
+    "abs": {
+     "spese": 9104222,
+     "ricavi": 8614626,
+     "netinv": 1143416,
+     "debito": 9782949
+    }
+   },
+   "5254": {
+    "name": "Mendrisio",
+    "pop": 15085,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5947,
+     "risultato_pc": 319,
+     "netinv_pc": 456,
+     "debito_pc": 5890,
+     "moltiplicatore": 79.0,
+     "risorse_pc": 5509
+    },
+    "abs": {
+     "spese": 89712370,
+     "ricavi": 90377803,
+     "netinv": 6881765,
+     "debito": 88844937
+    }
+   },
+   "5117": {
+    "name": "Mergoscia",
+    "pop": 201,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7507,
+     "risultato_pc": -830,
+     "netinv_pc": 1064,
+     "debito_pc": 13047,
+     "moltiplicatore": 100.0,
+     "risorse_pc": 3421
+    },
+    "abs": {
+     "spese": 1508944,
+     "ricavi": 1371596,
+     "netinv": 213793,
+     "debito": 2622484
+    }
+   },
+   "5199": {
+    "name": "Mezzovico-Vira",
+    "pop": 1389,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6467,
+     "risultato_pc": 7,
+     "netinv_pc": 996,
+     "debito_pc": 10271,
+     "moltiplicatore": 60.0,
+     "risorse_pc": 6406
+    },
+    "abs": {
+     "spese": 8982944,
+     "ricavi": 9045434,
+     "netinv": 1383747,
+     "debito": 14265893
+    }
+   },
+   "5118": {
+    "name": "Minusio",
+    "pop": 7321,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5258,
+     "risultato_pc": -58,
+     "netinv_pc": 588,
+     "debito_pc": 4590,
+     "moltiplicatore": 82.0,
+     "risorse_pc": 3868
+    },
+    "abs": {
+     "spese": 38493095,
+     "ricavi": 37255266,
+     "netinv": 4302908,
+     "debito": 33602524
+    }
+   },
+   "5238": {
+    "name": "Monteceneri",
+    "pop": 4729,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3989,
+     "risultato_pc": 43,
+     "netinv_pc": -102,
+     "debito_pc": 2540,
+     "moltiplicatore": 92.0,
+     "risorse_pc": 3065
+    },
+    "abs": {
+     "spese": 18863430,
+     "ricavi": 19089331,
+     "netinv": -481958,
+     "debito": 12010812
+    }
+   },
+   "5257": {
+    "name": "Morbio Inferiore",
+    "pop": 4412,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3749,
+     "risultato_pc": 311,
+     "netinv_pc": 266,
+     "debito_pc": 587,
+     "moltiplicatore": 82.0,
+     "risorse_pc": 3604
+    },
+    "abs": {
+     "spese": 16538731,
+     "ricavi": 17683287,
+     "netinv": 1175712,
+     "debito": 2589136
+    }
+   },
+   "5203": {
+    "name": "Morcote",
+    "pop": 713,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 12369,
+     "risultato_pc": 2406,
+     "netinv_pc": 2198,
+     "debito_pc": 8919,
+     "moltiplicatore": 80.0,
+     "risorse_pc": 18280
+    },
+    "abs": {
+     "spese": 8818786,
+     "ricavi": 9975021,
+     "netinv": 1567241,
+     "debito": 6359251
+    }
+   },
+   "5120": {
+    "name": "Muralto",
+    "pop": 2572,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5026,
+     "risultato_pc": 300,
+     "netinv_pc": 353,
+     "debito_pc": -611,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 4511
+    },
+    "abs": {
+     "spese": 12927220,
+     "ricavi": 12518909,
+     "netinv": 908630,
+     "debito": -1570305
+    }
+   },
+   "5205": {
+    "name": "Muzzano",
+    "pop": 805,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6504,
+     "risultato_pc": 83,
+     "netinv_pc": 1036,
+     "debito_pc": 4196,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 4434
+    },
+    "abs": {
+     "spese": 5235740,
+     "ricavi": 5235665,
+     "netinv": 834095,
+     "debito": 3377649
+    }
+   },
+   "5206": {
+    "name": "Neggio",
+    "pop": 328,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4482,
+     "risultato_pc": -77,
+     "netinv_pc": 3778,
+     "debito_pc": 12755,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 3979
+    },
+    "abs": {
+     "spese": 1470097,
+     "ricavi": 1484883,
+     "netinv": 1239148,
+     "debito": 4183596
+    }
+   },
+   "5260": {
+    "name": "Novazzano",
+    "pop": 2340,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4920,
+     "risultato_pc": 366,
+     "netinv_pc": 826,
+     "debito_pc": -272,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 5589
+    },
+    "abs": {
+     "spese": 11511780,
+     "ricavi": 12304348,
+     "netinv": 1932296,
+     "debito": -636379
+    }
+   },
+   "5136": {
+    "name": "Onsernone",
+    "pop": 663,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6830,
+     "risultato_pc": 627,
+     "netinv_pc": 641,
+     "debito_pc": 7496,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 2702
+    },
+    "abs": {
+     "spese": 4528248,
+     "ricavi": 4802178,
+     "netinv": 424799,
+     "debito": 4969985
+    }
+   },
+   "5208": {
+    "name": "Origlio",
+    "pop": 1526,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3992,
+     "risultato_pc": 38,
+     "netinv_pc": 126,
+     "debito_pc": 2573,
+     "moltiplicatore": 70.0,
+     "risorse_pc": 5164
+    },
+    "abs": {
+     "spese": 6091072,
+     "ricavi": 6137482,
+     "netinv": 191853,
+     "debito": 3926346
+    }
+   },
+   "5121": {
+    "name": "Orselina",
+    "pop": 687,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7223,
+     "risultato_pc": 254,
+     "netinv_pc": 551,
+     "debito_pc": 7455,
+     "moltiplicatore": 82.0,
+     "risorse_pc": 6161
+    },
+    "abs": {
+     "spese": 4962126,
+     "ricavi": 5005629,
+     "netinv": 378303,
+     "debito": 5121688
+    }
+   },
+   "5210": {
+    "name": "Paradiso",
+    "pop": 4853,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 9644,
+     "risultato_pc": 949,
+     "netinv_pc": 1662,
+     "debito_pc": -830,
+     "moltiplicatore": 58.0,
+     "risorse_pc": 12002
+    },
+    "abs": {
+     "spese": 46799954,
+     "ricavi": 49917731,
+     "netinv": 8067511,
+     "debito": -4027409
+    }
+   },
+   "5076": {
+    "name": "Personico",
+    "pop": 317,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6026,
+     "risultato_pc": -161,
+     "netinv_pc": 1244,
+     "debito_pc": 3065,
+     "moltiplicatore": 90.0,
+     "risorse_pc": 3038
+    },
+    "abs": {
+     "spese": 1910196,
+     "ricavi": 1843908,
+     "netinv": 394430,
+     "debito": 971535
+    }
+   },
+   "5077": {
+    "name": "Pollegio",
+    "pop": 920,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3304,
+     "risultato_pc": -34,
+     "netinv_pc": 506,
+     "debito_pc": 208,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 2614
+    },
+    "abs": {
+     "spese": 3039636,
+     "ricavi": 3020261,
+     "netinv": 465678,
+     "debito": 191328
+    }
+   },
+   "5212": {
+    "name": "Ponte Capriasca",
+    "pop": 1958,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4324,
+     "risultato_pc": 55,
+     "netinv_pc": 547,
+     "debito_pc": 3392,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3328
+    },
+    "abs": {
+     "spese": 8466316,
+     "ricavi": 8528100,
+     "netinv": 1071686,
+     "debito": 6641064
+    }
+   },
+   "5214": {
+    "name": "Porza",
+    "pop": 1717,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6315,
+     "risultato_pc": 52,
+     "netinv_pc": 408,
+     "debito_pc": -1684,
+     "moltiplicatore": 56.0,
+     "risorse_pc": 7598
+    },
+    "abs": {
+     "spese": 10843615,
+     "ricavi": 10745812,
+     "netinv": 700855,
+     "debito": -2890804
+    }
+   },
+   "5079": {
+    "name": "Quinto",
+    "pop": 1302,
+    "water_included": true,
+    "merged_from": [
+     {
+      "name": "Prato (Leventina)",
+      "pop": 376,
+      "moltiplicatore": 90.0
+     },
+     {
+      "name": "Quinto",
+      "pop": 926,
+      "moltiplicatore": 90.0
+     }
+    ],
+    "values": {
+     "spese_pc": 6457,
+     "risultato_pc": 96,
+     "netinv_pc": 865,
+     "debito_pc": 8425,
+     "moltiplicatore": 90.0,
+     "risorse_pc": null
+    },
+    "abs": {
+     "spese": 8406997,
+     "ricavi": 8365225,
+     "netinv": 1125675,
+     "debito": 10969234
+    }
+   },
+   "5216": {
+    "name": "Pura",
+    "pop": 1355,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4664,
+     "risultato_pc": -190,
+     "netinv_pc": 806,
+     "debito_pc": 8333,
+     "moltiplicatore": 87.0,
+     "risorse_pc": 3648
+    },
+    "abs": {
+     "spese": 6320058,
+     "ricavi": 6057580,
+     "netinv": 1092195,
+     "debito": 11290688
+    }
+   },
+   "5263": {
+    "name": "Riva San Vitale",
+    "pop": 2695,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4139,
+     "risultato_pc": -23,
+     "netinv_pc": 701,
+     "debito_pc": 5278,
+     "moltiplicatore": 80.0,
+     "risorse_pc": 3448
+    },
+    "abs": {
+     "spese": 11155024,
+     "ricavi": 10699544,
+     "netinv": 1887915,
+     "debito": 14224248
+    }
+   },
+   "5287": {
+    "name": "Riviera",
+    "pop": 4269,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4169,
+     "risultato_pc": -118,
+     "netinv_pc": 365,
+     "debito_pc": 5653,
+     "moltiplicatore": 95.0,
+     "risorse_pc": 3019
+    },
+    "abs": {
+     "spese": 17796277,
+     "ricavi": 17405254,
+     "netinv": 1559118,
+     "debito": 24130533
+    }
+   },
+   "5125": {
+    "name": "Ronco Sopra Ascona",
+    "pop": 522,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 11797,
+     "risultato_pc": -120,
+     "netinv_pc": 2443,
+     "debito_pc": -2485,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 8688
+    },
+    "abs": {
+     "spese": 6157780,
+     "ricavi": 5977287,
+     "netinv": 1275359,
+     "debito": -1297073
+    }
+   },
+   "5017": {
+    "name": "Sant'Antonino",
+    "pop": 2671,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4457,
+     "risultato_pc": -258,
+     "netinv_pc": 848,
+     "debito_pc": 4435,
+     "moltiplicatore": 70.0,
+     "risorse_pc": 4396
+    },
+    "abs": {
+     "spese": 11903337,
+     "ricavi": 11239019,
+     "netinv": 2265102,
+     "debito": 11845778
+    }
+   },
+   "5221": {
+    "name": "Savosa",
+    "pop": 2276,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4781,
+     "risultato_pc": 517,
+     "netinv_pc": 677,
+     "debito_pc": 1886,
+     "moltiplicatore": 75.0,
+     "risorse_pc": 5293
+    },
+    "abs": {
+     "spese": 10880503,
+     "ricavi": 11748226,
+     "netinv": 1540745,
+     "debito": 4292641
+    }
+   },
+   "5050": {
+    "name": "Serravalle",
+    "pop": 2070,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4413,
+     "risultato_pc": 97,
+     "netinv_pc": 1808,
+     "debito_pc": 8278,
+     "moltiplicatore": 93.0,
+     "risorse_pc": 3190
+    },
+    "abs": {
+     "spese": 9134823,
+     "ricavi": 9604483,
+     "netinv": 3742485,
+     "debito": 17135241
+    }
+   },
+   "5225": {
+    "name": "Sorengo",
+    "pop": 2183,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5028,
+     "risultato_pc": 483,
+     "netinv_pc": 400,
+     "debito_pc": 2371,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 6533
+    },
+    "abs": {
+     "spese": 10975803,
+     "ricavi": 12039268,
+     "netinv": 872253,
+     "debito": 5174882
+    }
+   },
+   "5266": {
+    "name": "Stabio",
+    "pop": 4522,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 6430,
+     "risultato_pc": 788,
+     "netinv_pc": 1266,
+     "debito_pc": 328,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 8439
+    },
+    "abs": {
+     "spese": 29075533,
+     "ricavi": 32099879,
+     "netinv": 5725458,
+     "debito": 1485116
+    }
+   },
+   "5131": {
+    "name": "Tenero-Contra",
+    "pop": 3393,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4309,
+     "risultato_pc": 62,
+     "netinv_pc": 1451,
+     "debito_pc": 4856,
+     "moltiplicatore": 93.0,
+     "risorse_pc": 3194
+    },
+    "abs": {
+     "spese": 14620651,
+     "ricavi": 14838725,
+     "netinv": 4923767,
+     "debito": 16474915
+    }
+   },
+   "5396": {
+    "name": "Terre di Pedemonte",
+    "pop": 2685,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 3794,
+     "risultato_pc": -89,
+     "netinv_pc": 2033,
+     "debito_pc": 2954,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3135
+    },
+    "abs": {
+     "spese": 10186013,
+     "ricavi": 9826990,
+     "netinv": 5457674,
+     "debito": 7931825
+    }
+   },
+   "5227": {
+    "name": "Torricella-Taverne",
+    "pop": 3087,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4046,
+     "risultato_pc": 27,
+     "netinv_pc": -45,
+     "debito_pc": 4517,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3115
+    },
+    "abs": {
+     "spese": 12490906,
+     "ricavi": 12528096,
+     "netinv": -139435,
+     "debito": 13945001
+    }
+   },
+   "5239": {
+    "name": "Tresa",
+    "pop": 3126,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4615,
+     "risultato_pc": -136,
+     "netinv_pc": 705,
+     "debito_pc": 4341,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3366
+    },
+    "abs": {
+     "spese": 14425221,
+     "ricavi": 13723759,
+     "netinv": 2202738,
+     "debito": 13569967
+    }
+   },
+   "5268": {
+    "name": "Vacallo",
+    "pop": 3491,
+    "water_included": false,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4143,
+     "risultato_pc": 1320,
+     "netinv_pc": 226,
+     "debito_pc": -1241,
+     "moltiplicatore": 84.0,
+     "risorse_pc": 4585
+    },
+    "abs": {
+     "spese": 14464242,
+     "ricavi": 18994692,
+     "netinv": 789478,
+     "debito": -4330652
+    }
+   },
+   "5240": {
+    "name": "Val Mara",
+    "pop": 3005,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5292,
+     "risultato_pc": 1858,
+     "netinv_pc": 1343,
+     "debito_pc": 2084,
+     "moltiplicatore": 80.0,
+     "risorse_pc": 3231
+    },
+    "abs": {
+     "spese": 15903117,
+     "ricavi": 20995812,
+     "netinv": 4037089,
+     "debito": 6261035
+    }
+   },
+   "5230": {
+    "name": "Vernate",
+    "pop": 613,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 5195,
+     "risultato_pc": 16,
+     "netinv_pc": 2593,
+     "debito_pc": 9241,
+     "moltiplicatore": 80.0,
+     "risorse_pc": 4957
+    },
+    "abs": {
+     "spese": 3184543,
+     "ricavi": 3271430,
+     "netinv": 1589391,
+     "debito": 5664574
+    }
+   },
+   "5399": {
+    "name": "Verzasca",
+    "pop": 776,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 7534,
+     "risultato_pc": -424,
+     "netinv_pc": 3355,
+     "debito_pc": 9325,
+     "moltiplicatore": 100.0,
+     "risorse_pc": 3263
+    },
+    "abs": {
+     "spese": 5846701,
+     "ricavi": 5294460,
+     "netinv": 2603731,
+     "debito": 7236026
+    }
+   },
+   "5231": {
+    "name": "Vezia",
+    "pop": 1958,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 4307,
+     "risultato_pc": -264,
+     "netinv_pc": 2034,
+     "debito_pc": 4082,
+     "moltiplicatore": 85.0,
+     "risorse_pc": 3651
+    },
+    "abs": {
+     "spese": 8432634,
+     "ricavi": 7872328,
+     "netinv": 3982609,
+     "debito": 7991731
+    }
+   },
+   "5233": {
+    "name": "Vico Morcote",
+    "pop": 408,
+    "water_included": true,
+    "merged_from": null,
+    "values": {
+     "spese_pc": 10614,
+     "risultato_pc": 1009,
+     "netinv_pc": 2742,
+     "debito_pc": 13466,
+     "moltiplicatore": 65.0,
+     "risorse_pc": 10846
+    },
+    "abs": {
+     "spese": 4330628,
+     "ricavi": 4655469,
+     "netinv": 1118703,
+     "debito": 5493950
+    }
+   }
+  }
+ }
+}

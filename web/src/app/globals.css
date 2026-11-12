@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root, [data-theme="light"] {
+  color-scheme: light;
+  --background: #f5f4ef;
+  --surface: #ffffff;
+  --surface-2: #eceae3;
+  --border: #dedbd1;
+  --foreground: #101216;
+  --muted: #4b5058;
+  --faint: #7b7f86;
+  --accent: #dc2626;
+  --accent-ink: #ffffff;
+  --accent-soft: #fee2e2;
+  /* dataviz categorical slots (validated order) */
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --s5: #e87ba4; --s6: #008300; --s7: #4a3aa7; --s8: #e34948;
+  --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #5598e7; --seq-4: #256abf; --seq-5: #184f95;
+  --grid: #e7e4dc;
+  --water: #dfe7ee;
+  /* text colour that reads on each ramp step, and the two "below zero" steps of the diverging scale */
+  --seq-ink-1: #14161a; --seq-ink-2: #14161a; --seq-ink-3: #ffffff; --seq-ink-4: #ffffff; --seq-ink-5: #ffffff;
+  --neg-1: #f6cdb6; --neg-2: #e58a5c;
+  --shadow: 0 1px 2px rgb(16 18 22 / 0.04), 0 8px 24px -12px rgb(16 18 22 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(16 18 22 / 0.05), 0 18px 40px -16px rgb(16 18 22 / 0.22);
+  --nav-bg: rgb(245 244 239 / 0.78);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Dark tokens. Used for the whole page (system setting or the switch in the header)
+   and for single dark blocks on a light page, like the opening band of the home page. */
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --background: #0e0f11; --surface: #17181b; --surface-2: #232529; --border: #303238;
+    --foreground: #f4f3ee; --muted: #c0c0b9; --faint: #8b8c88;
+    --accent: #ff6a5c; --accent-ink: #14161a; --accent-soft: #3a1c19;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    --grid: #2a2c30; --water: #1f252b;
+    --seq-1: #22344d; --seq-2: #264d80; --seq-3: #2f6fc0; --seq-4: #5b9cec; --seq-5: #b3d2fa;
+    --seq-ink-1: #ffffff; --seq-ink-2: #ffffff; --seq-ink-3: #ffffff; --seq-ink-4: #14161a; --seq-ink-5: #14161a;
+    --neg-1: #6b4433; --neg-2: #d9774a;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 40px -16px rgb(0 0 0 / 0.8);
+    --nav-bg: rgb(14 15 17 / 0.72);
+  }
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0e0f11; --surface: #17181b; --surface-2: #232529; --border: #303238;
+  --foreground: #f4f3ee; --muted: #c0c0b9; --faint: #8b8c88;
+  --accent: #ff6a5c; --accent-ink: #14161a; --accent-soft: #3a1c19;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --grid: #2a2c30; --water: #1f252b;
+  --seq-1: #22344d; --seq-2: #264d80; --seq-3: #2f6fc0; --seq-4: #5b9cec; --seq-5: #b3d2fa;
+  --seq-ink-1: #ffffff; --seq-ink-2: #ffffff; --seq-ink-3: #ffffff; --seq-ink-4: #14161a; --seq-ink-5: #14161a;
+  --neg-1: #6b4433; --neg-2: #d9774a;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 40px -16px rgb(0 0 0 / 0.8);
+  --nav-bg: rgb(14 15 17 / 0.72);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html { font-family: var(--font-sans); scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body, #app { background: var(--background); color: var(--foreground); transition: background-color 0.3s, color 0.3s; }
+.tabular { font-variant-numeric: tabular-nums; }
+a { text-underline-offset: 3px; }
+.prose-narrow p + p { margin-top: 0.75rem; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spacing: -0.028em; }
+.kicker { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 650; color: var(--accent); }
+.kicker::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 2px; background: var(--accent); }
+.eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+
+/* surfaces */
+.card { border-radius: 20px; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow); }
+.card-link { transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.2s; }
+.card-link:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); border-color: color-mix(in srgb, var(--foreground) 28%, var(--border)); }
+.tile { border-radius: 16px; border: 1px solid var(--border); background: var(--surface); padding: 1rem 1.1rem; box-shadow: var(--shadow); }
+
+/* headline figures shrink with their tile, so "85.1 mld CHF" stays on one line in a row of five */
+.stat { container-type: inline-size; }
+.stat-value { font-size: clamp(1.2rem, 11.5cqw, 2rem); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: var(--accent-ink); padding: 0.65rem 1.15rem; border-radius: 999px; font-size: 0.92rem; font-weight: 600; transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), filter 0.2s; }
+.btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+.btn:active { transform: translateY(0); }
+.btn > span[aria-hidden], .btn-ghost > span[aria-hidden] { display: inline-block; transition: transform 0.25s var(--ease); }
+.btn:hover > span[aria-hidden], .btn-ghost:hover > span[aria-hidden] { transform: translateX(3px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem; border-radius: 999px; font-size: 0.92rem; font-weight: 600; border: 1px solid color-mix(in srgb, var(--foreground) 35%, transparent); transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+.btn-ghost:hover { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
+.chip { display: inline-flex; align-items: center; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); padding: 0.35rem 0.85rem; font-size: 0.875rem; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+.chip:hover { border-color: var(--foreground); }
+.chip[aria-selected="true"], .chip[aria-current="page"], .chip.on { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
+.link { text-decoration: underline; text-decoration-color: var(--faint); transition: color 0.15s, text-decoration-color 0.15s; }
+.link:hover { text-decoration-color: var(--accent); color: var(--accent); }
+.field { border-radius: 12px; border: 1px solid var(--border); background: var(--surface); transition: border-color 0.2s, box-shadow 0.2s; }
+.field:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+
+/* header */
+.site-nav { background: var(--nav-bg); backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px); border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
+.nav-link { position: relative; padding: 0.35rem 0.7rem; border-radius: 999px; transition: background-color 0.2s, color 0.2s; }
+.nav-link:hover { background: var(--surface-2); color: var(--foreground); }
+.nav-link[aria-current="page"] { background: var(--foreground); color: var(--background); }
+
+/* opening band of the home page: one flat dark colour */
+.hero { background: #0b0c0e; }
+.hero .glass { border-radius: 18px; border: 1px solid var(--border); background: var(--surface); }
+.hero-num { font-family: var(--font-serif); font-weight: 750; letter-spacing: -0.05em; line-height: 0.9; font-size: clamp(4.2rem, 13vw, 10.5rem); color: var(--foreground); }
+.live-dot { width: 0.5rem; height: 0.5rem; border-radius: 999px; background: #ff6a5c; box-shadow: 0 0 0 0 rgb(255 106 92 / 0.7); animation: pulse 1.8s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 9px rgb(255 106 92 / 0); } 100% { box-shadow: 0 0 0 0 rgb(255 106 92 / 0); } }
+
+/* bars */
+.bar { height: 0.5rem; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; transform-origin: left center; transition: transform 1s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); }
+
+/* entrance on scroll. Without JavaScript nothing is hidden: the rules apply only once the page script has run.
+   The marker sits on #app, not on <html>: React resets the attributes of <html> when it takes over the page. */
+[data-js] [data-reveal="up"]:not(.in) { opacity: 0; }
+[data-js] [data-reveal="up"].in { animation: rise 0.75s var(--ease) backwards; animation-delay: calc(var(--d, 0) * 80ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+[data-js] [data-reveal="bars"]:not(.in) .bar-fill { transform: scaleX(0); }
+[data-js] [data-reveal="map"] { opacity: 0; transform: scale(0.97); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+[data-js] [data-reveal="map"].in { opacity: 1; transform: none; }
+[data-js] .countup:not(.ready) { opacity: 0; }
+.countup { transition: opacity 0.4s; }
+.tm-cell { transform-box: fill-box; transform-origin: center; animation: tm-in 0.55s var(--ease) both; animation-delay: calc(var(--i, 0) * 22ms); }
+.tm-cell rect { transition: filter 0.2s; }
+.tm-cell:hover rect { filter: brightness(1.08) saturate(1.1); }
+@keyframes tm-in { from { opacity: 0; transform: scale(0.9); } }
+.map-shape { transition: fill 0.45s var(--ease); }
+tbody tr { transition: background-color 0.15s; }
+tbody tr:hover { background: color-mix(in srgb, var(--surface-2) 55%, transparent); }
+
+/* grid and flex children may shrink below their content: no horizontal page scroll on phones */
+.grid > *, .flex > * { min-width: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-js] [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-js] [data-reveal="bars"] .bar-fill { transform: none !important; }
+}

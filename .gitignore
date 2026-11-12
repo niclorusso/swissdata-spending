@@ -1,0 +1,15 @@
+# data: raw downloads are large and reproducible; snapshots are committed
+data/raw/
+!data/raw/.gitkeep
+# web
+web/node_modules/
+web/.next/
+web/out/
+web/public/data/
+web/next-env.d.ts
+web/tsconfig.tsbuildinfo
+# python
+pipeline/.venv/
+__pycache__/
+*.pyc
+.DS_Store
