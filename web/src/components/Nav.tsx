@@ -57,6 +57,7 @@ export function Footer() {
           <li><Link className="hover:text-accent transition-colors" href="/metodo/">{T("Come leggere i numeri", "How to read the figures")}</Link></li>
           <li><Link className="hover:text-accent transition-colors" href="/fonti/">{T("Registro delle fonti", "Register of sources")}</Link></li>
           <li><Link className="hover:text-accent transition-colors" href="/confederazione/unita/">{T("Uffici federali", "Federal offices")}</Link></li>
+          <li><a className="hover:text-accent transition-colors" href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Powered by Netlify</a></li>
         </ul>
       </div>
     </footer>
