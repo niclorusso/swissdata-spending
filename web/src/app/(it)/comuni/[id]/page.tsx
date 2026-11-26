@@ -51,8 +51,8 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
   const popA = popRef.pop;
   const why = popRef.why;
   const whyText = !why ? null : why.kind === "dissolved"
-    ? (en ? `merged into ${why.into} on ${date(why.date)}: the Federal Statistical Office no longer publishes its inhabitants` : `confluito in ${why.into} il ${date(why.date)}: l'Ufficio federale di statistica non pubblica più i suoi abitanti`)
-    : (en ? `the ${yA} accounts are of ${p.name} before it took in ${why.names.join(", ")} on ${date(why.date)}; the population is published only for the merged municipality` : `i conti ${yA} sono di ${p.name} prima dell'aggregazione con ${why.names.join(", ")} del ${date(why.date)}; la popolazione è pubblicata solo per il Comune aggregato`);
+    ? (en ? `merged into ${why.into} on ${date(why.date)}: the Federal Statistical Office no longer publishes its inhabitants` : `confluito in ${why.into} il ${date(why.date)}: l’Ufficio federale di statistica non pubblica più i suoi abitanti`)
+    : (en ? `the ${yA} accounts are of ${p.name} before it took in ${why.names.join(", ")} on ${date(why.date)}; the population is published only for the merged municipality` : `i conti ${yA} sono di ${p.name} prima dell’aggregazione con ${why.names.join(", ")} del ${date(why.date)}; la popolazione è pubblicata solo per il Comune aggregato`);
   const stf = kant?.series?.steuerfuss ? Object.entries(kant.series.steuerfuss) : [];
   // Zurich: a second (third) multiplier applies in the part of the municipality that belongs to another school municipality.
   const stfMore = kant?.series ? (["steuerfuss_2", "steuerfuss_3"] as const).map((k) => kant.series![k]).filter((x): x is Record<string, number> => !!x && Object.entries(x).some(([y, v]) => kant.series!.steuerfuss?.[y] !== v)) : [];
@@ -72,7 +72,7 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
     <Page kicker={`${T("Comune", "Municipality")} · ${kantonLabel(p.kt)}`} back={{ href: `/cantoni/${p.kt}/${kant ? "#comuni" : ""}`, label: kantonLabel(p.kt) }} title={p.name}
       lead={en
         ? <p>{why && !kant ? (why.kind === "dissolved" ? <>Municipality {whyText}.</> : <>{num(p.pop)} inhabitants at the end of {yA} within today&apos;s boundaries, which include {why.names.join(", ")} (merged on {date(why.date)}).</>) : <>{num(p.pop)} inhabitants.</>}{kant?.merged_from ? <> Formed after {km?.year} by the merger of {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} inhabitants)`).join(", ")}.</> : null}</p>
-        : <p>{why && !kant ? (why.kind === "dissolved" ? <>Comune {whyText}.</> : <>{num(p.pop)} abitanti a fine {yA} nei confini attuali, che comprendono {why.names.join(", ")} (aggregazione del {date(why.date)}).</>) : <>{num(p.pop)} abitanti.</>}{kant?.merged_from ? <> Nato dopo il {km?.year} dall&apos;aggregazione di {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} abitanti)`).join(", ")}.</> : null}</p>}>
+        : <p>{why && !kant ? (why.kind === "dissolved" ? <>Comune {whyText}.</> : <>{num(p.pop)} abitanti a fine {yA} nei confini attuali, che comprendono {why.names.join(", ")} (aggregazione del {date(why.date)}).</>) : <>{num(p.pop)} abitanti.</>}{kant?.merged_from ? <> Nato dopo il {km?.year} dall’aggregazione di {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} abitanti)`).join(", ")}.</> : null}</p>}>
 
       {kant && km && (
         <>
@@ -95,7 +95,7 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
               );
             })}
           </StatGrid>
-          {kant.water_included && <Note>{T("I conti di questo Comune comprendono l'acqua potabile, che in altri Comuni è tenuta in un'azienda separata: le spese risultano più alte.", "The accounts of this municipality include drinking water, which other municipalities keep in a separate utility: spending comes out higher.")}</Note>}
+          {kant.water_included && <Note>{T("I conti di questo Comune comprendono l’acqua potabile, che in altri Comuni è tenuta in un’azienda separata: le spese risultano più alte.", "The accounts of this municipality include drinking water, which other municipalities keep in a separate utility: spending comes out higher.")}</Note>}
           {kant.abs && (
             <Card title={`${T("Importi totali", "Total amounts")}, ${km.year}`}>
               <table className="w-full max-w-xl text-sm">
@@ -105,7 +105,7 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
                   ))}
                 </tbody>
               </table>
-              <p className="mt-3 text-sm text-muted max-w-xl">{T("Il risultato d'esercizio comprende anche spese e ricavi finanziari: non è la differenza tra le prime due righe.", "The annual result also includes financial expenses and revenue: it is not the difference between the first two rows.")}</p>
+              <p className="mt-3 text-sm text-muted max-w-xl">{T("Il risultato d’esercizio comprende anche spese e ricavi finanziari: non è la differenza tra le prime due righe.", "The annual result also includes financial expenses and revenue: it is not the difference between the first two rows.")}</p>
               <SourceBadge meta={ktGemeinden(p.kt).meta} />
             </Card>
           )}
@@ -121,7 +121,7 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
                 <TimeSeries rows={Object.entries(kant.series.debito_pc ?? {}).map(([y, v]) => ({ year: Number(y), [S.dn]: v }))} series={[S.dn]} height={240} zero />
                 <SourceBadge meta={ktGemeinden(p.kt).meta} />
               </Card>
-              <Card title={T("Moltiplicatore d'imposta", "Tax multiplier")} subtitle={<>{T("Percentuale dell'imposta cantonale semplice che il Comune preleva, senza imposta di culto (in tedesco «Steuerfuss», in percento della «einfache Staatssteuer»).", "Percentage of the simple cantonal tax that the municipality levies, without church tax (in German «Steuerfuss», in per cent of the «einfache Staatssteuer»).")}{stfMore.length > 0 ? T(" Il Comune ha avuto più di un moltiplicatore, secondo il Comune scolastico.", " The municipality has had more than one multiplier, depending on the school municipality.") : ""}</>}>
+              <Card title={T("Moltiplicatore d’imposta", "Tax multiplier")} subtitle={<>{T("Percentuale dell’imposta cantonale semplice che il Comune preleva, senza imposta di culto (in tedesco «Steuerfuss», in percento della «einfache Staatssteuer»).", "Percentage of the simple cantonal tax that the municipality levies, without church tax (in German «Steuerfuss», in per cent of the «einfache Staatssteuer»).")}{stfMore.length > 0 ? T(" Il Comune ha avuto più di un moltiplicatore, secondo il Comune scolastico.", " The municipality has had more than one multiplier, depending on the school municipality.") : ""}</>}>
                 {stfFlat ? <p className="display text-3xl">{en ? <>Unchanged at {pctAuto(stf[0][1])} from {stf[0][0]} to {stf.at(-1)![0]}.</> : <>Invariato al {pctAuto(stf[0][1])} dal {stf[0][0]} al {stf.at(-1)![0]}.</>}</p>
                   : <TimeSeries rows={stf.map(([y, v]) => ({ year: Number(y), [S.mo]: v, ...Object.fromEntries(stfMore.map((x, i) => [mo2(i), x[y] ?? null])) }))} series={[S.mo, ...stfMore.map((_, i) => mo2(i))]} unit="pct" height={240} />}
                 <SourceBadge meta={ktGemeinden(p.kt).meta} />
@@ -145,7 +145,7 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
             <Stat label={T("Per abitante", "Per inhabitant")} value={popA ? chf(aff.aufwand[yA] / popA) : T("non calcolabile", "not computable")} sub={popA ? `${num(popA)} ${T("abitanti al", "inhabitants on")} 31.12.${yA}; ${T("divisione fatta dal sito", "division made by the site")}` : whyText ?? T("popolazione non disponibile", "population not available")} />
             <Stat label={`${S.rc} ${yA}`} value={chf(aff.ertrag[yA])} sub={en
               ? `revenue minus spending: ${chf(diffA, { sign: true })}, a subtraction made by the site on the FFA's harmonised figures; the FFA publishes no result for single municipalities`
-              : `ricavi meno spese: ${chf(diffA, { sign: true })}, sottrazione fatta dal sito sulle cifre armonizzate dell'AFF; l'AFF non pubblica un risultato per i singoli Comuni`} />
+              : `ricavi meno spese: ${chf(diffA, { sign: true })}, sottrazione fatta dal sito sulle cifre armonizzate dell’AFF; l’AFF non pubblica un risultato per i singoli Comuni`} />
             <Stat label={`${T("Investimenti", "Investment")} ${yA}`} value={chf(aff.investitionen[yA])} sub={T("uscite lorde", "gross outlays")} />
           </StatGrid>
           <div data-reveal="up"><SourceBadge meta={gemeinden().meta} also={popA ? popGemeindenMeta() : undefined} /></div>
@@ -155,14 +155,14 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
                 ? <>The canton publishes the {yA} result of the consolidated municipality, school municipalities included: a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} (Canton of Zurich, indicator 828, «Ertrags-/Aufwandüberschuss»). The canton gives it per inhabitant only; the site does not turn it into a total, because the file does not say which population it was divided by. This result and the subtraction above ({chf(diffA, { sign: true })}) follow different accounting rules: the federal financial statistics harmonise the accounts of all municipalities, the canton publishes the result of the consolidated municipality. The reason for the difference between the two figures in this municipality is not published.</>
                 : <>Il Cantone pubblica il risultato {yA} del Comune consolidato, compresi i Comuni scolastici: un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} (Cantone di Zurigo, indicatore 828, «Ertrags-/Aufwandüberschuss»). Il Cantone lo dà solo per abitante; il sito non lo trasforma in un totale, perché il file non dice per quale popolazione è stato diviso. Questo risultato e la sottrazione qui sopra ({chf(diffA, { sign: true })}) seguono regole contabili diverse: la statistica finanziaria federale armonizza i conti di tutti i Comuni, il Cantone pubblica il risultato del Comune consolidato. Il motivo della differenza tra le due cifre per questo Comune non è pubblicato.</>)
               : (en
-                ? <>The canton publishes the municipality&apos;s {yA} «risultato totale d&apos;esercizio»: a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} (Local Authorities Section, financial statistics of the municipalities {yA}, table 9 «Conto economico (senza imputazioni interne)», last column). It includes financial and extraordinary items. The difference above ({chf(diffA, { sign: true })}) is computed by the site on the accounts as the FFA brings them to its common scheme, which sorts some items differently: the two figures can differ, also in sign.</>
-                : <>Il Cantone pubblica il «risultato totale d&apos;esercizio» {yA} del Comune: un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} (Sezione degli enti locali, Statistica finanziaria dei comuni {yA}, tabella 9 «Conto economico (senza imputazioni interne)», ultima colonna). Comprende le voci finanziarie e straordinarie. La differenza qui sopra ({chf(diffA, { sign: true })}) è calcolata dal sito sui conti come l&apos;AFF li riporta al suo schema comune, che classifica alcune voci in modo diverso: le due cifre possono differire, anche nel segno.</>)}</Note>
+                ? <>The canton publishes the municipality&apos;s {yA} «risultato totale d’esercizio»: a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} (Local Authorities Section, financial statistics of the municipalities {yA}, table 9 «Conto economico (senza imputazioni interne)», last column). It includes financial and extraordinary items. The difference above ({chf(diffA, { sign: true })}) is computed by the site on the accounts as the FFA brings them to its common scheme, which sorts some items differently: the two figures can differ, also in sign.</>
+                : <>Il Cantone pubblica il «risultato totale d’esercizio» {yA} del Comune: un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} (Sezione degli enti locali, Statistica finanziaria dei comuni {yA}, tabella 9 «Conto economico (senza imputazioni interne)», ultima colonna). Comprende le voci finanziarie e straordinarie. La differenza qui sopra ({chf(diffA, { sign: true })}) è calcolata dal sito sui conti come l’AFF li riporta al suo schema comune, che classifica alcune voci in modo diverso: le due cifre possono differire, anche nel segno.</>)}</Note>
           )}
           <Card title={`${T("Per che cosa", "On what")}, ${yA}`} subtitle={en ? <>Current spending by function. «Finances and taxes» gathers fiscal equalisation, interest and expenses not assigned to a service (<Link className="link" href="/metodo/">details</Link>).</> : <>Spese correnti per funzione. «Finanze e imposte» raccoglie perequazione, interessi e spese non attribuite a un servizio (<Link className="link" href="/metodo/">dettagli</Link>).</>}>
             <BarList items={Object.values(aff.funk1).map((c) => ({ label: codedName(c), value: c.values[yA] ?? 0 })).filter((c) => c.value > 0).sort((a, b) => b.value - a.value)} total={aff.aufwand[yA]} />
             <SourceBadge meta={gemeinden().meta} />
           </Card>
-          <Card title={T("Spese e ricavi correnti nel tempo", "Current spending and revenue over time")} subtitle={T("In franchi. Un picco isolato indica di solito un'operazione contabile straordinaria.", "In francs. A single spike usually marks an extraordinary accounting operation.")}>
+          <Card title={T("Spese e ricavi correnti nel tempo", "Current spending and revenue over time")} subtitle={T("In franchi. Un picco isolato indica di solito un’operazione contabile straordinaria.", "In francs. A single spike usually marks an extraordinary accounting operation.")}>
             <TimeSeries rows={affRows} series={[S.sc, S.rc]} height={280} colors={["var(--s2)", "var(--s1)"]} />
             <SourceBadge meta={gemeinden().meta} />
           </Card>

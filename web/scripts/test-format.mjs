@@ -13,7 +13,7 @@ const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ES
 const tmp = join(here, "..", "node_modules", ".cache", "format-test");
 mkdirSync(tmp, { recursive: true });
 writeFileSync(join(tmp, "format.mjs"), js);
-const { makeFmt, formatNumber, parseNumber, numberPattern } = await import(pathToFileURL(join(tmp, "format.mjs")).href + `?t=${Date.now()}`);
+const { makeFmt, formatNumber, parseNumber, numberPattern, apos } = await import(pathToFileURL(join(tmp, "format.mjs")).href + `?t=${Date.now()}`);
 
 const N = "\u202f", B = "\u00a0", M = "\u2212\u2060"; // narrow no-break space, no-break space, minus sign + word joiner
 const it = makeFmt("it"), en = makeFmt("en");
@@ -58,6 +58,9 @@ const cases = [
   ["parse it", String(parseNumber(`9${N}051${N}029`, "it")), "9051029"], ["parse it decimal", String(parseNumber("31,6", "it")), "31.6"], ["parse en", String(parseNumber("29,051.5", "en")), "29051.5"], ["parse minus", String(parseNumber(`${M}5,5`, "it")), "-5.5"],
   ["minus is U+2212 followed by a word joiner", [...it.num(-1)].map((c) => c.codePointAt(0).toString(16)).join(" "), "2212 2060 31"],
   ["no ordinary space or hyphen in an amount", String(/[ -]/.test(it.chf(-5.4783e9) + en.chf(29051) + en.chf(-5.4783e9) + it.chf(60.9e9, { unit: false }))), "false"],
+  // the typographic apostrophe for text from the data files: only between two letters
+  ["apos elision", apos("Protezione dell'ambiente"), "Protezione dell\u2019ambiente"], ["apos name", apos("Collina d'Oro"), "Collina d\u2019Oro"],
+  ["apos leaves quotes and figures", apos("'Nachpublikationen' 1'000"), "'Nachpublikationen' 1'000"],
   ["pattern it", `29${N}051 CHF`.match(numberPattern("it"))[0], `29${N}051`], ["pattern en", "30.5% of GDP".match(numberPattern("en"))[0], "30.5"], ["pattern en after CHF", `CHF${B}13.3${B}bn`.match(numberPattern("en"))[0], "13.3"],
   ["formatNumber", formatNumber(1234.5, 1, "it"), "1234,5"],
 ];

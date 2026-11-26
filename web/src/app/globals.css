@@ -4,7 +4,7 @@
 
 :root, [data-theme="light"] {
   color-scheme: light;
-  --sdf-accent: #dc2626;     /* this site's accent: the current page in the header, buttons */
+  --sdf-accent: var(--sdf-red); /* this site's accent: the current page in the header, buttons; the family red */
   /* the light theme reads the family tokens */
   --background: var(--sdf-paper);
   --surface: var(--sdf-surface);
@@ -14,7 +14,7 @@
   --muted: var(--sdf-muted);
   --faint: var(--sdf-subtle);  /* captions and source lines: 5.2:1 on paper, 5.7:1 on white (was #7b7f86, 3.7:1) */
   --accent: var(--sdf-accent);
-  --accent-text: #d82525;      /* the family red for small text and for "Data" in the wordmark: 4.53:1 on paper, 4.99:1 on white (#dc2626 reaches only 4.4:1) */
+  --accent-text: var(--sdf-red); /* small red text and "Data" in the wordmark: 4.53:1 on paper, 4.99:1 on white */
   --accent-ink: #ffffff;
   --accent-soft: #fee2e2;
   --control-line: #c9c4b8;     /* outline of the language pill */
@@ -148,7 +148,7 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
 .sdf-menu-list a { display: flex; gap: 6px; align-items: center; min-height: 44px; padding: 0 10px; border-radius: 8px; color: var(--muted); font-size: 15px; font-weight: 500; white-space: nowrap; }
 .sdf-menu-list a:hover { background: var(--surface-2); color: var(--foreground); }
 .sdf-menu-list a[aria-current] { background: var(--background); color: var(--foreground); font-weight: 650; }
-.sdf-lang-code { min-width: 1.75rem; font-size: var(--sdf-text-small); font-weight: 650; letter-spacing: 0.04em; color: var(--muted); } /* "IT Italiano", as in the Parliament menu */
+.sdf-lang-code { min-width: 1.75rem; font-size: 15px; font-weight: 650; letter-spacing: 0.04em; color: var(--muted); } /* "IT Italiano", as in the Parliament menu */
 .sdf-lang { flex: none; }
 .sdf-lang > summary { gap: 4px; min-height: 0; height: 44px; padding: 0 10px; border: 1px solid var(--control-line); border-radius: var(--sdf-radius-control); background: var(--surface); color: var(--foreground); font-weight: 600; font-size: 14px; }
 /* the pages: one row of words, 15px 550 on every screen; on phones it scrolls sideways, and a fade with a chevron marks the side where there is more */
@@ -249,7 +249,7 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
 
 /* opening band of the home page: one flat dark colour */
 .hero { background: #0b0c0e; }
-.hero .glass { border-radius: 18px; border: 1px solid var(--border); background: var(--surface); }
+.hero .glass { border-radius: var(--sdf-radius-card); border: 1px solid var(--border); background: var(--surface); }
 .hero-num { font-family: var(--font-serif); font-weight: 750; letter-spacing: -0.05em; line-height: 0.9; font-size: clamp(4.2rem, 13vw, 10.5rem); color: var(--foreground); }
 .live-dot { width: 0.5rem; height: 0.5rem; border-radius: 999px; background: #ff6a5c; box-shadow: 0 0 0 0 rgb(255 106 92 / 0.7); animation: pulse 1.8s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgb(255 106 92 / 0); } 100% { box-shadow: 0 0 0 0 rgb(255 106 92 / 0); } }

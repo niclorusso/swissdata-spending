@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { procurement, supplierAliases, type AliasGroup } from "@/lib/data";
-import { chf, date, plural } from "@/lib/format";
+import { apos, chf, date, plural } from "@/lib/format";
 import { BASE } from "@/lib/lang";
 import { getLang, T } from "@/lib/lang-server";
 import { Card, Page } from "@/components/ui";
@@ -43,12 +43,12 @@ export default function Grafie() {
   return (
     <Page kicker={T("Appalti", "Procurement")} back={{ href: "/appalti/", label: T("I contratti della Confederazione", "The Confederation's contracts") }} title={T("Fornitori scritti in più modi", "Suppliers written in more than one way")} lead={en
       ? <p>In the federal procurement lists the same company is sometimes written in more than one way: with different capitals, spaces or punctuation, with its legal form abbreviated differently, with its name in another language, or under the name it had before a change of name. In the rankings of the site these spellings are counted together when the commercial register shows that they are the same company, with the same UID number. Each contract keeps the name written in the list.</p>
-      : <p>Negli elenchi federali degli appalti la stessa ditta è a volte scritta in più modi: con maiuscole, spazi o punteggiatura diversi, con la forma giuridica abbreviata in un altro modo, con il suo nome in un&apos;altra lingua o con il nome che aveva prima di cambiarlo. Nelle classifiche del sito queste grafie sono contate insieme quando il registro di commercio mostra che sono la stessa ditta, con lo stesso numero IDI. Ogni contratto resta con il nome scritto nell&apos;elenco.</p>}>
+      : <p>Negli elenchi federali degli appalti la stessa ditta è a volte scritta in più modi: con maiuscole, spazi o punteggiatura diversi, con la forma giuridica abbreviata in un altro modo, con il suo nome in un’altra lingua o con il nome che aveva prima di cambiarlo. Nelle classifiche del sito queste grafie sono contate insieme quando il registro di commercio mostra che sono la stessa ditta, con lo stesso numero IDI. Ogni contratto resta con il nome scritto nell’elenco.</p>}>
       <div className="text-sm text-muted max-w-3xl space-y-2 leading-relaxed" data-reveal="up">
-        <p>{en ? a.rule.en : a.rule.it}</p>
-        <p>{en ? a.scope.en : a.scope.it}</p>
+        <p>{en ? a.rule.en : apos(a.rule.it)}</p>
+        <p>{en ? a.scope.en : apos(a.scope.it)}</p>
       </div>
-      <Card title={en ? `${groups.length} companies, each with its spellings` : `${groups.length} ditte, ognuna con le sue grafie`} subtitle={T("Dalla più grande alla più piccola, per valore dei contratti 2021–2025. Tra virgolette il nome com'è scritto nell'elenco, spazi compresi.", "From the largest to the smallest, by value of the 2021–2025 contracts. In quotation marks the name as written in the list, spaces included.")}>
+      <Card title={en ? `${groups.length} companies, each with its spellings` : `${groups.length} ditte, ognuna con le sue grafie`} subtitle={T("Dalla più grande alla più piccola, per valore dei contratti 2021–2025. Tra virgolette il nome com’è scritto nell’elenco, spazi compresi.", "From the largest to the smallest, by value of the 2021–2025 contracts. In quotation marks the name as written in the list, spaces included.")}>
         <ul className="grid md:grid-cols-2 gap-x-10">
           {groups.map((g) => {
             const deleted = g.register_status.startsWith("deleted") ? g.register_status.split(" ")[1] : null;
@@ -76,7 +76,7 @@ export default function Grafie() {
                   ))}
                 </ul>
                 <p className="mt-2 text-xs text-muted">{T("Insieme", "Together")}: {contracts(g.n)}, {chf(g.chf)}.</p>
-                {g.note && <p className="mt-2 text-xs text-muted leading-relaxed">{en ? g.note.en : g.note.it}</p>}
+                {g.note && <p className="mt-2 text-xs text-muted leading-relaxed">{en ? g.note.en : apos(g.note.it)}</p>}
               </li>
             );
           })}
@@ -87,7 +87,7 @@ export default function Grafie() {
           {a.not_merged.map((c) => (
             <li key={c.names.join("|")}>
               <div className="whitespace-pre-wrap break-words">{c.names.map((n) => `«${n}»`).join(" · ")}</div>
-              <div className="text-xs text-muted leading-relaxed">{en ? c.why.en : c.why.it}</div>
+              <div className="text-xs text-muted leading-relaxed">{en ? c.why.en : apos(c.why.it)}</div>
             </li>
           ))}
         </ul>

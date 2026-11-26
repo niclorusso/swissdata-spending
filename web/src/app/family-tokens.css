@@ -4,7 +4,7 @@
    spesa-pubblica-ch: paste into web/src/app/globals.css (Tailwind 4 reads the variables directly)
    Each site sets only --sdf-accent. */
 :root {
-  --sdf-red: #dc2626;        /* the mark and "Data" in the wordmark, nothing else */
+  --sdf-red: #d82525;        /* the family red: the mark and "Data" in the wordmark; 4.53:1 on paper, 4.99:1 on white */
   --sdf-paper: #f5f4ef;      /* page background */
   --sdf-surface: #ffffff;    /* cards, header */
   --sdf-line: #dedbd1;       /* hairlines */

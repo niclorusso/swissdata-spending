@@ -25,7 +25,7 @@ export default function SV() {
   return (
     <Page kicker={T("Assicurazioni sociali", "Social insurance")} title={T("AVS, AI, IPG e disoccupazione", "AHV, IV, EO and unemployment insurance")} lead={en
       ? <p>The branches of social insurance included in the financial statistics: AHV (old age and survivors), IV (disability), EO (income compensation), ALV (unemployment), family allowances in agriculture and Geneva&apos;s maternity insurance. They do not include pension funds (BVG), health insurers (KVG) and SUVA, which are not public accounts. Latest closed accounts: {yR}.</p>
-      : <p>I rami delle assicurazioni sociali inclusi nella statistica finanziaria: AVS, AI, IPG, AD, assegni familiari nell&apos;agricoltura e assicurazione maternità ginevrina. Non includono casse pensioni (LPP), casse malati (LAMal) e SUVA, che non sono conti pubblici. Ultimo consuntivo: {yR}.</p>}>
+      : <p>I rami delle assicurazioni sociali inclusi nella statistica finanziaria: AVS, AI, IPG, AD, assegni familiari nell’agricoltura e assicurazione maternità ginevrina. Non includono casse pensioni (LPP), casse malati (LAMal) e SUVA, che non sono conti pubblici. Ultimo consuntivo: {yR}.</p>}>
       <StatGrid>
         <Stat label={`${U} ${yR}`} value={chf(sv.total_ausgaben[y])} sub={T("tutti i rami", "all branches")} />
         <Stat label={`${E} ${yR}`} value={chf(sv.total_einnahmen[y])} sub={`${T("saldo", "balance")} ${chf((sv.total_einnahmen[y] ?? 0) - (sv.total_ausgaben[y] ?? 0))}`} />
@@ -33,7 +33,7 @@ export default function SV() {
         <Stat label={`${T("Spese AI", "IV spending")} ${yR}`} value={chf(H["sv_iv"].total_ausgaben[y])} sub={`${T("entrate", "revenue")} ${chf(H["sv_iv"].total_einnahmen[y])}`} />
       </StatGrid>
       <div data-reveal="up"><SourceBadge meta={fs.meta} /></div>
-      <Note>{T("Le spese sono soprattutto rendite e indennità versate alle persone. Nel 2020 l'assicurazione contro la disoccupazione è salita per le indennità di lavoro ridotto durante la pandemia.", "Spending is mostly pensions and allowances paid to people. In 2020 unemployment insurance rose because of short-time work compensation during the pandemic.")}</Note>
+      <Note>{T("Le spese sono soprattutto rendite e indennità versate alle persone. Nel 2020 l’assicurazione contro la disoccupazione è salita per le indennità di lavoro ridotto durante la pandemia.", "Spending is mostly pensions and allowances paid to people. In 2020 unemployment insurance rose because of short-time work compensation during the pandemic.")}</Note>
       <Card title={T("Spese per ramo dal 1990", "Spending by branch since 1990")}>
         <TimeSeries rows={rows} series={BRANCHES.map((b) => svName(b).split(" – ")[0])} yearStatus={sv.year_status} kind="stacked" height={320} />
         <SourceBadge meta={fs.meta} compact />

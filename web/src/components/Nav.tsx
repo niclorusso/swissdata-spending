@@ -17,7 +17,7 @@ const links = [
 export function Mark({ size = 28 }: { size?: number }) {
   return (
     <svg className="sdf-mark" width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="5.5" fill="#DC2626" />
+      <rect width="32" height="32" rx="5.5" fill="#D82525" />
       <g fill="none" stroke="#fff" strokeWidth="2">
         <path d="M8 4.3v7.4M4.3 8h7.4" /><path d="M20.3 8h7.4" /><path d="M5.4 21.4l5.2 5.2M10.6 21.4l-5.2 5.2" /><path d="M20.3 24h7.4" />
         <circle cx="24" cy="20.7" r="1.2" fill="#fff" stroke="none" /><circle cx="24" cy="27.3" r="1.2" fill="#fff" stroke="none" />
@@ -75,7 +75,7 @@ export function Footer() {
           <p className="sdf-foot-indep">{T("Progetto indipendente di Nicola Lo Russo. Non è un sito ufficiale della Confederazione.", "Independent project by Nicola Lo Russo. Not an official website of the Confederation.")}</p>
         </div>
         <div className="pt-9 grid md:grid-cols-3 gap-x-10 gap-y-6">
-          <p className="md:col-span-2 max-w-2xl leading-relaxed">{T("La spesa pubblica svizzera dai file ufficiali di AFF, UST, della Conferenza degli acquisti della Confederazione e dei Cantoni Ticino e Zurigo. Sotto ogni grafico: fonte e data dell'ultimo controllo.", "Swiss public spending from the official files of the Federal Finance Administration, the Federal Statistical Office, the Federal Procurement Conference and the cantons of Ticino and Zurich. Under every chart: source and date of the last check.")}</p>
+          <p className="md:col-span-2 max-w-2xl leading-relaxed">{T("La spesa pubblica svizzera dai file ufficiali di AFF, UST, della Conferenza degli acquisti della Confederazione e dei Cantoni Ticino e Zurigo. Sotto ogni grafico: fonte e data dell’ultimo controllo.", "Swiss public spending from the official files of the Federal Finance Administration, the Federal Statistical Office, the Federal Procurement Conference and the cantons of Ticino and Zurich. Under every chart: source and date of the last check.")}</p>
           <ul className="site-foot-links">
             <li><Link href="/metodo/">{T("Come leggere i numeri", "How to read the figures")}</Link></li>
             <li><Link href="/fonti/">{T("Registro delle fonti", "Register of sources")}</Link></li>

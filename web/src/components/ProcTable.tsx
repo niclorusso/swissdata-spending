@@ -8,7 +8,7 @@ import { categoryIt, unitCodeIt } from "@/lib/labels-bund";
 
 type SortKey = "chf" | "start" | "supplier" | "unit";
 type Row = ProcRow & { unitIt: string; cat: string; hay: string };
-const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\u2019/g, "'").toLowerCase(); // dell'ambiente finds dell’ambiente
 
 /** Client-side search over the full per-year contract list (fetched from /data/…json). Searches Italian and German.
  *  `groups`: spellings of the same supplier (data/supplier-aliases.json); a search for one finds the contracts written with the others.

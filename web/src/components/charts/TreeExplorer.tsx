@@ -67,7 +67,7 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
           );
         })}
       </ol>
-      <p className="mt-3 text-xs text-faint">{T("L'ultima cifra è la variazione rispetto all'anno prima. Le voci con ▸ si aprono.", "The last figure is the change from the year before. Items with ▸ open.")}</p>
+      <p className="mt-3 text-xs text-faint">{T("L’ultima cifra è la variazione rispetto all’anno prima. Le voci con ▸ si aprono.", "The last figure is the change from the year before. Items with ▸ open.")}</p>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { apos } from "@/lib/format";
 
 export type Meta = {
   id: string; title: string; publisher: string; publisher_url: string; source_url: string; landing_url: string;
@@ -79,12 +80,23 @@ export type Gemeinde = { bfs_nr: number; kanton: string; name: string; years: nu
 export type Population = { name: string; values: Record<string, number> };
 
 export const haushalte = () => loadSnapshot<{ haushalte: Record<string, Haushalt> }>("fs-haushalte");
-export const gemeinden = () => loadSnapshot<{ gemeinden: Record<string, Gemeinde> }>("fs-gemeinden-5000");
+/** Names of municipalities are shown with the typographic apostrophe (Collina d’Oro, Sant’Antonino); the files keep the straight one. */
+export const gemeinden = () => {
+  const s = loadSnapshot<{ gemeinden: Record<string, Gemeinde> }>("fs-gemeinden-5000");
+  for (const g of Object.values(s.data.gemeinden)) g.name = apos(g.name);
+  return s;
+};
 export const popKantone = () => loadSnapshot<{ population: Record<string, Population> }>("bfs-bevoelkerung-kantone");
 export type Merger = { date: string; parts: { bfs: number; name: string }[] };
 export type PopGemeinden = { population: Record<string, Population>; boundaries_as_of: string; mergers: Record<string, Merger[]>; dissolved: Record<string, { date: string; into: number; into_name: string }> };
 let popG: Snapshot<PopGemeinden> | null = null;
-export const popGemeinden = () => (popG ??= loadSnapshot<PopGemeinden>("bfs-bevoelkerung-gemeinden"));
+export const popGemeinden = () => (popG ??= (() => {
+  const s = loadSnapshot<PopGemeinden>("bfs-bevoelkerung-gemeinden"), d = s.data;
+  for (const p of Object.values(d.population)) p.name = apos(p.name);
+  for (const ms of Object.values(d.mergers)) for (const m of ms) for (const q of m.parts) q.name = apos(q.name);
+  for (const x of Object.values(d.dissolved)) x.into_name = apos(x.into_name);
+  return s;
+})());
 
 /** Inhabitants of a municipality at the end of `year`, on the territory the accounts of that year refer to.
  *  The FSO table gives every year on the boundaries of one date (`boundaries_as_of`): if the municipality took in others after `year`,
@@ -126,4 +138,8 @@ export type KtGemeinde = {
 };
 export type KtGemeinden = { year: number; kanton: string; measures: Measure[]; gemeinden: Record<string, KtGemeinde> };
 export const KT_WITH_ALL_GEMEINDEN = ["ti", "zh"] as const;
-export const ktGemeinden = (kt: string) => loadSnapshot<KtGemeinden>(`gemeinden-${kt}`);
+export const ktGemeinden = (kt: string) => {
+  const s = loadSnapshot<KtGemeinden>(`gemeinden-${kt}`);
+  for (const g of Object.values(s.data.gemeinden)) { g.name = apos(g.name); for (const q of g.merged_from ?? []) q.name = apos(q.name); }
+  return s;
+};

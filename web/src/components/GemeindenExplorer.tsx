@@ -52,7 +52,7 @@ export function GemeindenExplorer({ viewBox, shapes, lakes, context, measures, r
       </div>
       <div className="mt-8 flex flex-wrap items-center gap-3 text-sm">
         <input className="field px-3 py-2 w-64" placeholder={T("Cerca un Comune…", "Find a municipality…")} value={q} onChange={(e) => setQ(e.target.value)} aria-label={T("Cerca un Comune", "Find a municipality")} />
-        <span className="text-muted">{lang === "en" ? `${num(list.length)} ${list.length === 1 ? "municipality" : "municipalities"} · click a heading to sort` : `${list.length === 1 ? "1 Comune" : `${num(list.length)} Comuni`} · clicca un'intestazione per ordinare`}</span>
+        <span className="text-muted">{lang === "en" ? `${num(list.length)} ${list.length === 1 ? "municipality" : "municipalities"} · click a heading to sort` : `${list.length === 1 ? "1 Comune" : `${num(list.length)} Comuni`} · clicca un’intestazione per ordinare`}</span>
       </div>
       <div className="mt-3 overflow-x-auto border-t border-border">
         <table className="w-full text-sm">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
 import { geo, lastRechnung, loadLedger, units, type Meta } from "@/lib/data";
-import { date, dateTime, num } from "@/lib/format";
+import { apos, date, dateTime, num } from "@/lib/format";
 import { Card, Page } from "@/components/ui";
 import { getLang, T } from "@/lib/lang-server";
 import { ZH_OFFICE } from "@/lib/labels";
@@ -46,7 +46,7 @@ const IT: [RegExp, string][] = [
   [/opendata\.swiss: Freie Nutzung \(terms_open\)/g, "Uso libero (opendata.swiss)"],
   [/Rechnung \(consuntivo\)/g, "consuntivo"], [/Voranschlag \(preventivo\)/g, "preventivo"], [/Finanzplan \(piano finanziario\)/g, "piano finanziario"],
   [/Rechnung/g, "consuntivo"], [/Voranschlag/g, "preventivo"], [/Finanzplan/g, "piano finanziario"],
-  [/degli Steuerfüsse/g, "dei moltiplicatori d'imposta"], [/anno <= /g, "fino al "], [/>= /g, "dal "], [/«Steuerfuss»|Steuerfüsse|Steuerfuss/g, "moltiplicatore d'imposta"],
+  [/degli Steuerfüsse/g, "dei moltiplicatori d’imposta"], [/anno <= /g, "fino al "], [/>= /g, "dal "], [/«Steuerfuss»|Steuerfüsse|Steuerfuss/g, "moltiplicatore d’imposta"],
   [/«Konsolidierte Gemeinde»/g, "«Comune consolidato»"], [/\(Aufwand\)/g, ""], [/Conto economico HRM2 \(Aufwand\/Ertrag\)/g, "Conto economico (spese e ricavi correnti)"],
   [/modello FS \(statistica finanziaria svizzera\)/gi, "statistica finanziaria svizzera"], [/ \(modello FS\)/g, ""], [/ \(modello GFS\)/g, ""], [/cubo STAT-TAB/g, "banca dati STAT-TAB"],
   [/«Rechnung \/ Vorhandene Daten \/ Prognosen»|\(Rechnung \/ Vorhandene Daten \/ Prognosen\)/g, "(consuntivo, dati parziali, previsione)"],
@@ -61,7 +61,9 @@ const figures = (s: string) => s
   .replace(/(?<![\d.,–/=_-])\d{5,}(?![\d.–]|\w)/g, (m) => num(Number(m)))
   .replace(/(\d+)\.(\d+)(?= (mld|mio)\b)/g, (_, a, b) => num(Number(`${a}.${b}`), b.length))
   .replace(/(\d) (mld|mio|CHF)\b/g, "$1\u00a0$2").replace(/\b(mld|mio) CHF\b/g, "$1\u00a0CHF");
-const tr = (s?: string | null) => figures(IT.reduce((t, [re, to]) => t.replace(re, to), s ?? ""));
+/** …and with the Italian marks: «…» for a quotation ('Nachpublikationen'), the typographic apostrophe (dell’anno). */
+const marks = (s: string) => apos(s.replace(/(?<!\p{L})'([^'\n]+)'(?!\p{L})/gu, "«$1»"));
+const tr = (s?: string | null) => marks(figures(IT.reduce((t, [re, to]) => t.replace(re, to), s ?? "")));
 const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", ZH_OFFICE.en], ["Amt für Statistik und Daten des Kantons Zürich", ZH_OFFICE.en], ["GEOSTAT", "Federal Statistical Office (FSO), GEOSTAT / swisstopo"]];
 const publisherEn = (p: string) => PUB_EN.find(([k]) => p.includes(k))?.[1] ?? p;
 const publisher = (p: string) => { const parts = p.split(" / "); const it = (parts.length > 1 ? parts[parts.length - 1] : p).replace(/, via .*$/, ""); return PUB[it] ?? PUB[parts[0]] ?? it; };
@@ -115,15 +117,15 @@ function Row({ m }: { m: Meta }) {
           {m.published_at && <><dt className="text-muted">{T("Pubblicato", "Published")}</dt><dd>{date(m.published_at)}</dd></>}
           <dt className="text-muted">{T("Scaricato", "Downloaded")}</dt><dd>{date(m.retrieved_at)}</dd>
           <dt className="text-muted">{T("Verificato", "Checked")}</dt><dd title={dateTime(m.checked_at)}>{date(m.checked_at)}</dd>
-          <dt className="text-muted">{T("Aggiornamento", "Updated")}</dt><dd>{en ? map(FREQ, m.frequency) : m.frequency}</dd>
+          <dt className="text-muted">{T("Aggiornamento", "Updated")}</dt><dd>{en ? map(FREQ, m.frequency) : marks(m.frequency)}</dd>
           <dt className="text-muted">{T("Licenza", "Licence")}</dt><dd>{en ? map(LICENSE, m.license) : tr(m.license)}</dd>
-          <dt className="text-muted">File</dt><dd>{m.files ? <a className="link" href={`#${m.id}-files`}>{en ? `${m.files.length} files, listed below` : `${m.files.length} file, elencati sotto`}</a> : <a className="link" href={m.source_url}>{T("scarica l'originale", "download the original")}</a>} · <a className="link" href={m.landing_url}>{T("pagina della fonte", "source page")}</a></dd>
+          <dt className="text-muted">File</dt><dd>{m.files ? <a className="link" href={`#${m.id}-files`}>{en ? `${m.files.length} files, listed below` : `${m.files.length} file, elencati sotto`}</a> : <a className="link" href={m.source_url}>{T("scarica l’originale", "download the original")}</a>} · <a className="link" href={m.landing_url}>{T("pagina della fonte", "source page")}</a></dd>
           {m.sha256 && !m.files && <><dt className="text-muted">{T("Impronta", "Fingerprint")}</dt><dd className="font-mono text-xs text-faint break-all" title={T("SHA-256 del file scaricato", "SHA-256 of the downloaded file")}>{m.sha256.slice(0, 16)}…</dd></>}
         </dl>
         {m.files && (
           <ul id={`${m.id}-files`} className="md:col-span-5 mt-2 text-sm text-muted space-y-1 scroll-mt-6">
             {m.files.map((f) => (
-              <li key={f.url}><a className="link" href={f.url}>{en ? FILE_EN.reduce((t, [re, to]) => t.replace(re, to), f.label) : f.label}</a>{f.published_at ? <> · {T("pubblicato", "published")} {date(f.published_at)}</> : null} · {T("scaricato", "downloaded")} {date(f.retrieved_at)} · <span className="font-mono text-xs text-faint" title={T("SHA-256 del file scaricato", "SHA-256 of the downloaded file")}>{f.sha256.slice(0, 16)}…</span></li>
+              <li key={f.url}><a className="link" href={f.url}>{en ? FILE_EN.reduce((t, [re, to]) => t.replace(re, to), f.label) : marks(f.label)}</a>{f.published_at ? <> · {T("pubblicato", "published")} {date(f.published_at)}</> : null} · {T("scaricato", "downloaded")} {date(f.retrieved_at)} · <span className="font-mono text-xs text-faint" title={T("SHA-256 del file scaricato", "SHA-256 of the downloaded file")}>{f.sha256.slice(0, 16)}…</span></li>
             ))}
           </ul>
         )}
@@ -138,7 +140,7 @@ export default function Fonti() {
   return (
     <Page kicker={T("Metodo", "Method")} back={{ href: "/metodo/", label: T("Come leggere i numeri", "How to read the figures") }} title={T("Registro delle fonti", "Register of sources")} lead={en
       ? <p>The data of the site come from official files, listed here with who publishes them, the period they cover, when they were downloaded and when they were last checked against the source. Values per inhabitant, shares, ranks, medians and the sums for merged municipalities are not in any official file: the site computes them from these files. The fingerprint (SHA-256) lets you verify that the file is the same. The pages of the federal sources are in German.</p>
-      : <p>I dati del sito vengono da file ufficiali, elencati qui con chi li pubblica, il periodo che coprono, quando sono stati scaricati e quando sono stati confrontati l&apos;ultima volta con la fonte. Valori per abitante, quote, posizioni, mediane e le somme per i Comuni aggregati non sono in nessun file ufficiale: li calcola il sito a partire da questi file. L&apos;impronta (SHA-256) permette di verificare che il file sia lo stesso. Le pagine delle fonti federali sono in tedesco.</p>}>
+      : <p>I dati del sito vengono da file ufficiali, elencati qui con chi li pubblica, il periodo che coprono, quando sono stati scaricati e quando sono stati confrontati l’ultima volta con la fonte. Valori per abitante, quote, posizioni, mediane e le somme per i Comuni aggregati non sono in nessun file ufficiale: li calcola il sito a partire da questi file. L’impronta (SHA-256) permette di verificare che il file sia lo stesso. Le pagine delle fonti federali sono in tedesco.</p>}>
       {LEVELS.map(([lvl, labelIt, labelEn]) => {
         const label = en ? labelEn : labelIt;
         const rows = ledger.filter((m) => m.level === lvl).sort((a, b) => a.title.localeCompare(b.title, "it"));
@@ -151,7 +153,7 @@ export default function Fonti() {
       })}
       <Card title={T("Fonti che mancano", "Missing sources")}>
         <ul className="text-sm list-disc pl-5 space-y-1.5 text-muted">
-          <li>{T("Sussidi federali per beneficiario: l'AFF li mostra in una dashboard, senza file scaricabile.", "Federal subsidies by recipient: the FFA shows them in a dashboard, with no downloadable file.")}</li>
+          <li>{T("Sussidi federali per beneficiario: l’AFF li mostra in una dashboard, senza file scaricabile.", "Federal subsidies by recipient: the FFA shows them in a dashboard, with no downloadable file.")}</li>
           <li>{T("Appalti di Cantoni e Comuni: simap.ch dà accesso ai dati solo su richiesta.", "Contracts of cantons and municipalities: simap.ch gives access to the data only on request.")}</li>
           <li>{T("Aziende partecipate della Confederazione e dei Cantoni: non esiste un elenco strutturato.", "Companies owned by the Confederation and the cantons: there is no structured list.")}</li>
           <li>{T("Conti dei singoli Comuni negli altri Cantoni: alcuni portali cantonali li pubblicano (Turgovia, Lucerna), non sono ancora integrati.", "Accounts of single municipalities in the other cantons: some cantonal portals publish them (Thurgau, Lucerne), they are not integrated yet.")}</li>

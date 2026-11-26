@@ -18,6 +18,10 @@ import { currentLang, type Lang } from "@/lib/lang";
 export const NNBSP = "\u202f"; // narrow no-break space: between groups of three digits
 export const NBSP = "\u00a0"; // no-break space: before % and between a number and its unit
 export const MINUS = "\u2212\u2060"; // minus sign, then a word joiner: no line break between the sign and the number
+/** The typographic apostrophe (U+2019) in place of the straight one between two letters: dell'anno -> dell’anno, Collina d'Oro -> Collina d’Oro.
+ *  The site writes its own text this way; this is for the text that comes from the data files (names of places and of functions, notes the
+ *  pipeline writes), which keep the straight apostrophe of their sources. */
+export const apos = (s: string): string => s.replace(/(?<=\p{L})'(?=\p{L})/gu, "\u2019");
 
 const RULES: Record<Lang, { group: string; decimal: string; minGroup: number; pct: string }> = {
   it: { group: NNBSP, decimal: ",", minGroup: 5, pct: `${NBSP}%` },
