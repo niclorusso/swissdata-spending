@@ -13,7 +13,8 @@ export type Snapshot<T> = { meta: Meta; data: T };
 export type TreeNode = { id: number; name: string; level: number; unit: string; values: Record<string, number | null>; children: TreeNode[] };
 export type Series = { id: number; unit: string; topic: string; values: Record<string, number | null> };
 export type Unit = { level: number; departement: string; name: string; values: Record<string, Record<string, number | null>> };
-export type Top = { name: string | null; chf: number; n: number };
+/** One row of a ranking. A supplier row that merges several spellings (data/supplier-aliases.json) lists them in `variants`. */
+export type Top = { name: string | null; chf: number; n: number; variants?: { name: string; chf: number; n: number }[] };
 export type ProcYear = {
   total_chf: number; n: number; n_suppliers: number; by_department: Top[]; by_procedure: Top[]; top_suppliers: Top[];
   top_units: Top[]; top_objects: Top[]; identical_rows: { n: number; chf: number }; late_additions: { n: number; chf_added: number }; no_amount: number;
@@ -36,7 +37,20 @@ export function listSnapshots(): string[] {
 export const tree = (id: string) => loadSnapshot<{ tree: TreeNode[] }>(id);
 export const kennzahlen = () => loadSnapshot<{ series: Record<string, Series> }>("bund-kennzahlen");
 export const units = () => loadSnapshot<{ units: Unit[] }>("bund-verwaltungseinheiten");
-export const procurement = () => loadSnapshot<{ years: Record<string, ProcYear>; top_suppliers_all: Top[] }>("bund-beschaffungen");
+/** Each spelling of each group of data/supplier-aliases.json with its contracts and value per year (computed by the ETL). */
+export type SupplierGroupTotals = { name: string; variants: { name: string; years: Record<string, { chf: number; n: number }> }[] };
+export const procurement = () => loadSnapshot<{ years: Record<string, ProcYear>; top_suppliers_all: Top[]; supplier_groups: SupplierGroupTotals[] }>("bund-beschaffungen");
+
+// ---- Spellings of the same supplier (data/supplier-aliases.json, checked in the commercial register) ----
+type Text = { it: string; en: string };
+/** How a spelling matches the register: current name, registered translation, former name (or its translation), or the name without legal form. */
+export type AliasMatch = "name" | "translation" | "former" | "former-translation" | "no-legal-form";
+export type AliasGroup = {
+  name: string; uid: string; register_name: string; seat: string; register_status: string; register_url: string; zefix_id: number; checked: string;
+  branch_of?: { name: string; uid: string }; variants: { name: string; match: AliasMatch; register_name?: string; lang?: "de" | "fr" | "it" | "en" }[]; note?: Text;
+};
+export type SupplierAliases = { about: Text; rule: Text; scope: Text; source: { name: string; url: string; checked: string }; groups: AliasGroup[]; not_merged: { names: string[]; why: Text }[] };
+export const supplierAliases = () => JSON.parse(readFileSync(join(process.cwd(), "..", "data", "supplier-aliases.json"), "utf8")) as SupplierAliases;
 
 /** The single contracts of a year worth at least `min` francs, largest first (read from the full list of that year). */
 export function bigContracts(year: number | string, min = 1e9): ProcRow[] {
