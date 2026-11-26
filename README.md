@@ -31,6 +31,8 @@ pipeline/etl/*.py   →   data/snapshots/*.json   →   web/ (Next.js, export st
 
 Ogni snapshot è `{ "meta": {...}, "data": {...} }`. Il blocco `meta` contiene: `publisher`, `source_url`, `landing_url`, `license`, `frequency`, `data_date` (periodo di riferimento dichiarato dalla fonte), `published_at` (Last-Modified del server o data dichiarata), `retrieved_at`, `checked_at`, `sha256` del file originale. Il componente `SourceBadge` lo mostra sotto ogni blocco di numeri.
 
+Negli appalti le classifiche dei fornitori riuniscono le grafie della stessa ditta elencate in [`data/supplier-aliases.json`](data/supplier-aliases.json), ognuna controllata nel registro di commercio (numero IDI); i singoli contratti restano con il nome scritto nell'elenco. Le grafie di un nuovo elenco annuale non sono riunite finché non vengono aggiunte al file.
+
 Principi:
 
 1. **Nessun numero copiato a mano.** Tutto passa da uno script rieseguibile.

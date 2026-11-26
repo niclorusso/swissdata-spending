@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { bigContracts, loadSnapshot, procurement } from "@/lib/data";
+import { bigContracts, loadSnapshot, procurement, supplierAliases, type Top } from "@/lib/data";
 import { chf, num, plural } from "@/lib/format";
 import { depCode, verfahren } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
@@ -27,6 +27,13 @@ export default function Appalti() {
     return r;
   });
   // The year with the highest total and the single contracts of a billion or more that explain it (the build stops if they are no longer the two US ones).
+  // A row that merges several spellings of the same company says so, and names the old name of a renamed company; the list is on /appalti/grafie/.
+  const formerName = new Map(supplierAliases().groups.flatMap((g) => g.variants.flatMap((v) => (v.former_name ? [[v.name, v.former_name] as const] : []))));
+  const supplierItem = (d: Top) => {
+    const spellings = d.variants?.length ?? 0;
+    const former = Array.from(new Set((d.variants ?? []).flatMap((v) => formerName.get(v.name) ?? [])));
+    return { label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) + (spellings > 1 ? ` · ${spellings} ${T("grafie", "spellings")}` : "") + (former.length ? ` · ${T("già", "formerly")} ${former.join(", ")}` : "") };
+  };
   const maxY = years.reduce((a, b) => (p.data.years[String(a)].total_chf > p.data.years[String(b)].total_chf ? a : b));
   const big = bigContracts(maxY).map((r) => ({ name: r.supplier, chf: r.chf }));
   if (big.length !== 2 || big.some((s) => !/^US .* FMS$/.test(s.name))) throw new Error(`[appalti] the note on ${maxY} no longer matches the data: ${JSON.stringify(big)}`);
@@ -36,7 +43,7 @@ export default function Appalti() {
       : <p>Ogni anno l&apos;Amministrazione federale centrale pubblica l&apos;elenco dei contratti da {num(50000)} franchi in su: committente, fornitore, oggetto, procedura e valore. In {years.length} anni sono {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contratti per {chf(totalAll, { digits: 1 })}.</p>}>
       <StatGrid>
         {years.map((y) => (
-          <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("fornitori", "suppliers")} →</Link>} />
+          <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("nomi di fornitori", "supplier names")} →</Link>} />
         ))}
       </StatGrid>
       <div data-reveal="up"><SourceBadge meta={p.meta} /></div>
@@ -58,7 +65,7 @@ export default function Appalti() {
           <SourceBadge meta={lastMeta} />
         </Card>
         <Card title={`${T("Primi 25 fornitori", "Top 25 suppliers")}, ${last}`}>
-          <BarList items={ly.top_suppliers.slice(0, 25).map((d) => ({ label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={ly.total_chf} />
+          <BarList items={ly.top_suppliers.slice(0, 25).map(supplierItem)} total={ly.total_chf} />
           <SourceBadge meta={lastMeta} />
         </Card>
         <Card title={`${T("Primi 25 committenti", "Top 25 buyers")}, ${last}`}>
@@ -67,10 +74,12 @@ export default function Appalti() {
         </Card>
       </div>
       <Card title={en ? `Top 50 suppliers, ${years[0]}–${last} cumulative` : `Primi 50 fornitori, ${years[0]}–${last} cumulato`}>
-        <BarList items={p.data.top_suppliers_all.slice(0, 50).map((d) => ({ label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={totalAll} />
+        <BarList items={p.data.top_suppliers_all.slice(0, 50).map(supplierItem)} total={totalAll} />
         <SourceBadge meta={p.meta} />
       </Card>
-      <Note title={T("Nomi dei fornitori", "Supplier names")}>{T("I nomi sono quelli scritti nell'elenco ufficiale: la stessa azienda può comparire con più grafie (per esempio con e senza la forma giuridica), e le classifiche qui sopra non le uniscono.", "Names are as written in the official list: the same company can appear under more than one spelling (for example with and without its legal form), and the rankings above do not merge them.")}</Note>
+      <Note title={T("Nomi dei fornitori", "Supplier names")}>{en
+        ? <>The same supplier is sometimes written in different ways in the official lists; in the rankings above the spellings of the same company (same UID number) are merged: <Link className="link" href="/appalti/grafie/">list of equivalences</Link>.</>
+        : <>Lo stesso fornitore compare a volte con grafie diverse negli elenchi ufficiali; nelle classifiche qui sopra le grafie della stessa ditta (stesso numero IDI) sono riunite: <Link className="link" href="/appalti/grafie/">elenco delle equivalenze</Link>.</>}</Note>
       <Card title={T("Elenchi per anno", "Lists by year")}>
         <ul className="text-sm space-y-1">
           {years.map((y) => {

@@ -10,8 +10,10 @@ type SortKey = "chf" | "start" | "supplier" | "unit";
 type Row = ProcRow & { unitIt: string; cat: string; hay: string };
 const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-/** Client-side search over the full per-year contract list (fetched from /data/…json). Searches Italian and German. */
-export function ProcTable({ year }: { year: number }) {
+/** Client-side search over the full per-year contract list (fetched from /data/…json). Searches Italian and German.
+ *  `groups`: spellings of the same supplier (data/supplier-aliases.json); a search for one finds the contracts written with the others.
+ *  Each row still shows the name as written in the list. */
+export function ProcTable({ year, groups = [] }: { year: number; groups?: string[][] }) {
   const { chf, date, num, plural, T, lang } = useL();
   const [rows, setRows] = useState<Row[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -21,12 +23,13 @@ export function ProcTable({ year }: { year: number }) {
   const [sort, setSort] = useState<{ key: SortKey; desc: boolean }>({ key: "chf", desc: true });
   const [limit, setLimit] = useState(50);
 
+  const spellings = useMemo(() => new Map(groups.flatMap((g) => g.map((n) => [n, g.join(" ")] as const))), [groups]);
   useEffect(() => {
     fetch(`${BASE}/data/bund-beschaffungen-${year}.json`).then((r) => r.json()).then((j) => setRows((j.data.rows as ProcRow[]).map((r) => {
       const unitIt = unitCodeIt(r.unit, lang), cat = categoryIt(r.object, lang);
-      return { ...r, unitIt, cat, hay: norm([r.supplier, r.unit, unitIt, r.object, cat, r.ort].join(" ")) };
+      return { ...r, unitIt, cat, hay: norm([spellings.get(r.supplier) ?? r.supplier, r.unit, unitIt, r.object, cat, r.ort].join(" ")) };
     }))).catch((e) => setErr(String(e)));
-  }, [year, lang]);
+  }, [year, lang, spellings]);
 
   const deps = useMemo(() => Array.from(new Set((rows ?? []).map((r) => r.dep))).sort(), [rows]);
   const procs = useMemo(() => Array.from(new Set((rows ?? []).map((r) => r.procedure))).sort(), [rows]);

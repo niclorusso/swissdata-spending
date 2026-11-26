@@ -108,7 +108,7 @@
   "checked_at": "2026-11-26T12:21:35+00:00",
   "sha256": null,
   "coverage": "47706 contratti, 13651 fornitori, 35.9 mld CHF in 5 anni",
-  "notes": "Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Elenco dei file sul sito della CA: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken"
+  "notes": "Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Nelle classifiche dei fornitori le grafie della stessa ditta sono contate insieme (data/supplier-aliases.json); i contratti restano con il nome scritto nell'elenco. Elenco dei file sul sito della CA: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken"
  },
  "bund-beschaffungen-2021": {
   "id": "bund-beschaffungen-2021",
