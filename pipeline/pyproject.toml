@@ -1,7 +1,7 @@
 [project]
 name = "spesa-pubblica-ch-pipeline"
 version = "0.1.0"
-description = "Add your description here"
+description = "ETL that downloads official Swiss public-spending files and writes the JSON snapshots read by the SwissData Spending site"
 requires-python = ">=3.13"
 dependencies = [
     "openpyxl>=3.1.5",

@@ -27,7 +27,7 @@ RAW_DIR = ROOT / "data" / "raw"
 SNAP_DIR = ROOT / "data" / "snapshots"
 LEDGER = ROOT / "data" / "source-ledger.json"
 
-UA = "spesa-pubblica-ch/0.1 (+https://github.com/nicolalorusso/spesa-pubblica-ch; open-source public-spending aggregator)"
+UA = "spesa-pubblica-ch/0.1 (+https://github.com/niclorusso/swissdata-spending; open-source public-spending aggregator)"
 
 
 def now_iso() -> str:
