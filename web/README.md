@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# web
 
-## Getting Started
+Il sito di SwissData · Spesa pubblica (https://spending.swissdata-platform.ch): Next.js 16, React 19, TypeScript, Tailwind 4, pnpm.
 
-First, run the development server:
+## Avvio
+
+Requisiti: Node ≥ 20 e pnpm.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # sito statico in out/
+pnpm start    # serve out/ in locale (npx serve)
+pnpm lint
+npx tsc --noEmit
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dalla radice del repository gli stessi comandi sono `make web`, `make dev`, `make build` e `make check` (lint + tsc).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Dati
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Il sito non ha database. Le pagine leggono in fase di build i file `../data/snapshots/*.json` e `../data/source-ledger.json`, generati da `../pipeline/etl` (`make etl`); vedi `src/lib/data.ts`.
 
-## Learn More
+Il browser scarica solo due tipi di file, che `scripts/sync-data.mjs` copia in `public/data/` prima di `pnpm dev` e `pnpm build`:
 
-To learn more about Next.js, take a look at the following resources:
+- `bund-beschaffungen-<anno>.json`: l'elenco dei contratti di un anno (`src/components/ProcTable.tsx`);
+- `geo-grenzen.json`: i confini per la mappa dei Comuni (`src/components/MuniMapCH.tsx`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`public/data/` non è sotto git.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pubblicazione
 
-## Deploy on Vercel
+`next.config.ts` ha `output: "export"`: `pnpm build` scrive un sito statico in `out/`. Netlify lo compila e lo pubblica secondo `../netlify.toml` (base `web`, comando `pnpm build`, cartella `out`, Node 20).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Con `BASE_PATH=/percorso pnpm build` il sito è costruito per stare sotto quel percorso invece che alla radice.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le pagine italiane sono in `src/app/(it)`; quelle inglesi in `src/app/(en)/en` riusano le stesse pagine.
