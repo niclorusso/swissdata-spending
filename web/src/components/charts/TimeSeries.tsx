@@ -21,8 +21,10 @@ export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit 
   const years = rows.map((r) => Number(r.year));
   const firstVA = years.find((y) => yearStatus[String(y)] && yearStatus[String(y)] !== "R");
   const last = years[years.length - 1];
+  const hasBreak = breakAt !== undefined && years.includes(breakAt);
+  // The break label sits above the plot, ending at the rule: inside the plot it would run into the «budget / plan» label of the shaded years.
   const common = {
-    data: rows, margin: { top: 8, right: 12, left: 4, bottom: 0 },
+    data: rows, margin: { top: hasBreak ? 22 : 8, right: 12, left: 4, bottom: 0 },
   };
   // NB: Recharts does not look inside <Fragment>, so the shared elements are passed as a keyed array.
   const axes = [
@@ -38,12 +40,14 @@ export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit 
       formatter={(v: number, name: string) => [unit === "chf" ? chf(v) : fmt(v), name]}
     />,
     zero ? <ReferenceLine key="zero" y={0} stroke="var(--foreground)" strokeWidth={1} /> : null,
-    breakAt && years.includes(breakAt) ? <ReferenceLine key="break" x={breakAt} stroke="var(--foreground)" strokeWidth={1} strokeDasharray="3 3" /> : null,
-    firstVA ? <ReferenceArea key="ref" x1={firstVA} x2={last} fill="var(--surface-2)" fillOpacity={0.7} label={{ value: T("preventivo / piano", "budget / plan"), position: "insideTopRight", fill: "var(--faint)", fontSize: 13 }} /> : null,
+    hasBreak ? <ReferenceLine key="break" x={breakAt} stroke="var(--foreground)" strokeWidth={1} strokeDasharray="3 3"
+      label={({ viewBox }: { viewBox?: { x: number; y: number } }) => <text x={(viewBox?.x ?? 0) - 4} y={(viewBox?.y ?? 0) - 7} textAnchor="end" fill="var(--muted)" fontSize={13}>{breakLabel ? `${breakAt}: ${breakLabel}` : breakAt}</text>} /> : null,
+    // On a narrow chart this label is wider than the shaded years and runs across the dashed rule: a halo in the card's colour keeps the rule off the letters.
+    firstVA ? <ReferenceArea key="ref" x1={firstVA} x2={last} fill="var(--surface-2)" fillOpacity={0.7}
+      label={({ viewBox }: { viewBox?: { x: number; y: number; width: number } }) => <text x={(viewBox?.x ?? 0) + (viewBox?.width ?? 0) - 5} y={(viewBox?.y ?? 0) + 5} dy="0.71em" textAnchor="end" fill="var(--faint)" fontSize={13} stroke="var(--surface)" strokeWidth={4} strokeLinejoin="round" paintOrder="stroke">{T("preventivo / piano", "budget / plan")}</text>} /> : null,
     series.length > 1 ? <Legend key="legend" wrapperStyle={{ fontSize: 13 }} formatter={(v: string) => <span style={{ color: "var(--muted)" }}>{v}</span>} /> : null,
   ];
   return (
-    <>
     <div ref={ref} style={{ width: "100%", height }}>
       {seen && <ResponsiveContainer>
         {kind === "stacked" ? (
@@ -63,7 +67,5 @@ export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit 
         )}
       </ResponsiveContainer>}
     </div>
-    {breakAt && breakLabel && <p className="mt-2 text-xs text-muted">{T("Riga tratteggiata", "Dashed rule")}: {breakLabel}</p>}
-    </>
   );
 }

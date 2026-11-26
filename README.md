@@ -15,7 +15,7 @@ Ispirato a [France Transparence](https://francetransparence.fr).
 | Appalti | Tutti i contratti ≥ 50 000 CHF dell'Amministrazione federale centrale: committente, fornitore, oggetto, procedura, volume | BKB (art. 27 OAPub), XLSX annuali | 2021–2025 (47 706 contratti) |
 | Cantoni e Comuni | Statistica finanziaria: spese per funzione e natura per ogni Cantone, Comuni aggregati per Cantone, rami delle assicurazioni sociali; 435 Comuni ≥ 5 000 abitanti singolarmente | AFF Finanzstatistik (modello FS) | 1990–2025 |
 
-| Comuni di Ticino e Zurigo | Tutti i Comuni, uno per uno: spese, debito netto, moltiplicatore, investimenti, risultato | TI: Sezione degli enti locali; ZH: Statistisches Amt | 2024 (ZH: serie dal 2019) |
+| Comuni di Ticino e Zurigo | Tutti i Comuni, uno per uno: spese, debito netto, moltiplicatore, investimenti, risultato | TI: Sezione degli enti locali; ZH: Amt für Statistik und Daten | 2024 (ZH: serie dal 2019) |
 
 Quali anni sono consuntivo e quali previsione è letto dal file dell'AFF (`main_extern.csv`, colonna `source`), non scritto a mano. Le mappe usano i confini UST/GEOSTAT via swiss-maps.
 

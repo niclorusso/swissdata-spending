@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "@/components/L";
 import { gemeinden, haushalte, ktGemeinden, lastR, popForAccounts, popGemeindenMeta } from "@/lib/data";
 import { allProfiles, searchItems } from "@/lib/comuni";
-import { chf, num } from "@/lib/format";
+import { chf, date, num } from "@/lib/format";
 import { perCapita } from "@/lib/fs";
 import { SourceBadge } from "@/components/SourceBadge";
 import { GemeindenTable, type GemRow } from "@/components/GemeindenTable";
@@ -30,6 +30,15 @@ export default function Comuni() {
   const current = rows;
   const noPop = rows.filter((r) => r.pop === null).map((r) => r.name);
   const withPop = rows.length - noPop.length;
+  // Why each of them has no population for the year of the accounts, within the boundaries the accounts refer to.
+  const list = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} ${T("e", "and")} ${xs.at(-1)}`);
+  const whys = rows.filter((r) => r.pop === null).map((r) => ({ name: r.name, why: popForAccounts(r.bfs, r.year).why }));
+  const grewOn = [...new Set(whys.flatMap((w) => (w.why?.kind === "grew" ? [w.why.date] : [])))];
+  const noPopWhy = list([
+    ...grewOn.map((d) => { const ns = whys.filter((w) => w.why?.kind === "grew" && w.why.date === d).map((w) => w.name); return en ? `${list(ns)} changed boundaries by merger on ${date(d)}` : `${list(ns)} ${ns.length > 1 ? "hanno" : "ha"} cambiato confini con un'aggregazione il ${date(d)}`; }),
+    ...whys.flatMap((w) => (w.why?.kind === "dissolved" ? [en ? `${w.name} no longer exists (merged into ${w.why.into} on ${date(w.why.date)})` : `${w.name} non esiste più (confluito in ${w.why.into} il ${date(w.why.date)})`] : [])),
+    ...whys.filter((w) => !w.why).map((w) => (en ? `${w.name} has no published population` : `${w.name} non ha una popolazione pubblicata`)),
+  ]);
   const totPop = current.reduce((s, r) => s + (r.pop ?? 0), 0);
   const profiles = allProfiles();
   const nAll = Object.keys(profiles).length;
@@ -45,8 +54,8 @@ export default function Comuni() {
       <StatGrid>
         <Stat label={T("Comuni con una scheda", "Municipalities with a page")} value={num(nAll)} sub={en ? `out of about ${num(2100)}` : `su circa ${num(2100)}`} />
         <Stat label={T("Nella statistica federale", "In the federal statistics")} value={num(current.length)} sub={en
-          ? `${yG} accounts published by the FFA. ${num(withPop)} of them have ${num(totPop)} inhabitants in all${noPop.length ? `; ${noPop.join(", ")} are not counted, because they were merged after ${yG} and have no population of their own` : ""}`
-          : `conti ${yG} pubblicati dall'AFF. ${num(withPop)} di questi hanno in tutto ${num(totPop)} abitanti${noPop.length ? `; ${noPop.join(", ")} non sono contati, perché aggregati dopo il ${yG} e senza una popolazione propria` : ""}`} />
+          ? `${yG} accounts published by the FFA. ${num(withPop)} of them have ${num(totPop)} inhabitants in all${noPop.length ? `; the other ${num(noPop.length)} are not counted: ${noPopWhy}, so the population of ${yG} within the same boundaries is not available` : ""}`
+          : `conti ${yG} pubblicati dall'AFF. ${num(withPop)} di questi hanno in tutto ${num(totPop)} abitanti${noPop.length ? `; gli altri ${num(noPop.length)} non sono contati: ${noPopWhy}, quindi la popolazione del ${yG} negli stessi confini non è disponibile` : ""}`} />
         <Stat label="Ticino" value={num(Object.keys(ti.gemeinden).length)} sub={<Link className="link" href="/cantoni/ti/#comuni">{T("tutti i Comuni", "all municipalities")}, {ti.year} →</Link>} />
         <Stat label={T("Zurigo", "Zurich")} value={num(Object.keys(zh.gemeinden).length)} sub={<Link className="link" href="/cantoni/zh/#comuni">{T("tutti i Comuni", "all municipalities")}, {zh.year} →</Link>} />
       </StatGrid>
