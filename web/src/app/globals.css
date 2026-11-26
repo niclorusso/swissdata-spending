@@ -14,7 +14,7 @@
   --muted: var(--sdf-muted);
   --faint: var(--sdf-subtle);  /* captions and source lines: 5.2:1 on paper, 5.7:1 on white (was #7b7f86, 3.7:1) */
   --accent: var(--sdf-accent);
-  --accent-text: #b91c1c;      /* the accent for small text and for "Data" in the wordmark, on paper and white (6:1); #dc2626 reaches only 4.4:1 */
+  --accent-text: #d82525;      /* the family red for small text and for "Data" in the wordmark: 4.53:1 on paper, 4.99:1 on white (#dc2626 reaches only 4.4:1) */
   --accent-ink: #ffffff;
   --accent-soft: #fee2e2;
   --control-line: #c9c4b8;     /* outline of the language pill */
@@ -29,7 +29,6 @@
   --neg-1: #f6cdb6; --neg-2: #e58a5c;
   --shadow: 0 1px 2px rgb(16 18 22 / 0.04), 0 8px 24px -12px rgb(16 18 22 / 0.12);
   --shadow-lift: 0 2px 4px rgb(16 18 22 / 0.05), 0 18px 40px -16px rgb(16 18 22 / 0.22);
-  --nav-bg: rgb(245 244 239 / 0.92);
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -49,7 +48,6 @@
     --neg-1: #6b4433; --neg-2: #d9774a;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
     --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 40px -16px rgb(0 0 0 / 0.8);
-    --nav-bg: rgb(14 15 17 / 0.92);
   }
 }
 [data-theme="dark"] {
@@ -65,7 +63,6 @@
   --neg-1: #6b4433; --neg-2: #d9774a;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
   --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 40px -16px rgb(0 0 0 / 0.8);
-  --nav-bg: rgb(14 15 17 / 0.92);
   color: var(--foreground);
 }
 
@@ -88,7 +85,7 @@
   --text-xs--line-height: 1.5;
 }
 
-html { font-family: var(--font-sans); scroll-behavior: smooth; scroll-padding-top: 5rem; }
+html { font-family: var(--font-sans); scroll-behavior: smooth; scroll-padding-top: 1rem; } /* the header does not stick: anchors land near the top */
 body, #app { background: var(--background); color: var(--foreground); transition: background-color 0.3s, color 0.3s; }
 .tabular { font-variant-numeric: tabular-nums; }
 a { text-underline-offset: 3px; }
@@ -128,11 +125,11 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
 .field { border-radius: 12px; border: 1px solid var(--border); background: var(--surface); transition: border-color 0.2s, box-shadow 0.2s; }
 .field:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
 
-/* ---- family header: mark + "SwissData / section", the pages in one row, the language pill ---- */
-.site-nav { background: var(--nav-bg); backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px); border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
+/* ---- family header: mark + "SwissData / section", the pages in one row, the language pill. On the paper of the page, not sticky. ---- */
+.site-nav { background: var(--background); border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
 .site-nav-in { position: relative; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 0; padding-top: 4px; }
 .sdf-word { font-weight: 700; letter-spacing: -0.015em; color: var(--foreground); }
-.sdf-data { color: var(--accent-text); } /* light #b91c1c (6:1), dark #ff6a5c (6.7:1 on the dark header) */
+.sdf-data { color: var(--accent-text); } /* light #d82525 (4.53:1 on paper), dark #ff6a5c (6.7:1 on the dark header) */
 .sdf-mark { flex: none; display: block; }
 .sdf-lockup { display: flex; align-items: center; gap: 6px; font-size: 16px; line-height: 1; min-width: 0; white-space: nowrap; margin-right: auto; }
 .sdf-lockup .sdf-mark { width: 24px; height: 24px; }
@@ -146,17 +143,23 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
 .sdf-menu[open] > summary svg { transform: rotate(180deg); }
 .sdf-switch > summary { color: var(--muted); font-weight: 600; }
 .sdf-menu-list { position: absolute; top: 46px; max-width: calc(100vw - 32px); z-index: 80; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 32px rgb(20 24 29 / 0.14); padding: 6px; }
-.sdf-switch .sdf-menu-list { left: 16px; min-width: min(230px, calc(100vw - 32px)); }
+.sdf-switch .sdf-menu-list { left: 16px; min-width: min(230px, calc(100vw - 32px)); } /* under the lockup, on every screen */
 .sdf-lang .sdf-menu-list { right: 16px; min-width: 150px; top: 50px; }
 .sdf-menu-list a { display: flex; gap: 6px; align-items: center; min-height: 44px; padding: 0 10px; border-radius: 8px; color: var(--muted); font-size: 15px; font-weight: 500; white-space: nowrap; }
 .sdf-menu-list a:hover { background: var(--surface-2); color: var(--foreground); }
 .sdf-menu-list a[aria-current] { background: var(--background); color: var(--foreground); font-weight: 650; }
+.sdf-lang-code { min-width: 1.75rem; font-size: var(--sdf-text-small); font-weight: 650; letter-spacing: 0.04em; color: var(--muted); } /* "IT Italiano", as in the Parliament menu */
 .sdf-lang { flex: none; }
 .sdf-lang > summary { gap: 4px; min-height: 0; height: 44px; padding: 0 10px; border: 1px solid var(--control-line); border-radius: var(--sdf-radius-control); background: var(--surface); color: var(--foreground); font-weight: 600; font-size: 14px; }
-/* the pages: one row of words; on phones it scrolls sideways and fades at the right edge while there is more to see */
-.sdf-navrow { order: 3; width: calc(100% + 20px); margin: 0 -10px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border); }
+/* the pages: one row of words, 15px 550 on every screen; on phones it scrolls sideways, and a fade with a chevron marks the side where there is more */
+.sdf-navwrap { order: 3; position: relative; width: calc(100% + 20px); margin: 0 -10px; border-top: 1px solid var(--border); }
+.sdf-navrow { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .sdf-navrow::-webkit-scrollbar { display: none; }
-.sdf-navrow[data-more] { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
+.sdf-navcue { position: absolute; top: 0; bottom: 0; width: 40px; display: flex; align-items: center; pointer-events: none; color: var(--muted); }
+.sdf-navcue-r { right: 0; justify-content: flex-end; padding-right: 10px; background: linear-gradient(to left, var(--background) 55%, transparent); }
+.sdf-navcue-l { left: 0; justify-content: flex-start; padding-left: 10px; background: linear-gradient(to right, var(--background) 55%, transparent); }
+.sdf-navcue-r svg { transform: rotate(-90deg); }
+.sdf-navcue-l svg { transform: rotate(90deg); }
 .sdf-navrow a { flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; font-weight: 550; color: var(--muted); white-space: nowrap; transition: color 0.2s; }
 .sdf-navrow a:hover { color: var(--foreground); }
 .sdf-navrow a[aria-current] { color: var(--foreground); box-shadow: inset 0 -3px 0 var(--sdf-accent); }
@@ -166,15 +169,13 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
   .sdf-lockup-brand { gap: 8px; }
   .sdf-lang > summary { height: 36px; padding: 0 12px; }
   .sdf-lang .sdf-menu-list { top: 44px; }
-  .sdf-switch .sdf-menu-list { left: 130px; }
 }
-/* one row only where lockup, six pages and the pill fit in Italian and in English (the English row needs about 1090px) */
+/* one row only where lockup, six pages and the pill fit in Italian and in English (the English row needs about 1150px) */
 @media (min-width: 1152px) {
-  .site-nav { position: sticky; top: 0; z-index: 40; }
   .site-nav-in { padding-bottom: 4px; column-gap: 20px; }
-  .sdf-navrow { order: 0; width: auto; margin: 0; border-top: 0; overflow: visible; }
-  .sdf-navrow a { font-size: 14px; font-weight: 500; }
-  .sdf-navrow[data-more] { -webkit-mask-image: none; mask-image: none; }
+  .sdf-navwrap { order: 0; width: auto; margin: 0; border-top: 0; }
+  .sdf-navrow { overflow: visible; }
+  .sdf-navcue { display: none; }
 }
 
 
@@ -192,7 +193,7 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
 .site-foot { background: var(--sdf-footer); color: #b9bdc3; font-size: 14px; }
 .sdf-foot { padding: 0 0 28px; border-bottom: 1px solid rgb(255 255 255 / 0.12); }
 .sdf-foot-brand { display: flex; align-items: center; gap: 8px; font-size: 18px; margin-bottom: 18px; }
-.sdf-foot .sdf-word { color: #fff; font-weight: 400; }
+.sdf-foot .sdf-word { color: #fff; font-weight: 700; }
 .sdf-foot .sdf-data { color: #ff6a5c; }
 .sdf-foot-sites { display: grid; grid-template-columns: 1fr; gap: 8px; }
 .sdf-foot-site { display: block; padding: 12px 14px; border: 1px solid rgb(255 255 255 / 0.14); border-radius: 12px; color: #b9bdc3; min-height: 44px; transition: background-color 0.2s; }
@@ -243,6 +244,8 @@ h1, h2, .display { font-family: var(--font-serif); font-weight: 650; letter-spac
 .hero .eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; }
 .hero .text-xs { font-size: 0.75rem; line-height: var(--tw-leading, calc(1 / 0.75)); }
 .hero .sdf-source { font-size: 0.75rem; line-height: 1.625; margin-top: 0.75rem; }
+/* its two buttons measure 43px; 44px at least adds one pixel, the words stay centred where they were */
+.hero :is(.btn, .btn-ghost) { min-height: var(--sdf-tap); }
 
 /* opening band of the home page: one flat dark colour */
 .hero { background: #0b0c0e; }

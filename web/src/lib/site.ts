@@ -15,3 +15,11 @@ export const FAMILY = [
     text: { it: "Quanto spendono Confederazione, Cantoni e Comuni, e per che cosa.", en: "How much the Confederation, cantons and municipalities spend, and on what." } },
 ] as const;
 export const THIS_SITE = "spend";
+
+/** The address of a sister site in the visitor's language: SwissData has one address per language (/it, /en),
+ *  Parliament reads ?lang= on the first load (client/src/i18n/index.js, detectLanguage) and then keeps the choice. */
+export function familyHref(s: (typeof FAMILY)[number], lang: "it" | "en"): string {
+  if (s.id === "sd") return `${s.url}/${lang}`;
+  if (s.id === "parl") return `${s.url}/?lang=${lang}`;
+  return s.url;
+}

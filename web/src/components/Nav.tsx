@@ -2,7 +2,7 @@ import Link from "@/components/L";
 import { Chevron, LangMenu, Menu, NavLinks } from "@/components/NavLinks";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getLang, T } from "@/lib/lang-server";
-import { FAMILY, THIS_SITE } from "@/lib/site";
+import { FAMILY, THIS_SITE, familyHref } from "@/lib/site";
 
 const links = [
   { href: "/confederazione/", it: "Confederazione", en: "Confederation" },
@@ -39,7 +39,7 @@ function Lockup() {
         {FAMILY.map((s) => (
           <li key={s.id}>{s.id === THIS_SITE
             ? <Link href="/" aria-current="true"><Word /> <span>/ {s[lang]}</span></Link>
-            : <a href={s.url}><Word /> <span>/ {s[lang]}</span></a>}</li>
+            : <a href={familyHref(s, lang)} hrefLang={lang}><Word /> <span>/ {s[lang]}</span></a>}</li>
         ))}
       </Menu>
     </div>
@@ -69,7 +69,7 @@ export function Footer() {
             {FAMILY.map((s) => (
               s.id === THIS_SITE
                 ? <Link key={s.id} className="sdf-foot-site" href="/" aria-current="true"><strong>{s.long[lang]}</strong><span>{s.text[lang]}</span></Link>
-                : <a key={s.id} className="sdf-foot-site" href={s.url}><strong>{s.long[lang]}</strong><span>{s.text[lang]}</span></a>
+                : <a key={s.id} className="sdf-foot-site" href={familyHref(s, lang)} hrefLang={lang}><strong>{s.long[lang]}</strong><span>{s.text[lang]}</span></a>
             ))}
           </nav>
           <p className="sdf-foot-indep">{T("Progetto indipendente di Nicola Lo Russo. Non è un sito ufficiale della Confederazione.", "Independent project by Nicola Lo Russo. Not an official website of the Confederation.")}</p>

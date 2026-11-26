@@ -95,7 +95,7 @@ export default function Confederazione() {
       <StatGrid>
         <Stat label={`${S.spese} ${yR}`} value={chf(root.values[y])} sub={`${pct(k["Ausgabenquote"]?.values[y])} ${T("del PIL", "of GDP")}`} />
         <Stat label={`${S.entrate} ${yR}`} value={chf(einRoot.values[y])} sub={`${T("di cui fiscali", "of which taxes")} ${chf(fisk?.values[y])}`} />
-        <Stat label={`${T("Risultato", "Result")} ${yR}`} value={`${(k["Finanzierungssaldo"]?.values[y] ?? 0) >= 0 ? "+" : ""}${chf(k["Finanzierungssaldo"]?.values[y])}`} sub={T("entrate meno spese", "revenue minus spending")} />
+        <Stat label={`${T("Risultato", "Result")} ${yR}`} value={chf(k["Finanzierungssaldo"]?.values[y], { sign: true })} sub={T("entrate meno spese", "revenue minus spending")} />
         <Stat label={`${S.lordo} ${yR}`} value={chf(k["Bruttoschulden"]?.values[y])} sub={`${pct(k["Schuldenquote brutto"]?.values[y])} ${T("del PIL", "of GDP")}`} />
       </StatGrid>
       <div data-reveal="up"><SourceBadge meta={aufg.meta} /></div>
