@@ -40,12 +40,14 @@ export default function SV() {
       <div>
         <Card title={T("Entrate e spese, tutti i rami", "Revenue and spending, all branches")}>
           <TimeSeries rows={saldo} series={[E, U]} yearStatus={sv.year_status} height={280} colors={["var(--s1)", "var(--s2)"]} />
+          <SourceBadge meta={fs.meta} />
         </Card>
       </div>
       <div className="grid md:grid-cols-2 gap-6">
         {BRANCHES.slice(0, 4).map((b) => (
           <Card key={b} title={svName(b)}>
             <TimeSeries rows={ys.map((yy) => ({ year: yy, [E]: H[b]?.total_einnahmen[String(yy)] ?? null, [U]: H[b]?.total_ausgaben[String(yy)] ?? null }))} series={[E, U]} yearStatus={H[b]?.year_status ?? {}} height={220} colors={["var(--s1)", "var(--s2)"]} />
+            <SourceBadge meta={fs.meta} />
           </Card>
         ))}
       </div>

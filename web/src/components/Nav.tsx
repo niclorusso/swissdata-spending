@@ -50,7 +50,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-14 grid md:grid-cols-3 gap-10 text-muted">
         <div className="md:col-span-2 space-y-3 max-w-2xl">
           <div className="text-xl text-foreground"><Brand size={30} /></div>
-          <p>{T("La spesa pubblica svizzera dai file ufficiali di AFF, UST e della Conferenza degli acquisti della Confederazione. Sotto ogni grafico: fonte e data dell'ultimo controllo.", "Swiss public spending from the official files of the Federal Finance Administration, the Federal Statistical Office and the Federal Procurement Conference. Under every chart: source and date of the last check.")}</p>
+          <p>{T("La spesa pubblica svizzera dai file ufficiali di AFF, UST, della Conferenza degli acquisti della Confederazione e dei Cantoni Ticino e Zurigo. Sotto ogni grafico: fonte e data dell'ultimo controllo.", "Swiss public spending from the official files of the Federal Finance Administration, the Federal Statistical Office, the Federal Procurement Conference and the cantons of Ticino and Zurich. Under every chart: source and date of the last check.")}</p>
           <p>{T("Progetto indipendente, non è un sito ufficiale della Confederazione.", "Independent project, not an official website of the Confederation.")}</p>
         </div>
         <ul className="space-y-2">

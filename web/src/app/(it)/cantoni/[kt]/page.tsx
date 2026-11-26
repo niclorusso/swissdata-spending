@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { gemeinden, haushalte, ktGemeinden, KT_WITH_ALL_GEMEINDEN, lastR, popGemeinden, popKantone } from "@/lib/data";
+import { gemeinden, haushalte, ktGemeinden, KT_WITH_ALL_GEMEINDEN, lastR, popForAccounts, popGemeindenMeta, popKantone } from "@/lib/data";
 import { kantonLabel, kantonMap } from "@/lib/comuni";
 import { GemeindenExplorer } from "@/components/GemeindenExplorer";
 import { chf, num } from "@/lib/format";
@@ -7,6 +7,7 @@ import { KANTONE, kantonName, measureText } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
 import { codedTree, natureTree, perCapita, years } from "@/lib/fs";
 import { SourceBadge } from "@/components/SourceBadge";
+import Link from "@/components/L";
 import { BarList } from "@/components/charts/BarList";
 import { TreeExplorer } from "@/components/charts/TreeExplorer";
 import { TimeSeries, type Row } from "@/components/charts/TimeSeries";
@@ -38,12 +39,13 @@ export default async function Kanton({ params }: PageProps<"/cantoni/[kt]">) {
   const rows: Row[] = ys.map((yy) => ({ year: yy, [S.ktn]: ktn.total_ausgaben[String(yy)] ?? null, [S.gdn]: gdn.total_ausgaben[String(yy)] ?? null }));
   const pcRows: Row[] = ys.map((yy) => ({ year: yy, [S.pc]: perCapita(both.total_ausgaben[String(yy)], pop?.values[String(yy)]) }));
   const gem = Object.values(gemeinden().data.gemeinden).filter((g) => g.kanton === kt.toUpperCase());
-  const pg = popGemeinden().data.population;
   const gemRows = gem.map((g) => {
     const yy = String(Math.max(...g.years.filter((v) => v <= yG && g.aufwand[String(v)])));
-    const pp = pg[String(g.bfs_nr)]?.values[yy];
+    const pp = popForAccounts(g.bfs_nr, yy).pop;
     return { ...g, y: yy, aufwand: g.aufwand[yy], pc: perCapita(g.aufwand[yy], pp), pop: pp };
   }).filter((g) => g.aufwand && Number(g.y) === yG).sort((a, b) => (b.pc ?? 0) - (a.pc ?? 0));
+  // Municipalities merged after the year of the accounts: no population matches the accounts, so no value per inhabitant.
+  const noPc = gemRows.filter((g) => g.pc === null);
 
   const hasAll = (KT_WITH_ALL_GEMEINDEN as readonly string[]).includes(kt);
   const all = hasAll ? ktGemeinden(kt) : null;
@@ -60,6 +62,7 @@ export default async function Kanton({ params }: PageProps<"/cantoni/[kt]">) {
         <Stat label={`${T("Cantone + Comuni", "Canton + municipalities")} ${yK}`} value={chf(both.total_ausgaben[y])} sub={T("trasferimenti tra Cantone e Comuni contati una volta", "transfers between canton and municipalities counted once")} />
         <Stat label={T("Per abitante", "Per inhabitant")} value={chf(perCapita(both.total_ausgaben[y], p))} sub={`${num(p)} ${T("abitanti al", "inhabitants on")} 31.12.${yK}`} />
       </StatGrid>
+      <div data-reveal="up"><SourceBadge meta={fs.meta} also={popKantone().meta} /></div>
       <Note>{T("Questi importi seguono lo schema armonizzato dell'AFF e comprendono gli investimenti: non coincidono con le cifre del consuntivo pubblicato dal Cantone, che usa un perimetro suo.", "These amounts follow the harmonised scheme of the FFA and include investment: they do not match the figures of the accounts published by the canton, which uses its own scope.")}</Note>
 
       {all && map && (
@@ -87,23 +90,28 @@ export default async function Kanton({ params }: PageProps<"/cantoni/[kt]">) {
       <div className="grid md:grid-cols-2 gap-6">
         <Card title={T("Le spese dei Comuni, anno per anno", "Municipal spending, year by year")} subtitle={T("Tutti i Comuni del Cantone sommati.", "All municipalities of the canton added up.")}>
           <TreeExplorer root={codedTree(gdn, "funk", S.sg)} years={years(gdn)} yearStatus={gdn.year_status} defaultYear={yG} />
+          <SourceBadge meta={fs.meta} />
         </Card>
         <Card title={T("Per che cosa spende il Cantone", "What the canton spends on")} subtitle={T("Personale, acquisti, contributi versati ad altri, investimenti.", "Staff, purchases, contributions paid to others, investment.")}>
           <TreeExplorer root={natureTree(ktn, S.sk)} years={ys} yearStatus={ktn.year_status} defaultYear={yK} />
+          <SourceBadge meta={fs.meta} />
         </Card>
       </div>
       <div className="grid md:grid-cols-2 gap-6">
         <Card title={T("Cantone e Comuni nel tempo", "Canton and municipalities over time")}>
           <TimeSeries rows={rows} series={[S.ktn, S.gdn]} yearStatus={status} height={280} />
+          <SourceBadge meta={fs.meta} />
         </Card>
         <Card title={T("Spesa per abitante nel tempo", "Spending per inhabitant over time")} subtitle={T("Cantone e Comuni insieme, in franchi dell'anno, senza correzione per il rincaro.", "Canton and municipalities together, in francs of each year, not adjusted for inflation.")}>
           <TimeSeries rows={pcRows} series={[S.pc]} yearStatus={status} height={280} />
+          <SourceBadge meta={fs.meta} also={popKantone().meta} />
         </Card>
       </div>
       {!all && gemRows.length > 0 && (
         <Card title={en ? `The ${gemRows.length} municipalities with individual accounts, ${yG}` : `I ${gemRows.length} Comuni con conti singoli, ${yG}`} subtitle={T("Spese correnti per abitante dei Comuni che l'AFF rileva uno per uno, di regola sopra i 5 000 abitanti. Un valore molto alto può dipendere da una spesa straordinaria dell'anno o da pochi residenti rispetto a turisti e case di vacanza.", "Current spending per inhabitant of the municipalities the FFA records one by one, as a rule above 5,000 inhabitants. A very high value can come from a one-off expense in that year or from few residents compared with tourists and holiday homes.")}>
-          <BarList items={gemRows.map((g) => ({ label: g.name, value: g.pc ?? 0, sub: `${chf(g.aufwand)} · ${num(g.pop)} ${T("ab.", "inh.")} · ${g.y}`, href: `/comuni/${g.bfs_nr}/` }))} showShare={false} />
-          <SourceBadge meta={gemeinden().meta} />
+          <BarList items={gemRows.filter((g) => g.pc !== null).map((g) => ({ label: g.name, value: g.pc ?? 0, sub: `${chf(g.aufwand)} · ${num(g.pop)} ${T("ab.", "inh.")} · ${g.y}`, href: `/comuni/${g.bfs_nr}/` }))} showShare={false} />
+          {noPc.length > 0 && <p className="mt-4 text-sm text-muted">{T("Valore per abitante non calcolabile, perché il Comune è stato aggregato dopo l'anno dei conti e la popolazione è pubblicata solo nei nuovi confini", "Value per inhabitant not computable, because the municipality was merged after the year of the accounts and the population is published only within the new boundaries")}: {noPc.map((g, i) => <span key={g.bfs_nr}>{i > 0 ? ", " : ""}<Link className="link" href={`/comuni/${g.bfs_nr}/`}>{g.name}</Link> ({chf(g.aufwand)})</span>)}.</p>}
+          <SourceBadge meta={gemeinden().meta} also={popGemeindenMeta()} />
         </Card>
       )}
     </Page>

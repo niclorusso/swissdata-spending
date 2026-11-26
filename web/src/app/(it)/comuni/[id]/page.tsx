@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { gemeinden, ktGemeinden, popGemeinden } from "@/lib/data";
+import { gemeinden, ktGemeinden, popForAccounts } from "@/lib/data";
 import { allProfiles, kantonLabel, ktMunicipalities, peersOf } from "@/lib/comuni";
-import { chf, formatUnit, num } from "@/lib/format";
+import { chf, date, formatUnit, num } from "@/lib/format";
 import { codedName, measureText } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
 import { SourceBadge } from "@/components/SourceBadge";
@@ -34,7 +34,6 @@ function SectionHead({ title, sub }: { title: string; sub: React.ReactNode }) {
 export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
   const { id } = await params;
   const p = allProfiles()[id];
-  const pg = popGemeinden().data.population[id];
   const aff = p.aff;
   const kant = p.kant;
   const km = p.kantMeta;
@@ -47,15 +46,31 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
 
   const yA = aff ? String(Math.max(...Object.keys(aff.aufwand).map(Number))) : null;
   const affRows: Row[] = aff ? aff.years.filter((y) => aff.aufwand[String(y)]).map((y) => ({ year: y, [S.sc]: aff.aufwand[String(y)] ?? null, [S.rc]: aff.ertrag[String(y)] ?? null })) : [];
-  const popA = yA ? pg?.values[yA] : null;
+  // Inhabitants on the territory the accounts refer to: none if the municipality was merged after the year of the accounts.
+  const popRef = yA ? popForAccounts(id, yA) : { pop: null };
+  const popA = popRef.pop;
+  const why = popRef.why;
+  const whyText = !why ? null : why.kind === "dissolved"
+    ? (en ? `merged into ${why.into} on ${date(why.date)}: the Federal Statistical Office no longer publishes its inhabitants` : `confluito in ${why.into} il ${date(why.date)}: l'Ufficio federale di statistica non pubblica più i suoi abitanti`)
+    : (en ? `the ${yA} accounts are of ${p.name} before it took in ${why.names.join(", ")} on ${date(why.date)}; the population is published only for the merged municipality` : `i conti ${yA} sono di ${p.name} prima dell'aggregazione con ${why.names.join(", ")} del ${date(why.date)}; la popolazione è pubblicata solo per il Comune aggregato`);
   const stf = kant?.series?.steuerfuss ? Object.entries(kant.series.steuerfuss) : [];
-  const stfFlat = stf.length > 0 && new Set(stf.map(([, v]) => v)).size === 1;
+  // Zurich: a second (third) multiplier applies in the part of the municipality that belongs to another school municipality.
+  const stfMore = kant?.series ? (["steuerfuss_2", "steuerfuss_3"] as const).map((k) => kant.series![k]).filter((x): x is Record<string, number> => !!x && Object.entries(x).some(([y, v]) => kant.series!.steuerfuss?.[y] !== v)) : [];
+  const stfFlat = stf.length > 0 && new Set(stf.map(([, v]) => v)).size === 1 && stfMore.length === 0;
+  const mo2 = (i: number) => (en ? `${S.mo} ${i + 2}` : `${S.mo} ${i + 2}`);
+  const mp = kant?.moltiplicatori;
+  // The canton's own result for the year of the federal accounts, as the cantonal source publishes it (Ticino: francs; Zurich: francs per inhabitant).
+  const kantResult = kant && km && yA && String(km.year) === yA && !kant.merged_from
+    ? (p.kt === "ti" && kant.abs?.risultato !== undefined ? { v: kant.abs.risultato, text: chf(Math.abs(kant.abs.risultato), { digits: 1 }), ref: T("Sezione degli enti locali, Statistica finanziaria dei comuni, tabella 9", "Local Authorities Section, financial statistics of the municipalities, table 9") }
+      : p.kt === "zh" && typeof kant.values.risultato_pc === "number" ? { v: kant.values.risultato_pc, text: `${chf(Math.abs(kant.values.risultato_pc))} ${T("per abitante", "per inhabitant")}`, ref: T("Statistisches Amt del Canton Zurigo, indicatore 828", "Statistisches Amt of the Canton of Zurich, indicator 828") }
+      : null)
+    : null;
 
   return (
     <Page kicker={`${T("Comune", "Municipality")} · ${kantonLabel(p.kt)}`} back={{ href: `/cantoni/${p.kt}/${kant ? "#comuni" : ""}`, label: kantonLabel(p.kt) }} title={p.name}
       lead={en
-        ? <p>{num(p.pop)} inhabitants.{kant?.merged_from ? <> Formed after {km?.year} by the merger of {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} inhabitants)`).join(", ")}.</> : null}</p>
-        : <p>{num(p.pop)} abitanti.{kant?.merged_from ? <> Nato dopo il {km?.year} dall&apos;aggregazione di {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} abitanti)`).join(", ")}.</> : null}</p>}>
+        ? <p>{why && !kant ? (why.kind === "dissolved" ? <>Municipality {whyText}.</> : <>{num(p.pop)} inhabitants at the end of {yA} within today&apos;s boundaries, which include {why.names.join(", ")} (merged on {date(why.date)}).</>) : <>{num(p.pop)} inhabitants.</>}{kant?.merged_from ? <> Formed after {km?.year} by the merger of {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} inhabitants)`).join(", ")}.</> : null}</p>
+        : <p>{why && !kant ? (why.kind === "dissolved" ? <>Comune {whyText}.</> : <>{num(p.pop)} abitanti a fine {yA} nei confini attuali, che comprendono {why.names.join(", ")} (aggregazione del {date(why.date)}).</>) : <>{num(p.pop)} abitanti.</>}{kant?.merged_from ? <> Nato dopo il {km?.year} dall&apos;aggregazione di {kant.merged_from.map((q) => `${q.name} (${num(q.pop)} abitanti)`).join(", ")}.</> : null}</p>}>
 
       {kant && km && (
         <>
@@ -72,7 +87,9 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
               const rank = v === null || v === undefined ? null : ranked.indexOf(v) + 1;
               return (
                 <Stat key={m.key} label={m.label} value={v === null || v === undefined ? T("non disponibile", "not available") : formatUnit(v, m.unit)}
-                  sub={<>{rank ? <><strong className="text-foreground">{ord(rank)} {T("su", "of")} {ranked.length}</strong> {munis} · {T("mediana", "median")} {formatUnit(Math.round(median(all)), m.unit)}<br /></> : null}{m.note}.</>} />
+                  sub={<>{m.key === "moltiplicatore" && mp ? <><strong className="text-foreground">{T("Persone giuridiche", "Companies")}: {formatUnit(mp.pg, "pct")}</strong> ({mp.year})<br /></> : null}
+                    {m.key === "steuerfuss" && stfMore.some((x) => x[String(km.year)] !== undefined) ? <><strong className="text-foreground">{T("Secondo moltiplicatore", "Second multiplier")}: {stfMore.filter((x) => x[String(km.year)] !== undefined).map((x) => formatUnit(x[String(km.year)], "pct")).join(", ")}</strong> ({T("secondo il Comune scolastico", "depending on the school municipality")})<br /></> : null}
+                    {rank ? <><strong className="text-foreground">{ord(rank)} {T("su", "of")} {ranked.length}</strong> {munis} · {T("mediana", "median")} {formatUnit(Math.round(median(all)), m.unit)} ({T("posizione e mediana calcolate dal sito", "rank and median computed by the site")})<br /></> : null}{m.note}.</>} />
               );
             })}
           </StatGrid>
@@ -100,10 +117,12 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
             <div className="grid md:grid-cols-2 gap-6">
               <Card title={S.dn} subtitle={T("In franchi per abitante. Sotto zero, il Comune ha più averi che debiti.", "In francs per inhabitant. Below zero, the municipality has more assets than debts.")}>
                 <TimeSeries rows={Object.entries(kant.series.debito_pc ?? {}).map(([y, v]) => ({ year: Number(y), [S.dn]: v }))} series={[S.dn]} height={240} zero />
+                <SourceBadge meta={ktGemeinden(p.kt).meta} />
               </Card>
-              <Card title={T("Moltiplicatore d'imposta", "Tax multiplier")} subtitle={T("Percentuale dell'imposta cantonale che il Comune preleva (in tedesco «Steuerfuss»).", "Percentage of the cantonal tax that the municipality levies (in German «Steuerfuss»).")}>
+              <Card title={T("Moltiplicatore d'imposta", "Tax multiplier")} subtitle={<>{T("Percentuale dell'imposta cantonale semplice che il Comune preleva, senza imposta di culto (in tedesco «Steuerfuss», in percento della «einfache Staatssteuer»).", "Percentage of the simple cantonal tax that the municipality levies, without church tax (in German «Steuerfuss», in per cent of the «einfache Staatssteuer»).")}{stfMore.length > 0 ? T(" Il Comune ha avuto più di un moltiplicatore, secondo il Comune scolastico.", " The municipality has had more than one multiplier, depending on the school municipality.") : ""}</>}>
                 {stfFlat ? <p className="display text-3xl">{en ? <>Unchanged at {num(stf[0][1])} % from {stf[0][0]} to {stf.at(-1)![0]}.</> : <>Invariato al {num(stf[0][1])} % dal {stf[0][0]} al {stf.at(-1)![0]}.</>}</p>
-                  : <TimeSeries rows={stf.map(([y, v]) => ({ year: Number(y), [S.mo]: v }))} series={[S.mo]} unit="pct" height={240} />}
+                  : <TimeSeries rows={stf.map(([y, v]) => ({ year: Number(y), [S.mo]: v, ...Object.fromEntries(stfMore.map((x, i) => [mo2(i), x[y] ?? null])) }))} series={[S.mo, ...stfMore.map((_, i) => mo2(i))]} unit="pct" height={240} />}
+                <SourceBadge meta={ktGemeinden(p.kt).meta} />
               </Card>
             </div>
           )}
@@ -121,10 +140,16 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
               : <>Statistica federale (AFF), pubblicata per i Comuni che hanno o hanno avuto almeno 5 000 abitanti.</>)} />
           <StatGrid>
             <Stat label={`${S.sc} ${yA}`} value={chf(aff.aufwand[yA])} sub={T("conto economico, senza investimenti", "income statement, without investment")} />
-            <Stat label={T("Per abitante", "Per inhabitant")} value={chf(popA ? aff.aufwand[yA] / popA : null)} sub={`${num(popA)} ${T("abitanti", "inhabitants")}`} />
+            <Stat label={T("Per abitante", "Per inhabitant")} value={popA ? chf(aff.aufwand[yA] / popA) : T("non calcolabile", "not computable")} sub={popA ? `${num(popA)} ${T("abitanti al", "inhabitants on")} 31.12.${yA}; ${T("divisione fatta dal sito", "division made by the site")}` : whyText ?? T("popolazione non disponibile", "population not available")} />
             <Stat label={`${S.rc} ${yA}`} value={chf(aff.ertrag[yA])} sub={`${(aff.ertrag[yA] ?? 0) >= aff.aufwand[yA] ? T("avanzo", "surplus") : T("disavanzo", "deficit")} ${T("di", "of")} ${chf(Math.abs((aff.ertrag[yA] ?? 0) - aff.aufwand[yA]))}`} />
             <Stat label={`${T("Investimenti", "Investment")} ${yA}`} value={chf(aff.investitionen[yA])} sub={T("uscite lorde", "gross outlays")} />
           </StatGrid>
+          <div data-reveal="up"><SourceBadge meta={gemeinden().meta} /></div>
+          {kantResult && (
+            <Note title={T("Il risultato secondo il Cantone", "The result according to the canton")}>{en
+              ? <>According to the canton, the municipality&apos;s {yA} accounts closed with a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} ({kantResult.ref}). The federal statistics bring the municipalities&apos; accounts to one common scheme, which can change the result.</>
+              : <>Secondo il Cantone, il conto {yA} del Comune ha chiuso con un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} ({kantResult.ref}). La statistica federale riporta i conti dei Comuni a uno schema comune, e questo può cambiare il risultato.</>}</Note>
+          )}
           <Card title={`${T("Per che cosa", "On what")}, ${yA}`} subtitle={en ? <>Current spending by function. «Finances and taxes» gathers fiscal equalisation, interest and expenses not assigned to a service (<Link className="link" href="/metodo/">details</Link>).</> : <>Spese correnti per funzione. «Finanze e imposte» raccoglie perequazione, interessi e spese non attribuite a un servizio (<Link className="link" href="/metodo/">dettagli</Link>).</>}>
             <BarList items={Object.values(aff.funk1).map((c) => ({ label: codedName(c), value: c.values[yA] ?? 0 })).filter((c) => c.value > 0).sort((a, b) => b.value - a.value)} total={aff.aufwand[yA]} />
             <SourceBadge meta={gemeinden().meta} />

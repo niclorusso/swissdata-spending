@@ -4,10 +4,13 @@ import { date, dateTime } from "@/lib/format";
 import { getLang, T } from "@/lib/lang-server";
 
 /** Source line under a chart: who publishes it, when we last checked, and a link to the full entry in the register. */
-export function SourceBadge({ meta }: { meta: Partial<Meta>; compact?: boolean }) {
+/** `also`: a second source the figures depend on (the population, for values per inhabitant the site computes). */
+export function SourceBadge({ meta, also }: { meta: Partial<Meta>; also?: Partial<Meta>; compact?: boolean }) {
+  const en = getLang() === "en";
   return (
     <div className="mt-3 text-xs text-faint leading-relaxed">
-      {T("Fonte", "Source")}: <a className="underline hover:text-accent" href={meta.landing_url ?? meta.source_url} target="_blank" rel="noreferrer">{shortPublisher(meta.publisher, getLang() === "en")}</a>
+      {T("Fonte", "Source")}: <a className="underline hover:text-accent" href={meta.landing_url ?? meta.source_url} target="_blank" rel="noreferrer">{shortPublisher(meta.publisher, en)}</a>
+      {also && <>; {T("popolazione", "population")}: <a className="underline hover:text-accent" href={also.landing_url ?? also.source_url} target="_blank" rel="noreferrer">{shortPublisher(also.publisher, en)}</a>; {T("divisione fatta dal sito", "division made by the site")}</>}
       {" "}· {T("verificato il", "checked on")} <span title={dateTime(meta.checked_at)}>{date(meta.checked_at)}</span>
       {meta.id && <> · <Link className="underline hover:text-accent" href={`/fonti/#${meta.id}`}>{T("dettagli e file", "details and file")}</Link></>}
     </div>

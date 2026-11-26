@@ -6,6 +6,8 @@ export type Meta = {
   license: string; frequency: string; level: string; unit: string; data_date: string;
   published_at: string | null; retrieved_at: string | null; checked_at: string | null; sha256: string | null;
   notes: string; coverage: string; generated_at: string; years?: number[]; year_status?: Record<string, string>;
+  /** Snapshots built from several files list each one. */
+  files?: { label: string; url: string; published_at: string | null; retrieved_at: string; sha256: string }[];
 };
 export type Snapshot<T> = { meta: Meta; data: T };
 export type TreeNode = { id: number; name: string; level: number; unit: string; values: Record<string, number | null>; children: TreeNode[] };
@@ -14,7 +16,7 @@ export type Unit = { level: number; departement: string; name: string; values: R
 export type Top = { name: string | null; chf: number; n: number };
 export type ProcYear = {
   total_chf: number; n: number; n_suppliers: number; by_department: Top[]; by_procedure: Top[]; top_suppliers: Top[];
-  top_units: Top[]; top_objects: Top[]; identical_rows: { n: number; chf: number }; late_additions: { n: number; chf_added: number };
+  top_units: Top[]; top_objects: Top[]; identical_rows: { n: number; chf: number }; late_additions: { n: number; chf_added: number }; no_amount: number;
   largest: { supplier: string; object: string; chf: number }; source_url: string; dataset_url: string; retrieved_at: string; published_at: string | null; sha256: string;
 };
 export type ProcRow = { dep: string; unit: string; supplier: string; plz: string | null; ort: string | null; object: string; procedure: string; start: string | null; end: string | null; chf: number };
@@ -36,6 +38,11 @@ export const kennzahlen = () => loadSnapshot<{ series: Record<string, Series> }>
 export const units = () => loadSnapshot<{ units: Unit[] }>("bund-verwaltungseinheiten");
 export const procurement = () => loadSnapshot<{ years: Record<string, ProcYear>; top_suppliers_all: Top[] }>("bund-beschaffungen");
 
+/** The single contracts of a year worth at least `min` francs, largest first (read from the full list of that year). */
+export function bigContracts(year: number | string, min = 1e9): ProcRow[] {
+  return loadSnapshot<{ rows: ProcRow[] }>(`bund-beschaffungen-${year}`).data.rows.filter((r) => r.chf >= min).sort((a, b) => b.chf - a.chf);
+}
+
 /** Latest year with a value for a node (used for "consuntivo" headline numbers). */
 export function lastRechnung(meta: Meta): number {
   const ys = Object.entries(meta.year_status ?? {}).filter(([, s]) => s === "R").map(([y]) => Number(y));
@@ -55,7 +62,25 @@ export type Population = { name: string; values: Record<string, number> };
 export const haushalte = () => loadSnapshot<{ haushalte: Record<string, Haushalt> }>("fs-haushalte");
 export const gemeinden = () => loadSnapshot<{ gemeinden: Record<string, Gemeinde> }>("fs-gemeinden-5000");
 export const popKantone = () => loadSnapshot<{ population: Record<string, Population> }>("bfs-bevoelkerung-kantone");
-export const popGemeinden = () => loadSnapshot<{ population: Record<string, Population> }>("bfs-bevoelkerung-gemeinden");
+export type Merger = { date: string; parts: { bfs: number; name: string }[] };
+export type PopGemeinden = { population: Record<string, Population>; boundaries_as_of: string; mergers: Record<string, Merger[]>; dissolved: Record<string, { date: string; into: number; into_name: string }> };
+let popG: Snapshot<PopGemeinden> | null = null;
+export const popGemeinden = () => (popG ??= loadSnapshot<PopGemeinden>("bfs-bevoelkerung-gemeinden"));
+
+/** Inhabitants of a municipality at the end of `year`, on the territory the accounts of that year refer to.
+ *  The FSO table gives every year on the boundaries of one date (`boundaries_as_of`): if the municipality took in others after `year`,
+ *  its figure for `year` includes them, and if it was merged into another one it has no figure at all. In both cases there is no
+ *  population that matches the accounts, so none is returned and `why` says what happened. */
+export const popGemeindenMeta = () => popGemeinden().meta;
+export function popForAccounts(bfs: number | string, year: number | string): { pop: number | null; why?: { kind: "grew"; date: string; names: string[] } | { kind: "dissolved"; date: string; into: string } } {
+  const d = popGemeinden().data;
+  const id = String(bfs), end = `${year}-12-31`;
+  const gone = d.dissolved[id];
+  if (gone && !d.population[id]) return { pop: null, why: { kind: "dissolved", date: gone.date, into: gone.into_name } };
+  const later = (d.mergers[id] ?? []).filter((m) => m.date > end);
+  if (later.length) return { pop: null, why: { kind: "grew", date: later[0].date, names: later.flatMap((m) => m.parts.filter((q) => String(q.bfs) !== id).map((q) => q.name)) } };
+  return { pop: d.population[id]?.values[String(year)] ?? null };
+}
 
 /** Last year flagged as consuntivo (R) for a Haushalt. */
 export function lastR(h: Haushalt): number {
@@ -63,6 +88,7 @@ export function lastR(h: Haushalt): number {
 }
 
 // ---- Aggregati principali (stato dei dati, debito, quote) ----
+/** `aggregates._bip.bip` is the nominal GDP of the same file, in francs. */
 export type MainAgg = { status: Record<string, Record<string, "R" | "V" | "P">>; aggregates: Record<string, Record<string, Record<string, number>>> };
 export const hauptaggregate = () => loadSnapshot<MainAgg>("fs-hauptaggregate");
 
@@ -76,6 +102,8 @@ export type KtGemeinde = {
   name: string; pop: number | null; values: Record<string, number | null>; water_included?: boolean;
   merged_from?: { name: string; pop: number; moltiplicatore: number }[] | null; abs?: Record<string, number>;
   funk?: Record<string, number>; series?: Record<string, Record<string, number>>; steuerfuss_latest?: { year: number; value: number } | null;
+  /** Ticino: the two official multipliers (individuals, companies); "coordinato" is the source's computed average, shown nowhere as a rate. */
+  moltiplicatori?: { year: number; pf: number; pg: number; coordinato: number } | null;
 };
 export type KtGemeinden = { year: number; kanton: string; measures: Measure[]; gemeinden: Record<string, KtGemeinde> };
 export const KT_WITH_ALL_GEMEINDEN = ["ti", "zh"] as const;

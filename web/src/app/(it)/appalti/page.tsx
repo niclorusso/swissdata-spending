@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { procurement } from "@/lib/data";
+import { bigContracts, loadSnapshot, procurement } from "@/lib/data";
 import { chf, num, plural } from "@/lib/format";
 import { depCode, verfahren } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
@@ -18,6 +18,7 @@ export default function Appalti() {
   const years = Object.keys(p.data.years).map(Number).sort();
   const last = years.at(-1)!;
   const ly = p.data.years[String(last)];
+  const lastMeta = loadSnapshot<unknown>(`bund-beschaffungen-${last}`).meta;
   const totalAll = years.reduce((s, y) => s + p.data.years[String(y)].total_chf, 0);
   const procNames = Array.from(new Set(years.flatMap((y) => p.data.years[String(y)].by_procedure.map((b) => b.name ?? "–"))));
   const procRows = years.map((y) => {
@@ -25,6 +26,10 @@ export default function Appalti() {
     for (const n of procNames) r[verfahren(n)] = p.data.years[String(y)].by_procedure.find((b) => (b.name ?? "–") === n)?.chf ?? 0;
     return r;
   });
+  // The year with the highest total and the single contracts of a billion or more that explain it (the build stops if they are no longer the two US ones).
+  const maxY = years.reduce((a, b) => (p.data.years[String(a)].total_chf > p.data.years[String(b)].total_chf ? a : b));
+  const big = bigContracts(maxY).map((r) => ({ name: r.supplier, chf: r.chf }));
+  if (big.length !== 2 || big.some((s) => !/^US .* FMS$/.test(s.name))) throw new Error(`[appalti] the note on ${maxY} no longer matches the data: ${JSON.stringify(big)}`);
   return (
     <Page kicker={T("Appalti", "Procurement")} title={T("I contratti della Confederazione", "The Confederation's contracts")} lead={en
       ? <p>Every year the central Federal Administration publishes the list of contracts of 50,000 francs and above: buyer, supplier, object, procedure and value. Over {years.length} years that is {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contracts worth {chf(totalAll, { digits: 1 })}.</p>
@@ -35,24 +40,29 @@ export default function Appalti() {
         ))}
       </StatGrid>
       <Note>{en
-        ? <>The value is that of the contract over its whole duration, recorded in the year of signature: it is not the spending of that year. {years.reduce((a, b) => (p.data.years[String(a)].total_chf > p.data.years[String(b)].total_chf ? a : b))} is so high because of a single contract: {p.data.years["2022"]?.largest.supplier}, {chf(p.data.years["2022"]?.largest.chf, { digits: 1 })}. <Link className="link" href="/metodo/">Other limits of the list</Link>.</>
-        : <>Il valore è quello del contratto sull&apos;intera durata, registrato nell&apos;anno della firma: non è la spesa dell&apos;anno. Il {years.reduce((a, b) => (p.data.years[String(a)].total_chf > p.data.years[String(b)].total_chf ? a : b))} è così alto per un solo contratto: {p.data.years["2022"]?.largest.supplier}, {chf(p.data.years["2022"]?.largest.chf, { digits: 1 })}. <Link className="link" href="/metodo/">Altri limiti dell&apos;elenco</Link>.</>}</Note>
+        ? <>The value is that of the contract over its whole duration, recorded in the year of signature: it is not the spending of that year. {maxY} is so high because of {big.length === 2 ? "two contracts" : `${big.length} contracts`} with the US government: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" and ")}. <Link className="link" href="/metodo/">Other limits of the list</Link>.</>
+        : <>Il valore è quello del contratto sull&apos;intera durata, registrato nell&apos;anno della firma: non è la spesa dell&apos;anno. Il {maxY} è così alto per {big.length === 2 ? "due contratti" : `${big.length} contratti`} con il governo statunitense: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" e ")}. <Link className="link" href="/metodo/">Altri limiti dell&apos;elenco</Link>.</>}</Note>
 
       <Card title={T("Come sono stati assegnati i contratti", "How the contracts were awarded")} subtitle={T("Valore dei contratti firmati in ogni anno, per tipo di procedura. Nel 2022 i due grandi contratti per sistemi aeronautici con il governo statunitense (US Air Force e US Army) sono registrati come procedura mediante invito.", "Value of the contracts signed in each year, by type of procedure. In 2022 the two large contracts for aviation systems with the US government (US Air Force and US Army) are recorded as invitation procedure.")}>
         <TimeSeries rows={procRows} series={procNames.map((n) => verfahren(n))} kind="stacked" height={300} />
+        <SourceBadge meta={p.meta} />
       </Card>
       <div className="grid md:grid-cols-2 gap-6">
         <Card title={`${T("Per dipartimento", "By department")}, ${last}`}>
           <BarList items={ly.by_department.map((d) => ({ label: depCode(d.name), value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={ly.total_chf} />
+          <SourceBadge meta={lastMeta} />
         </Card>
         <Card title={`${T("Per procedura", "By procedure")}, ${last}`}>
           <BarList items={ly.by_procedure.map((d) => ({ label: verfahren(d.name), value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={ly.total_chf} />
+          <SourceBadge meta={lastMeta} />
         </Card>
         <Card title={`${T("Primi 25 fornitori", "Top 25 suppliers")}, ${last}`}>
           <BarList items={ly.top_suppliers.slice(0, 25).map((d) => ({ label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={ly.total_chf} />
+          <SourceBadge meta={lastMeta} />
         </Card>
         <Card title={`${T("Primi 25 committenti", "Top 25 buyers")}, ${last}`}>
           <BarList items={ly.top_units.slice(0, 25).map((d) => ({ label: unitCodeIt(d.name), value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={ly.total_chf} />
+          <SourceBadge meta={lastMeta} />
         </Card>
       </div>
       <Card title={en ? `Top 50 suppliers, ${years[0]}–${last} cumulative` : `Primi 50 fornitori, ${years[0]}–${last} cumulato`}>

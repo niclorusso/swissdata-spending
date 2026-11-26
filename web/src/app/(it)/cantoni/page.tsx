@@ -45,6 +45,7 @@ export default function Cantoni() {
         <Stat label={`${T("Spesa pubblica totale", "Total public spending")} ${yS}`} value={chf(staat.total_ausgaben[yS])} sub={T("tutti i livelli insieme", "all levels together")} />
         {levels.map(([k, l]) => <Stat key={k} label={`${l} ${yS}`} value={chf(H[k].total_ausgaben[yS])} sub={`${T("entrate", "revenue")} ${chf(H[k].total_einnahmen[yS])}`} />)}
       </StatGrid>
+      <div data-reveal="up"><SourceBadge meta={fs.meta} /></div>
 
       <Note>{en
         ? <>The sum of the four levels ({chf(levels.reduce((t, [k]) => t + (H[k].total_ausgaben[yS] ?? 0), 0), { digits: 0 })}) is higher than the total because the money one level pays to another, for example federal contributions to the cantons, is counted twice.</>
@@ -56,7 +57,7 @@ export default function Cantoni() {
           <div className="lg:col-span-2 max-h-[460px] overflow-y-auto pr-2"><BarList items={rows.map((r) => ({ label: r.nameIt, value: r.pc ?? 0, href: `/cantoni/${r.id}/` }))} max={maxPc} showShare={false} /></div>
         </div>
         <div className="mt-5"><Note>{T("Un valore alto non indica spreco. A Basilea Città il Cantone svolge anche i compiti della città, e i Cantoni di montagna hanno pochi abitanti su un territorio vasto.", "A high value does not mean waste. In Basel-Stadt the canton also does the city's tasks, and mountain cantons have few inhabitants on a large territory.")}</Note></div>
-        <SourceBadge meta={fs.meta} />
+        <SourceBadge meta={fs.meta} also={pop.meta} />
       </Card>
 
       <Card title={T("I quattro livelli dal 1990", "The four levels since 1990")} subtitle={T("Spese di ogni livello. I versamenti da un livello all'altro sono contati in entrambi.", "Spending of each level. Payments from one level to another are counted in both.")}>
@@ -82,7 +83,7 @@ export default function Cantoni() {
             </tbody>
           </table>
         </div>
-        <SourceBadge meta={pop.meta} compact />
+        <SourceBadge meta={fs.meta} also={pop.meta} />
       </Card>
     </Page>
   );

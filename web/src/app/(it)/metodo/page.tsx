@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { haushalte, hauptaggregate, lastR, lastRechnung, procurement, tree } from "@/lib/data";
+import { bigContracts, haushalte, hauptaggregate, lastR, lastRechnung, procurement, tree } from "@/lib/data";
 import { chf, num } from "@/lib/format";
 import { objectName } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
@@ -26,6 +26,9 @@ export default function Metodo() {
   const bundBudget = aufg.data.tree[0].values[yB];
   const bundFs = H["bund"].total_ausgaben[yB];
   const proc = procurement().data.years;
+  const big22 = bigContracts(2022).map((r) => ({ name: r.supplier, chf: r.chf }));
+  if (big22.length !== 2) throw new Error(`[metodo] the sentence on 2022 no longer matches the data: ${JSON.stringify(big22)}`);
+  const lastY = Object.keys(proc).sort().at(-1)!;
   const lastOf = (k: string) => Math.max(...Object.entries(st[k]).filter(([, s]) => s === "R").map(([y]) => Number(y)));
   const yS = String(lastR(H["staat"]));
   const ti = H["ktn_ti"].total_ausgaben[String(lastR(H["ktn_ti"]))];
@@ -58,15 +61,15 @@ export default function Metodo() {
         </Item>
         <Item title="Ticino and Zurich cannot be compared with each other">
           <p>The two cantonal statistics use different definitions. Ticino publishes gross operating expenses, Zurich the net cost of each service (in German «Nettoaufwand»). Each municipality should be compared with the others in its canton.</p>
-          <p>For municipalities above 5,000 inhabitants there are also the FFA accounts, which follow a third scheme: figures on the same page can therefore differ. FFA spending is gross: in Zurich it comes out much higher than the cantonal net cost, which subtracts the services&apos; income.</p>
+          <p>For municipalities above 5,000 inhabitants there are also the FFA accounts, which follow a third scheme: figures on the same page can therefore differ, and in a few municipalities the federal result is a deficit where the canton reports a surplus. FFA spending is gross: in Zurich it comes out much higher than the cantonal net cost, which subtracts the services&apos; income.</p>
         </Item>
         <Item title="Procurement figures are contracts, not payments">
-          <p>The list gives the value of each contract over its whole duration, in the year of signature. In 2022 the total is {chf(proc["2022"]?.total_chf, { digits: 1 })} because it includes the contract with {proc["2022"]?.largest.supplier} for {chf(proc["2022"]?.largest.chf, { digits: 1 })}{objectName(proc["2022"]?.largest.object ?? "") ? ` for ${objectName(proc["2022"]!.largest.object)}` : ""}, which is paid over several years.</p>
-          <p>Increases to contracts already published come out on a separate sheet and are not in the year&apos;s total ({chf(proc["2024"]?.late_additions.chf_added)} in the 2024 file). Every year some rows are identical in all fields ({num(proc["2024"]?.identical_rows.n)} in 2024): we keep them, because the file does not tell whether they are duplicates.</p>
+          <p>The list gives the value of each contract over its whole duration, in the year of signature. In 2022 the total is {chf(proc["2022"]?.total_chf, { digits: 1 })} because it includes two contracts with the US government{objectName(proc["2022"]?.largest.object ?? "") ? ` for ${objectName(proc["2022"]!.largest.object)}` : ""}, {big22.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" and ")}, which are paid over several years.</p>
+          <p>Increases to contracts already published come out on a separate sheet and are not in the year&apos;s total ({chf(proc[lastY]?.late_additions.chf_added)} in the {lastY} file). Every year some rows are identical in all fields ({num(proc[lastY]?.identical_rows.n)} in {lastY}): we keep them, because the file does not tell whether they are duplicates. A contract whose amount is not published ({Object.entries(proc).filter(([, v]) => v.no_amount).map(([y, v]) => `${v.no_amount} in ${y}`).join(", ")}) is not counted.</p>
           <p>Only contracts of 50,000 francs and above of the central Federal Administration are included. SBB, Swiss Post, the federal institutes of technology, cantons and municipalities are missing.</p>
         </Item>
         <Item title="Sources and checks">
-          <p>Under every chart there are the source and the date of the last check. The <Link className="link" href="/fonti/">register of sources</Link> lists every file with period, dates of publication and download, licence and fingerprint (SHA-256).</p>
+          <p>Under every chart there are the source and the date of the last check. Amounts come from the official files; values per inhabitant, shares, ranks, medians and the sums for merged municipalities are computed by the site from those files. The <Link className="link" href="/fonti/">register of sources</Link> lists every file with period, dates of publication and download, licence and fingerprint (SHA-256).</p>
           <p>Map boundaries are generalised and only serve for orientation.</p>
         </Item>
       </div>
@@ -95,15 +98,15 @@ export default function Metodo() {
         </Item>
         <Item title="Ticino e Zurigo non si confrontano tra loro">
           <p>Le due statistiche cantonali usano definizioni diverse. Il Ticino pubblica le spese operative lorde, Zurigo il costo netto di ogni servizio (in tedesco «Nettoaufwand»). Ogni Comune va confrontato con gli altri del suo Cantone.</p>
-          <p>Per i Comuni sopra i 5 000 abitanti ci sono anche i conti dell&apos;AFF, che seguono un terzo schema: le cifre della stessa scheda possono quindi differire. Le spese dell&apos;AFF sono lorde: a Zurigo risultano molto più alte del costo netto cantonale, che toglie i ricavi dei servizi.</p>
+          <p>Per i Comuni sopra i 5 000 abitanti ci sono anche i conti dell&apos;AFF, che seguono un terzo schema: le cifre della stessa scheda possono quindi differire, e in alcuni Comuni il risultato federale è un disavanzo dove il Cantone indica un avanzo. Le spese dell&apos;AFF sono lorde: a Zurigo risultano molto più alte del costo netto cantonale, che toglie i ricavi dei servizi.</p>
         </Item>
         <Item title="Gli appalti sono contratti, non pagamenti">
-          <p>L&apos;elenco riporta il valore di ogni contratto sull&apos;intera durata, nell&apos;anno della firma. Nel 2022 il totale è {chf(proc["2022"]?.total_chf, { digits: 1 })} perché comprende il contratto con {proc["2022"]?.largest.supplier} da {chf(proc["2022"]?.largest.chf, { digits: 1 })}{objectName(proc["2022"]?.largest.object ?? "") ? ` per ${objectName(proc["2022"]!.largest.object)}` : ""}, che si paga in più anni.</p>
-          <p>Gli aumenti di contratti già pubblicati escono in un foglio a parte e non sono nel totale dell&apos;anno ({chf(proc["2024"]?.late_additions.chf_added)} nel file 2024). Ogni anno alcune righe sono identiche in tutti i campi ({num(proc["2024"]?.identical_rows.n)} nel 2024): le lasciamo, perché il file non permette di dire se sono doppioni.</p>
+          <p>L&apos;elenco riporta il valore di ogni contratto sull&apos;intera durata, nell&apos;anno della firma. Nel 2022 il totale è {chf(proc["2022"]?.total_chf, { digits: 1 })} perché comprende due contratti con il governo statunitense{objectName(proc["2022"]?.largest.object ?? "") ? ` per ${objectName(proc["2022"]!.largest.object)}` : ""}, {big22.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" e ")}, che si pagano in più anni.</p>
+          <p>Gli aumenti di contratti già pubblicati escono in un foglio a parte e non sono nel totale dell&apos;anno ({chf(proc[lastY]?.late_additions.chf_added)} nel file {lastY}). Ogni anno alcune righe sono identiche in tutti i campi ({num(proc[lastY]?.identical_rows.n)} nel {lastY}): le lasciamo, perché il file non permette di dire se sono doppioni. Un contratto senza importo pubblicato ({Object.entries(proc).filter(([, v]) => v.no_amount).map(([y, v]) => `${v.no_amount} nel ${y}`).join(", ")}) non è contato.</p>
           <p>Sono inclusi solo i contratti da 50 000 franchi in su dell&apos;Amministrazione federale centrale. Mancano FFS, Posta, politecnici, Cantoni e Comuni.</p>
         </Item>
         <Item title="Fonti e controlli">
-          <p>Sotto ogni grafico ci sono la fonte e la data dell&apos;ultimo controllo. Il <Link className="link" href="/fonti/">registro delle fonti</Link> elenca ogni file con periodo, date di pubblicazione e di download, licenza e impronta (SHA-256).</p>
+          <p>Sotto ogni grafico ci sono la fonte e la data dell&apos;ultimo controllo. Gli importi vengono dai file ufficiali; valori per abitante, quote, posizioni, mediane e le somme per i Comuni aggregati sono calcolati dal sito a partire da quei file. Il <Link className="link" href="/fonti/">registro delle fonti</Link> elenca ogni file con periodo, date di pubblicazione e di download, licenza e impronta (SHA-256).</p>
           <p>I confini delle mappe sono generalizzati e servono solo a orientarsi.</p>
         </Item>
       </div>

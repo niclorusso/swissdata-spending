@@ -139,9 +139,11 @@ export default function Confederazione() {
       <div className="grid md:grid-cols-2 gap-6">
         <Card title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
           <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} />
+          <SourceBadge meta={aufg.meta} />
         </Card>
         <Card title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>
           <TimeSeries rows={dRows} series={[S.lordo]} yearStatus={ys} height={280} colors={["var(--s8)"]} />
+          <SourceBadge meta={kz.meta} />
         </Card>
       </div>
       <Card title={T("Quote sul PIL", "Ratios to GDP")} subtitle={T("Quota di spesa, quota fiscale e debito lordo in % del PIL nominale", "Spending ratio, tax ratio and gross debt in % of nominal GDP")}>

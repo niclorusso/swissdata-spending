@@ -25,9 +25,11 @@ export default function Unita() {
       <div className="grid md:grid-cols-2 gap-6">
         <Card title={en ? `Staff costs by department, ${yR}` : `Spese per il personale per dipartimento, ${yR}`}>
           <BarList items={deps.map((d) => ({ label: depName(d.name), value: d.values.personal?.[y] ?? 0, sub: `${num(d.values.fte?.[y])} ${T("posti", "positions")}` })).sort((a, b) => b.value - a.value)} total={bund?.values.personal?.[y] ?? undefined} />
+          <SourceBadge meta={s.meta} />
         </Card>
         <Card title={en ? `External consultancy and IT by department, ${yR}` : `Consulenza esterna e informatica per dipartimento, ${yR}`}>
           <BarList items={deps.map((d) => ({ label: depName(d.name), value: (d.values.beratung?.[y] ?? 0) + (d.values.informatik?.[y] ?? 0), sub: `${T("consulenza", "consultancy")} ${chf(d.values.beratung?.[y])}, ${T("informatica", "IT")} ${chf(d.values.informatik?.[y])}` })).sort((a, b) => b.value - a.value)} showShare={false} />
+          <SourceBadge meta={s.meta} />
         </Card>
       </div>
       <Card title={T("Tutti gli uffici", "All offices")} subtitle={T("Cerca per nome, scegli anno e dipartimento, clicca un'intestazione per ordinare.", "Search by name, pick year and department, click a heading to sort.")}>

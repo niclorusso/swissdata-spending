@@ -40,7 +40,9 @@ export default function Home() {
   const total = staat.total_ausgaben[yS];
   const popCH = popKantone().data.population["CH"]?.values[yS];
   const perHead = perCapita(total, popCH) ?? 0;
-  const quota = A["staat"]?.["staatsquote"]?.[yS];
+  // Share of GDP of the amount shown beside it: the same total divided by the nominal GDP of the same FFA file (not the GFS ratio, whose spending is another amount).
+  const gdp = A["_bip"]?.["bip"]?.[yS];
+  const quota = gdp ? total / gdp : null;
   const nextY = String(Number(yS) + 1);
   const forecast = A["staat"]?.["ausgaben"]?.[nextY];
   const leap = Number(yS) % 4 === 0 && (Number(yS) % 100 !== 0 || Number(yS) % 400 === 0);
@@ -106,12 +108,18 @@ export default function Home() {
                 : <>Il totale comprende Confederazione, Cantoni, Comuni e assicurazioni sociali, contati una volta sola.{forecast ? <> Per il {nextY} l&apos;Amministrazione federale delle finanze prevede {chf(forecast, { digits: 0 })}.</> : null}</>}
             </p>
             <div className="mt-7 grid grid-cols-3 gap-3 max-w-xl" data-reveal="up" style={{ ["--d" as string]: 3 }}>
-              {[[chf(perHead), T("per abitante all'anno", "per inhabitant per year")], [chf(perHead / 365), T("per abitante al giorno", "per inhabitant per day")], ...(quota ? [[pct(quota * 100), T("del PIL", "of GDP")]] : [])].map(([v, l]) => (
+              {[[chf(perHead), T("per abitante all'anno", "per inhabitant per year")], [chf(perHead / (leap ? 366 : 365)), T("per abitante al giorno", "per inhabitant per day")], ...(quota ? [[pct(quota * 100), en ? `of ${yS} GDP` : `del PIL ${yS}`]] : [])].map(([v, l]) => (
                 <div key={l} className="glass px-3.5 py-3">
                   <div className="display text-base sm:text-xl md:text-2xl leading-none whitespace-nowrap"><CountUp text={v} /></div>
                   <div className="mt-1.5 text-xs text-muted leading-snug">{l}</div>
                 </div>
               ))}
+            </div>
+            <div className="max-w-xl" data-reveal="up" style={{ ["--d" as string]: 3 }}>
+              <p className="mt-3 text-xs text-muted leading-relaxed">{en
+                ? <>Per inhabitant: {chf(total, { digits: 1 })} divided by {num(popCH)} inhabitants on 31.12.{yS}, and by the {leap ? 366 : 365} days of the year.{quota && gdp ? <> Share of GDP: {chf(total, { digits: 1 })} of spending in {yS} (financial statistics) divided by the {yS} gross domestic product of {chf(gdp, { digits: 1 })}, both from the FFA file of the main aggregates.</> : null} Divisions made by the site.</>
+                : <>Per abitante: {chf(total, { digits: 1 })} divisi per {num(popCH)} abitanti al 31.12.{yS}, e per i {leap ? 366 : 365} giorni dell&apos;anno.{quota && gdp ? <> Quota del PIL: {chf(total, { digits: 1 })} di uscite {yS} (statistica finanziaria) divisi per il prodotto interno lordo {yS} di {chf(gdp, { digits: 1 })}, entrambi dal file degli aggregati principali dell&apos;AFF.</> : null} Divisioni fatte dal sito.</>}</p>
+              <SourceBadge meta={main.meta} also={popKantone().meta} />
             </div>
             <p className="mt-5 flex items-center gap-2.5 text-sm text-muted" data-reveal="up" style={{ ["--d" as string]: 4 }}>
               <span className="live-dot shrink-0" aria-hidden />
@@ -211,12 +219,12 @@ export default function Home() {
           {(en ? [
             ["Federal subsidies by recipient", "The FFA shows them in a dashboard, with no downloadable file."],
             ["Contracts of cantons and municipalities", "simap.ch gives access to the data only on request."],
-            ["Municipalities below 5,000 inhabitants outside Ticino and Zurich", "For them only the totals by canton exist."],
+            ["Municipalities below 5,000 inhabitants outside Ticino and Zurich", "Here there are only the totals by canton. Some cantons publish the accounts of every municipality (Thurgau, Lucerne): they are not included yet."],
             ["Public companies", "SBB, Swiss Post, Swisscom and the cantonal companies have no structured list of accounts."],
           ] : [
             ["Sussidi federali per beneficiario", "L'AFF li mostra in una dashboard, senza file scaricabile."],
             ["Appalti di Cantoni e Comuni", "simap.ch dà accesso ai dati solo su richiesta."],
-            ["Comuni sotto i 5 000 abitanti fuori da Ticino e Zurigo", "Per loro esistono solo i totali per Cantone."],
+            ["Comuni sotto i 5 000 abitanti fuori da Ticino e Zurigo", "Qui ci sono solo i totali per Cantone. Alcuni Cantoni pubblicano i conti di ogni Comune (Turgovia, Lucerna): non sono ancora inclusi."],
             ["Aziende pubbliche", "FFS, Posta, Swisscom e le aziende cantonali non hanno un elenco strutturato dei conti."],
           ]).map(([t, d], i) => (
             <li key={t} className="tile !p-5" data-reveal="up" style={{ ["--d" as string]: i }}>
