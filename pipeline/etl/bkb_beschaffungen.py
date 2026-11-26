@@ -91,9 +91,10 @@ def top(df: pd.DataFrame, col: str, n: int = 25) -> list[dict]:
     return [{"name": (None if pd.isna(k) else str(k)), "chf": round(float(r.chf)), "n": int(r.n)} for k, r in g.head(n).iterrows()]
 
 
-def supplier_aliases() -> dict[str, str]:
-    """Name as written in a list -> name of its group (data/supplier-aliases.json). Each spelling belongs to one group only."""
-    out: dict[str, str] = {}
+def supplier_aliases() -> dict[str, tuple[str, str | None]]:
+    """Name as written in a list -> (name of its group, `only_before` date or None), from data/supplier-aliases.json.
+    Each spelling belongs to one group only."""
+    out: dict[str, tuple[str, str | None]] = {}
     groups = json.loads(ALIASES.read_text())["groups"]
     if len({g["name"] for g in groups}) != len(groups):
         raise ValueError("[aliases] two groups have the same name")
@@ -103,33 +104,54 @@ def supplier_aliases() -> dict[str, str]:
         for v in g["variants"]:
             if v["name"] in out:
                 raise ValueError(f"[aliases] {v['name']!r} is in two groups")
-            out[v["name"]] = g["name"]
+            out[v["name"]] = (g["name"], v.get("only_before"))
     return out
 
 
-def top_suppliers(df: pd.DataFrame, aliases: dict[str, str], n: int) -> list[dict]:
-    """Ranking by supplier, the spellings of a group counted together; a merged row lists its spellings with their own sums."""
-    d = df.assign(group=df.supplier.map(lambda s: aliases.get(s, s) if isinstance(s, str) else s))
+def supplier_group(df: pd.DataFrame, aliases: dict[str, tuple[str, str | None]]) -> pd.Series:
+    """The group of each contract. A spelling with `only_before` (an old name that later went to another company)
+    joins its group only for contracts that start before that date; the others, and those without a start date, keep the name as written."""
+    def one(s, start):
+        if not isinstance(s, str) or s not in aliases:
+            return s
+        name, before = aliases[s]
+        return name if before is None or (isinstance(start, str) and start < before) else s
+    return pd.Series([one(s, st) for s, st in zip(df.supplier, df.start)], index=df.index, dtype=object)
+
+
+def top_suppliers(df: pd.DataFrame, aliases: dict[str, tuple[str, str | None]], n: int) -> list[dict]:
+    """Ranking by supplier, the spellings of a group counted together. A row whose contracts are written in another way
+    than its name (several spellings, or only a former name) lists the spellings with their own sums."""
+    d = df.assign(group=supplier_group(df, aliases))
     out = top(d, "group", n)
     for t in out:
         rows = d[d.group == t["name"]]
-        if rows.supplier.nunique() > 1:
+        if rows.supplier.nunique() > 1 or (len(rows) and rows.supplier.iloc[0] != t["name"]):
             t["variants"] = top(rows, "supplier", 20)
     return out
 
 
-def supplier_groups(allc: pd.DataFrame, aliases: dict[str, str]) -> list[dict]:
-    """For the page that lists the groups: each spelling of each group with its contracts and value per year."""
+def supplier_groups(allc: pd.DataFrame, aliases: dict[str, tuple[str, str | None]]) -> list[dict]:
+    """For the page that lists the groups: each spelling of each group with its contracts and value per year.
+    `apart`: contracts of a spelling with `only_before` that start later and stay under the name as written."""
     used = allc[allc.supplier.isin(list(aliases))]
+    used = used.assign(group=supplier_group(used, aliases))
     missing = sorted(set(aliases) - set(used.supplier))
     if missing:  # a spelling that is in no list is a typo in the file, or a list that changed
         raise ValueError(f"[aliases] not in any list: {missing}")
     out = []
-    for name in dict.fromkeys(aliases.values()):
+    for name in dict.fromkeys(g for g, _ in aliases.values()):
         variants = []
-        for v in [k for k, g in aliases.items() if g == name]:
-            r = used[used.supplier == v].groupby("year").agg(chf=("chf", "sum"), n=("chf", "size"))
-            variants.append({"name": v, "years": {str(y): {"chf": round(float(x.chf)), "n": int(x.n)} for y, x in r.iterrows()}})
+        for v, (g, before) in aliases.items():
+            if g != name:
+                continue
+            mine = used[(used.supplier == v) & (used.group == name)]
+            r = mine.groupby("year").agg(chf=("chf", "sum"), n=("chf", "size"))
+            e = {"name": v, "years": {str(y): {"chf": round(float(x.chf)), "n": int(x.n)} for y, x in r.iterrows()}}
+            if before:
+                rest = used[(used.supplier == v) & (used.group != name)]
+                e["apart"] = {"n": int(len(rest)), "chf": round(float(rest.chf.sum()))}
+            variants.append(e)
         out.append({"name": name, "variants": variants})
     return out
 

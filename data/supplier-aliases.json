@@ -1,11 +1,11 @@
 {
   "about": {
-    "it": "Grafie diverse dello stesso fornitore negli elenchi federali degli appalti (BKB, contratti 2021–2025). Ogni gruppo è una sola ditta del registro di commercio, con il suo numero IDI. Le classifiche dei fornitori contano insieme le grafie di un gruppo sotto «name», il nome com'è scritto nell'elenco più recente (se ci sono più grafie, quella con più contratti). I singoli contratti restano con il nome scritto nell'elenco.",
-    "en": "Different spellings of the same supplier in the federal procurement lists (BKB, contracts 2021–2025). Each group is a single company of the commercial register, with its UID. Supplier rankings count the spellings of a group together under «name», the name as written in the most recent list (with several spellings, the one with most contracts). Single contracts keep the name written in the list."
+    "it": "Grafie diverse dello stesso fornitore negli elenchi federali degli appalti (BKB, contratti 2021–2025). Ogni gruppo è una sola ditta del registro di commercio, con il suo numero IDI. Le classifiche dei fornitori contano insieme le grafie di un gruppo sotto «name», il nome com'è scritto nell'elenco più recente (se ci sono più grafie, quella con più contratti; dopo un cambio di nome, il nome attuale nel registro). I singoli contratti restano con il nome scritto nell'elenco.",
+    "en": "Different spellings of the same supplier in the federal procurement lists (BKB, contracts 2021–2025). Each group is a single company of the commercial register, with its UID. Supplier rankings count the spellings of a group together under «name», the name as written in the most recent list (with several spellings, the one with most contracts; after a change of name, the current registered name). Single contracts keep the name written in the list."
   },
   "rule": {
-    "it": "Candidati: nomi uguali dopo aver tolto maiuscole, spazi, punteggiatura, accenti e forma giuridica, e con Schweiz/Suisse/Svizzera/Switzerland come una sola parola. Riuniti solo se ogni grafia corrisponde al nome della stessa ditta nel registro di commercio (Zefix): il nome attuale, una sua traduzione registrata o un nome precedente scritto in altro modo. Non riuniti: cambi di nome, succursali scritte con il loro nome, ditte diverse dello stesso gruppo, nomi abbreviati o troncati.",
-    "en": "Candidates: names that are the same once case, spaces, punctuation, accents and legal form are removed, with Schweiz/Suisse/Svizzera/Switzerland as one word. Merged only if every spelling matches the name of the same company in the commercial register (Zefix): its current name, a registered translation of it, or a former name written differently. Not merged: changes of name, branches written with their own name, different companies of the same group, abbreviated or cut-off names."
+    "it": "Candidati: nomi uguali dopo aver tolto maiuscole, spazi, punteggiatura, accenti e forma giuridica, e con Schweiz/Suisse/Svizzera/Switzerland come una sola parola. Riuniti solo se ogni grafia corrisponde al nome della stessa ditta nel registro di commercio (Zefix): il nome attuale, una sua traduzione registrata o un nome precedente. Dopo un cambio di nome la ditta compare con il nome attuale («già …»); se il vecchio nome è passato a un'altra ditta, contano solo i contratti iniziati prima del cambio. Non riuniti: succursali scritte con il loro nome, ditte diverse dello stesso gruppo, nomi abbreviati o troncati, luoghi diversi da quelli del registro.",
+    "en": "Candidates: names that are the same once case, spaces, punctuation, accents and legal form are removed, with Schweiz/Suisse/Svizzera/Switzerland as one word. Merged only if every spelling matches the name of the same company in the commercial register (Zefix): its current name, a registered translation of it, or a former name. After a change of name the company is shown with its current name («formerly …»); if the old name went to another company, only the contracts that started before the change count. Not merged: branches written with their own name, different companies of the same group, abbreviated or cut-off names, places other than those in the register."
   },
   "scope": {
     "it": "Controllati i gruppi che possono entrare nelle classifiche del sito: i primi 50 fornitori di ogni anno e i primi 100 dei cinque anni insieme. Gli altri nomi restano come sono scritti.",
@@ -38,27 +38,15 @@
       "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.013.711",
       "zefix_id": 224067,
       "checked": "2026-11-26",
+      "renamed": {"from": "AdNovum Informatik AG", "to": "Adnovum AG", "register_date": "2023-06-01", "sogc_date": "2023-06-06", "sogc_publication": "1005760936"},
       "variants": [
         {"name": "Adnovum AG", "match": "name"},
-        {"name": "AdNovum AG", "match": "name"}
+        {"name": "AdNovum AG", "match": "name"},
+        {"name": "AdNovum Informatik AG", "match": "former", "register_name": "AdNovum Informatik AG", "former_name": "AdNovum Informatik AG"},
+        {"name": "Adnovum Informatik AG", "match": "former", "register_name": "AdNovum Informatik AG", "former_name": "AdNovum Informatik AG"},
+        {"name": "AdNovum Informatique SA", "match": "former-translation", "register_name": "AdNovum Informatique SA", "former_name": "AdNovum Informatik AG", "lang": "fr"}
       ],
-      "note": {"it": "Fino al 2023 si chiamava AdNovum Informatik AG: quel nome è un gruppo a parte, perché è un cambio di nome e non una grafia.", "en": "Until 2023 it was called AdNovum Informatik AG: that name is a separate group, because it is a change of name, not a spelling."}
-    },
-    {
-      "name": "AdNovum Informatik AG",
-      "uid": "CHE-106.013.711",
-      "register_name": "Adnovum AG",
-      "seat": "Zürich",
-      "register_status": "active",
-      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.013.711",
-      "zefix_id": 224067,
-      "checked": "2026-11-26",
-      "variants": [
-        {"name": "AdNovum Informatik AG", "match": "former", "register_name": "AdNovum Informatik AG"},
-        {"name": "Adnovum Informatik AG", "match": "former", "register_name": "AdNovum Informatik AG"},
-        {"name": "AdNovum Informatique SA", "match": "former-translation", "register_name": "AdNovum Informatique SA", "lang": "fr"}
-      ],
-      "note": {"it": "Nome della ditta fino al 2023, oggi Adnovum AG: non riunito con il nome nuovo.", "en": "Name of the company until 2023, today Adnovum AG: not merged with the new name."}
+      "note": {"it": "Nel 2023 la ditta ha assorbito la Adnovum AG (CHE-142.029.398) e ne ha preso il nome: i 9 contratti scritti «Adnovum AG» iniziati prima del cambio di nome sono passati a questa ditta con la fusione.", "en": "In 2023 the company absorbed Adnovum AG (CHE-142.029.398) and took its name: the 9 contracts written «Adnovum AG» that started before the change of name passed to this company with the merger."}
     },
     {
       "name": "APP Unternehmensberatung AG",
@@ -73,36 +61,6 @@
         {"name": "APP Unternehmensberatung AG", "match": "name"},
         {"name": "APP Unternehmensberatung  AG", "match": "name"}
       ]
-    },
-    {
-      "name": "Atos AG",
-      "uid": "CHE-106.105.537",
-      "register_name": "Eviden AG",
-      "seat": "Zürich",
-      "register_status": "active",
-      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.105.537",
-      "zefix_id": 328141,
-      "checked": "2026-11-26",
-      "variants": [
-        {"name": "Atos AG", "match": "former", "register_name": "Atos AG"},
-        {"name": "ATOS AG", "match": "former", "register_name": "Atos AG"}
-      ],
-      "note": {"it": "Contratti del 2021 e del 2022. Nel 2023 questa ditta ha preso il nome Eviden AG (non riunito); il nome Atos AG è passato a un'altra ditta (CHE-493.823.540).", "en": "Contracts of 2021 and 2022. In 2023 this company took the name Eviden AG (not merged); the name Atos AG went to another company (CHE-493.823.540)."}
-    },
-    {
-      "name": "AWK Group AG",
-      "uid": "CHE-105.318.036",
-      "register_name": "Eraneos Switzerland AG",
-      "seat": "Zürich",
-      "register_status": "active",
-      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-105.318.036",
-      "zefix_id": 501514,
-      "checked": "2026-11-26",
-      "variants": [
-        {"name": "AWK Group AG", "match": "former", "register_name": "AWK Group AG"},
-        {"name": "AWK GROUP AG", "match": "former", "register_name": "AWK Group AG"}
-      ],
-      "note": {"it": "Nome della ditta fino al 2023, oggi Eraneos Switzerland AG: non riunito con il nome nuovo.", "en": "Name of the company until 2023, today Eraneos Switzerland AG: not merged with the new name."}
     },
     {
       "name": "BUSINESS IT AG",
@@ -153,6 +111,22 @@
       "note": {"it": "ELCA Informatik AG è il nome tedesco registrato della stessa ditta; con questo nome sono iscritte anche le sue succursali di Berna (CHE-288.199.350) e Zurigo (CHE-278.307.690).", "en": "ELCA Informatik AG is the registered German name of the same company; its branches in Bern (CHE-288.199.350) and Zurich (CHE-278.307.690) are entered under this name."}
     },
     {
+      "name": "Eraneos Switzerland AG",
+      "uid": "CHE-105.318.036",
+      "register_name": "Eraneos Switzerland AG",
+      "seat": "Zürich",
+      "register_status": "active",
+      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-105.318.036",
+      "zefix_id": 501514,
+      "checked": "2026-11-26",
+      "renamed": {"from": "AWK Group AG", "to": "Eraneos Switzerland AG", "register_date": "2023-01-06", "sogc_date": "2023-01-11", "sogc_publication": "1005649191"},
+      "variants": [
+        {"name": "Eraneos Switzerland AG", "match": "name"},
+        {"name": "AWK Group AG", "match": "former", "register_name": "AWK Group AG", "former_name": "AWK Group AG"},
+        {"name": "AWK GROUP AG", "match": "former", "register_name": "AWK Group AG", "former_name": "AWK Group AG"}
+      ]
+    },
+    {
       "name": "ESRI Schweiz AG",
       "uid": "CHE-106.094.282",
       "register_name": "ESRI Schweiz AG",
@@ -179,6 +153,23 @@
         {"name": "Eurobus welti-furrer AG", "match": "name"},
         {"name": "Eurobus Welti-Furrer AG", "match": "name"}
       ]
+    },
+    {
+      "name": "Eviden AG",
+      "uid": "CHE-106.105.537",
+      "register_name": "Eviden AG",
+      "seat": "Zürich",
+      "register_status": "active",
+      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.105.537",
+      "zefix_id": 328141,
+      "checked": "2026-11-26",
+      "renamed": {"from": "Atos AG", "to": "Eviden AG", "register_date": "2023-07-03", "sogc_date": "2023-07-06", "sogc_publication": "1005788021"},
+      "variants": [
+        {"name": "Eviden AG", "match": "name"},
+        {"name": "Atos AG", "match": "former", "register_name": "Atos AG", "former_name": "Atos AG", "only_before": "2023-07-03"},
+        {"name": "ATOS AG", "match": "former", "register_name": "Atos AG", "former_name": "Atos AG", "only_before": "2023-07-03"}
+      ],
+      "note": {"it": "Dal 3 luglio 2023 il nome Atos AG è di un'altra ditta (CHE-493.823.540): con Eviden AG sono contati solo i contratti scritti «Atos AG» iniziati prima di quella data. Negli elenchi 2021–2025 nessun contratto «Atos AG» inizia dopo.", "en": "Since 3 July 2023 the name Atos AG belongs to another company (CHE-493.823.540): only the contracts written «Atos AG» that started before that date are counted with Eviden AG. In the 2021–2025 lists no «Atos AG» contract starts later."}
     },
     {
       "name": "Grisoni-Zaugg SA",
@@ -339,21 +330,6 @@
       ]
     },
     {
-      "name": "RUAG AG",
-      "uid": "CHE-171.801.818",
-      "register_name": "RUAG AG",
-      "seat": "Emmen",
-      "register_status": "active",
-      "register_url": "https://lu.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-171.801.818",
-      "zefix_id": 1412268,
-      "checked": "2026-11-26",
-      "variants": [
-        {"name": "RUAG AG", "match": "name"},
-        {"name": "Ruag AG", "match": "name"}
-      ],
-      "note": {"it": "Nel registro c'è una sola ditta con questo nome, anche contando quelle cancellate. I tre contratti scritti «Ruag AG» hanno come luogo 8602 Wangen ZH, non l'indirizzo registrato.", "en": "The register has a single company with this name, deleted ones included. The three contracts written «Ruag AG» have 8602 Wangen ZH as place, not the registered address."}
-    },
-    {
       "name": "Saab Bofors Dynamics Switzerland Ltd",
       "uid": "CHE-113.615.358",
       "register_name": "Saab Bofors Dynamics Switzerland Ltd",
@@ -462,10 +438,9 @@
   "not_merged": [
     {"names": ["IG BYTULU", "IG ByTuLu+"], "why": {"it": "Consorzio (IG) non iscritto nel registro di commercio; il «+» può indicare una composizione diversa.", "en": "Consortium (IG) not in the commercial register; the «+» can mean a different membership."}},
     {"names": ["Business IT"], "why": {"it": "Senza forma giuridica e con un contratto in un altro luogo (3008 Bern): non si può dire che sia BUSINESS IT AG.", "en": "No legal form and one contract at another place (3008 Bern): it cannot be told to be BUSINESS IT AG."}},
-    {"names": ["AdNovum Informatik AG", "Adnovum AG"], "why": {"it": "Stessa ditta (CHE-106.013.711) prima e dopo il cambio di nome del 2023: nomi diversi, non grafie.", "en": "Same company (CHE-106.013.711) before and after the change of name of 2023: different names, not spellings."}},
-    {"names": ["AWK Group AG", "Eraneos Switzerland AG"], "why": {"it": "Stessa ditta (CHE-105.318.036) prima e dopo il cambio di nome del 2023.", "en": "Same company (CHE-105.318.036) before and after the change of name of 2023."}},
-    {"names": ["Atos AG", "Eviden AG"], "why": {"it": "Stessa ditta (CHE-106.105.537) prima e dopo il cambio di nome del 2023; oggi Atos AG è un'altra ditta.", "en": "Same company (CHE-106.105.537) before and after the change of name of 2023; today Atos AG is another company."}},
-    {"names": ["SAP (Schweiz) AG", "SAP (Schweiz) AG Datenverarbeitung", "SAP (Schweiz) AG Systeme Anwendungen Produkte"], "why": {"it": "Le due forme lunghe sono abbreviazioni del vecchio nome registrato («SAP (Schweiz) AG Systeme, Anwendungen und Produkte in der Datenverarbeitung»), non grafie dello stesso nome.", "en": "The two long forms are abbreviations of the former registered name, not spellings of the same name."}},
+    {"names": ["RUAG AG", "Ruag AG"], "why": {"it": "Indirizzo diverso: i tre contratti scritti «Ruag AG» hanno come luogo 8602 Wangen ZH; il registro non mostra per RUAG AG (CHE-171.801.818) né succursali né una sede precedente in quel luogo.", "en": "Different address: the three contracts written «Ruag AG» have 8602 Wangen ZH as place; the register shows no branch and no former seat of RUAG AG (CHE-171.801.818) there."}},
+    {"names": ["SAP (Schweiz) AG", "SAP (Schweiz) AG Datenverarbeitung", "SAP (Schweiz) AG Systeme Anwendungen Produkte"], "why": {"it": "Il nome precedente nel registro (CHE-105.988.774) è «SAP (Schweiz) AG Systeme, Anwendungen und Produkte in der Datenverarbeitung»: le due forme lunghe non sono quel nome, ma abbreviazioni.", "en": "The former name in the register (CHE-105.988.774) is «SAP (Schweiz) AG Systeme, Anwendungen und Produkte in der Datenverarbeitung»: the two long forms are not that name but abbreviations of it."}},
+    {"names": ["Eraneos Switzerland AG", "AWK Engineering AG"], "why": {"it": "Nome precedente della stessa ditta (CHE-105.318.036), lasciato prima del 2016: la data del cambio non è nelle pubblicazioni del registro consultate, e i tre contratti scritti così sono del 2021 e del 2022.", "en": "Former name of the same company (CHE-105.318.036), dropped before 2016: the date of the change is not in the register publications consulted, and the three contracts written this way are from 2021 and 2022."}},
     {"names": ["Securitas AG Schweizerische Bewachungsgesellschaft", "Securitas AG Schweizerische Bewachungsges.", "Securitas AG Schweizerische Bewachungsgesellscha"], "why": {"it": "Nomi abbreviati o troncati: non controllati nel registro.", "en": "Abbreviated or cut-off names: not checked in the register."}},
     {"names": ["Elbit Systems C4I and Cyber Division", "Elbit Systems C4I and Cyber Divisio"], "why": {"it": "Ditta estera, nome troncato: non c'è un registro da consultare.", "en": "Foreign company, cut-off name: no register to check."}},
     {"names": ["Grisoni-Zaugg SA", "Grisoni-Zaugg SA Succ. de Domdidier"], "why": {"it": "Il secondo è la succursale scritta con il suo nome: non è una grafia del nome della ditta.", "en": "The second is the branch written with its own name: not a spelling of the company name."}},

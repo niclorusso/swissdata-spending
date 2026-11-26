@@ -17,7 +17,7 @@
   "sha256": null,
   "notes": "Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Nelle classifiche dei fornitori le grafie della stessa ditta sono contate insieme (data/supplier-aliases.json); i contratti restano con il nome scritto nell'elenco. Elenco dei file sul sito della CA: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken",
   "coverage": "47706 contratti, 13651 fornitori, 35.9 mld CHF in 5 anni",
-  "generated_at": "2026-11-26T15:20:22+00:00"
+  "generated_at": "2026-11-26T15:29:57+00:00"
  },
  "data": {
   "years": {
@@ -263,7 +263,7 @@
       "n": 2
      },
      {
-      "name": "AWK Group AG",
+      "name": "Eraneos Switzerland AG",
       "chf": 45817683,
       "n": 100,
       "variants": [
@@ -285,7 +285,7 @@
       "n": 1
      },
      {
-      "name": "Atos AG",
+      "name": "Eviden AG",
       "chf": 39604595,
       "n": 49,
       "variants": [
@@ -528,7 +528,14 @@
      {
       "name": "NTT DATA Business Solutions AG, Zweigniederlassung Bern",
       "chf": 17922589,
-      "n": 27
+      "n": 27,
+      "variants": [
+       {
+        "name": "NTT DATA Business Solutions AG Zweigniederlassung Bern",
+        "chf": 17922589,
+        "n": 27
+       }
+      ]
      }
     ],
     "top_units": [
@@ -1004,7 +1011,7 @@
       ]
      },
      {
-      "name": "AdNovum Informatik AG",
+      "name": "Adnovum AG",
       "chf": 47067801,
       "n": 27,
       "variants": [
@@ -1121,8 +1128,20 @@
      },
      {
       "name": "Eraneos Switzerland AG",
-      "chf": 31670030,
-      "n": 67
+      "chf": 31878349,
+      "n": 69,
+      "variants": [
+       {
+        "name": "Eraneos Switzerland AG",
+        "chf": 31670030,
+        "n": 67
+       },
+       {
+        "name": "AWK Group AG",
+        "chf": 208319,
+        "n": 2
+       }
+      ]
      },
      {
       "name": "CONSORZIO TORRETTA c/o csc costruzioni sa",
@@ -1184,7 +1203,7 @@
       "n": 1
      },
      {
-      "name": "Atos AG",
+      "name": "Eviden AG",
       "chf": 23476095,
       "n": 47,
       "variants": [
@@ -3863,9 +3882,63 @@
     "n": 1
    },
    {
+    "name": "Adnovum AG",
+    "chf": 195804918,
+    "n": 99,
+    "variants": [
+     {
+      "name": "Adnovum AG",
+      "chf": 128095661,
+      "n": 54
+     },
+     {
+      "name": "AdNovum Informatik AG",
+      "chf": 52334672,
+      "n": 25
+     },
+     {
+      "name": "Adnovum Informatik AG",
+      "chf": 11449435,
+      "n": 16
+     },
+     {
+      "name": "AdNovum AG",
+      "chf": 3581372,
+      "n": 2
+     },
+     {
+      "name": "AdNovum Informatique SA",
+      "chf": 343779,
+      "n": 2
+     }
+    ]
+   },
+   {
     "name": "RUAG AG Business Area Ground",
     "chf": 190792637,
     "n": 165
+   },
+   {
+    "name": "Eviden AG",
+    "chf": 185139730,
+    "n": 244,
+    "variants": [
+     {
+      "name": "Eviden AG",
+      "chf": 122059040,
+      "n": 148
+     },
+     {
+      "name": "Atos AG",
+      "chf": 61631193,
+      "n": 94
+     },
+     {
+      "name": "ATOS AG",
+      "chf": 1449497,
+      "n": 2
+     }
+    ]
    },
    {
     "name": "SwissP Defence AG",
@@ -3891,6 +3964,28 @@
     "name": "ARGE 4-Spur",
     "chf": 170044658,
     "n": 1
+   },
+   {
+    "name": "Eraneos Switzerland AG",
+    "chf": 160054405,
+    "n": 385,
+    "variants": [
+     {
+      "name": "Eraneos Switzerland AG",
+      "chf": 114028403,
+      "n": 283
+     },
+     {
+      "name": "AWK Group AG",
+      "chf": 45576078,
+      "n": 99
+     },
+     {
+      "name": "AWK GROUP AG",
+      "chf": 449924,
+      "n": 3
+     }
+    ]
    },
    {
     "name": "Thales Simulation & Training AG",
@@ -3935,23 +4030,6 @@
     "n": 3
    },
    {
-    "name": "Adnovum AG",
-    "chf": 131677033,
-    "n": 56,
-    "variants": [
-     {
-      "name": "Adnovum AG",
-      "chf": 128095661,
-      "n": 54
-     },
-     {
-      "name": "AdNovum AG",
-      "chf": 3581372,
-      "n": 2
-     }
-    ]
-   },
-   {
     "name": "Thales DIS Schweiz AG",
     "chf": 126928231,
     "n": 100
@@ -3960,11 +4038,6 @@
     "name": "Rheinmetall Waffe Munition GmbH",
     "chf": 125436832,
     "n": 11
-   },
-   {
-    "name": "Eviden AG",
-    "chf": 122059040,
-    "n": 148
    },
    {
     "name": "ELCA Informatique SA",
@@ -4002,11 +4075,6 @@
     "name": "TotalEnergies Aviation Suisse SA",
     "chf": 115907474,
     "n": 27
-   },
-   {
-    "name": "Eraneos Switzerland AG",
-    "chf": 114028403,
-    "n": 283
    },
    {
     "name": "mediatonic SA",
@@ -4183,20 +4251,8 @@
    },
    {
     "name": "RUAG AG",
-    "chf": 85877989,
-    "n": 132,
-    "variants": [
-     {
-      "name": "RUAG AG",
-      "chf": 85259818,
-      "n": 129
-     },
-     {
-      "name": "Ruag AG",
-      "chf": 618171,
-      "n": 3
-     }
-    ]
+    "chf": 85259818,
+    "n": 129
    },
    {
     "name": "RUAG Simulation & Training AG",
@@ -4362,28 +4418,6 @@
     "n": 264
    },
    {
-    "name": "AdNovum Informatik AG",
-    "chf": 64127886,
-    "n": 43,
-    "variants": [
-     {
-      "name": "AdNovum Informatik AG",
-      "chf": 52334672,
-      "n": 25
-     },
-     {
-      "name": "Adnovum Informatik AG",
-      "chf": 11449435,
-      "n": 16
-     },
-     {
-      "name": "AdNovum Informatique SA",
-      "chf": 343779,
-      "n": 2
-     }
-    ]
-   },
-   {
     "name": "APP Unternehmensberatung AG",
     "chf": 64075131,
     "n": 150,
@@ -4396,23 +4430,6 @@
      {
       "name": "APP Unternehmensberatung  AG",
       "chf": 308507,
-      "n": 2
-     }
-    ]
-   },
-   {
-    "name": "Atos AG",
-    "chf": 63080690,
-    "n": 96,
-    "variants": [
-     {
-      "name": "Atos AG",
-      "chf": 61631193,
-      "n": 94
-     },
-     {
-      "name": "ATOS AG",
-      "chf": 1449497,
       "n": 2
      }
     ]
@@ -4576,6 +4593,38 @@
     "name": "IG ByTuLu+",
     "chf": 49557796,
     "n": 1
+   },
+   {
+    "name": "NATRAS AG",
+    "chf": 48969147,
+    "n": 1
+   },
+   {
+    "name": "Siemens Schweiz AG",
+    "chf": 47716468,
+    "n": 225,
+    "variants": [
+     {
+      "name": "Siemens Schweiz AG",
+      "chf": 44547728,
+      "n": 197
+     },
+     {
+      "name": "Siemens Suisse SA",
+      "chf": 2186055,
+      "n": 18
+     },
+     {
+      "name": "Siemens Svizzera SA",
+      "chf": 783417,
+      "n": 8
+     },
+     {
+      "name": "Siemens Suisse S.A.",
+      "chf": 199268,
+      "n": 2
+     }
+    ]
    }
   ],
   "supplier_groups": [
@@ -4663,12 +4712,7 @@
         "n": 1
        }
       }
-     }
-    ]
-   },
-   {
-    "name": "AdNovum Informatik AG",
-    "variants": [
+     },
      {
       "name": "AdNovum Informatik AG",
       "years": {
@@ -4748,64 +4792,6 @@
        "2022": {
         "chf": 147926,
         "n": 1
-       }
-      }
-     }
-    ]
-   },
-   {
-    "name": "Atos AG",
-    "variants": [
-     {
-      "name": "Atos AG",
-      "years": {
-       "2021": {
-        "chf": 38854023,
-        "n": 48
-       },
-       "2022": {
-        "chf": 22777171,
-        "n": 46
-       }
-      }
-     },
-     {
-      "name": "ATOS AG",
-      "years": {
-       "2021": {
-        "chf": 750572,
-        "n": 1
-       },
-       "2022": {
-        "chf": 698925,
-        "n": 1
-       }
-      }
-     }
-    ]
-   },
-   {
-    "name": "AWK Group AG",
-    "variants": [
-     {
-      "name": "AWK Group AG",
-      "years": {
-       "2021": {
-        "chf": 45367759,
-        "n": 97
-       },
-       "2022": {
-        "chf": 208319,
-        "n": 2
-       }
-      }
-     },
-     {
-      "name": "AWK GROUP AG",
-      "years": {
-       "2021": {
-        "chf": 449924,
-        "n": 3
        }
       }
      }
@@ -5013,6 +4999,54 @@
     ]
    },
    {
+    "name": "Eraneos Switzerland AG",
+    "variants": [
+     {
+      "name": "Eraneos Switzerland AG",
+      "years": {
+       "2022": {
+        "chf": 31670030,
+        "n": 67
+       },
+       "2023": {
+        "chf": 22668966,
+        "n": 70
+       },
+       "2024": {
+        "chf": 36097749,
+        "n": 76
+       },
+       "2025": {
+        "chf": 23591658,
+        "n": 70
+       }
+      }
+     },
+     {
+      "name": "AWK Group AG",
+      "years": {
+       "2021": {
+        "chf": 45367759,
+        "n": 97
+       },
+       "2022": {
+        "chf": 208319,
+        "n": 2
+       }
+      }
+     },
+     {
+      "name": "AWK GROUP AG",
+      "years": {
+       "2021": {
+        "chf": 449924,
+        "n": 3
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "ESRI Schweiz AG",
     "variants": [
      {
@@ -5086,6 +5120,62 @@
         "chf": 1232340,
         "n": 3
        }
+      }
+     }
+    ]
+   },
+   {
+    "name": "Eviden AG",
+    "variants": [
+     {
+      "name": "Eviden AG",
+      "years": {
+       "2023": {
+        "chf": 57506097,
+        "n": 61
+       },
+       "2024": {
+        "chf": 34203178,
+        "n": 46
+       },
+       "2025": {
+        "chf": 30349765,
+        "n": 41
+       }
+      }
+     },
+     {
+      "name": "Atos AG",
+      "years": {
+       "2021": {
+        "chf": 38854023,
+        "n": 48
+       },
+       "2022": {
+        "chf": 22777171,
+        "n": 46
+       }
+      },
+      "apart": {
+       "n": 0,
+       "chf": 0
+      }
+     },
+     {
+      "name": "ATOS AG",
+      "years": {
+       "2021": {
+        "chf": 750572,
+        "n": 1
+       },
+       "2022": {
+        "chf": 698925,
+        "n": 1
+       }
+      },
+      "apart": {
+       "n": 0,
+       "chf": 0
       }
      }
     ]
@@ -5569,49 +5659,6 @@
        "2021": {
         "chf": 991594,
         "n": 1
-       }
-      }
-     }
-    ]
-   },
-   {
-    "name": "RUAG AG",
-    "variants": [
-     {
-      "name": "RUAG AG",
-      "years": {
-       "2021": {
-        "chf": 52814,
-        "n": 1
-       },
-       "2022": {
-        "chf": 1342802,
-        "n": 6
-       },
-       "2023": {
-        "chf": 459172,
-        "n": 5
-       },
-       "2024": {
-        "chf": 3113650,
-        "n": 11
-       },
-       "2025": {
-        "chf": 80291380,
-        "n": 106
-       }
-      }
-     },
-     {
-      "name": "Ruag AG",
-      "years": {
-       "2022": {
-        "chf": 362518,
-        "n": 1
-       },
-       "2024": {
-        "chf": 255653,
-        "n": 2
        }
       }
      }
