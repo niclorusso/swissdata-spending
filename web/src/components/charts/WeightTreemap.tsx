@@ -11,7 +11,8 @@ const GROUP_GAP = 2.5; // half the white line between two task areas
 const CELL_GAP = 0.75; // half the line between two lines of the same area
 
 type Cell = Rect & { code: string; name: string; value: number; group: string };
-export type Highlight = { code: string; name: string; value: number; line2: string };
+/** `amount` and `share` as the page writes them: on one line «amount · share», or on two in a narrow box. */
+export type Highlight = { code: string; name: string; value: number; amount: string; share: string };
 
 /** Width in pixels of a text as the browser draws it: measured on a hidden span inside the chart, which has the chart's own font
  *  (family, features), at the given size and weight. The chart has no measure until the fonts are loaded, so nothing is placed on a guess. */
@@ -138,17 +139,33 @@ export function WeightTreemap({ groups, total, highlight, ariaLabel, fmt }: {
     if (!box || !highlight || !measure) return null;
     const { m } = measure;
     const name = (s: string) => m(s, 13, 700);
+    const line2 = `${highlight.amount} · ${highlight.share}`;
     const pad = 8;
-    // Large enough: the label goes inside the coloured area, the name on up to two lines.
-    const inner = words(highlight.name, box.w - 2 * pad, name);
-    if (inner.length <= 2 && inner.every((l) => name(l) <= box.w - 2 * pad) && box.h >= 2 * pad + inner.length * 17 + 16 && box.w >= m(highlight.line2, 12, 600, true) + 2 * pad)
-      return { kind: "in" as const, lines: inner, x: box.x + pad, y: box.y + pad };
-    // Small: an outline around it and a leader to a label beside it, on the side with the most room.
-    const maxW = Math.min(280, W - 8);
-    const lines = wrap(highlight.name, maxW - 22, name);
-    const bw = Math.min(maxW, Math.max(...lines.map(name), m(highlight.line2, 12, 400, true)) + 22);
-    const bh = 12 + lines.length * 17 + 18;
+    // Large enough: the label goes inside the coloured area, the name on up to two lines, amount and share on one line or two.
+    const room = box.w - 2 * pad;
+    const inner = words(highlight.name, room, name);
+    const figures = m(line2, 12, 600, true) <= room ? [line2] : [highlight.amount, highlight.share].every((t) => m(t, 12, 600, true) <= room) ? [highlight.amount, highlight.share] : null;
+    if (figures && inner.length <= 2 && inner.every((l) => name(l) <= room) && box.h >= 2 * pad + inner.length * 17 + figures.length * 16)
+      return { kind: "in" as const, lines: inner, figures, x: box.x + pad, y: box.y + pad };
+    // Small: an outline around it and a leader to a label beside it.
     const gap = 16, ring = 4;
+    const callout = (maxW: number) => {
+      const lines = wrap(highlight.name, maxW - 22, name);
+      return { lines, bw: Math.min(maxW, Math.max(...lines.map(name), m(line2, 12, 400, true)) + 22), bh: 12 + lines.length * 17 + 18 };
+    };
+    // Phones: the box is at the top left; a label to its right, level with its top, stays in the first screen even when the box is
+    // tall, so it is taken whenever it fits there without covering the box (narrower, the name on more lines).
+    const right = W - (box.x + box.w) - gap - 4;
+    if (pin && right >= 120) {
+      const c = callout(Math.min(280, right));
+      if (c.bw <= right) {
+        const p = { x: box.x + box.w + gap, y: Math.max(4, Math.min(H - c.bh - 4, box.y)) };
+        const cy = box.y + Math.min(box.h, c.bh) / 2;
+        const ly = Math.max(p.y, Math.min(p.y + c.bh, cy));
+        return { kind: "out" as const, lines: c.lines, x: p.x, y: p.y, bw: c.bw, bh: c.bh, ax: box.x + box.w + ring, ay: ly, lx: p.x, ly, ring, line2 };
+      }
+    }
+    const { lines, bw, bh } = callout(Math.min(280, W - 8));
     const cx = box.x + box.w / 2, cy = box.y + box.h / 2;
     const clampX = (x: number) => Math.max(4, Math.min(W - bw - 4, x));
     const clampY = (y: number) => Math.max(4, Math.min(H - bh - 4, y));
@@ -165,7 +182,7 @@ export function WeightTreemap({ groups, total, highlight, ariaLabel, fmt }: {
     // Leader: from the outline to the nearest point of the label.
     const lx = Math.max(p.x, Math.min(p.x + bw, cx)), ly = Math.max(p.y, Math.min(p.y + bh, cy));
     const ax = Math.max(box.x - ring, Math.min(box.x + box.w + ring, lx)), ay = Math.max(box.y - ring, Math.min(box.y + box.h + ring, ly));
-    return { kind: "out" as const, lines, x: p.x, y: p.y, bw, bh, ax, ay, lx, ly, ring };
+    return { kind: "out" as const, lines, x: p.x, y: p.y, bw, bh, ax, ay, lx, ly, ring, line2 };
   }, [box, highlight, measure, W, H, pin]);
 
   // Grey labels under the highlighted item's label or its leader are dropped instead of showing half a word.
@@ -219,7 +236,9 @@ export function WeightTreemap({ groups, total, highlight, ariaLabel, fmt }: {
                   {label.lines.map((l, i) => (
                     <text key={i} x={label.x} y={label.y + 13 + i * 17} style={{ fill: "var(--accent-ink)", fontSize: 13, fontWeight: 700 }}>{l}</text>
                   ))}
-                  <text x={label.x} y={label.y + 14 + label.lines.length * 17} className="tabular" style={{ fill: "var(--accent-ink)", fontSize: 12, fontWeight: 600 }}>{highlight!.line2}</text>
+                  {label.figures.map((f, i) => (
+                    <text key={`f${i}`} x={label.x} y={label.y + 14 + label.lines.length * 17 + i * 16} className="tabular" style={{ fill: "var(--accent-ink)", fontSize: 12, fontWeight: 600 }}>{f}</text>
+                  ))}
                 </>
               ) : (
                 <>
@@ -232,7 +251,7 @@ export function WeightTreemap({ groups, total, highlight, ariaLabel, fmt }: {
                   {label.lines.map((l, i) => (
                     <text key={i} x={label.x + 11} y={label.y + 23 + i * 17} style={{ fill: "var(--foreground)", fontSize: 13, fontWeight: 700 }}>{l}</text>
                   ))}
-                  <text x={label.x + 11} y={label.y + 23 + label.lines.length * 17 + 1} className="tabular" style={{ fill: "var(--foreground)", fontSize: 12, fontWeight: 400 }}>{highlight!.line2}</text>
+                  <text x={label.x + 11} y={label.y + 23 + label.lines.length * 17 + 1} className="tabular" style={{ fill: "var(--foreground)", fontSize: 12, fontWeight: 400 }}>{label.line2}</text>
                 </>
               )}
             </g>

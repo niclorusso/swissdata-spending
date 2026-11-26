@@ -12,7 +12,8 @@ export const VOCI: VoceDef[] = [
   { slug: "difesa", code: "16", it: "Quanto pesa la difesa sulla spesa pubblica?", en: "How much does defence weigh in public spending?" },
   { slug: "scuola-obbligo", code: "21", it: "Quanto pesa la scuola dell’obbligo sulla spesa pubblica?", en: "How much does compulsory school weigh in public spending?" },
   { slug: "universita", code: "27", it: "Quanto pesano le università sulla spesa pubblica?", en: "How much do universities weigh in public spending?" },
-  { slug: "cultura-sport", old: "cultura", code: "3", it: "Quanto pesano cultura, sport, tempo libero e religione sulla spesa pubblica?", en: "How much do culture, sport, leisure and religion weigh in public spending?" },
+  // Shorter than the others: with «sulla spesa pubblica» the title passes 70 characters, too long for a social card.
+  { slug: "cultura-sport", old: "cultura", code: "3", it: "Quanto pesano cultura, sport, ricreazione e religione?", en: "How much do culture, sport, leisure and church weigh?" },
   { slug: "ospedali", code: "41", it: "Quanto pesano gli ospedali e le case di cura sulla spesa pubblica?", en: "How much do hospitals and nursing homes weigh in public spending?" },
   { slug: "vecchiaia", code: "53", it: "Quanto pesano vecchiaia e superstiti sulla spesa pubblica?", en: "How much do old age and survivors weigh in public spending?" },
   { slug: "aiuto-sociale-asilo", old: "asilo", code: "57", it: "Quanto pesano l’aiuto sociale e l’asilo sulla spesa pubblica?", en: "How much do social assistance and asylum weigh in public spending?" },
@@ -26,10 +27,14 @@ export const slugFor = (v: string | null): string | null => (v ? VOCI.find((d) =
 
 /** Plainer Italian for a few names of the FFA code list (typos and «+» included there). */
 export const NAME_IT: Record<string, string> = {
-  "3": "Cultura, sport, tempo libero e religione",
   "48": "R&S in materia di sanità",
   "53": "Vecchiaia e superstiti",
   "57": "Aiuto sociale e asilo",
+};
+
+/** English names where the site's own differs from the FFA's title: task area 3 keeps the FFA's words (its lines include the media). */
+export const NAME_EN: Record<string, string> = {
+  "3": "Culture, sport and leisure, church",
 };
 
 /** Share of the total: one decimal; below 0.1 % two, so a small line never reads «0.0 %»; below 0.01 % «< 0.01 %».

@@ -1,13 +1,14 @@
 "use client";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useL } from "@/lib/useLang";
 import { WeightTreemap } from "@/components/charts/WeightTreemap";
 import { shareOf, slugFor, type QpData } from "@/lib/quanto-pesa";
 
-/** «Quanto pesa?»: the chooser (slug null) or the page of one item, /quanto-pesa/<slug>/. */
-export function QuantoPesa({ data, slug }: { data: QpData; slug: string | null }) {
+/** «Quanto pesa?»: the chooser (slug null) or the page of one item, /quanto-pesa/<slug>/. `sourceLine`: the site's source line
+ *  (SourceBadge, a server component), drawn by the page. */
+export function QuantoPesa({ data, slug, sourceLine }: { data: QpData; slug: string | null; sourceLine: ReactNode }) {
   const { en, T, chf, chfFull, num, pct, date, link, h } = useL();
   const router = useRouter();
   const { year, total, cellSum, groups, voci, source } = data;
@@ -17,6 +18,19 @@ export function QuantoPesa({ data, slug }: { data: QpData; slug: string | null }
   const isOn = (code: string) => !!voce && (code === voce.code || (voce.code.length === 1 && code.startsWith(voce.code)));
   const page = (s: string) => `/quanto-pesa/${s}/`;
   const nCells = groups.reduce((n, g) => n + g.cells.length, 0);
+
+  // What the item contains, and the source. Wide screens: under the sentence. Narrower ones: under the map, so that on a phone the
+  // question, the answer, the chooser and the highlighted box come first.
+  const about = (
+    <>
+      {voce?.scope && (
+        <p className="mt-3 text-sm text-muted leading-snug max-w-3xl">{voce.scope.text}{" "}
+          <span className="text-faint">({voce.scope.sources.map((x, i) => <Fragment key={x.url}>{i > 0 && "; "}<a className="underline hover:text-accent whitespace-nowrap" href={x.url} target="_blank" rel="noreferrer">{x.label}</a></Fragment>)})</span>
+        </p>
+      )}
+      {sourceLine}
+    </>
+  );
 
   // Links of the prototype carried the item in the address (?voce=difesa): the chooser sends them on to the item's own page.
   useEffect(() => {
@@ -40,14 +54,7 @@ export function QuantoPesa({ data, slug }: { data: QpData; slug: string | null }
                   ? <>Pick an item: the map shows what it weighs in the {chf(total, { digits: 1 })} of public spending by the Confederation, cantons, municipalities and social insurance in {year}.</>
                   : <>Scegli una voce: la mappa mostra quanto pesa sui {chf(total, { digits: 1 })} di spesa pubblica di Confederazione, Cantoni, Comuni e assicurazioni sociali nel {year}.</>}</span>}
             </p>
-            {voce?.scope && (
-              <p className="mt-2 text-[13px] sm:text-sm text-muted leading-snug max-w-3xl">{voce.scope.text}{" "}
-                <span className="text-faint">({voce.scope.sources.map((x, i) => <Fragment key={x.url}>{i > 0 && "; "}<a className="underline hover:text-accent whitespace-nowrap" href={x.url} target="_blank" rel="noreferrer">{x.label}</a></Fragment>)})</span>
-              </p>
-            )}
-            <p className="mt-2 sm:mt-3 text-xs text-faint leading-snug sm:leading-relaxed max-w-3xl">
-              {T("Fonte", "Source")}: {T("Amministrazione federale delle finanze, statistica finanziaria", "Federal Finance Administration, financial statistics")}, <a className="underline hover:text-accent" href={source.fileUrl} target="_blank" rel="noreferrer">standardauswertung.csv</a>, {T("stato", "as of")} {date(source.fileDate)}
-            </p>
+            <div className="hidden lg:block">{about}</div>
           </header>
 
           {/* Phones: one native list, so the map stays in the first screen. Wider screens: every item in sight, as links. */}
@@ -76,16 +83,17 @@ export function QuantoPesa({ data, slug }: { data: QpData; slug: string | null }
             <span className="text-muted tabular">{chf(total, { digits: 1 })} · {pct(100, 0)}</span>
           </div>
           <WeightTreemap groups={groups} total={total}
-            highlight={voce ? { code: voce.code, name: voce.name, value: voce.value, line2: `${chf(voce.value)} · ${share(voce.value / total)}` } : null}
+            highlight={voce ? { code: voce.code, name: voce.name, value: voce.value, amount: chf(voce.value), share: share(voce.value / total) } : null}
             ariaLabel={voce ? `${T("Mappa della spesa pubblica", "Map of public spending")} ${year}: ${voce.name}, ${share(voce.value / total)}` : `${T("Mappa della spesa pubblica", "Map of public spending")} ${year}`}
             fmt={{ cell: (v, s) => `${chf(v, { unit: false })} · ${share(s)}`, aria: (n, v, s) => `${n}: ${chf(v)}, ${share(s)}` }} />
+          <div className="lg:hidden">{about}</div>
           <p className="mt-3 text-xs text-faint leading-relaxed">{T(
-            "Area = importo. Ogni riquadro è una voce, le linee bianche più spesse separano i settori. I riquadri piccoli hanno il nome solo passandoci sopra, toccandoli o con il tasto Tab; tutte le voci sono nella tabella qui sotto.",
-            "Area = amount. Each box is a line, the thicker white lines separate the task areas. Small boxes show their name only on hover, tap or Tab; every line is in the table below.")}</p>
+            "Area = importo. Ogni riquadro è una voce, gli spazi più larghi tra i riquadri separano i settori. I riquadri piccoli hanno il nome solo passandoci sopra, toccandoli o con il tasto Tab; tutte le voci sono nella tabella qui sotto.",
+            "Area = amount. Each box is a line, the wider gaps between boxes separate the task areas. Small boxes show their name only on hover, tap or Tab; every line is in the table below.")}</p>
           <p className="mt-2 text-xs text-faint leading-relaxed">
             {en
-              ? <>Method: spending by function of general government (Confederation, cantons, municipalities and social insurance) in the financial statistics of the FFA, FS model. The total is consolidated by the FFA: money one body pays to another is counted once. Each box is a two-digit line of the file; task areas (one digit) and shares are added up and divided by the site. The {nCells} lines add up to {chfFull(cellSum)}, the FFA total is {chfFull(total)}{cellSum !== total ? <>: the difference of {num(Math.abs(cellSum - total))} CHF comes from rounding each line to the franc</> : null}. {year} is the last year the FFA gives as actuals for general government (main_extern.csv, as of {date(source.statusDate)}).</>
-              : <>Metodo: uscite per funzione dello Stato nel suo insieme (Confederazione, Cantoni, Comuni e assicurazioni sociali) nella statistica finanziaria dell’AFF, modello FS. Il totale è consolidato dall’AFF: i soldi che un ente versa a un altro sono contati una volta sola. Ogni riquadro è una voce a due cifre del file; i settori (una cifra) e le quote sono somme e divisioni fatte dal sito. Le {nCells} voci sommano a {chfFull(cellSum)}, il totale dell’AFF è {chfFull(total)}{cellSum !== total ? <>: la differenza di {num(Math.abs(cellSum - total))} CHF viene dall’arrotondamento di ogni voce al franco</> : null}. Il {year} è l’ultimo anno che l’AFF dà come consuntivo per lo Stato (main_extern.csv, stato {date(source.statusDate)}).</>}
+              ? <>Method: spending by function of general government (Confederation, cantons, municipalities and social insurance) in the financial statistics of the FFA, FS model. The total is consolidated by the FFA: money one body pays to another is counted once. Each box is a two-digit line of the file; task areas (one digit) and shares are added up and divided by the site. The {nCells} lines add up to {chfFull(cellSum)}, the FFA total is {chfFull(total)}{cellSum !== total ? <>: the difference of {num(Math.abs(cellSum - total))} CHF comes from rounding each line to the franc</> : null}. File: <a className="underline hover:text-accent" href={source.fileUrl} target="_blank" rel="noreferrer">standardauswertung.csv</a>, as of {date(source.fileDate)}. {year} is the last year the FFA gives as actuals for general government (main_extern.csv, as of {date(source.statusDate)}).</>
+              : <>Metodo: uscite per funzione dello Stato nel suo insieme (Confederazione, Cantoni, Comuni e assicurazioni sociali) nella statistica finanziaria dell’AFF, modello FS. Il totale è consolidato dall’AFF: i soldi che un ente versa a un altro sono contati una volta sola. Ogni riquadro è una voce a due cifre del file; i settori (una cifra) e le quote sono somme e divisioni fatte dal sito. Le {nCells} voci sommano a {chfFull(cellSum)}, il totale dell’AFF è {chfFull(total)}{cellSum !== total ? <>: la differenza di {num(Math.abs(cellSum - total))} CHF viene dall’arrotondamento di ogni voce al franco</> : null}. File: <a className="underline hover:text-accent" href={source.fileUrl} target="_blank" rel="noreferrer">standardauswertung.csv</a>, stato {date(source.fileDate)}. Il {year} è l’ultimo anno che l’AFF dà come consuntivo per lo Stato (main_extern.csv, stato {date(source.statusDate)}).</>}
             {voce && <> {voce.code.length === 2
               ? (en ? <>{voce.name} is line {voce.code} of task area {voce.group.code}, «{voce.group.name}».</> : <>{voce.name} è la voce {voce.code} del settore {voce.group.code}, «{voce.group.name}».</>)
               : (en ? <>{voce.name} is task area {voce.code}, the sum of its {groups.find((g) => g.code === voce.code)?.cells.length} lines.</> : <>{voce.name} è il settore {voce.code}, somma delle sue {groups.find((g) => g.code === voce.code)?.cells.length} voci.</>)}</>}
