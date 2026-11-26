@@ -3,16 +3,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useL } from "@/lib/useLang";
 
 export type TreeItem = { name: string; value: number; sub?: string; children?: TreeItem[] };
-type Rect = { x: number; y: number; w: number; h: number };
+export type Rect = { x: number; y: number; w: number; h: number };
 type Placed = Rect & { item: TreeItem; share: number };
 
-/** Squarified treemap (Bruls et al.), items must be sorted by value desc. */
-function squarify(items: TreeItem[], rect: Rect): Placed[] {
+/** Squarified treemap (Bruls et al.), items must be sorted by value desc. Also used by the «Quanto pesa?» page. */
+export function squarify<I extends { value: number }>(items: I[], rect: Rect): (Rect & { item: I; share: number })[] {
   const total = items.reduce((s, i) => s + i.value, 0);
   if (!total || rect.w <= 0 || rect.h <= 0) return [];
   const scale = (rect.w * rect.h) / total;
   const areas = items.map((i) => i.value * scale);
-  const out: Placed[] = [];
+  const out: (Rect & { item: I; share: number })[] = [];
   let { x, y, w, h } = rect;
   let row: number[] = [];
   let rowStart = 0;

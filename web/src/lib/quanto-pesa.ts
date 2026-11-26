@@ -1,0 +1,36 @@
+/** «Quanto pesa?»: the items a visitor can highlight. Each one is a line of the FFA functional classification (model FS),
+ *  read for general government (`staat`) in fs-haushalte: two digits = a line of the file, one digit = a task area (sum of its lines).
+ *  An item that is not a line of that table is not offered (interest on the debt, for example, exists only in the table by type). */
+export type VoceDef = { slug: string; code: string; it: string; en: string };
+
+/** In the order of the classification codes. */
+export const VOCI: VoceDef[] = [
+  { slug: "estero", code: "03", it: "Quanto pesano le relazioni con l'estero sulla spesa pubblica?", en: "How much do foreign relations weigh in public spending?" },
+  { slug: "sicurezza-pubblica", code: "11", it: "Quanto pesa la sicurezza pubblica sulla spesa pubblica?", en: "How much does public security weigh in public spending?" },
+  { slug: "difesa", code: "16", it: "Quanto pesa la difesa sulla spesa pubblica?", en: "How much does defence weigh in public spending?" },
+  { slug: "scuola-obbligo", code: "21", it: "Quanto pesa la scuola dell'obbligo sulla spesa pubblica?", en: "How much does compulsory school weigh in public spending?" },
+  { slug: "universita", code: "27", it: "Quanto pesano le università sulla spesa pubblica?", en: "How much do universities weigh in public spending?" },
+  { slug: "cultura", code: "3", it: "Quanto pesano cultura, sport, tempo libero e religione sulla spesa pubblica?", en: "How much do culture, sport, leisure and religion weigh in public spending?" },
+  { slug: "ospedali", code: "41", it: "Quanto pesano gli ospedali e le case di cura sulla spesa pubblica?", en: "How much do hospitals and nursing homes weigh in public spending?" },
+  { slug: "vecchiaia", code: "53", it: "Quanto pesano vecchiaia e superstiti sulla spesa pubblica?", en: "How much do old age and survivors weigh in public spending?" },
+  { slug: "asilo", code: "57", it: "Quanto pesano l'aiuto sociale e l'asilo sulla spesa pubblica?", en: "How much do social assistance and asylum weigh in public spending?" },
+  { slug: "strade", code: "61", it: "Quanto pesa la circolazione stradale sulla spesa pubblica?", en: "How much does road traffic weigh in public spending?" },
+  { slug: "trasporti-pubblici", code: "62", it: "Quanto pesano i trasporti pubblici sulla spesa pubblica?", en: "How much does public transport weigh in public spending?" },
+  { slug: "agricoltura", code: "81", it: "Quanto pesa l'agricoltura sulla spesa pubblica?", en: "How much does agriculture weigh in public spending?" },
+];
+
+/** Plainer Italian for a few names of the FFA code list (typos and «+» included there). */
+export const NAME_IT: Record<string, string> = {
+  "3": "Cultura, sport, tempo libero e religione",
+  "48": "R&S in materia di sanità",
+  "53": "Vecchiaia e superstiti",
+  "57": "Aiuto sociale e asilo",
+};
+
+export type QpCell = { code: string; name: string; value: number };
+export type QpGroup = QpCell & { cells: QpCell[] };
+export type QpVoce = { slug: string; code: string; name: string; question: string; value: number; group: { code: string; name: string } };
+export type QpData = {
+  year: string; total: number; groups: QpGroup[]; voci: QpVoce[];
+  source: { fileUrl: string; fileDate: string | null; statusDate: string | null; register: string };
+};
