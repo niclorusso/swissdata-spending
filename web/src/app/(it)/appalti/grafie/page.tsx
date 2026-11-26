@@ -42,8 +42,8 @@ export default function Grafie() {
   const contracts = (n: number) => plural(n, T("contratto", "contract"), T("contratti", "contracts"));
   return (
     <Page kicker={T("Appalti", "Procurement")} back={{ href: "/appalti/", label: T("I contratti della Confederazione", "The Confederation's contracts") }} title={T("Fornitori scritti in più modi", "Suppliers written in more than one way")} lead={en
-      ? <p>In the federal procurement lists the same company is sometimes written in more than one way: with different capitals, spaces or punctuation, with its legal form abbreviated differently, or with its name in another language, or under the name it had before a change of name. In the rankings of the site these spellings are counted together when the commercial register shows that they are the same company, with the same UID number. Each contract keeps the name written in the list.</p>
-      : <p>Negli elenchi federali degli appalti la stessa ditta è a volte scritta in più modi: con maiuscole, spazi o punteggiatura diversi, con la forma giuridica abbreviata in un altro modo con il suo nome in un&apos;altra lingua o con il nome che aveva prima di cambiarlo. Nelle classifiche del sito queste grafie sono contate insieme quando il registro di commercio mostra che sono la stessa ditta, con lo stesso numero IDI. Ogni contratto resta con il nome scritto nell&apos;elenco.</p>}>
+      ? <p>In the federal procurement lists the same company is sometimes written in more than one way: with different capitals, spaces or punctuation, with its legal form abbreviated differently, with its name in another language, or under the name it had before a change of name. In the rankings of the site these spellings are counted together when the commercial register shows that they are the same company, with the same UID number. Each contract keeps the name written in the list.</p>
+      : <p>Negli elenchi federali degli appalti la stessa ditta è a volte scritta in più modi: con maiuscole, spazi o punteggiatura diversi, con la forma giuridica abbreviata in un altro modo, con il suo nome in un&apos;altra lingua o con il nome che aveva prima di cambiarlo. Nelle classifiche del sito queste grafie sono contate insieme quando il registro di commercio mostra che sono la stessa ditta, con lo stesso numero IDI. Ogni contratto resta con il nome scritto nell&apos;elenco.</p>}>
       <div className="text-sm text-muted max-w-3xl space-y-2 leading-relaxed" data-reveal="up">
         <p>{en ? a.rule.en : a.rule.it}</p>
         <p>{en ? a.scope.en : a.scope.it}</p>
@@ -62,7 +62,11 @@ export default function Grafie() {
                   {g.branch_of && <> · {T("succursale di", "branch of")} {g.branch_of.name} ({g.branch_of.uid})</>}
                   {deleted && <> · {T("cancellata il", "deleted on")} {date(deleted)}</>}
                 </p>
-                {g.renamed && <p className="mt-1 text-xs text-muted leading-relaxed">{T("già", "formerly")} {g.renamed.from}: {T("nome cambiato nel registro il", "name changed in the register on")} {date(g.renamed.register_date)} ({T("FUSC del", "SOGC of")} {date(g.renamed.sogc_date)}, {T("pubblicazione", "publication")} {g.renamed.sogc_publication})</p>}
+                {g.renamed?.map((r) => (
+                  <p key={r.from} className="mt-1 text-xs text-muted leading-relaxed">{T("già", "formerly")} {r.from}: {r.register_date
+                    ? <>{T("nome cambiato in", "renamed")} {r.to} {T("nel registro il", "in the register on")} {date(r.register_date)} ({T("FUSC del", "SOGC of")} {date(r.sogc_date)}, {T("pubblicazione", "publication")} {r.sogc_publication})</>
+                    : <>{T("nome cambiato in", "renamed")} {r.to} {T("prima del", "before")} {date(r.before)} ({T("prima pubblicazione FUSC disponibile in Zefix", "first SOGC publication available in Zefix")})</>}</p>
+                ))}
                 <ul className="mt-3 space-y-2">
                   {g.variants.map((v) => (
                     <li key={v.name}>

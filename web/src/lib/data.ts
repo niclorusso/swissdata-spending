@@ -49,8 +49,8 @@ export type AliasMatch = "name" | "translation" | "former" | "former-translation
 export type AliasGroup = {
   name: string; uid: string; register_name: string; seat: string; register_status: string; register_url: string; zefix_id: number; checked: string;
   branch_of?: { name: string; uid: string }; note?: Text;
-  /** Change of name from the register: date of the entry and of its publication in the SOGC. */
-  renamed?: { from: string; to: string; register_date: string; sogc_date: string; sogc_publication: string };
+  /** Changes of name from the register: date of the entry and of its publication in the SOGC; `before` when only an upper bound is known. */
+  renamed?: { from: string; to: string; register_date?: string; sogc_date?: string; sogc_publication?: string; before?: string }[];
   /** `former_name`: the old name a spelling stands for; `only_before`: the spelling joins the group only for contracts that start before this date. */
   variants: { name: string; match: AliasMatch; register_name?: string; lang?: "de" | "fr" | "it" | "en"; former_name?: string; only_before?: string }[];
 };
