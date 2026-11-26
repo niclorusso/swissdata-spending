@@ -155,7 +155,7 @@ def zurich() -> None:
     measures = [
         {"key": "servizi_pc", "label": "Costo netto dei servizi per abitante", "unit": "chf", "note": f"Costo dei servizi comunali nel {year}, tolti i ricavi propri di ogni servizio (tasse d'uso, contributi ricevuti)"},
         {"key": "debito_pc", "label": "Debito netto per abitante", "unit": "chf", "diverging": True, "note": f"Debiti meno averi finanziari a fine {year}. Se negativo, il Comune ha più averi che debiti"},
-        {"key": "steuerfuss", "label": "Moltiplicatore d'imposta", "unit": "pct", "note": f"Percentuale dell'imposta cantonale semplice che il Comune preleva, {year}, senza imposta di culto. Uster e Turbenthal hanno due moltiplicatori secondo il Comune scolastico: mappa e classifica usano il primo, la scheda del Comune li riporta entrambi. Più è alta, più imposte comunali si pagano"},
+        {"key": "steuerfuss", "label": "Moltiplicatore d'imposta (persone fisiche)", "unit": "pct", "note": f"Percentuale dell'imposta cantonale semplice che il Comune preleva, {year}, senza imposta di culto. Uster e Turbenthal hanno due moltiplicatori secondo il Comune scolastico: mappa e classifica usano il primo, la scheda del Comune li riporta entrambi. Più è alta, più imposte comunali si pagano"},
         {"key": "netinv_pc", "label": "Investimenti netti per abitante", "unit": "chf", "note": f"Spese per opere (strade, scuole, canalizzazioni) nel {year}, tolti i sussidi ricevuti"},
         {"key": "risultato_pc", "label": "Risultato d'esercizio per abitante", "unit": "chf", "diverging": True, "note": f"Ricavi meno spese nel {year}. Se negativo, è un disavanzo"},
         {"key": "steuerkraft", "label": "Forza fiscale per abitante", "unit": "chf", "note": f"Gettito fiscale per abitante nel {year}, a moltiplicatore uguale per tutti"},
@@ -165,7 +165,7 @@ def zurich() -> None:
     assert two == ["Turbenthal", "Uster"], two  # the note of the measure names them
     files = [ZH_FILES[k] for k in sorted(ZH_FILES, key=int)] + [file_record(fs, "Steuerfüsse (moltiplicatori d'imposta), serie storica")]
     write_snapshot(Source(id="gemeinden-zh", title=f"Zurigo – indicatori finanziari di tutti i Comuni, {year}",
-                          publisher="Statistisches Amt des Kantons Zürich", publisher_url=ZH_PUBLISHER_URL,
+                          publisher="Amt für Statistik und Daten des Kantons Zürich", publisher_url=ZH_PUBLISHER_URL,
                           source_url=f"{ZH_BASE}KANTON_ZUERICH_431.csv", landing_url=ZH_LANDING, license="opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
                           frequency="annuale", level="gemeinden", unit="CHF per abitante", data_date=f"2019–{year}; Steuerfuss fino al {stf_year}",
                           coverage=f"{len(out)} Comuni zurighesi: costo netto dei servizi per funzione, patrimonio/debito netto, investimenti netti, risultato, Steuerfuss, forza fiscale",

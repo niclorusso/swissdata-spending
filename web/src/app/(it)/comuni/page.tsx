@@ -29,12 +29,13 @@ export default function Comuni() {
   }).filter((r): r is GemRow => r !== null && Number(r.year) === yG);
   const current = rows;
   const noPop = rows.filter((r) => r.pop === null).map((r) => r.name);
+  const withPop = rows.length - noPop.length;
   const totPop = current.reduce((s, r) => s + (r.pop ?? 0), 0);
   const profiles = allProfiles();
   const nAll = Object.keys(profiles).length;
   const items = searchItems();
   const ti = ktGemeinden("ti").data, zh = ktGemeinden("zh").data;
-  const mapData = Object.fromEntries(current.map((r) => [String(r.bfs), { name: `${r.name} (${r.kt})`, value: r.pc, sub: `${chf(r.aufwand)} · ${num(r.pop)} ${T("abitanti", "inhabitants")}`, href: `/comuni/${r.bfs}/` }]));
+  const mapData = Object.fromEntries(current.map((r) => [String(r.bfs), { name: `${r.name} (${r.kt})`, value: r.pc, sub: r.pop === null ? chf(r.aufwand) : `${chf(r.aufwand)} · ${num(r.pop)} ${T("abitanti", "inhabitants")}`, note: r.pop === null ? T("non calcolabile: Comune aggregato", "not computable: merged municipality") : undefined, href: `/comuni/${r.bfs}/` }]));
 
   return (
     <Page kicker={T("Comuni", "Municipalities")} title={T("I conti, Comune per Comune", "The accounts, municipality by municipality")} lead={en
@@ -43,10 +44,13 @@ export default function Comuni() {
       <ComuneSearch items={items} />
       <StatGrid>
         <Stat label={T("Comuni con una scheda", "Municipalities with a page")} value={num(nAll)} sub={en ? `out of about ${num(2100)}` : `su circa ${num(2100)}`} />
-        <Stat label={T("Nella statistica federale", "In the federal statistics")} value={num(current.length)} sub={en ? `${yG} accounts published by the FFA, ${num(totPop)} inhabitants` : `conti ${yG} pubblicati dall'AFF, ${num(totPop)} abitanti`} />
+        <Stat label={T("Nella statistica federale", "In the federal statistics")} value={num(current.length)} sub={en
+          ? `${yG} accounts published by the FFA. ${num(withPop)} of them have ${num(totPop)} inhabitants in all${noPop.length ? `; ${noPop.join(", ")} are not counted, because they were merged after ${yG} and have no population of their own` : ""}`
+          : `conti ${yG} pubblicati dall'AFF. ${num(withPop)} di questi hanno in tutto ${num(totPop)} abitanti${noPop.length ? `; ${noPop.join(", ")} non sono contati, perché aggregati dopo il ${yG} e senza una popolazione propria` : ""}`} />
         <Stat label="Ticino" value={num(Object.keys(ti.gemeinden).length)} sub={<Link className="link" href="/cantoni/ti/#comuni">{T("tutti i Comuni", "all municipalities")}, {ti.year} →</Link>} />
         <Stat label={T("Zurigo", "Zurich")} value={num(Object.keys(zh.gemeinden).length)} sub={<Link className="link" href="/cantoni/zh/#comuni">{T("tutti i Comuni", "all municipalities")}, {zh.year} →</Link>} />
       </StatGrid>
+      <div data-reveal="up"><SourceBadge meta={g.meta} also={popGemeindenMeta()} /></div>
 
       <Card title={`${T("Spese correnti per abitante", "Current spending per inhabitant")}, ${yG}`} subtitle={T(`I Comuni con almeno ${num(5000)} abitanti. In grigio i Comuni per cui l'AFF non pubblica conti singoli. Clicca un Comune per la scheda.`, `Municipalities with at least ${num(5000)} inhabitants. In grey, the municipalities for which the FFA publishes no individual accounts. Click a municipality for its page.`)}>
         <MuniMapCH data={mapData} legendTitle={T("CHF per abitante", "CHF per inhabitant")} />

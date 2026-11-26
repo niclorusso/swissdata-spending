@@ -9,10 +9,12 @@ const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)",
 type Props = {
   rows: Row[]; series: string[]; yearStatus?: Record<string, string>;
   kind?: "line" | "stacked"; unit?: "chf" | "pct" | "num"; height?: number; colors?: string[]; zero?: boolean;
+  /** A year from which the series is on another basis: a thin dashed rule marks it. */
+  breakAt?: number; breakLabel?: string;
 };
 
 /** Single-axis time series. Years marked VA/FP get a shaded band so forecasts never read as facts. */
-export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit = "chf", height = 320, colors = COLORS, zero = false }: Props) {
+export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit = "chf", height = 320, colors = COLORS, zero = false, breakAt, breakLabel }: Props) {
   const { chf, num, pctAuto, status, T } = useL();
   const [ref, seen] = useInView<HTMLDivElement>();
   const fmt = (v: number) => (unit === "chf" ? chf(v, { unit: false }) : unit === "pct" ? pctAuto(v) : num(v));
@@ -36,6 +38,7 @@ export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit 
       formatter={(v: number, name: string) => [unit === "chf" ? chf(v) : fmt(v), name]}
     />,
     zero ? <ReferenceLine key="zero" y={0} stroke="var(--foreground)" strokeWidth={1} /> : null,
+    breakAt && years.includes(breakAt) ? <ReferenceLine key="break" x={breakAt} stroke="var(--foreground)" strokeWidth={1} strokeDasharray="3 3" label={{ value: `${breakAt}: ${breakLabel ?? ""}`, position: "insideTopLeft", fill: "var(--muted)", fontSize: 13 }} /> : null,
     firstVA ? <ReferenceArea key="ref" x1={firstVA} x2={last} fill="var(--surface-2)" fillOpacity={0.7} label={{ value: T("preventivo / piano", "budget / plan"), position: "insideTopRight", fill: "var(--faint)", fontSize: 11 }} /> : null,
     series.length > 1 ? <Legend key="legend" wrapperStyle={{ fontSize: 13 }} formatter={(v: string) => <span style={{ color: "var(--muted)" }}>{v}</span>} /> : null,
   ];

@@ -19,6 +19,10 @@ KT = {1: "zh", 2: "be", 3: "lu", 4: "ur", 5: "sz", 6: "ow", 7: "nw", 8: "gl", 9:
 W = 1000.0
 
 
+# Outlines that are not municipalities (absent from the FSO register of municipalities): Staatswald Galm, Comunanza Cadenazzo/Monteceneri, Comunanza Capriasca/Lugano.
+NOT_MUNICIPAL = {"2391", "5391", "5394"}
+
+
 def main() -> None:
     f = fetch(URL, f"swiss_maps_{YEAR}_ch-combined.json")
     topo = json.loads(f.path.read_text())
@@ -113,7 +117,7 @@ def main() -> None:
                           publisher_url="https://statistik.admin.ch/de/daten/geodaten-bundesstatistik-geostat", source_url=URL,
                           landing_url="https://github.com/interactivethings/swiss-maps", license="Geodati: fonte «UST, GEOSTAT»; codice swiss-maps BSD-3-Clause",
                           frequency="annuale", level="gesamt", unit="–", data_date=f"stato dei Comuni {YEAR}",
-                          coverage=f"{len(cantons)} Cantoni, {len(munis)} Comuni, {len(lakes)} laghi",
+                          coverage=f"{len(cantons)} Cantoni, {len(munis) - len(NOT_MUNICIPAL & set(munis))} Comuni e {len(NOT_MUNICIPAL & set(munis))} territori non comunali, {len(lakes)} laghi",
                           notes="Confini generalizzati per la visualizzazione, non per misure."),
                    f, {"viewBox": [0, 0, round(W), round(height)], "cantons": cantons, "canton_centroids": c_cent,
                        "municipalities": munis, "municipality_centroids": m_cent, "lakes": lakes})

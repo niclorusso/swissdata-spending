@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { loadLedger, type Meta } from "@/lib/data";
+import { geo, lastRechnung, loadLedger, units, type Meta } from "@/lib/data";
 import { date, dateTime, num } from "@/lib/format";
 import { Card, Page } from "@/components/ui";
 import { getLang, T } from "@/lib/lang-server";
+import { ZH_OFFICE } from "@/lib/labels";
 
 export const metadata: Metadata = { title: "Registro delle fonti" };
 const LEVELS: [string, string, string][] = [["gesamt", "Tutti i livelli", "All levels"], ["bund", "Confederazione", "Confederation"], ["kantone", "Cantoni", "Cantons"], ["gemeinden", "Comuni", "Municipalities"], ["sozialversicherungen", "Assicurazioni sociali", "Social insurance"]];
@@ -35,7 +36,7 @@ const nums = (s?: string | null) => (s ?? "").match(/\d+(?:[.,]\d+)?(?:–\d+)?/
 const enNum = (t?: string) => (t && /^\d{4,}$/.test(t) && !(Number(t) >= 1900 && Number(t) <= 2100) ? num(Number(t)) : t ?? "");
 const fill = (tpl: string, src?: string | null) => { const n = nums(src); return tpl.replace(/\{(\d)\}/g, (_, i) => enNum(n[Number(i)])); };
 const FREQ: [RegExp, string][] = [[/2 volte l'anno/, "twice a year"], [/annuale/, "yearly"], [/marzo: consuntivo; agosto: preventivo e piano finanziario/, "March: actuals; August: budget and financial plan"], [/febbraio\/marzo e agosto\/settembre/, "February/March and August/September"], [/marzo, agosto/, "March, August"], [/settembre dell'anno successivo/, "September of the following year"], [/agosto/, "August"]];
-const PERIOD: [RegExp, string][] = [[/Rechnung/g, "actuals"], [/Voranschlag/g, "budget"], [/Finanzplan/g, "financial plan"], [/consuntivi: Confederazione/, "actuals: Confederation"], [/Cantoni/, "cantons"], [/Comuni/, "municipalities"], [/assicurazioni sociali/, "social insurance"], [/anni successivi = dati parziali o previsioni AFF/, "later years = partial data or FFA forecasts"], [/Steuerfuss fino al/, "tax multiplier up to"], [/stato dei Comuni/, "municipal boundaries of"]];
+const PERIOD: [RegExp, string][] = [[/Rechnung/g, "actuals"], [/Voranschlag/g, "budget"], [/Finanzplan/g, "financial plan"], [/consuntivi: Confederazione/, "actuals: Confederation"], [/stato dei Comuni/, "municipal boundaries of"], [/Cantoni/, "cantons"], [/Comuni/, "municipalities"], [/assicurazioni sociali/, "social insurance"], [/anni successivi = dati parziali o previsioni AFF/, "later years = partial data or FFA forecasts"], [/Steuerfuss fino al/, "tax multiplier up to"]];
 const LICENSE: [RegExp, string][] = [[/opendata\.swiss: Freie Nutzung\. Quellenangabe ist Pflicht.*/, "Free use, the source must be cited (opendata.swiss)"], [/opendata\.swiss: Freie Nutzung \(terms_open\)/, "Free use (opendata.swiss)"], [/nessuna licenza indicata dalla fonte; citazione della fonte/, "no licence stated by the source; source cited"], [/Geodati: fonte/, "Geodata: source"], [/codice swiss-maps/, "swiss-maps code"]];
 const map = (rules: [RegExp, string][], s?: string | null) => rules.reduce((t, [re, to]) => t.replace(re, to), s ?? "");
 
@@ -51,7 +52,7 @@ const IT: [RegExp, string][] = [
   [/«Rechnung \/ Vorhandene Daten \/ Prognosen»|\(Rechnung \/ Vorhandene Daten \/ Prognosen\)/g, "(consuntivo, dati parziali, previsione)"],
 ];
 const PUB: Record<string, string> = {
-  "Statistisches Amt des Kantons Zürich": "Ufficio di statistica del Canton Zurigo",
+  "Statistisches Amt des Kantons Zürich": ZH_OFFICE.it, "Amt für Statistik und Daten des Kantons Zürich": ZH_OFFICE.it,
   "Bundesamt für Statistik (BFS)": "Ufficio federale di statistica (UST)",
 };
 /** The pipeline writes figures plainly ("47706 contratti", "50 000 CHF", "35.9 mld"): the page writes them like every other figure of the site. */
@@ -60,9 +61,33 @@ const figures = (s: string) => s
   .replace(/(?<![\d.,–/=_-])\d{5,}(?![\d.–]|\w)/g, (m) => num(Number(m)))
   .replace(/(\d+)\.(\d+)(?= (mld|mio)\b)/g, (_, a, b) => num(Number(`${a}.${b}`), b.length));
 const tr = (s?: string | null) => figures(IT.reduce((t, [re, to]) => t.replace(re, to), s ?? ""));
-const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", "Statistical Office of the Canton of Zurich"], ["GEOSTAT", "Federal Statistical Office (FSO), GEOSTAT / swisstopo"]];
+const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", ZH_OFFICE.en], ["Amt für Statistik und Daten des Kantons Zürich", ZH_OFFICE.en], ["GEOSTAT", "Federal Statistical Office (FSO), GEOSTAT / swisstopo"]];
 const publisherEn = (p: string) => PUB_EN.find(([k]) => p.includes(k))?.[1] ?? p;
 const publisher = (p: string) => { const parts = p.split(" / "); const it = (parts.length > 1 ? parts[parts.length - 1] : p).replace(/, via .*$/, ""); return PUB[it] ?? PUB[parts[0]] ?? it; };
+
+/** Outlines in the map file that are not municipalities (no entry in the FSO register of municipalities of 01.01.2026):
+ *  2391 Staatswald Galm (FR), 5391 Comunanza Cadenazzo/Monteceneri, 5394 Comunanza Capriasca/Lugano (TI). */
+const NOT_MUNICIPAL = ["2391", "5391", "5394"];
+/** Coverage lines counted here from the data, where the count written by the pipeline says less than the file shows. */
+const COVERAGE: Record<string, () => string> = {
+  "geo-grenzen": () => {
+    const g = geo().data;
+    const ids = Object.keys(g.municipalities), other = ids.filter((id) => NOT_MUNICIPAL.includes(id)).length;
+    return getLang() === "en"
+      ? `${Object.keys(g.cantons).length} cantons, ${num(ids.length - other)} municipalities and ${other} areas that belong to no municipality, ${g.lakes.length} lakes`
+      : `${Object.keys(g.cantons).length} Cantoni, ${num(ids.length - other)} Comuni e ${other} territori non comunali, ${g.lakes.length} laghi`;
+  },
+  "bund-verwaltungseinheiten": () => {
+    const s = units();
+    const y = String(lastRechnung(s.meta));
+    const l3 = s.data.units.filter((u) => u.level === 3), groups = s.data.units.filter((u) => u.level === 2).length;
+    const withY = l3.filter((u) => Object.values(u.values).some((v) => (v[y] ?? null) !== null)).length;
+    const ys = s.meta.years ?? [];
+    return getLang() === "en"
+      ? `${l3.length} administrative units, ${withY} of them with a ${y} value, in ${groups} groups (${groups - 1} departments plus authorities and courts): staff costs, external consultancy, IT and full-time positions, ${ys[0]}–${ys.at(-1)}`
+      : `${l3.length} unità amministrative, di cui ${withY} con un valore ${y}, in ${groups} gruppi (${groups - 1} dipartimenti più autorità e tribunali): spese per il personale, consulenza esterna, informatica e posti a tempo pieno, ${ys[0]}–${ys.at(-1)}`;
+  },
+};
 
 function Row({ m }: { m: Meta }) {
   const en = getLang() === "en";
@@ -71,7 +96,7 @@ function Row({ m }: { m: Meta }) {
   const title = e ? fill(e.title, m.title) : tr(m.title);
   // a year file can end with "; in più N senza importo pubblicato, non contati"
   const noAmount = proc ? nums(m.coverage)[2] : undefined;
-  const coverage = e ? fill(e.coverage, m.coverage) + (noAmount ? `; plus ${noAmount} without a published amount, not counted` : "") : tr(m.coverage);
+  const coverage = COVERAGE[m.id]?.() ?? (e ? fill(e.coverage, m.coverage) + (noAmount ? `; plus ${noAmount} without a published amount, not counted` : "") : tr(m.coverage));
   const notes = e ? (e.notes ? fill(e.notes, m.notes) : "") : m.notes ? tr(m.notes) : "";
   return (
     <li id={m.id} className="py-4 border-t border-border scroll-mt-6">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { gemeinden, ktGemeinden, popForAccounts } from "@/lib/data";
+import { gemeinden, ktGemeinden, popForAccounts, popGemeindenMeta } from "@/lib/data";
 import { allProfiles, kantonLabel, ktMunicipalities, peersOf } from "@/lib/comuni";
 import { chf, date, formatUnit, num, pctAuto } from "@/lib/format";
 import { codedName, measureText } from "@/lib/labels";
@@ -59,6 +59,8 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
   const stfFlat = stf.length > 0 && new Set(stf.map(([, v]) => v)).size === 1 && stfMore.length === 0;
   const mo2 = (i: number) => (en ? `${S.mo} ${i + 2}` : `${S.mo} ${i + 2}`);
   const mp = kant?.moltiplicatori;
+  // Federal file: current revenue minus current spending. The FFA publishes the two amounts, not a result: the subtraction is the site's.
+  const diffA = aff && yA ? (aff.ertrag[yA] ?? 0) - aff.aufwand[yA] : 0;
   // The canton's own result for the year of the federal accounts, as the cantonal source publishes it (Ticino: francs; Zurich: francs per inhabitant).
   const kantResult = kant && km && yA && String(km.year) === yA && !kant.merged_from
     ? (p.kt === "ti" && kant.abs?.risultato !== undefined ? { v: kant.abs.risultato, text: chf(Math.abs(kant.abs.risultato), { digits: 1 }), ref: T("Sezione degli enti locali, Statistica finanziaria dei comuni, tabella 9", "Local Authorities Section, financial statistics of the municipalities, table 9") }
@@ -141,14 +143,20 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
           <StatGrid>
             <Stat label={`${S.sc} ${yA}`} value={chf(aff.aufwand[yA])} sub={T("conto economico, senza investimenti", "income statement, without investment")} />
             <Stat label={T("Per abitante", "Per inhabitant")} value={popA ? chf(aff.aufwand[yA] / popA) : T("non calcolabile", "not computable")} sub={popA ? `${num(popA)} ${T("abitanti al", "inhabitants on")} 31.12.${yA}; ${T("divisione fatta dal sito", "division made by the site")}` : whyText ?? T("popolazione non disponibile", "population not available")} />
-            <Stat label={`${S.rc} ${yA}`} value={chf(aff.ertrag[yA])} sub={`${(aff.ertrag[yA] ?? 0) >= aff.aufwand[yA] ? T("avanzo", "surplus") : T("disavanzo", "deficit")} ${T("di", "of")} ${chf(Math.abs((aff.ertrag[yA] ?? 0) - aff.aufwand[yA]))}`} />
+            <Stat label={`${S.rc} ${yA}`} value={chf(aff.ertrag[yA])} sub={en
+              ? `revenue minus spending: ${diffA >= 0 ? "+" : "−"}${chf(Math.abs(diffA))}, a subtraction made by the site on the FFA's harmonised figures; the FFA publishes no result for single municipalities`
+              : `ricavi meno spese: ${diffA >= 0 ? "+" : "−"}${chf(Math.abs(diffA))}, sottrazione fatta dal sito sulle cifre armonizzate dell'AFF; l'AFF non pubblica un risultato per i singoli Comuni`} />
             <Stat label={`${T("Investimenti", "Investment")} ${yA}`} value={chf(aff.investitionen[yA])} sub={T("uscite lorde", "gross outlays")} />
           </StatGrid>
-          <div data-reveal="up"><SourceBadge meta={gemeinden().meta} /></div>
+          <div data-reveal="up"><SourceBadge meta={gemeinden().meta} also={popA ? popGemeindenMeta() : undefined} /></div>
           {kantResult && (
-            <Note title={T("Il risultato secondo il Cantone", "The result according to the canton")}>{en
-              ? <>According to the canton, the municipality&apos;s {yA} accounts closed with a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} ({kantResult.ref}). The federal statistics bring the municipalities&apos; accounts to one common scheme, which can change the result.</>
-              : <>Secondo il Cantone, il conto {yA} del Comune ha chiuso con un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} ({kantResult.ref}). La statistica federale riporta i conti dei Comuni a uno schema comune, e questo può cambiare il risultato.</>}</Note>
+            <Note title={T("Il risultato secondo il Cantone", "The result according to the canton")}>{p.kt === "zh"
+              ? (en
+                ? <>The canton publishes the {yA} result of the consolidated municipality, school municipalities included: a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} (Canton of Zurich, indicator 828, «Ertrags-/Aufwandüberschuss»). The canton gives it per inhabitant only; the site does not turn it into a total, because the file does not say which population it was divided by. The difference above ({diffA >= 0 ? "+" : "−"}{chf(Math.abs(diffA))}) covers another perimeter: the political municipality alone, with its accounts brought to the FFA&apos;s common scheme, which sorts some items differently. That is why the two figures can differ, also in sign.</>
+                : <>Il Cantone pubblica il risultato {yA} del Comune consolidato, compresi i Comuni scolastici: un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} (Cantone di Zurigo, indicatore 828, «Ertrags-/Aufwandüberschuss»). Il Cantone lo dà solo per abitante; il sito non lo trasforma in un totale, perché il file non dice per quale popolazione è stato diviso. La differenza qui sopra ({diffA >= 0 ? "+" : "−"}{chf(Math.abs(diffA))}) riguarda un altro perimetro: il solo Comune politico, con i conti riportati allo schema comune dell&apos;AFF, che classifica alcune voci in modo diverso. Per questo le due cifre possono differire, anche nel segno.</>)
+              : (en
+                ? <>The canton publishes the municipality&apos;s {yA} «risultato totale d&apos;esercizio»: a {kantResult.v >= 0 ? "surplus" : "deficit"} of {kantResult.text} (Local Authorities Section, financial statistics of the municipalities {yA}, table 9 «Conto economico (senza imputazioni interne)», last column). It includes financial and extraordinary items. The difference above ({diffA >= 0 ? "+" : "−"}{chf(Math.abs(diffA))}) is computed by the site on the accounts as the FFA brings them to its common scheme, which sorts some items differently: the two figures can differ, also in sign.</>
+                : <>Il Cantone pubblica il «risultato totale d&apos;esercizio» {yA} del Comune: un {kantResult.v >= 0 ? "avanzo" : "disavanzo"} di {kantResult.text} (Sezione degli enti locali, Statistica finanziaria dei comuni {yA}, tabella 9 «Conto economico (senza imputazioni interne)», ultima colonna). Comprende le voci finanziarie e straordinarie. La differenza qui sopra ({diffA >= 0 ? "+" : "−"}{chf(Math.abs(diffA))}) è calcolata dal sito sui conti come l&apos;AFF li riporta al suo schema comune, che classifica alcune voci in modo diverso: le due cifre possono differire, anche nel segno.</>)}</Note>
           )}
           <Card title={`${T("Per che cosa", "On what")}, ${yA}`} subtitle={en ? <>Current spending by function. «Finances and taxes» gathers fiscal equalisation, interest and expenses not assigned to a service (<Link className="link" href="/metodo/">details</Link>).</> : <>Spese correnti per funzione. «Finanze e imposte» raccoglie perequazione, interessi e spese non attribuite a un servizio (<Link className="link" href="/metodo/">dettagli</Link>).</>}>
             <BarList items={Object.values(aff.funk1).map((c) => ({ label: codedName(c), value: c.values[yA] ?? 0 })).filter((c) => c.value > 0).sort((a, b) => b.value - a.value)} total={aff.aufwand[yA]} />

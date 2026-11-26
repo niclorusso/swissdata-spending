@@ -27,7 +27,8 @@ function classify(vals: number[], diverging: boolean): Cls[] {
 const TIP_W = 240;
 
 export type Shape = { id: string; d: string };
-export type MapDatum = { name: string; value: number | null; sub?: string; href?: string };
+/** `note`: why there is no value, when it is not simply missing (e.g. "not computable: merged municipality"): its own pattern and legend entry. */
+export type MapDatum = { name: string; value: number | null; sub?: string; href?: string; note?: string };
 export type { MapUnit };
 
 /**
@@ -46,7 +47,9 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
   const vals = useMemo(() => Object.values(data).map((d) => d.value).filter((v): v is number => v !== null && v !== undefined).sort((a, b) => a - b), [data]);
   const classes = useMemo(() => classify(vals, diverging), [vals, diverging]);
   const clsOf = (v: number) => classes.findLast((c) => v >= c.lo) ?? classes[0];
-  const missing = shapes.some((s) => data[s.id]?.value === null || data[s.id]?.value === undefined);
+  const missing = shapes.some((s) => (data[s.id]?.value === null || data[s.id]?.value === undefined) && !data[s.id]?.note);
+  const notes = Array.from(new Set(shapes.map((s) => data[s.id]?.note).filter((n): n is string => !!n)));
+  const none = (d: MapDatum) => d.note ?? T("nessun dato", "no data");
   const h = hover ? data[hover.id] : null;
   const pin = pinned ? data[pinned] : null;
   const active = hover?.id ?? pinned;
@@ -54,18 +57,19 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
   return (
     <div className="relative" ref={box}>
       <svg data-reveal="map" viewBox={viewBox.join(" ")} className="w-full h-auto max-h-[640px]" role="img" aria-label={legendTitle} onMouseLeave={() => setHover(null)}>
+        <defs><pattern id="map-note" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" style={{ fill: "var(--surface-2)" }} /><rect width="2.5" height="6" style={{ fill: "var(--muted)" }} /></pattern></defs>
         {context.map((d, i) => <path key={`c${i}`} d={d} vectorEffect="non-scaling-stroke" style={{ fill: "var(--background)", stroke: "var(--border)", strokeWidth: 0.6 }} />)}
         {shapes.map((s) => {
           const datum = data[s.id];
           const v = datum?.value ?? null;
           const path = (
             <path key={s.id} d={s.d} vectorEffect="non-scaling-stroke" className="map-shape"
-              style={{ fill: v === null ? "var(--surface-2)" : clsOf(v).color, stroke: "var(--surface)", strokeWidth: stroke, cursor: datum?.href ? "pointer" : "default" }}
+              style={{ fill: v === null ? (datum?.note ? "url(#map-note)" : "var(--surface-2)") : clsOf(v).color, stroke: "var(--surface)", strokeWidth: stroke, cursor: datum?.href ? "pointer" : "default" }}
               onMouseMove={(e) => { if (window.matchMedia("(hover: none)").matches) return; const b = box.current!.getBoundingClientRect(); if (datum) setHover({ id: s.id, x: e.clientX - b.left, y: e.clientY - b.top, w: b.width }); }} />
           );
           if (!datum?.href) return path;
           return (
-            <a key={s.id} href={href(datum.href)} aria-label={`${datum.name}: ${v === null ? T("nessun dato", "no data") : formatUnit(v, unit)}`}
+            <a key={s.id} href={href(datum.href)} aria-label={`${datum.name}: ${v === null ? none(datum) : formatUnit(v, unit)}`}
               onClick={(e) => { if (window.matchMedia("(hover: none)").matches && pinned !== s.id) { e.preventDefault(); setPinned(s.id); } }}>{path}</a>
           );
         })}
@@ -82,27 +86,27 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
         <div className="pointer-events-none absolute z-10 rounded-xl border border-border bg-surface px-3 py-2 text-xs shadow-lg" style={{ width: TIP_W, left: hover.x + 14 + TIP_W > hover.w ? Math.max(0, hover.x - 14 - TIP_W) : hover.x + 14, top: hover.y + 14 }}>
           <div className="font-semibold text-sm">{h.name}</div>
           <div className="text-muted">{legendTitle}</div>
-          <div className="tabular text-sm font-medium">{h.value === null ? T("nessun dato", "no data") : formatUnit(h.value, unit)}</div>
+          <div className="tabular text-sm font-medium">{h.value === null ? none(h) : formatUnit(h.value, unit)}</div>
           {h.sub && <div className="text-muted mt-0.5 leading-snug">{h.sub}</div>}
         </div>
       )}
       {pin && (
         <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-foreground bg-surface px-3 py-2 text-sm">
           <div className="min-w-0">
-            <span className="font-semibold">{pin.name}</span> · <span className="tabular">{pin.value === null ? T("nessun dato", "no data") : formatUnit(pin.value, unit)}</span>
+            <span className="font-semibold">{pin.name}</span> · <span className="tabular">{pin.value === null ? none(pin) : formatUnit(pin.value, unit)}</span>
             {pin.sub && <div className="text-xs text-muted">{pin.sub}</div>}
           </div>
           {pin.href && <a href={href(pin.href)} className="btn shrink-0">{T("Apri", "Open")} →</a>}
         </div>
       )}
-      <Legend title={legendTitle} classes={classes} unit={unit} missing={missing} />
+      <Legend title={legendTitle} classes={classes} unit={unit} missing={missing} notes={notes} />
       {credit && <p className="mt-1.5 text-xs text-faint">{T("Confini: UST, GEOSTAT / swisstopo (generalizzati).", "Boundaries: FSO, GEOSTAT / swisstopo (generalised).")}</p>}
     </div>
   );
 }
 
 /** Stepped scale: joined swatches, the class limits written under the joints. */
-function Legend({ title, classes, unit, missing }: { title: string; classes: Cls[]; unit: MapUnit; missing: boolean }) {
+function Legend({ title, classes, unit, missing, notes = [] }: { title: string; classes: Cls[]; unit: MapUnit; missing: boolean; notes?: string[] }) {
   const { formatUnit, T } = useL();
   if (!classes.length) return null;
   const ticks = [classes[0].lo, ...classes.map((c) => c.hi)];
@@ -117,6 +121,7 @@ function Legend({ title, classes, unit, missing }: { title: string; classes: Cls
           <div className="legend-ticks relative mt-1 h-5 tabular">{ticks.map((t, i) => <span key={i} className={`absolute whitespace-nowrap ${t === 0 && i > 0 && i < n ? "font-semibold text-foreground" : ""}`} style={{ left: `${(i * 100) / n}%`, transform: i === 0 ? "none" : i === n ? "translateX(-100%)" : "translateX(-50%)" }}>{short(t)}</span>)}</div>
         </div>
         {missing && <span className="flex items-center gap-1.5"><span className="inline-block w-4 h-2.5 rounded-[2px] border border-border" style={{ background: "var(--surface-2)" }} />{T("nessun dato", "no data")}</span>}
+        {notes.map((n) => <span key={n} className="flex items-center gap-1.5"><span className="inline-block w-4 h-2.5 rounded-[2px] border border-border" style={{ background: "repeating-linear-gradient(45deg, var(--muted) 0 1.5px, var(--surface-2) 1.5px 4px)" }} />{n}</span>)}
       </div>
       <div className="mt-0.5 text-xs text-faint">{classes.some((c) => c.color.includes("neg")) ? T("Arancione: sotto zero. Blu: sopra zero.", "Orange: below zero. Blue: above zero.") : T("Ogni colore copre un quinto dei territori.", "Each colour covers one fifth of the areas.")}</div>
     </div>
