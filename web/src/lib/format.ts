@@ -40,8 +40,10 @@ export function makeFmt(lang: Lang) {
   /** "1 contratto" / "12 contratti" */
   const plural = (n: number, one: string, many: string): string => `${num(n)} ${n === 1 ? one : many}`;
   const formatUnit = (v: number, unit: MapUnit) => (unit === "chf" ? chf(v) : unit === "pct" ? `${num(v, v % 1 ? 1 : 0)} %` : num(v));
+  /** The value without its unit, for scales whose unit is written once in the title: 5’000, 90 */
+  const short = (v: number, unit: MapUnit) => formatUnit(Math.round(v), unit).replace(" CHF", "").replace(" %", "");
   const status = (code: string | undefined): string => (code ? STATUS[lang][code] ?? "" : "");
-  return { chf, chfFull, num, pct, share, date, dateTime, plural, formatUnit, status };
+  return { chf, chfFull, num, pct, share, date, dateTime, plural, formatUnit, short, status };
 }
 
 // Server components: the language is the one of the page being built.

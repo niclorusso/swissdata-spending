@@ -23,11 +23,13 @@ export function NavLinks({ links }: { links: { href: string; label: string }[] }
 export function LangSwitch() {
   const path = bare(usePathname());
   const { en } = useL();
+  // What the page keeps in the address after "?" (the measures chosen in an explorer) goes to the other language with it.
+  const keep = (e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.search = window.location.search; };
   const cls = (on: boolean) => `px-2 py-1 rounded-full ${on ? "bg-foreground text-background" : "text-muted hover:text-foreground"}`;
   return (
     <div className="flex items-center rounded-full border border-border p-0.5 text-xs font-semibold" role="group" aria-label={en ? "Language" : "Lingua"}>
-      <a href={BASE + path} hrefLang="it" lang="it" aria-current={!en ? "true" : undefined} className={cls(!en)}>IT</a>
-      <a href={`${BASE}/en${path}`} hrefLang="en" lang="en" aria-current={en ? "true" : undefined} className={cls(en)}>EN</a>
+      <a href={BASE + path} onClick={keep} onAuxClick={keep} hrefLang="it" lang="it" aria-current={!en ? "true" : undefined} className={cls(!en)}>IT</a>
+      <a href={`${BASE}/en${path}`} onClick={keep} onAuxClick={keep} hrefLang="en" lang="en" aria-current={en ? "true" : undefined} className={cls(en)}>EN</a>
     </div>
   );
 }

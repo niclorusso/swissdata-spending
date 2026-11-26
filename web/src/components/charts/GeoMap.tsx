@@ -46,6 +46,9 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
   const box = useRef<HTMLDivElement>(null);
   const [hover, setHover] = useState<{ id: string; x: number; y: number; w: number } | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
+  // A municipality chosen elsewhere (plot, table) replaces the one pinned here by a tap: its card would name the wrong one.
+  const [lastHighlight, setLastHighlight] = useState(highlight);
+  if (lastHighlight !== highlight) { setLastHighlight(highlight); if (highlight && highlight !== pinned) setPinned(null); }
   const vals = useMemo(() => Object.values(data).map((d) => d.value).filter((v): v is number => v !== null && v !== undefined).sort((a, b) => a - b), [data]);
   const classes = useMemo(() => classify(vals, diverging), [vals, diverging]);
   const clsOf = (v: number) => classes.findLast((c) => v >= c.lo) ?? classes[0];
@@ -56,7 +59,7 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
 
   return (
     <div className="relative" ref={box}>
-      <svg data-reveal="map" viewBox={viewBox.join(" ")} className="w-full h-auto max-h-[640px]" role="img" aria-label={legendTitle} onMouseLeave={() => { setHover(null); onActive?.(null); }}>
+      <svg data-reveal="map" viewBox={viewBox.join(" ")} className="w-full h-auto max-h-[640px]" role="img" aria-label={legendTitle} onMouseLeave={() => { if (hover) onActive?.(null); setHover(null); }}>
         {context.map((d, i) => <path key={`c${i}`} d={d} vectorEffect="non-scaling-stroke" style={{ fill: "var(--background)", stroke: "var(--border)", strokeWidth: 0.6 }} />)}
         {shapes.map((s) => {
           const datum = data[s.id];
@@ -106,18 +109,17 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
 
 /** Stepped scale: joined swatches, the class limits written under the joints. */
 function Legend({ title, classes, unit, missing }: { title: string; classes: Cls[]; unit: MapUnit; missing: boolean }) {
-  const { formatUnit, T } = useL();
+  const { short, T } = useL();
   if (!classes.length) return null;
   const ticks = [classes[0].lo, ...classes.map((c) => c.hi)];
   const n = classes.length;
-  const short = (v: number) => formatUnit(Math.round(v), unit).replace(" CHF", "").replace(" %", "");
   return (
     <div className="mt-3 text-xs text-muted">
       <div className="font-medium text-foreground">{titleWithUnit(title, unit)}</div>
       <div className="mt-1.5 flex items-start gap-4 flex-wrap">
         <div className="w-full max-w-[340px]">
           <div className="flex h-2.5 gap-[2px]">{classes.map((c, i) => <span key={i} className="flex-1 first:rounded-l-[2px] last:rounded-r-[2px]" style={{ background: c.color }} />)}</div>
-          <div className="relative mt-1 h-4 tabular text-[11px]">{ticks.map((t, i) => <span key={i} className={`absolute whitespace-nowrap ${t === 0 && i > 0 && i < n ? "font-semibold text-foreground" : ""}`} style={{ left: `${(i * 100) / n}%`, transform: i === 0 ? "none" : i === n ? "translateX(-100%)" : "translateX(-50%)" }}>{short(t)}</span>)}</div>
+          <div className="relative mt-1 h-4 tabular text-[11px]">{ticks.map((t, i) => <span key={i} className={`absolute whitespace-nowrap ${t === 0 && i > 0 && i < n ? "font-semibold text-foreground" : ""}`} style={{ left: `${(i * 100) / n}%`, transform: i === 0 ? "none" : i === n ? "translateX(-100%)" : "translateX(-50%)" }}>{short(t, unit)}</span>)}</div>
         </div>
         {missing && <span className="flex items-center gap-1.5"><span className="inline-block w-4 h-2.5 rounded-[2px] border border-border" style={{ background: "var(--surface-2)" }} />{T("nessun dato", "no data")}</span>}
       </div>
