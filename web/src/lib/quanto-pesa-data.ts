@@ -20,7 +20,7 @@ const annex = (n: number) => ({ it: `HRM2, allegato B, p. ${n}`, en: `HRM2, Anne
 const SCOPE: Record<string, { it: string; en: string; src: { it: string; en: string; url: string }[] }> = {
   // 031 (Umfasst nicht 161, 163), 032, 033, 034; 593 «Hilfsaktionen im Ausland (Caritas, HEKS, IKRK)» sits under 59
   "03": {
-    it: "Relazioni con l'estero: comprende ambasciate e consolati, contributi a organizzazioni internazionali, aiuto umanitario e cooperazione allo sviluppo; non l'aiuto militare (difesa) né i contributi a enti come Caritas o CICR.",
+    it: "Relazioni con l’estero: comprende ambasciate e consolati, contributi a organizzazioni internazionali, aiuto umanitario e cooperazione allo sviluppo; non l’aiuto militare (difesa) né i contributi a enti come Caritas o CICR.",
     en: "Foreign relations: includes embassies and consulates, contributions to international organisations, humanitarian aid and development cooperation; not military aid (defence) nor contributions to bodies such as Caritas or the ICRC.",
     src: [annex(4)],
   },
@@ -32,13 +32,13 @@ const SCOPE: Record<string, { it: string; en: string; src: { it: string; en: str
   },
   // 161, 162 (insb. Zivilschutz; Umfasst nicht Feuerwehr 150), 163
   "16": {
-    it: "Difesa: comprende difesa militare, protezione civile, aiuto militare all'estero e contributi a missioni internazionali di pace; i pompieri sono una voce a parte.",
+    it: "Difesa: comprende difesa militare, protezione civile, aiuto militare all’estero e contributi a missioni internazionali di pace; i pompieri sono una voce a parte.",
     en: "Defence: includes military defence, civil protection, military aid abroad and contributions to international peacekeeping; fire services are a separate line.",
     src: [annex(6)],
   },
   // 21 (elf Jahre), 211, 212, 213, 214, 218 (Umfasst nicht Kinderhorte und -krippen 545); special schools 22
   "21": {
-    it: "Scuola dell'obbligo: comprende gli undici anni dalla scuola dell'infanzia al secondario I, scuole di musica di questo livello, custodia diurna e mensa scolastica; non le scuole speciali né gli asili nido.",
+    it: "Scuola dell’obbligo: comprende gli undici anni dalla scuola dell’infanzia al secondario I, scuole di musica di questo livello, custodia diurna e mensa scolastica; non le scuole speciali né gli asili nido.",
     en: "Compulsory school: includes the eleven years from kindergarten to lower secondary, music schools at that level, day care and school meals; not special schools nor crèches.",
     src: [annex(7)],
   },
@@ -56,19 +56,19 @@ const SCOPE: Record<string, { it: string; en: string; src: { it: string; en: str
   },
   // 411 (incl. GWL), 412 (24-Stunden-Betrieb), 413; home care 421 under 42. Methods p. 29: «werden alle kantonalen Spitäler und Heime als Marktproduzenten eingestuft»
   "41": {
-    it: "Ospedali e case di cura: comprende ospedali (anche prestazioni d'interesse generale), cliniche psichiatriche, case di cura e per anziani aperte giorno e notte; non le cure a domicilio. Nella statistica ospedali e case cantonali non fanno parte dello Stato.",
+    it: "Ospedali e case di cura: comprende ospedali (anche prestazioni d’interesse generale), cliniche psichiatriche, case di cura e per anziani aperte giorno e notte; non le cure a domicilio. Nella statistica ospedali e case cantonali non fanno parte dello Stato.",
     en: "Hospitals and nursing homes: includes hospitals (services of general interest too), psychiatric clinics, care and old-age homes open day and night; not home care. In the statistics, cantonal hospitals and homes are not part of general government.",
     src: [annex(14), { it: "AFF, metodi, p. 29", en: "FFA, methods, p. 29", url: `${METHODS}#page=29` }],
   },
   // 531 (AHVG; Beiträge der öffentlichen Hand; Ausgleichskassen), 532, 533, 534 (Umfasst nicht Pflegeheime 412), 535
   "53": {
-    it: "Vecchiaia e superstiti: comprende l'AVS (casse di compensazione, contributi pubblici), le prestazioni complementari all'AVS, prestazioni per pensionati e alloggi per anziani senza cure; non le case con cure (ospedali e case di cura).",
+    it: "Vecchiaia e superstiti: comprende l’AVS (casse di compensazione, contributi pubblici), le prestazioni complementari all’AVS, prestazioni per pensionati e alloggi per anziani senza cure; non le case con cure (ospedali e case di cura).",
     en: "Old age and survivors: includes the AHV (compensation funds, public contributions), supplementary benefits to the AHV, benefits for pensioners and housing for the elderly without care; not homes with care (hospitals and nursing homes).",
     src: [annex(17)],
   },
   // 571 (Umfasst nicht EL IV 522, EL AHV 532), 572, 573, 579
   "57": {
-    it: "Aiuto sociale e asilo: comprende l'aiuto sociale secondo le leggi cantonali, gli aiuti cantonali in aggiunta ad AVS e AI, l'asilo e i rifugiati; non le prestazioni complementari ad AVS e AI.",
+    it: "Aiuto sociale e asilo: comprende l’aiuto sociale secondo le leggi cantonali, gli aiuti cantonali in aggiunta ad AVS e AI, l’asilo e i rifugiati; non le prestazioni complementari ad AVS e AI.",
     en: "Social assistance and asylum: includes social assistance under cantonal law, cantonal allowances on top of the AHV and IV, asylum and refugees; not the supplementary benefits to the AHV and IV.",
     src: [annex(18)],
   },
@@ -80,7 +80,7 @@ const SCOPE: Record<string, { it: string; en: string; src: { it: string; en: str
   },
   // 621 «Bahninfrastruktur Öffentliche Verkehrsinfrastruktur» (Bau, Unterhalt, Beschaffungen), 622, 629
   "62": {
-    it: "Trasporti pubblici: comprende l'infrastruttura, anche ferroviaria, e i contributi d'esercizio di Confederazione e Cantoni alle FFS e alle imprese concessionarie del traffico regionale.",
+    it: "Trasporti pubblici: comprende l’infrastruttura, anche ferroviaria, e i contributi d’esercizio di Confederazione e Cantoni alle FFS e alle imprese concessionarie del traffico regionale.",
     en: "Public transport: includes infrastructure, rail included, and operating contributions of the Confederation and cantons to SBB and licensed companies in regional transport.",
     src: [annex(20)],
   },

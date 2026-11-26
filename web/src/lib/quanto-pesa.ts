@@ -7,18 +7,18 @@ export type VoceDef = { slug: string; old?: string; code: string; it: string; en
 
 /** In the order of the classification codes. */
 export const VOCI: VoceDef[] = [
-  { slug: "relazioni-estero", old: "estero", code: "03", it: "Quanto pesano le relazioni con l'estero sulla spesa pubblica?", en: "How much do foreign relations weigh in public spending?" },
+  { slug: "relazioni-estero", old: "estero", code: "03", it: "Quanto pesano le relazioni con l’estero sulla spesa pubblica?", en: "How much do foreign relations weigh in public spending?" },
   { slug: "sicurezza-pubblica", code: "11", it: "Quanto pesa la sicurezza pubblica sulla spesa pubblica?", en: "How much does public security weigh in public spending?" },
   { slug: "difesa", code: "16", it: "Quanto pesa la difesa sulla spesa pubblica?", en: "How much does defence weigh in public spending?" },
-  { slug: "scuola-obbligo", code: "21", it: "Quanto pesa la scuola dell'obbligo sulla spesa pubblica?", en: "How much does compulsory school weigh in public spending?" },
+  { slug: "scuola-obbligo", code: "21", it: "Quanto pesa la scuola dell’obbligo sulla spesa pubblica?", en: "How much does compulsory school weigh in public spending?" },
   { slug: "universita", code: "27", it: "Quanto pesano le università sulla spesa pubblica?", en: "How much do universities weigh in public spending?" },
   { slug: "cultura-sport", old: "cultura", code: "3", it: "Quanto pesano cultura, sport, tempo libero e religione sulla spesa pubblica?", en: "How much do culture, sport, leisure and religion weigh in public spending?" },
   { slug: "ospedali", code: "41", it: "Quanto pesano gli ospedali e le case di cura sulla spesa pubblica?", en: "How much do hospitals and nursing homes weigh in public spending?" },
   { slug: "vecchiaia", code: "53", it: "Quanto pesano vecchiaia e superstiti sulla spesa pubblica?", en: "How much do old age and survivors weigh in public spending?" },
-  { slug: "aiuto-sociale-asilo", old: "asilo", code: "57", it: "Quanto pesano l'aiuto sociale e l'asilo sulla spesa pubblica?", en: "How much do social assistance and asylum weigh in public spending?" },
+  { slug: "aiuto-sociale-asilo", old: "asilo", code: "57", it: "Quanto pesano l’aiuto sociale e l’asilo sulla spesa pubblica?", en: "How much do social assistance and asylum weigh in public spending?" },
   { slug: "strade", code: "61", it: "Quanto pesa la circolazione stradale sulla spesa pubblica?", en: "How much does road traffic weigh in public spending?" },
   { slug: "trasporti-pubblici", code: "62", it: "Quanto pesano i trasporti pubblici sulla spesa pubblica?", en: "How much does public transport weigh in public spending?" },
-  { slug: "agricoltura", code: "81", it: "Quanto pesa l'agricoltura sulla spesa pubblica?", en: "How much does agriculture weigh in public spending?" },
+  { slug: "agricoltura", code: "81", it: "Quanto pesa l’agricoltura sulla spesa pubblica?", en: "How much does agriculture weigh in public spending?" },
 ];
 
 /** Slug of the fixed page for a ?voce=… value (current or old name), or null. */
