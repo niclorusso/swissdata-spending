@@ -13,7 +13,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/appalti/[year]">): Promise<Metadata> {
   const { year } = await params;
-  return { title: T(`Appalti federali ${year}: elenco completo`, `Federal contracts ${year}: full list`) };
+  return { title: T(`Appalti federali ${year}: elenco dei contratti`, `Federal contracts ${year}: list of contracts`) };
 }
 
 export default async function AppaltiAnno({ params }: PageProps<"/appalti/[year]">) {
@@ -32,6 +32,9 @@ export default async function AppaltiAnno({ params }: PageProps<"/appalti/[year]
           <Link key={yy} href={`/appalti/${yy}/`} aria-current={Number(yy) === y ? "page" : undefined} className="chip tabular">{yy}</Link>
         ))}
       </nav>
+      <p className="text-sm text-muted max-w-3xl" data-reveal="up">{en
+        ? <>The list holds the contracts of {y} whose amount is published.{v.no_amount ? <> {v.no_amount === 1 ? "One contract is" : `${v.no_amount} contracts are`} in the official file without an amount and {v.no_amount === 1 ? "is" : "are"} not listed.</> : null}{v.late_additions.n ? <> The file also has a sheet of later publications: {num(v.late_additions.n)} contracts of earlier lists whose amount was raised, for {chf(v.late_additions.chf_added, { digits: 2 })} more in all. They are not in this list nor in the total.</> : null} Supplier names are as written in the official list: the same company can appear under more than one spelling.</>
+        : <>L&apos;elenco riporta i contratti del {y} con un importo pubblicato.{v.no_amount ? <> {v.no_amount === 1 ? "Un contratto è" : `${v.no_amount} contratti sono`} nel file ufficiale senza importo e non {v.no_amount === 1 ? "è elencato" : "sono elencati"}.</> : null}{v.late_additions.n ? <> Il file ha anche un foglio di ripubblicazioni: {num(v.late_additions.n)} contratti di elenchi precedenti il cui importo è stato aumentato, per {chf(v.late_additions.chf_added, { digits: 2 })} in più in tutto. Non sono in questo elenco né nel totale.</> : null} I nomi dei fornitori sono quelli scritti nell&apos;elenco ufficiale: la stessa azienda può comparire con più grafie.</>}</p>
       <Card>
         <ProcTable year={y} />
         <SourceBadge meta={s.meta} />

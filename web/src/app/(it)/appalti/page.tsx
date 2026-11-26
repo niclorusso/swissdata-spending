@@ -39,6 +39,7 @@ export default function Appalti() {
           <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("fornitori", "suppliers")} →</Link>} />
         ))}
       </StatGrid>
+      <div data-reveal="up"><SourceBadge meta={p.meta} /></div>
       <Note>{en
         ? <>The value is that of the contract over its whole duration, recorded in the year of signature: it is not the spending of that year. {maxY} is so high because of {big.length === 2 ? "two contracts" : `${big.length} contracts`} with the US government: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" and ")}. <Link className="link" href="/metodo/">Other limits of the list</Link>.</>
         : <>Il valore è quello del contratto sull&apos;intera durata, registrato nell&apos;anno della firma: non è la spesa dell&apos;anno. Il {maxY} è così alto per {big.length === 2 ? "due contratti" : `${big.length} contratti`} con il governo statunitense: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" e ")}. <Link className="link" href="/metodo/">Altri limiti dell&apos;elenco</Link>.</>}</Note>
@@ -69,7 +70,8 @@ export default function Appalti() {
         <BarList items={p.data.top_suppliers_all.slice(0, 50).map((d) => ({ label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) }))} total={totalAll} />
         <SourceBadge meta={p.meta} />
       </Card>
-      <Card title={T("Elenchi completi per anno", "Full lists by year")}>
+      <Note title={T("Nomi dei fornitori", "Supplier names")}>{T("I nomi sono quelli scritti nell'elenco ufficiale: la stessa azienda può comparire con più grafie (per esempio con e senza la forma giuridica), e le classifiche qui sopra non le uniscono.", "Names are as written in the official list: the same company can appear under more than one spelling (for example with and without its legal form), and the rankings above do not merge them.")}</Note>
+      <Card title={T("Elenchi per anno", "Lists by year")}>
         <ul className="text-sm space-y-1">
           {years.map((y) => {
             const v = p.data.years[String(y)];

@@ -2,6 +2,7 @@ import Link from "@/components/L";
 import type { Meta } from "@/lib/data";
 import { date, dateTime } from "@/lib/format";
 import { getLang, T } from "@/lib/lang-server";
+import { ZH_OFFICE } from "@/lib/labels";
 
 /** Source line under a chart: who publishes it, when we last checked, and a link to the full entry in the register. */
 /** `also`: a second source the figures depend on (the population, for values per inhabitant the site computes). */
@@ -17,8 +18,8 @@ export function SourceBadge({ meta, also }: { meta: Partial<Meta>; also?: Partia
   );
 }
 
-const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", "Statistical Office of the Canton of Zurich"], ["swiss-maps", "swiss-maps (FSO, swisstopo boundaries)"]];
-const PUB: Record<string, string> = { "Statistisches Amt des Kantons Zürich": "Ufficio di statistica del Canton Zurigo" };
+const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", ZH_OFFICE.en], ["Amt für Statistik und Daten des Kantons Zürich", ZH_OFFICE.en], ["swiss-maps", "swiss-maps (FSO, swisstopo boundaries)"]];
+const PUB: Record<string, string> = { "Statistisches Amt des Kantons Zürich": ZH_OFFICE.it, "Amt für Statistik und Daten des Kantons Zürich": ZH_OFFICE.it };
 /** "Eidgenössische Finanzverwaltung (EFV) / Amministrazione federale delle finanze (AFF)" -> the Italian half. */
 function shortPublisher(p?: string, en = false): string {
   if (!p) return "–";

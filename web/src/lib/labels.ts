@@ -111,7 +111,13 @@ export const verfahren = (name: string | null | undefined, lang: Lang = currentL
 export const svName = (key: string, lang: Lang = currentLang()) => (lang === "en" ? EN.SV_EN[key] : SV_IT[key]) ?? key;
 export const objectName = (object: string, lang: Lang = currentLang()): string | undefined => (lang === "en" ? EN.OBJECT_EN[object] : OBJECT_IT[object]);
 /** Label and reading note of a municipal measure (the snapshots carry the Italian ones). */
-export const measureText = (kt: string, m: { key: string; label: string; note: string }, lang: Lang = currentLang()) => (lang === "en" ? EN.MEASURE_EN[`${kt}:${m.key}`] ?? m : m);
+/** Labels the snapshot will carry from the next run of the pipeline (pipeline/etl/kt_gemeinden.py already writes them). */
+const MEASURE_IT: Record<string, { label: string }> = { "zh:steuerfuss": { label: "Moltiplicatore d'imposta (persone fisiche)" } };
+export const measureText = (kt: string, m: { key: string; label: string; note: string }, lang: Lang = currentLang()) => (lang === "en" ? EN.MEASURE_EN[`${kt}:${m.key}`] ?? m : { ...m, ...MEASURE_IT[`${kt}:${m.key}`] });
+
+/** The statistical office of the Canton of Zurich under its current name (the files of 2026 still carry «Statistisches Amt»):
+ *  https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten.html */
+export const ZH_OFFICE = { it: "Amt für Statistik und Daten del Canton Zurigo", en: "Amt für Statistik und Daten of the Canton of Zurich" };
 
 export const KANTONE: { id: string; name: string; nameIt: string }[] = [
   { id: "zh", name: "Zürich", nameIt: "Zurigo" }, { id: "be", name: "Bern", nameIt: "Berna" }, { id: "lu", name: "Luzern", nameIt: "Lucerna" },

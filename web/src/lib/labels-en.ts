@@ -292,7 +292,7 @@ export const MEASURE_EN: Record<string, { label: string; note: string }> = {
   "ti:risorse_pc": { label: "Tax resources per inhabitant", note: "Tax yield per inhabitant in 2022: it measures the tax strength of the municipality" },
   "zh:servizi_pc": { label: "Net cost of services per inhabitant", note: "Cost of municipal services in 2024, minus each service's own revenue (user charges, contributions received)" },
   "zh:debito_pc": { label: "Net debt per inhabitant", note: "Debts minus financial assets at the end of 2024. If negative, the municipality has more assets than debts" },
-  "zh:steuerfuss": { label: "Tax multiplier", note: "Percentage of the simple cantonal tax («einfache Staatssteuer») that the municipality levies, 2024, without church tax. Uster and Turbenthal have two multipliers depending on the school municipality: map and ranking use the first, the municipality's page gives both. The higher it is, the more municipal tax is paid" },
+  "zh:steuerfuss": { label: "Tax multiplier (individuals)", note: "Percentage of the simple cantonal tax («einfache Staatssteuer») that the municipality levies, 2024, without church tax. Uster and Turbenthal have two multipliers depending on the school municipality: map and ranking use the first, the municipality's page gives both. The higher it is, the more municipal tax is paid" },
   "zh:netinv_pc": { label: "Net investments per inhabitant", note: "Spending on works (roads, schools, sewers) in 2024, minus subsidies received" },
   "zh:risultato_pc": { label: "Annual result per inhabitant", note: "Revenue minus spending in 2024. If negative, it is a deficit" },
   "zh:steuerkraft": { label: "Tax strength per inhabitant", note: "Tax yield per inhabitant in 2024, at the same multiplier for all" },

@@ -14,6 +14,10 @@ import { treeItems } from "@/lib/viz";
 import { getLang, T } from "@/lib/lang-server";
 
 export const metadata: Metadata = { title: "Confederazione: spese, entrate, debito" };
+/** FFA workbook with the accounts as they were published (2022: ordinary + extraordinary revenue 76,868.4, spending 81,150.1, balance −4,281.7 mio). */
+/** The 2022 row of that workbook, sheet «Rechnungsabschlüsse des Bundes», Finanzierungsrechnung: ordinary + extraordinary revenue, the same for spending, Finanzierungsergebnis. In francs. */
+const RA_2022 = { revenue: 75_276_829_980 + 1_591_610_883, spending: 77_151_846_496 + 3_998_291_252, balance: -4_281_696_885 };
+const RA_URL = "https://www.efv.admin.ch/dam/de/sd-web/OuZsJI3Zp5Mi/Rechnungsabschluesse_des_Bundes_1990-2022-d.xlsx";
 
 function rowsFor(children: TreeNode[], years: number[], top = 7): { rows: Row[]; series: string[] } {
   const last = String(years.filter((y) => children.some((c) => (c.values[String(y)] ?? null) !== null)).at(-1));
@@ -90,9 +94,14 @@ export default function Confederazione() {
         <Stat label={`${T("Risultato", "Result")} ${yR}`} value={`${(k["Finanzierungssaldo"]?.values[y] ?? 0) >= 0 ? "+" : ""}${chf(k["Finanzierungssaldo"]?.values[y])}`} sub={T("entrate meno spese", "revenue minus spending")} />
         <Stat label={`${S.lordo} ${yR}`} value={chf(k["Bruttoschulden"]?.values[y])} sub={`${pct(k["Schuldenquote brutto"]?.values[y])} ${T("del PIL", "of GDP")}`} />
       </StatGrid>
+      <div data-reveal="up"><SourceBadge meta={aufg.meta} /></div>
       <Note>{en
         ? <>These are the figures of the federal budget. In the comparison with cantons and municipalities the Confederation appears with a higher amount, because the financial statistics add the special accounts. <Link className="link" href="/metodo/">Why two figures</Link>.</>
         : <>Queste sono le cifre del bilancio federale. Nel confronto con Cantoni e Comuni la Confederazione compare con un importo più alto, perché la statistica finanziaria aggiunge i conti speciali. <Link className="link" href="/metodo/">Perché due cifre</Link>.</>}</Note>
+
+      <Note title={T("Dal 2022 su una nuova base", "On a new basis from 2022")}>{en
+        ? <>From 2022 the figures in the FFA&apos;s file are on a new accounting basis; the years up to 2021 are on the earlier one. The 2022 accounts as published in 2023 showed revenue of {chf(RA_2022.revenue, { digits: 1 })}, spending of {chf(RA_2022.spending, { digits: 2 })} and a balance of {chf(RA_2022.balance, { digits: 1 })} (ordinary plus extraordinary; FFA, <a className="link" href={RA_URL}>«Rechnungsabschlüsse des Bundes 1990–2022»</a>), against {chf(einRoot.values["2022"], { digits: 1 })}, {chf(root.values["2022"], { digits: 1 })} and {chf(k["Finanzierungssaldo"]?.values["2022"], { digits: 1 })} here. In the charts of the totals a dashed rule marks 2022.</>
+        : <>Dal 2022 le cifre del file dell&apos;AFF seguono una nuova base contabile; gli anni fino al 2021 sono sulla base precedente. Il consuntivo 2022 pubblicato nel 2023 indicava entrate di {chf(RA_2022.revenue, { digits: 1 })}, uscite di {chf(RA_2022.spending, { digits: 2 })} e un saldo di {chf(RA_2022.balance, { digits: 1 })} (ordinarie più straordinarie; AFF, <a className="link" href={RA_URL}>«Rechnungsabschlüsse des Bundes 1990–2022»</a>), contro {chf(einRoot.values["2022"], { digits: 1 })}, {chf(root.values["2022"], { digits: 1 })} e {chf(k["Finanzierungssaldo"]?.values["2022"], { digits: 1 })} qui. Nei grafici dei totali una riga tratteggiata segna il 2022.</>}</Note>
 
       <Card title={en ? `Revenue and spending of the Confederation, ${yR}` : `Entrate e spese della Confederazione, ${yR}`} subtitle={en ? `On the left ${chf(einRoot.values[y], { digits: 1 })} of revenue, on the right ${chf(root.values[y], { digits: 1 })} of spending. Thickness is proportional to the amount.` : `A sinistra ${chf(einRoot.values[y], { digits: 1 })} di entrate, a destra ${chf(root.values[y], { digits: 1 })} di spese. Lo spessore è proporzionale all'importo.`}>
         <div className="hidden md:block"><FlowSankey nodes={nodes} links={links} /></div>
@@ -111,7 +120,7 @@ export default function Confederazione() {
       <Note title={T("Tre voci da non fraintendere", "Three items easy to misread")}>{T("«Finanze e imposte» sono soprattutto le quote d'imposta versate ai Cantoni, la perequazione finanziaria e gli interessi sul debito. «Premesse istituzionali e finanziarie» sono Parlamento, tribunali, amministrazione generale e statistica. «Sanità» è piccola perché i contributi per la riduzione dei premi di cassa malati sono contati nella previdenza sociale.", "«Finances and taxes» is mostly the shares of tax revenue paid to the cantons, fiscal equalisation and interest on the debt. «Institutional and financial conditions» is Parliament, courts, general administration and statistics. «Health» is small because the contributions that reduce health-insurance premiums are counted under social welfare.")}</Note>
 
       <Card title={T("Come è cambiata la spesa, 1990–2030", "How spending has changed, 1990–2030")} subtitle={T("I sette settori maggiori più «Altro». Su fondo grigio, preventivo e piano finanziario.", "The seven largest areas plus «Other». On a grey background, budget and financial plan.")}>
-        <TimeSeries rows={sRows} series={sSeries} yearStatus={ys} kind="stacked" height={360} />
+        <TimeSeries rows={sRows} series={sSeries} yearStatus={ys} kind="stacked" height={360} breakAt={2022} breakLabel={T("nuova base", "new basis")} />
         <SourceBadge meta={aufg.meta} compact />
       </Card>
 
@@ -138,7 +147,7 @@ export default function Confederazione() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <Card title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
-          <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} />
+          <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} breakAt={2022} breakLabel={T("nuova base", "new basis")} />
           <SourceBadge meta={aufg.meta} />
         </Card>
         <Card title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>

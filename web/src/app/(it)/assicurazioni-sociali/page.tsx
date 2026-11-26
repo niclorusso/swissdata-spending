@@ -32,6 +32,7 @@ export default function SV() {
         <Stat label={`${T("Spese AVS", "AHV spending")} ${yR}`} value={chf(H["sv_ahv"].total_ausgaben[y])} sub={`${T("entrate", "revenue")} ${chf(H["sv_ahv"].total_einnahmen[y])}`} />
         <Stat label={`${T("Spese AI", "IV spending")} ${yR}`} value={chf(H["sv_iv"].total_ausgaben[y])} sub={`${T("entrate", "revenue")} ${chf(H["sv_iv"].total_einnahmen[y])}`} />
       </StatGrid>
+      <div data-reveal="up"><SourceBadge meta={fs.meta} /></div>
       <Note>{T("Le spese sono soprattutto rendite e indennità versate alle persone. Nel 2020 l'assicurazione contro la disoccupazione è salita per le indennità di lavoro ridotto durante la pandemia.", "Spending is mostly pensions and allowances paid to people. In 2020 unemployment insurance rose because of short-time work compensation during the pandemic.")}</Note>
       <Card title={T("Spese per ramo dal 1990", "Spending by branch since 1990")}>
         <TimeSeries rows={rows} series={BRANCHES.map((b) => svName(b).split(" – ")[0])} yearStatus={sv.year_status} kind="stacked" height={320} />

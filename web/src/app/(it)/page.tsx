@@ -2,7 +2,7 @@ import Link from "@/components/L";
 import type { ReactNode } from "react";
 import { geo, haushalte, hauptaggregate, kennzahlen, ktGemeinden, lastR, lastRechnung, popKantone, procurement, tree } from "@/lib/data";
 import { allProfiles, kantonMap, searchItems } from "@/lib/comuni";
-import { chf, num, pct } from "@/lib/format";
+import { chf, date, num, pct } from "@/lib/format";
 import { KANTONE, codedName, it as aufgIt, kantonName, objectName } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
 import { perCapita } from "@/lib/fs";
@@ -43,6 +43,7 @@ export default function Home() {
   // Share of GDP of the amount shown beside it: the same total divided by the nominal GDP of the same FFA file (not the GFS ratio, whose spending is another amount).
   const gdp = A["_bip"]?.["bip"]?.[yS];
   const quota = gdp ? total / gdp : null;
+  const gfsQuota = A["staat"]?.["staatsquote"]?.[yS]; // the FFA's official ratio, GFS model
   const nextY = String(Number(yS) + 1);
   const forecast = A["staat"]?.["ausgaben"]?.[nextY];
   const leap = Number(yS) % 4 === 0 && (Number(yS) % 100 !== 0 || Number(yS) % 400 === 0);
@@ -117,8 +118,8 @@ export default function Home() {
             </div>
             <div className="max-w-xl" data-reveal="up" style={{ ["--d" as string]: 3 }}>
               <p className="mt-3 text-xs text-muted leading-relaxed">{en
-                ? <>Per inhabitant: {chf(total, { digits: 1 })} divided by {num(popCH)} inhabitants on 31.12.{yS}, and by the {leap ? 366 : 365} days of the year.{quota && gdp ? <> Share of GDP: {chf(total, { digits: 1 })} of spending in {yS} (financial statistics) divided by the {yS} gross domestic product of {chf(gdp, { digits: 1 })}, both from the FFA file of the main aggregates.</> : null} Divisions made by the site.</>
-                : <>Per abitante: {chf(total, { digits: 1 })} divisi per {num(popCH)} abitanti al 31.12.{yS}, e per i {leap ? 366 : 365} giorni dell&apos;anno.{quota && gdp ? <> Quota del PIL: {chf(total, { digits: 1 })} di uscite {yS} (statistica finanziaria) divisi per il prodotto interno lordo {yS} di {chf(gdp, { digits: 1 })}, entrambi dal file degli aggregati principali dell&apos;AFF.</> : null} Divisioni fatte dal sito.</>}</p>
+                ? <>Per inhabitant: {chf(total, { digits: 1 })} divided by {num(popCH)} inhabitants on 31.12.{yS}, and by the {leap ? 366 : 365} days of the year.{quota && gdp ? <> Share of GDP: the {chf(total, { digits: 1 })} of spending in {yS} (financial statistics model; file standardauswertung.csv, the same amount as in main_extern.csv, row 206) divided by the {yS} gross domestic product of {chf(gdp, { digits: 1 })} (main_extern.csv, row 6240, in the file of {date(main.meta.published_at)}: GDP can be revised).{gfsQuota ? <> The FFA&apos;s own ratio for {yS} is {pct(gfsQuota * 100)}: it follows the international GFS model, where spending is a larger amount (main_extern.csv, row 5216, «staatsquote»).</> : null}</> : null} Divisions made by the site.</>
+                : <>Per abitante: {chf(total, { digits: 1 })} divisi per {num(popCH)} abitanti al 31.12.{yS}, e per i {leap ? 366 : 365} giorni dell&apos;anno.{quota && gdp ? <> Quota del PIL: i {chf(total, { digits: 1 })} di uscite {yS} (modello della statistica finanziaria; file standardauswertung.csv, lo stesso importo di main_extern.csv, riga 206) divisi per il prodotto interno lordo {yS} di {chf(gdp, { digits: 1 })} (main_extern.csv, riga 6240, nel file del {date(main.meta.published_at)}: il PIL può essere rivisto).{gfsQuota ? <> La quota ufficiale dell&apos;AFF per il {yS} è {pct(gfsQuota * 100)}: segue il modello internazionale GFS, in cui le uscite sono un importo maggiore (main_extern.csv, riga 5216, «staatsquote»).</> : null}</> : null} Divisioni fatte dal sito.</>}</p>
               <SourceBadge meta={main.meta} also={popKantone().meta} />
             </div>
             <p className="mt-5 flex items-center gap-2.5 text-sm text-muted" data-reveal="up" style={{ ["--d" as string]: 4 }}>
@@ -170,7 +171,7 @@ export default function Home() {
           : <>Cantone e Comuni insieme, divisi per gli abitanti ({yK}), senza Confederazione e assicurazioni sociali. Il massimo è {kSorted[0].nameIt} con {chf(kSorted[0].pc)}, il minimo {kSorted.at(-1)!.nameIt} con {chf(kSorted.at(-1)!.pc)}.</>}
         links={[{ href: "/cantoni/ti/", label: "Ticino" }, { href: "/cantoni/zh/", label: kantonName("zh") }, { href: "/cantoni/gr/", label: kantonName("gr") }]}>
         <GeoMap viewBox={g.viewBox} shapes={Object.entries(g.cantons).map(([id, d]) => ({ id, d }))} data={mapData} legendTitle={`${T("Spesa per abitante", "Spending per inhabitant")}, ${yK}`} lakes={g.lakes} labels={g.canton_centroids} stroke={1.2} />
-        <SourceBadge meta={fs.meta} compact />
+        <SourceBadge meta={fs.meta} also={popKantone().meta} />
       </Path>
 
       <Path kicker={T("Confederazione", "Confederation")} title={en ? `${chf(bund.values[yB], { digits: 1 })} of spending in ${yB}` : `${chf(bund.values[yB], { digits: 1 })} di uscite nel ${yB}`} href="/confederazione/" cta={T("Apri il bilancio federale", "Open the federal budget")}
