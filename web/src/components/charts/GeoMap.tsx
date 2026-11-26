@@ -96,7 +96,7 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
         </div>
       )}
       <Legend title={legendTitle} classes={classes} unit={unit} missing={missing} />
-      {credit && <p className="mt-1.5 text-[11px] text-faint">{T("Confini: UST, GEOSTAT / swisstopo (generalizzati).", "Boundaries: FSO, GEOSTAT / swisstopo (generalised).")}</p>}
+      {credit && <p className="mt-1.5 text-xs text-faint">{T("Confini: UST, GEOSTAT / swisstopo (generalizzati).", "Boundaries: FSO, GEOSTAT / swisstopo (generalised).")}</p>}
     </div>
   );
 }
@@ -107,18 +107,18 @@ function Legend({ title, classes, unit, missing }: { title: string; classes: Cls
   if (!classes.length) return null;
   const ticks = [classes[0].lo, ...classes.map((c) => c.hi)];
   const n = classes.length;
-  const short = (v: number) => formatUnit(Math.round(v), unit).replace(" CHF", "").replace(" %", "");
+  const short = (v: number) => formatUnit(Math.round(v), unit).replace(" CHF", "").replace(/\u00a0?%$/, "");
   return (
     <div className="mt-3 text-xs text-muted">
       <div className="font-medium text-foreground">{title}{/CHF|%/.test(title) ? "" : unit === "chf" ? ", in CHF" : unit === "pct" ? ", in %" : ""}</div>
       <div className="mt-1.5 flex items-start gap-4 flex-wrap">
         <div className="w-full max-w-[340px]">
           <div className="flex h-2.5 gap-[2px]">{classes.map((c, i) => <span key={i} className="flex-1 first:rounded-l-[2px] last:rounded-r-[2px]" style={{ background: c.color }} />)}</div>
-          <div className="relative mt-1 h-4 tabular text-[11px]">{ticks.map((t, i) => <span key={i} className={`absolute whitespace-nowrap ${t === 0 && i > 0 && i < n ? "font-semibold text-foreground" : ""}`} style={{ left: `${(i * 100) / n}%`, transform: i === 0 ? "none" : i === n ? "translateX(-100%)" : "translateX(-50%)" }}>{short(t)}</span>)}</div>
+          <div className="legend-ticks relative mt-1 h-5 tabular">{ticks.map((t, i) => <span key={i} className={`absolute whitespace-nowrap ${t === 0 && i > 0 && i < n ? "font-semibold text-foreground" : ""}`} style={{ left: `${(i * 100) / n}%`, transform: i === 0 ? "none" : i === n ? "translateX(-100%)" : "translateX(-50%)" }}>{short(t)}</span>)}</div>
         </div>
         {missing && <span className="flex items-center gap-1.5"><span className="inline-block w-4 h-2.5 rounded-[2px] border border-border" style={{ background: "var(--surface-2)" }} />{T("nessun dato", "no data")}</span>}
       </div>
-      <div className="mt-0.5 text-[11px] text-faint">{classes.some((c) => c.color.includes("neg")) ? T("Arancione: sotto zero. Blu: sopra zero.", "Orange: below zero. Blue: above zero.") : T("Ogni colore copre un quinto dei territori.", "Each colour covers one fifth of the areas.")}</div>
+      <div className="mt-0.5 text-xs text-faint">{classes.some((c) => c.color.includes("neg")) ? T("Arancione: sotto zero. Blu: sopra zero.", "Orange: below zero. Blue: above zero.") : T("Ogni colore copre un quinto dei territori.", "Each colour covers one fifth of the areas.")}</div>
     </div>
   );
 }

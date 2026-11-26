@@ -185,8 +185,8 @@ export default function Home() {
 
       <Path kicker={T("Comuni", "Municipalities")} title={T("Ticino e Zurigo, Comune per Comune", "Ticino and Zurich, municipality by municipality")} href="/cantoni/ti/#comuni" cta={T("Apri la mappa del Ticino", "Open the map of Ticino")}
         text={en
-          ? <>The Confederation publishes the accounts of single municipalities only above 5,000 inhabitants. Ticino and Zurich publish those of all of them: spending, debt, tax multiplier, investment. In all, {num(nProfiles)} municipalities have a page.</>
-          : <>La Confederazione pubblica i conti dei singoli Comuni solo sopra i 5 000 abitanti. Ticino e Zurigo pubblicano quelli di tutti: spese, debito, moltiplicatore, investimenti. In tutto {num(nProfiles)} Comuni hanno una scheda.</>}
+          ? <>The Confederation publishes the accounts of single municipalities only above {num(5000)} inhabitants. Ticino and Zurich publish those of all of them: spending, debt, tax multiplier, investment. In all, {num(nProfiles)} municipalities have a page.</>
+          : <>La Confederazione pubblica i conti dei singoli Comuni solo sopra i {num(5000)} abitanti. Ticino e Zurigo pubblicano quelli di tutti: spese, debito, moltiplicatore, investimenti. In tutto {num(nProfiles)} Comuni hanno una scheda.</>}
         links={[{ href: "/cantoni/zh/#comuni", label: T("Mappa di Zurigo", "Map of Zurich") }, { href: "/comuni/", label: T("Tutti i Comuni con dati", "All municipalities with data") }]}>
         <div className="eyebrow mb-3">{T("Spese operative per abitante, Comuni ticinesi", "Operating expenses per inhabitant, municipalities in Ticino")}, {ti.data.year}</div>
         <div className="max-w-md mx-auto"><GeoMap viewBox={tiMap.viewBox} shapes={tiMap.shapes} data={tiData} legendTitle={T("Spese operative per abitante", "Operating expenses per inhabitant")} lakes={tiMap.lakes} context={tiMap.context} stroke={0.6} /></div>
@@ -204,8 +204,8 @@ export default function Home() {
           <div className="kicker">{T("Appalti federali", "Federal procurement")}</div>
           <h2 className="mt-3 text-3xl md:text-4xl leading-[1.08] text-balance">{en ? `${num(lp.n)} contracts signed in ${py}` : `${num(lp.n)} contratti firmati nel ${py}`}</h2>
           <p className="mt-4 text-muted leading-relaxed">{en
-            ? <>They are worth {chf(lp.total_chf, { digits: 1 })} over their whole duration, not in {py} alone. The largest: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` for ${objectName(lp.largest.object)}` : ""}. The list covers contracts of 50,000 francs and above of the central Federal Administration.</>
-            : <>Valgono {chf(lp.total_chf, { digits: 1 })} sull&apos;intera durata, non sul solo {py}. Il più grande: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` per ${objectName(lp.largest.object)}` : ""}. L&apos;elenco copre i contratti da 50 000 franchi in su dell&apos;Amministrazione federale centrale.</>}</p>
+            ? <>They are worth {chf(lp.total_chf, { digits: 1 })} over their whole duration, not in {py} alone. The largest: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` for ${objectName(lp.largest.object)}` : ""}. The list covers contracts of {num(50000)} francs and above of the central Federal Administration.</>
+            : <>Valgono {chf(lp.total_chf, { digits: 1 })} sull&apos;intera durata, non sul solo {py}. Il più grande: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` per ${objectName(lp.largest.object)}` : ""}. L&apos;elenco copre i contratti da {num(50000)} franchi in su dell&apos;Amministrazione federale centrale.</>}</p>
           <span className="btn mt-6">{T("Cerca tra i contratti", "Search the contracts")} <span aria-hidden>→</span></span>
         </Link>
       </section>
@@ -219,12 +219,12 @@ export default function Home() {
           {(en ? [
             ["Federal subsidies by recipient", "The FFA shows them in a dashboard, with no downloadable file."],
             ["Contracts of cantons and municipalities", "simap.ch gives access to the data only on request."],
-            ["Municipalities below 5,000 inhabitants outside Ticino and Zurich", "Here there are only the totals by canton. Some cantons publish the accounts of every municipality (Thurgau, Lucerne): they are not included yet."],
+            [`Municipalities below ${num(5000)} inhabitants outside Ticino and Zurich`, "Here there are only the totals by canton. Some cantons publish the accounts of every municipality (Thurgau, Lucerne): they are not included yet."],
             ["Public companies", "SBB, Swiss Post, Swisscom and the cantonal companies have no structured list of accounts."],
           ] : [
             ["Sussidi federali per beneficiario", "L'AFF li mostra in una dashboard, senza file scaricabile."],
             ["Appalti di Cantoni e Comuni", "simap.ch dà accesso ai dati solo su richiesta."],
-            ["Comuni sotto i 5 000 abitanti fuori da Ticino e Zurigo", "Qui ci sono solo i totali per Cantone. Alcuni Cantoni pubblicano i conti di ogni Comune (Turgovia, Lucerna): non sono ancora inclusi."],
+            [`Comuni sotto i ${num(5000)} abitanti fuori da Ticino e Zurigo`, "Qui ci sono solo i totali per Cantone. Alcuni Cantoni pubblicano i conti di ogni Comune (Turgovia, Lucerna): non sono ancora inclusi."],
             ["Aziende pubbliche", "FFS, Posta, Swisscom e le aziende cantonali non hanno un elenco strutturato dei conti."],
           ]).map(([t, d], i) => (
             <li key={t} className="tile !p-5" data-reveal="up" style={{ ["--d" as string]: i }}>

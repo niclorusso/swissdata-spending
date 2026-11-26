@@ -7,7 +7,7 @@ import { BarList } from "@/components/charts/BarList";
 import { SourceBadge } from "@/components/SourceBadge";
 import { TreeExplorer } from "@/components/charts/TreeExplorer";
 import { TimeSeries, type Row } from "@/components/charts/TimeSeries";
-import { Card, Note, Page, Stat, StatGrid } from "@/components/ui";
+import { Card, Fold, Note, Page, Stat, StatGrid } from "@/components/ui";
 import { Treemap } from "@/components/charts/Treemap";
 import { FlowSankey, type FlowLink, type FlowNode } from "@/components/charts/FlowSankey";
 import { treeItems } from "@/lib/viz";
@@ -98,7 +98,8 @@ export default function Confederazione() {
         <div className="hidden md:block"><FlowSankey nodes={nodes} links={links} /></div>
         <div className="md:hidden space-y-6">
           <div><div className="eyebrow mb-3">{S.entrate}</div><BarList items={inList} total={einRoot.values[y] ?? 0} /></div>
-          <div><div className="eyebrow mb-3">{S.spese}</div><BarList items={outAll.map((c) => ({ label: c.name, value: c.v }))} total={outTotal} /></div>
+          {/* the areas are in the chart of the next card: here they stay closed, so the same list is not shown twice */}
+          <details className="fold"><summary><span className="eyebrow">{S.spese}</span> <span className="fold-cue !mt-0 ml-2"><span className="when-closed">{T("Apri l'elenco", "Open the list")} <span aria-hidden>↓</span></span><span className="when-open">{T("Chiudi", "Close")} <span aria-hidden>↑</span></span></span></summary><div className="mt-3"><BarList items={outAll.map((c) => ({ label: c.name, value: c.v }))} total={outTotal} /></div></details>
         </div>
         <SourceBadge meta={ein.meta} />
       </Card>
@@ -115,41 +116,41 @@ export default function Confederazione() {
         <SourceBadge meta={aufg.meta} compact />
       </Card>
 
-      <Card title={T("Tutte le voci, anno per anno", "Every item, year by year")} subtitle={T("Scegli l'anno, anche tra preventivo e piano finanziario, e apri un settore per vedere le sotto-voci.", "Pick the year, including budget and financial plan, and open an area to see its sub-items.")}>
+      <Fold title={T("Tutte le voci, anno per anno", "Every item, year by year")} subtitle={T("Scegli l'anno, anche tra preventivo e piano finanziario, e apri un settore per vedere le sotto-voci.", "Pick the year, including budget and financial plan, and open an area to see its sub-items.")}>
         <TreeExplorer root={root} years={years} yearStatus={ys} defaultYear={yR} />
         <SourceBadge meta={aufg.meta} />
-      </Card>
+      </Fold>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card title={T("Per che cosa: personale, acquisti, contributi", "On what: staff, purchases, contributions")} subtitle={T("Dal 2023, con il nuovo modello contabile. Apri una voce per il dettaglio.", "From 2023, with the new accounting model. Open an item for the detail.")}>
+        <Fold title={T("Per che cosa: personale, acquisti, contributi", "On what: staff, purchases, contributions")} subtitle={T("Dal 2023, con il nuovo modello contabile. Apri una voce per il dettaglio.", "From 2023, with the new accounting model. Open an item for the detail.")}>
           <TreeExplorer root={natureRoot} years={art.meta.years ?? []} yearStatus={art.meta.year_status ?? {}} defaultYear={yR} />
           <SourceBadge meta={art.meta} />
-        </Card>
-        <Card title={S.entrate} subtitle={T("Per tipo di entrata; apri «Entrate correnti» per le singole imposte", "By type of revenue; open «Current revenue» for the single taxes")}>
+        </Fold>
+        <Fold title={S.entrate} subtitle={T("Per tipo di entrata; apri «Entrate correnti» per le singole imposte", "By type of revenue; open «Current revenue» for the single taxes")}>
           <TreeExplorer root={einRoot} years={years} yearStatus={ys} defaultYear={yR} />
           <SourceBadge meta={ein.meta} />
-        </Card>
+        </Fold>
       </div>
 
-      <Card title={T("Le entrate fiscali nel tempo", "Tax revenue over time")} subtitle={T("Imposta federale diretta, IVA, imposta preventiva e le altre imposte principali", "Direct federal tax, VAT, withholding tax and the other main taxes")}>
+      <Fold title={T("Le entrate fiscali nel tempo", "Tax revenue over time")} subtitle={T("Imposta federale diretta, IVA, imposta preventiva e le altre imposte principali", "Direct federal tax, VAT, withholding tax and the other main taxes")}>
         <TimeSeries rows={eRows} series={eSeries} yearStatus={ys} kind="stacked" height={320} />
         <SourceBadge meta={ein.meta} compact />
-      </Card>
+      </Fold>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
+        <Fold title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
           <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} />
           <SourceBadge meta={aufg.meta} />
-        </Card>
-        <Card title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>
+        </Fold>
+        <Fold title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>
           <TimeSeries rows={dRows} series={[S.lordo]} yearStatus={ys} height={280} colors={["var(--s8)"]} />
           <SourceBadge meta={kz.meta} />
-        </Card>
+        </Fold>
       </div>
-      <Card title={T("Quote sul PIL", "Ratios to GDP")} subtitle={T("Quota di spesa, quota fiscale e debito lordo in % del PIL nominale", "Spending ratio, tax ratio and gross debt in % of nominal GDP")}>
+      <Fold title={T("Quote sul PIL", "Ratios to GDP")} subtitle={T("Quota di spesa, quota fiscale e debito lordo in % del PIL nominale", "Spending ratio, tax ratio and gross debt in % of nominal GDP")}>
         <TimeSeries rows={qRows} series={[S.qs, S.qf, S.qd]} yearStatus={ys} unit="pct" height={280} colors={["var(--s2)", "var(--s1)", "var(--s8)"]} />
         <SourceBadge meta={kz.meta} />
-      </Card>
+      </Fold>
       <p className="text-muted"><Link className="link" href="/confederazione/unita/">{T("Personale, consulenze e informatica ufficio per ufficio", "Staff, consultancy and IT office by office")} →</Link></p>
     </Page>
   );

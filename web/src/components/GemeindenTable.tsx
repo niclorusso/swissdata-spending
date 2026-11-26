@@ -6,7 +6,7 @@ export type GemRow = { bfs: number; kt: string; name: string; year: string; pop:
 type Key = "pc" | "aufwand" | "pop" | "name" | "inv";
 
 export function GemeindenTable({ rows, more = {} }: { rows: GemRow[]; more?: Record<string, { n: number; href: string }> }) {
-  const { chf, num, T, h, en } = useL();
+  const { chf, num, pct, T, h, en } = useL();
   const [all, setAll] = useState(false);
   const [q, setQ] = useState("");
   const [kt, setKt] = useState("all");
@@ -42,7 +42,7 @@ export function GemeindenTable({ rows, more = {} }: { rows: GemRow[]; more?: Rec
                 <td className="py-1.5 pr-3 text-right tabular">{chf(r.aufwand)}</td>
                 <td className="py-1.5 pr-3 text-right tabular font-medium">{chf(r.pc)}</td>
                 <td className="py-1.5 pr-3 text-right tabular hidden md:table-cell">{chf(r.inv)}</td>
-                <td className="py-1.5 pr-3 text-muted hidden md:table-cell">{r.top} <span className="text-faint">· {num(r.topShare * 100, 0)} %</span></td>
+                <td className="py-1.5 pr-3 text-muted hidden md:table-cell">{r.top} <span className="text-faint">· {pct(r.topShare * 100, 0)}</span></td>
               </tr>
             ))}
           </tbody>

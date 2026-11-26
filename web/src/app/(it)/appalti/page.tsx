@@ -10,7 +10,7 @@ import { BarList } from "@/components/charts/BarList";
 import { TimeSeries } from "@/components/charts/TimeSeries";
 import { Card, Note, Page, Stat, StatGrid } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Appalti della Confederazione ≥ 50 000 CHF" };
+export const metadata: Metadata = { title: "Appalti della Confederazione ≥ 50\u202f000 CHF" };
 
 export default function Appalti() {
   const en = getLang() === "en";
@@ -32,8 +32,8 @@ export default function Appalti() {
   if (big.length !== 2 || big.some((s) => !/^US .* FMS$/.test(s.name))) throw new Error(`[appalti] the note on ${maxY} no longer matches the data: ${JSON.stringify(big)}`);
   return (
     <Page kicker={T("Appalti", "Procurement")} title={T("I contratti della Confederazione", "The Confederation's contracts")} lead={en
-      ? <p>Every year the central Federal Administration publishes the list of contracts of 50,000 francs and above: buyer, supplier, object, procedure and value. Over {years.length} years that is {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contracts worth {chf(totalAll, { digits: 1 })}.</p>
-      : <p>Ogni anno l&apos;Amministrazione federale centrale pubblica l&apos;elenco dei contratti da 50 000 franchi in su: committente, fornitore, oggetto, procedura e valore. In {years.length} anni sono {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contratti per {chf(totalAll, { digits: 1 })}.</p>}>
+      ? <p>Every year the central Federal Administration publishes the list of contracts of {num(50000)} francs and above: buyer, supplier, object, procedure and value. Over {years.length} years that is {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contracts worth {chf(totalAll, { digits: 1 })}.</p>
+      : <p>Ogni anno l&apos;Amministrazione federale centrale pubblica l&apos;elenco dei contratti da {num(50000)} franchi in su: committente, fornitore, oggetto, procedura e valore. In {years.length} anni sono {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contratti per {chf(totalAll, { digits: 1 })}.</p>}>
       <StatGrid>
         {years.map((y) => (
           <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("fornitori", "suppliers")} →</Link>} />

@@ -6,7 +6,7 @@ import { it } from "@/lib/labels";
 
 /** Year picker + drill-down bar list for a hierarchical spending tree (settori > sotto-settori). */
 export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }: { root: TreeNode; years: number[]; yearStatus: Record<string, string>; defaultYear: number; labelDict?: Record<string, string> }) {
-  const { chf, share, status, T, lang } = useL();
+  const { chf, sharePct, status, T, lang } = useL();
   const [year, setYear] = useState(defaultYear);
   const [open, setOpen] = useState<Record<number, boolean>>({});
   const y = String(year);
@@ -45,8 +45,8 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
                     
                   </span>
                   <span className="tabular whitespace-nowrap shrink-0 text-muted">
-                    {chf(v)} <span className="text-faint">· {total ? share((v / total) * 100) : "–"} %</span>
-                    {delta !== null && <span className={`ml-2 ${delta >= 0 ? "text-foreground/70" : "text-foreground/70"}`}>{delta >= 0 ? "+" : ""}{share(delta)} %</span>}
+                    {chf(v)} <span className="text-faint">· {total ? sharePct((v / total) * 100) : "–"}</span>
+                    {delta !== null && <span className="ml-2 text-muted">{delta >= 0 ? "+" : ""}{sharePct(delta)}</span>}
                   </span>
                 </div>
                 <div className="bar mt-1.5">
@@ -58,7 +58,7 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
                   {kids.map((k) => (
                     <li key={k.id} className="flex items-baseline justify-between gap-3 text-xs">
                       <span className="min-w-0">{it(k.name, labelDict, lang)}</span>
-                      <span className="tabular text-muted whitespace-nowrap shrink-0">{chf(k.values[y])} <span className="text-faint">· {v ? share(((k.values[y] ?? 0) / v) * 100) : "–"} %</span></span>
+                      <span className="tabular text-muted whitespace-nowrap shrink-0">{chf(k.values[y])} <span className="text-faint">· {v ? sharePct(((k.values[y] ?? 0) / v) * 100) : "–"}</span></span>
                     </li>
                   ))}
                 </ol>

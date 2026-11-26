@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "@/components/L";
 import { gemeinden, ktGemeinden, popForAccounts } from "@/lib/data";
 import { allProfiles, kantonLabel, ktMunicipalities, peersOf } from "@/lib/comuni";
-import { chf, date, formatUnit, num } from "@/lib/format";
+import { chf, date, formatUnit, num, pctAuto } from "@/lib/format";
 import { codedName, measureText } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
 import { SourceBadge } from "@/components/SourceBadge";
@@ -76,8 +76,8 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
         <>
           <SectionHead title={en ? `The ${km.year} accounts, according to the canton` : `I conti ${km.year}, secondo il Cantone`} sub={en ? <>Cantonal statistics, the same for all {munis}. The rank starts from the highest value: 1st is the municipality with the largest figure.</> : <>Statistica cantonale, uguale per tutti i {munis}. La posizione parte dal valore più alto: 1° è il Comune con la cifra maggiore.</>} />
           {kant.merged_from && <Note title={T("Comune aggregato", "Merged municipality")}>{en
-            ? <>The {km.year} accounts are the sum of the {kant.merged_from.length} municipalities merged into {p.name}.{kant.values.moltiplicatore ? <> All had a tax multiplier of {num(kant.values.moltiplicatore)} %.</> : null} Tax resources are not calculated for the new municipality.</>
-            : <>I conti {km.year} sono la somma dei {kant.merged_from.length} Comuni confluiti in {p.name}.{kant.values.moltiplicatore ? <> Tutti avevano un moltiplicatore del {num(kant.values.moltiplicatore)} %.</> : null} Le risorse fiscali non sono calcolate per il nuovo Comune.</>}</Note>}
+            ? <>The {km.year} accounts are the sum of the {kant.merged_from.length} municipalities merged into {p.name}.{kant.values.moltiplicatore ? <> All had a tax multiplier of {pctAuto(kant.values.moltiplicatore)}.</> : null} Tax resources are not calculated for the new municipality.</>
+            : <>I conti {km.year} sono la somma dei {kant.merged_from.length} Comuni confluiti in {p.name}.{kant.values.moltiplicatore ? <> Tutti avevano un moltiplicatore del {pctAuto(kant.values.moltiplicatore)}.</> : null} Le risorse fiscali non sono calcolate per il nuovo Comune.</>}</Note>}
           <StatGrid cols={3}>
             {km.measures.map((m0) => {
               const m = { ...m0, ...measureText(p.kt, m0) };
@@ -120,7 +120,7 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
                 <SourceBadge meta={ktGemeinden(p.kt).meta} />
               </Card>
               <Card title={T("Moltiplicatore d'imposta", "Tax multiplier")} subtitle={<>{T("Percentuale dell'imposta cantonale semplice che il Comune preleva, senza imposta di culto (in tedesco «Steuerfuss», in percento della «einfache Staatssteuer»).", "Percentage of the simple cantonal tax that the municipality levies, without church tax (in German «Steuerfuss», in per cent of the «einfache Staatssteuer»).")}{stfMore.length > 0 ? T(" Il Comune ha avuto più di un moltiplicatore, secondo il Comune scolastico.", " The municipality has had more than one multiplier, depending on the school municipality.") : ""}</>}>
-                {stfFlat ? <p className="display text-3xl">{en ? <>Unchanged at {num(stf[0][1])} % from {stf[0][0]} to {stf.at(-1)![0]}.</> : <>Invariato al {num(stf[0][1])} % dal {stf[0][0]} al {stf.at(-1)![0]}.</>}</p>
+                {stfFlat ? <p className="display text-3xl">{en ? <>Unchanged at {pctAuto(stf[0][1])} from {stf[0][0]} to {stf.at(-1)![0]}.</> : <>Invariato al {pctAuto(stf[0][1])} dal {stf[0][0]} al {stf.at(-1)![0]}.</>}</p>
                   : <TimeSeries rows={stf.map(([y, v]) => ({ year: Number(y), [S.mo]: v, ...Object.fromEntries(stfMore.map((x, i) => [mo2(i), x[y] ?? null])) }))} series={[S.mo, ...stfMore.map((_, i) => mo2(i))]} unit="pct" height={240} />}
                 <SourceBadge meta={ktGemeinden(p.kt).meta} />
               </Card>
@@ -134,10 +134,10 @@ export default async function Comune({ params }: PageProps<"/comuni/[id]">) {
           <SectionHead title={en ? `The ${yA} accounts, according to the Confederation` : `I conti ${yA}, secondo la Confederazione`} sub={en
             ? (kant
               ? <>Federal statistics (FFA), available only for the larger municipalities. The two sources count different items, so these figures do not match the canton&apos;s above{p.kt === "zh" ? ": federal spending is gross, the cantonal cost subtracts the services' income" : ""}.</>
-              : <>Federal statistics (FFA), published for municipalities that have or have had at least 5,000 inhabitants.</>)
+              : <>Federal statistics (FFA), published for municipalities that have or have had at least {num(5000)} inhabitants.</>)
             : (kant
               ? <>Statistica federale (AFF), disponibile solo per i Comuni più grandi. Le due fonti contano voci diverse, quindi queste cifre non coincidono con quelle del Cantone qui sopra{p.kt === "zh" ? ": le spese federali sono lorde, il costo cantonale toglie i ricavi dei servizi" : ""}.</>
-              : <>Statistica federale (AFF), pubblicata per i Comuni che hanno o hanno avuto almeno 5 000 abitanti.</>)} />
+              : <>Statistica federale (AFF), pubblicata per i Comuni che hanno o hanno avuto almeno {num(5000)} abitanti.</>)} />
           <StatGrid>
             <Stat label={`${S.sc} ${yA}`} value={chf(aff.aufwand[yA])} sub={T("conto economico, senza investimenti", "income statement, without investment")} />
             <Stat label={T("Per abitante", "Per inhabitant")} value={popA ? chf(aff.aufwand[yA] / popA) : T("non calcolabile", "not computable")} sub={popA ? `${num(popA)} ${T("abitanti al", "inhabitants on")} 31.12.${yA}; ${T("divisione fatta dal sito", "division made by the site")}` : whyText ?? T("popolazione non disponibile", "population not available")} />

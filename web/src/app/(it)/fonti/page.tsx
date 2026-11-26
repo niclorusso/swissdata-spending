@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
 import { loadLedger, type Meta } from "@/lib/data";
-import { date, dateTime } from "@/lib/format";
+import { date, dateTime, num } from "@/lib/format";
 import { Card, Page } from "@/components/ui";
 import { getLang, T } from "@/lib/lang-server";
 
@@ -31,7 +31,9 @@ const EN: Record<string, En> = {
 const FILE_EN: [RegExp, string][] = [[/^Indicatore/, "Indicator"], [/patrimonio netto/, "net assets"], [/investimenti netti/, "net investment"], [/risultato d'esercizio/, "annual result"], [/forza fiscale/, "tax strength"], [/Nettoaufwand, /, "net cost, "], [/moltiplicatori d'imposta\), serie storica/, "tax multipliers), time series"], [/Tabella STAT-TAB completa \(PX\)/, "Full STAT-TAB table (PX)"], [/Elenco delle mutazioni dei Comuni \(AGVCH\)/, "List of municipal mutations (AGVCH)"],
   [/Amministrazione generale/, "general administration"], [/Formazione/, "education"], [/Sanità/, "health"], [/Cultura, sport e tempo libero/, "culture, sport and leisure"], [/Ordine pubblico e sicurezza/, "public order and safety"], [/Sicurezza sociale/, "social security"], [/Ambiente e territorio/, "environment and planning"], [/Trasporti/, "transport"], [/Economia/, "economy"]];
 const nums = (s?: string | null) => (s ?? "").match(/\d+(?:[.,]\d+)?(?:–\d+)?/g) ?? [];
-const fill = (tpl: string, src?: string | null) => { const n = nums(src); return tpl.replace(/\{(\d)\}/g, (_, i) => n[Number(i)] ?? ""); };
+/** A count taken from the Italian text, written the English way (47706 -> 47,706); years and ranges stay as they are. */
+const enNum = (t?: string) => (t && /^\d{4,}$/.test(t) && !(Number(t) >= 1900 && Number(t) <= 2100) ? num(Number(t)) : t ?? "");
+const fill = (tpl: string, src?: string | null) => { const n = nums(src); return tpl.replace(/\{(\d)\}/g, (_, i) => enNum(n[Number(i)])); };
 const FREQ: [RegExp, string][] = [[/2 volte l'anno/, "twice a year"], [/annuale/, "yearly"], [/marzo: consuntivo; agosto: preventivo e piano finanziario/, "March: actuals; August: budget and financial plan"], [/febbraio\/marzo e agosto\/settembre/, "February/March and August/September"], [/marzo, agosto/, "March, August"], [/settembre dell'anno successivo/, "September of the following year"], [/agosto/, "August"]];
 const PERIOD: [RegExp, string][] = [[/Rechnung/g, "actuals"], [/Voranschlag/g, "budget"], [/Finanzplan/g, "financial plan"], [/consuntivi: Confederazione/, "actuals: Confederation"], [/Cantoni/, "cantons"], [/Comuni/, "municipalities"], [/assicurazioni sociali/, "social insurance"], [/anni successivi = dati parziali o previsioni AFF/, "later years = partial data or FFA forecasts"], [/Steuerfuss fino al/, "tax multiplier up to"], [/stato dei Comuni/, "municipal boundaries of"]];
 const LICENSE: [RegExp, string][] = [[/opendata\.swiss: Freie Nutzung\. Quellenangabe ist Pflicht.*/, "Free use, the source must be cited (opendata.swiss)"], [/opendata\.swiss: Freie Nutzung \(terms_open\)/, "Free use (opendata.swiss)"], [/nessuna licenza indicata dalla fonte; citazione della fonte/, "no licence stated by the source; source cited"], [/Geodati: fonte/, "Geodata: source"], [/codice swiss-maps/, "swiss-maps code"]];
@@ -52,7 +54,12 @@ const PUB: Record<string, string> = {
   "Statistisches Amt des Kantons Zürich": "Ufficio di statistica del Canton Zurigo",
   "Bundesamt für Statistik (BFS)": "Ufficio federale di statistica (UST)",
 };
-const tr = (s?: string | null) => IT.reduce((t, [re, to]) => t.replace(re, to), s ?? "").replace(/\b(\d{2,3})(\d{3})(?= (contratti|fornitori|Comuni))/g, "$1’$2");
+/** The pipeline writes figures plainly ("47706 contratti", "50 000 CHF", "35.9 mld"): the page writes them like every other figure of the site. */
+const figures = (s: string) => s
+  .replace(/(?<![\d.,–])(\d{1,3}) (\d{3})(?![\d.])/g, (_, a, b) => num(Number(a + b)))
+  .replace(/(?<![\d.,–/=_-])\d{5,}(?![\d.–]|\w)/g, (m) => num(Number(m)))
+  .replace(/(\d+)\.(\d+)(?= (mld|mio)\b)/g, (_, a, b) => num(Number(`${a}.${b}`), b.length));
+const tr = (s?: string | null) => figures(IT.reduce((t, [re, to]) => t.replace(re, to), s ?? ""));
 const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", "Statistical Office of the Canton of Zurich"], ["GEOSTAT", "Federal Statistical Office (FSO), GEOSTAT / swisstopo"]];
 const publisherEn = (p: string) => PUB_EN.find(([k]) => p.includes(k))?.[1] ?? p;
 const publisher = (p: string) => { const parts = p.split(" / "); const it = (parts.length > 1 ? parts[parts.length - 1] : p).replace(/, via .*$/, ""); return PUB[it] ?? PUB[parts[0]] ?? it; };
@@ -73,7 +80,7 @@ function Row({ m }: { m: Meta }) {
           <div className="font-semibold">{title}</div>
           <p className="text-sm text-muted mt-0.5">{coverage}</p>
           {notes && (
-            <details className="mt-1.5 text-sm text-muted"><summary className="cursor-pointer text-foreground/80">{T("Note", "Notes")}</summary><p className="mt-1">{notes}</p></details>
+            <details className="mt-1.5 text-sm text-muted"><summary className="cursor-pointer text-muted tap">{T("Note", "Notes")}</summary><p className="mt-1">{notes}</p></details>
           )}
         </div>
         <dl className="md:col-span-2 text-sm grid grid-cols-[7.5rem_1fr] gap-x-3 gap-y-0.5 content-start">

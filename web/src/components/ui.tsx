@@ -8,7 +8,7 @@ export function Page({ title, lead, kicker, back, children }: { title: string; l
     <main className="mx-auto max-w-6xl px-4 pt-10 md:pt-14 pb-4">
       <div data-reveal="up">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          {back && <Link href={back.href} className="chip text-muted !py-1 !text-xs">← {back.label}</Link>}
+          {back && <Link href={back.href} className="chip text-muted !py-1">← {back.label}</Link>}
           {kicker && <span className="kicker">{kicker}</span>}
         </div>
         <h1 className="mt-4 text-[2.6rem] md:text-6xl leading-[1.02] max-w-4xl text-balance">{title}</h1>
@@ -27,6 +27,24 @@ export function Card({ title, subtitle, children, className = "" }: { title?: Re
       {subtitle && <p className="text-sm text-muted mt-1.5 max-w-3xl leading-relaxed">{subtitle}</p>}
       <div className={title ? "mt-6" : ""}>{children}</div>
     </section>
+  );
+}
+
+/**
+ * A figure block closed behind its title: title, one line, and a cue; the chart opens with one tap, click or Enter.
+ * A <details>: it works without scripts, the browser's find-in-page opens it, and assistive technology hears "collapsed / expanded".
+ */
+export function Fold({ title, subtitle, children, cue }: { title: ReactNode; subtitle?: ReactNode; children: ReactNode; cue?: [string, string] }) {
+  const [open, close] = cue ?? [T("Apri il grafico", "Open the chart"), T("Chiudi", "Close")];
+  return (
+    <details className="fold card p-5 md:p-7" data-reveal="up">
+      <summary>
+        <h2 className="text-2xl md:text-[1.7rem] leading-tight">{title}</h2>
+        {subtitle && <p className="text-sm text-muted mt-1.5 max-w-3xl leading-relaxed">{subtitle}</p>}
+        <span className="fold-cue"><span className="when-closed">{open} <span aria-hidden>↓</span></span><span className="when-open">{close} <span aria-hidden>↑</span></span></span>
+      </summary>
+      <div className="mt-4">{children}</div>
+    </details>
   );
 }
 

@@ -45,7 +45,8 @@ export function ProcTable({ year }: { year: number }) {
   );
 
   if (err) return <p className="text-sm text-muted">{T("I dati non si sono caricati. Ricarica la pagina.", "The data did not load. Reload the page.")}</p>;
-  if (!rows) return <p className="text-sm text-muted">{T("Carico i contratti del", "Loading the contracts of")} {year}…</p>;
+  // while the list loads the block keeps the height of a screen: what comes after it is not pushed down when the table appears
+  if (!rows) return <p className="text-sm text-muted min-h-screen">{T("Carico i contratti del", "Loading the contracts of")} {year}…</p>;
   return (
     <div>
       <div className="flex flex-wrap gap-3 items-center text-sm">

@@ -25,8 +25,8 @@ export default async function AppaltiAnno({ params }: PageProps<"/appalti/[year]
   const v = p.data.years[String(y)];
   return (
     <Page kicker={T("Appalti", "Procurement")} back={{ href: "/appalti/", label: T("Riepilogo per anno", "Summary by year") }} title={en ? `Contracts signed in ${y}` : `I contratti firmati nel ${y}`} lead={en
-      ? <p>{num(v.n)} contracts of 50,000 francs and above, worth {chf(v.total_chf, { digits: 1 })} over their whole duration, with {num(v.n_suppliers)} suppliers.</p>
-      : <p>{num(v.n)} contratti da 50 000 franchi in su, per {chf(v.total_chf, { digits: 1 })} sull&apos;intera durata, con {num(v.n_suppliers)} fornitori.</p>}>
+      ? <p>{num(v.n)} contracts of {num(50000)} francs and above, worth {chf(v.total_chf, { digits: 1 })} over their whole duration, with {num(v.n_suppliers)} suppliers.</p>
+      : <p>{num(v.n)} contratti da {num(50000)} franchi in su, per {chf(v.total_chf, { digits: 1 })} sull&apos;intera durata, con {num(v.n_suppliers)} fornitori.</p>}>
       <nav className="flex flex-wrap gap-2" aria-label={T("Anno", "Year")}>
         {Object.keys(p.data.years).sort().map((yy) => (
           <Link key={yy} href={`/appalti/${yy}/`} aria-current={Number(yy) === y ? "page" : undefined} className="chip tabular">{yy}</Link>
