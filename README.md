@@ -19,7 +19,7 @@ Ispirato a [France Transparence](https://francetransparence.fr).
 
 Quali anni sono consuntivo e quali previsione è letto dal file dell'AFF (`main_extern.csv`, colonna `source`), non scritto a mano. Le mappe usano i confini UST/GEOSTAT via swiss-maps.
 
-Il registro completo, con URL, hash SHA-256 e date, è su `/fonti` e in [`data/source-ledger.json`](data/source-ledger.json).
+Il registro completo, con URL, hash SHA-256 e date, è su `/fonti` e in [`data/source-ledger.json`](data/source-ledger.json). Gli snapshot completi sono nella cartella [`data/snapshots`](https://github.com/niclorusso/swissdata-spending/tree/main/data/snapshots) del repository.
 
 ## Come funziona
 
