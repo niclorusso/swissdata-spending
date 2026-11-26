@@ -138,6 +138,7 @@ export default function Home() {
           <div className="lg:col-span-5 glass p-5 md:p-7 self-start" data-reveal="up" style={{ ["--d" as string]: 3 }}>
             <div className="eyebrow">{T("Spesa per funzione", "Spending by function")} ({yS})</div>
             <div className="mt-5"><BarList items={funk} total={total} /></div>
+            <p className="mt-4 text-sm"><Link href="/quanto-pesa/" className="link font-semibold">{T("Quanto pesa una voce?", "How much does one item weigh?")} <span aria-hidden>→</span></Link></p>
             <SourceBadge meta={fs.meta} compact />
           </div>
         </div>
