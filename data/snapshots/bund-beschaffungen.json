@@ -17,7 +17,7 @@
   "sha256": null,
   "notes": "Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Nelle classifiche dei fornitori le grafie della stessa ditta sono contate insieme (data/supplier-aliases.json); i contratti restano con il nome scritto nell'elenco. Elenco dei file sul sito della CA: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken",
   "coverage": "47706 contratti, 13651 fornitori, 35.9 mld CHF in 5 anni",
-  "generated_at": "2026-11-26T15:29:57+00:00"
+  "generated_at": "2026-11-26T16:23:10+00:00"
  },
  "data": {
   "years": {
@@ -157,9 +157,16 @@
       "n": 2
      },
      {
-      "name": "RUAG Simulation & Training AG",
+      "name": "Thales Simulation & Training AG",
       "chf": 83684240,
-      "n": 56
+      "n": 56,
+      "variants": [
+       {
+        "name": "RUAG Simulation & Training AG",
+        "chf": 83684240,
+        "n": 56
+       }
+      ]
      },
      {
       "name": "Paul Boyé Technologies",
@@ -182,9 +189,16 @@
       "n": 1
      },
      {
-      "name": "RUAG Ammotec AG",
+      "name": "SwissP Defence AG",
       "chf": 71708172,
-      "n": 8
+      "n": 8,
+      "variants": [
+       {
+        "name": "RUAG Ammotec AG",
+        "chf": 71708172,
+        "n": 8
+       }
+      ]
      },
      {
       "name": "SAP (Schweiz) AG Datenverarbeitung",
@@ -264,8 +278,8 @@
      },
      {
       "name": "Eraneos Switzerland AG",
-      "chf": 45817683,
-      "n": 100,
+      "chf": 46002819,
+      "n": 102,
       "variants": [
        {
         "name": "AWK Group AG",
@@ -276,6 +290,11 @@
         "name": "AWK GROUP AG",
         "chf": 449924,
         "n": 3
+       },
+       {
+        "name": "AWK Engineering AG",
+        "chf": 185136,
+        "n": 2
        }
       ]
      },
@@ -445,14 +464,26 @@
       "n": 2
      },
      {
+      "name": "Honegger AG",
+      "chf": 20372420,
+      "n": 96,
+      "variants": [
+       {
+        "name": "Honegger AG",
+        "chf": 20037034,
+        "n": 94
+       },
+       {
+        "name": "Honegger Reinigungen AG",
+        "chf": 335386,
+        "n": 2
+       }
+      ]
+     },
+     {
       "name": "RUAG AG Bereich Land Systems",
       "chf": 20060457,
       "n": 35
-     },
-     {
-      "name": "Honegger AG",
-      "chf": 20037034,
-      "n": 94
      },
      {
       "name": "IBM Schweiz AG",
@@ -978,20 +1009,8 @@
      },
      {
       "name": "swenex - swiss energy exchange Ltd",
-      "chf": 58823769,
-      "n": 72,
-      "variants": [
-       {
-        "name": "swenex - swiss energy exchange Ltd",
-        "chf": 58392969,
-        "n": 71
-       },
-       {
-        "name": "swenex swiss energy exchange",
-        "chf": 430800,
-        "n": 1
-       }
-      ]
+      "chf": 58392969,
+      "n": 71
      },
      {
       "name": "NOVO Business Consultants AG",
@@ -1128,8 +1147,8 @@
      },
      {
       "name": "Eraneos Switzerland AG",
-      "chf": 31878349,
-      "n": 69,
+      "chf": 31958219,
+      "n": 70,
       "variants": [
        {
         "name": "Eraneos Switzerland AG",
@@ -1140,6 +1159,11 @@
         "name": "AWK Group AG",
         "chf": 208319,
         "n": 2
+       },
+       {
+        "name": "AWK Engineering AG",
+        "chf": 79870,
+        "n": 1
        }
       ]
      },
@@ -1262,9 +1286,33 @@
       "n": 1
      },
      {
-      "name": "Business & Decision AG",
+      "name": "Axpo Systems AG",
+      "chf": 21342512,
+      "n": 27,
+      "variants": [
+       {
+        "name": "Axpo Systems AG",
+        "chf": 14921599,
+        "n": 10
+       },
+       {
+        "name": "Axpo WZ-Systems AG",
+        "chf": 6420913,
+        "n": 17
+       }
+      ]
+     },
+     {
+      "name": "Orange Business Digital Switzerland AG",
       "chf": 21301005,
-      "n": 22
+      "n": 22,
+      "variants": [
+       {
+        "name": "Business & Decision AG",
+        "chf": 21301005,
+        "n": 22
+       }
+      ]
      },
      {
       "name": "Consorzio 101 Gaggio c/o csc costruzioni sa",
@@ -1322,11 +1370,6 @@
       "name": "Thales Suisse SA Defence & Homeland Security",
       "chf": 17701426,
       "n": 12
-     },
-     {
-      "name": "IG BCL BHU BSA c/o Bachofner & Partner AG",
-      "chf": 17617512,
-      "n": 2
      }
     ],
     "top_units": [
@@ -2619,8 +2662,20 @@
      },
      {
       "name": "EBP Schweiz AG",
-      "chf": 24210645,
-      "n": 46
+      "chf": 24371282,
+      "n": 47,
+      "variants": [
+       {
+        "name": "EBP Schweiz AG",
+        "chf": 24210645,
+        "n": 46
+       },
+       {
+        "name": "Ernst Basler + Partner AG",
+        "chf": 160637,
+        "n": 1
+       }
+      ]
      },
      {
       "name": "TotalEnergies Aviation Suisse SA",
@@ -3130,20 +3185,8 @@
      },
      {
       "name": "swenex - swiss energy exchange Ltd",
-      "chf": 179268245,
-      "n": 40,
-      "variants": [
-       {
-        "name": "swenex - swiss energy exchange Ltd",
-        "chf": 178978537,
-        "n": 39
-       },
-       {
-        "name": "swenex swiss energy exchange",
-        "chf": 289708,
-        "n": 1
-       }
-      ]
+      "chf": 178978537,
+      "n": 39
      },
      {
       "name": "ARGE 4-Spur",
@@ -3194,8 +3237,20 @@
      },
      {
       "name": "General Dynamics European Land Systems - Mowag GmbH",
-      "chf": 71345657,
-      "n": 133
+      "chf": 71475107,
+      "n": 134,
+      "variants": [
+       {
+        "name": "General Dynamics European Land Systems - Mowag GmbH",
+        "chf": 71345657,
+        "n": 133
+       },
+       {
+        "name": "MOWAG GmbH",
+        "chf": 129450,
+        "n": 1
+       }
+      ]
      },
      {
       "name": "NOVO Business Consultants AG",
@@ -3303,8 +3358,20 @@
      },
      {
       "name": "Securitas AG Schweizerische Bewachungsgesellschaft",
-      "chf": 33868455,
-      "n": 15
+      "chf": 33934211,
+      "n": 16,
+      "variants": [
+       {
+        "name": "Securitas AG Schweizerische Bewachungsgesellschaft",
+        "chf": 33868455,
+        "n": 15
+       },
+       {
+        "name": "Securitas SA, Société suisse de surveillance",
+        "chf": 65755,
+        "n": 1
+       }
+      ]
      },
      {
       "name": "PILATUS Flugzeugwerke AG",
@@ -3770,8 +3837,20 @@
    },
    {
     "name": "General Dynamics European Land Systems - Mowag GmbH",
-    "chf": 795921126,
-    "n": 638
+    "chf": 796050576,
+    "n": 639,
+    "variants": [
+     {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "chf": 795921126,
+      "n": 638
+     },
+     {
+      "name": "MOWAG GmbH",
+      "chf": 129450,
+      "n": 1
+     }
+    ]
    },
    {
     "name": "Consorzio Gottardo Sud, Lotto 341 c/o Marti Tunnel AG",
@@ -3785,20 +3864,8 @@
    },
    {
     "name": "swenex - swiss energy exchange Ltd",
-    "chf": 377940482,
-    "n": 187,
-    "variants": [
-     {
-      "name": "swenex - swiss energy exchange Ltd",
-      "chf": 377219974,
-      "n": 185
-     },
-     {
-      "name": "swenex swiss energy exchange",
-      "chf": 720508,
-      "n": 2
-     }
-    ]
+    "chf": 377219974,
+    "n": 185
    },
    {
     "name": "Swisscom (Schweiz) AG",
@@ -3829,6 +3896,40 @@
       "name": "Swisscom (Schweiz AG)",
       "chf": 214754,
       "n": 1
+     }
+    ]
+   },
+   {
+    "name": "SwissP Defence AG",
+    "chf": 256746345,
+    "n": 44,
+    "variants": [
+     {
+      "name": "SwissP Defence AG",
+      "chf": 185038173,
+      "n": 36
+     },
+     {
+      "name": "RUAG Ammotec AG",
+      "chf": 71708172,
+      "n": 8
+     }
+    ]
+   },
+   {
+    "name": "Thales Simulation & Training AG",
+    "chf": 230986331,
+    "n": 275,
+    "variants": [
+     {
+      "name": "Thales Simulation & Training AG",
+      "chf": 147302091,
+      "n": 219
+     },
+     {
+      "name": "RUAG Simulation & Training AG",
+      "chf": 83684240,
+      "n": 56
      }
     ]
    },
@@ -3941,11 +4042,6 @@
     ]
    },
    {
-    "name": "SwissP Defence AG",
-    "chf": 185038173,
-    "n": 36
-   },
-   {
     "name": "Arge GUBRI c/o Anliker AGBauunternehmung",
     "chf": 184029603,
     "n": 1
@@ -3967,8 +4063,8 @@
    },
    {
     "name": "Eraneos Switzerland AG",
-    "chf": 160054405,
-    "n": 385,
+    "chf": 160319411,
+    "n": 388,
     "variants": [
      {
       "name": "Eraneos Switzerland AG",
@@ -3984,13 +4080,13 @@
       "name": "AWK GROUP AG",
       "chf": 449924,
       "n": 3
+     },
+     {
+      "name": "AWK Engineering AG",
+      "chf": 265007,
+      "n": 3
      }
     ]
-   },
-   {
-    "name": "Thales Simulation & Training AG",
-    "chf": 147302091,
-    "n": 219
    },
    {
     "name": "Elbit Systems Ltd Advanced Technology Center",
@@ -4094,6 +4190,23 @@
     ]
    },
    {
+    "name": "Orange Business Digital Switzerland AG",
+    "chf": 112634065,
+    "n": 90,
+    "variants": [
+     {
+      "name": "Orange Business Digital Switzerland AG",
+      "chf": 89773027,
+      "n": 64
+     },
+     {
+      "name": "Business & Decision AG",
+      "chf": 22861038,
+      "n": 26
+     }
+    ]
+   },
+   {
     "name": "ARGE Niesen",
     "chf": 111305101,
     "n": 2
@@ -4119,6 +4232,23 @@
     "n": 61
    },
    {
+    "name": "Axpo Systems AG",
+    "chf": 107161297,
+    "n": 49,
+    "variants": [
+     {
+      "name": "Axpo Systems AG",
+      "chf": 100205837,
+      "n": 28
+     },
+     {
+      "name": "Axpo WZ-Systems AG",
+      "chf": 6955460,
+      "n": 21
+     }
+    ]
+   },
+   {
     "name": "Consortium ROMY",
     "chf": 105476438,
     "n": 2
@@ -4134,19 +4264,26 @@
     "n": 117
    },
    {
+    "name": "Sonio AG",
+    "chf": 104485813,
+    "n": 213,
+    "variants": [
+     {
+      "name": "Sonio AG",
+      "chf": 96460684,
+      "n": 179
+     },
+     {
+      "name": "Infoniqa SQL AG",
+      "chf": 8025129,
+      "n": 34
+     }
+    ]
+   },
+   {
     "name": "Global IT AG",
     "chf": 102312398,
     "n": 254
-   },
-   {
-    "name": "Axpo Systems AG",
-    "chf": 100205837,
-    "n": 28
-   },
-   {
-    "name": "Sonio AG",
-    "chf": 96460684,
-    "n": 179
    },
    {
     "name": "Post CH AG",
@@ -4225,11 +4362,6 @@
     "n": 62
    },
    {
-    "name": "Orange Business Digital Switzerland AG",
-    "chf": 89773027,
-    "n": 64
-   },
-   {
     "name": "Consortium Vennes-Chexbres TP4",
     "chf": 88827139,
     "n": 1
@@ -4255,11 +4387,6 @@
     "n": 129
    },
    {
-    "name": "RUAG Simulation & Training AG",
-    "chf": 83684240,
-    "n": 56
-   },
-   {
     "name": "Paul Boyé Technologies",
     "chf": 82233314,
     "n": 4
@@ -4271,8 +4398,20 @@
    },
    {
     "name": "Honegger AG",
-    "chf": 79024120,
-    "n": 394
+    "chf": 79359506,
+    "n": 396,
+    "variants": [
+     {
+      "name": "Honegger AG",
+      "chf": 79024120,
+      "n": 394
+     },
+     {
+      "name": "Honegger Reinigungen AG",
+      "chf": 335386,
+      "n": 2
+     }
+    ]
    },
    {
     "name": "Consorzio Cunicolo Gottardo (CCG)",
@@ -4288,6 +4427,23 @@
     "name": "SPIE ICS AG",
     "chf": 74654435,
     "n": 211
+   },
+   {
+    "name": "EBP Schweiz AG",
+    "chf": 73677042,
+    "n": 222,
+    "variants": [
+     {
+      "name": "EBP Schweiz AG",
+      "chf": 73516405,
+      "n": 221
+     },
+     {
+      "name": "Ernst Basler + Partner AG",
+      "chf": 160637,
+      "n": 1
+     }
+    ]
    },
    {
     "name": "adesso Schweiz AG, Zweigniederlassung Bern",
@@ -4312,19 +4468,31 @@
     ]
    },
    {
-    "name": "EBP Schweiz AG",
-    "chf": 73516405,
-    "n": 221
-   },
-   {
     "name": "ARGE PUN",
     "chf": 73120700,
     "n": 2
    },
    {
-    "name": "RUAG Ammotec AG",
-    "chf": 71708172,
-    "n": 8
+    "name": "Equans Switzerland Facility Management AG",
+    "chf": 70553508,
+    "n": 29,
+    "variants": [
+     {
+      "name": "Equans Switzerland Facility Management AG",
+      "chf": 59763344,
+      "n": 19
+     },
+     {
+      "name": "Bouygues Energies & Services Schweiz AG",
+      "chf": 10682464,
+      "n": 9
+     },
+     {
+      "name": "Bouygues Energies & Services Svizzera SA",
+      "chf": 107700,
+      "n": 1
+     }
+    ]
    },
    {
     "name": "Kongsberg Defence and Aerospace AS Business area Kongsberg Protech Systems",
@@ -4457,6 +4625,23 @@
     ]
    },
    {
+    "name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
+    "chf": 61928298,
+    "n": 79,
+    "variants": [
+     {
+      "name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
+      "chf": 60860018,
+      "n": 74
+     },
+     {
+      "name": "Unisys ( Schweiz) GmbH Zweigniederlassung Bern",
+      "chf": 1068280,
+      "n": 5
+     }
+    ]
+   },
+   {
     "name": "Hewlett-Packard (Schweiz) GmbH",
     "chf": 61642223,
     "n": 80
@@ -4470,16 +4655,6 @@
     "name": "Rheinmetall Electronics GmbH",
     "chf": 60893543,
     "n": 42
-   },
-   {
-    "name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
-    "chf": 60860018,
-    "n": 74
-   },
-   {
-    "name": "Equans Switzerland Facility Management AG",
-    "chf": 59763344,
-    "n": 19
    },
    {
     "name": "Rexult AG",
@@ -4625,9 +4800,70 @@
       "n": 2
      }
     ]
+   },
+   {
+    "name": "ARGE Urschwyz 1",
+    "chf": 47279280,
+    "n": 2
+   },
+   {
+    "name": "Walo Bertschinger AG Bern, Zweigniederlassung Muri b. Bern",
+    "chf": 47220316,
+    "n": 17,
+    "variants": [
+     {
+      "name": "Walo Bertschinger AG Bern, Zweigniederlassung Muri b. Bern",
+      "chf": 46311983,
+      "n": 8
+     },
+     {
+      "name": "Walo Bertschinger AG Bern Zweigniederlassung Muri b. Bern",
+      "chf": 908334,
+      "n": 9
+     }
+    ]
    }
   ],
   "supplier_groups": [
+   {
+    "name": "adesso Schweiz AG",
+    "variants": [
+     {
+      "name": "adesso Schweiz AG",
+      "years": {
+       "2022": {
+        "chf": 516529,
+        "n": 3
+       },
+       "2023": {
+        "chf": 14420645,
+        "n": 4
+       },
+       "2024": {
+        "chf": 11447591,
+        "n": 5
+       },
+       "2025": {
+        "chf": 3891927,
+        "n": 9
+       }
+      }
+     },
+     {
+      "name": "Adesso Schweiz AG",
+      "years": {
+       "2021": {
+        "chf": 3164118,
+        "n": 4
+       },
+       "2022": {
+        "chf": 2067840,
+        "n": 1
+       }
+      }
+     }
+    ]
+   },
    {
     "name": "adesso Schweiz AG, Zweigniederlassung Bern",
     "variants": [
@@ -4798,6 +5034,45 @@
     ]
    },
    {
+    "name": "Axpo Systems AG",
+    "variants": [
+     {
+      "name": "Axpo Systems AG",
+      "years": {
+       "2022": {
+        "chf": 14921599,
+        "n": 10
+       },
+       "2023": {
+        "chf": 34068382,
+        "n": 7
+       },
+       "2024": {
+        "chf": 19024416,
+        "n": 4
+       },
+       "2025": {
+        "chf": 32191441,
+        "n": 7
+       }
+      }
+     },
+     {
+      "name": "Axpo WZ-Systems AG",
+      "years": {
+       "2021": {
+        "chf": 534547,
+        "n": 4
+       },
+       "2022": {
+        "chf": 6420913,
+        "n": 17
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "BUSINESS IT AG",
     "variants": [
      {
@@ -4891,6 +5166,45 @@
        "2024": {
         "chf": 15508387,
         "n": 15
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "EBP Schweiz AG",
+    "variants": [
+     {
+      "name": "EBP Schweiz AG",
+      "years": {
+       "2021": {
+        "chf": 8500460,
+        "n": 47
+       },
+       "2022": {
+        "chf": 20000290,
+        "n": 40
+       },
+       "2023": {
+        "chf": 12703741,
+        "n": 49
+       },
+       "2024": {
+        "chf": 24210645,
+        "n": 46
+       },
+       "2025": {
+        "chf": 8101269,
+        "n": 39
+       }
+      }
+     },
+     {
+      "name": "Ernst Basler + Partner AG",
+      "years": {
+       "2024": {
+        "chf": 160637,
+        "n": 1
        }
       }
      }
@@ -4999,6 +5313,50 @@
     ]
    },
    {
+    "name": "Equans Switzerland Facility Management AG",
+    "variants": [
+     {
+      "name": "Equans Switzerland Facility Management AG",
+      "years": {
+       "2023": {
+        "chf": 5332808,
+        "n": 6
+       },
+       "2024": {
+        "chf": 5370263,
+        "n": 5
+       },
+       "2025": {
+        "chf": 49060273,
+        "n": 8
+       }
+      }
+     },
+     {
+      "name": "Bouygues Energies & Services Schweiz AG",
+      "years": {
+       "2021": {
+        "chf": 4734537,
+        "n": 4
+       },
+       "2022": {
+        "chf": 5947927,
+        "n": 5
+       }
+      }
+     },
+     {
+      "name": "Bouygues Energies & Services Svizzera SA",
+      "years": {
+       "2022": {
+        "chf": 107700,
+        "n": 1
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "Eraneos Switzerland AG",
     "variants": [
      {
@@ -5019,6 +5377,19 @@
        "2025": {
         "chf": 23591658,
         "n": 70
+       }
+      }
+     },
+     {
+      "name": "AWK Engineering AG",
+      "years": {
+       "2021": {
+        "chf": 185136,
+        "n": 2
+       },
+       "2022": {
+        "chf": 79870,
+        "n": 1
        }
       }
      },
@@ -5181,6 +5552,45 @@
     ]
    },
    {
+    "name": "General Dynamics European Land Systems - Mowag GmbH",
+    "variants": [
+     {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "years": {
+       "2021": {
+        "chf": 27303121,
+        "n": 101
+       },
+       "2022": {
+        "chf": 370740540,
+        "n": 126
+       },
+       "2023": {
+        "chf": 169776233,
+        "n": 137
+       },
+       "2024": {
+        "chf": 156755575,
+        "n": 141
+       },
+       "2025": {
+        "chf": 71345657,
+        "n": 133
+       }
+      }
+     },
+     {
+      "name": "MOWAG GmbH",
+      "years": {
+       "2025": {
+        "chf": 129450,
+        "n": 1
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "Grisoni-Zaugg SA",
     "variants": [
      {
@@ -5283,6 +5693,45 @@
        "2022": {
         "chf": 17324313,
         "n": 9
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "Honegger AG",
+    "variants": [
+     {
+      "name": "Honegger AG",
+      "years": {
+       "2021": {
+        "chf": 20037034,
+        "n": 94
+       },
+       "2022": {
+        "chf": 28096316,
+        "n": 84
+       },
+       "2023": {
+        "chf": 13595085,
+        "n": 72
+       },
+       "2024": {
+        "chf": 7272152,
+        "n": 65
+       },
+       "2025": {
+        "chf": 10023533,
+        "n": 79
+       }
+      }
+     },
+     {
+      "name": "Honegger Reinigungen AG",
+      "years": {
+       "2021": {
+        "chf": 335386,
+        "n": 2
        }
       }
      }
@@ -5548,6 +5997,72 @@
     ]
    },
    {
+    "name": "Orange Business Digital Switzerland AG",
+    "variants": [
+     {
+      "name": "Orange Business Digital Switzerland AG",
+      "years": {
+       "2023": {
+        "chf": 30379595,
+        "n": 18
+       },
+       "2024": {
+        "chf": 26246039,
+        "n": 18
+       },
+       "2025": {
+        "chf": 33147393,
+        "n": 28
+       }
+      }
+     },
+     {
+      "name": "Business & Decision AG",
+      "years": {
+       "2021": {
+        "chf": 1560033,
+        "n": 4
+       },
+       "2022": {
+        "chf": 21301005,
+        "n": 22
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "ORS SERVICE AG",
+    "variants": [
+     {
+      "name": "ORS SERVICE AG",
+      "years": {
+       "2023": {
+        "chf": 5101688,
+        "n": 3
+       },
+       "2025": {
+        "chf": 23834022,
+        "n": 4
+       }
+      }
+     },
+     {
+      "name": "Ors Service AG",
+      "years": {
+       "2021": {
+        "chf": 782000,
+        "n": 1
+       },
+       "2022": {
+        "chf": 4260000,
+        "n": 3
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "PORR SUISSE AG",
     "variants": [
      {
@@ -5620,6 +6135,41 @@
        "2024": {
         "chf": 54558,
         "n": 1
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "RENAULT SUISSE SA",
+    "variants": [
+     {
+      "name": "RENAULT SUISSE SA",
+      "years": {
+       "2024": {
+        "chf": 1788269,
+        "n": 2
+       },
+       "2025": {
+        "chf": 21639214,
+        "n": 4
+       }
+      }
+     },
+     {
+      "name": "Renault Suisse SA",
+      "years": {
+       "2021": {
+        "chf": 5160212,
+        "n": 4
+       },
+       "2022": {
+        "chf": 1031126,
+        "n": 1
+       },
+       "2024": {
+        "chf": 3329921,
+        "n": 5
        }
       }
      }
@@ -5743,6 +6293,80 @@
     ]
    },
    {
+    "name": "Securitas AG Schweizerische Bewachungsgesellschaft",
+    "variants": [
+     {
+      "name": "Securitas AG Schweizerische Bewachungsgesellschaft",
+      "years": {
+       "2021": {
+        "chf": 5516769,
+        "n": 3
+       },
+       "2022": {
+        "chf": 1257134,
+        "n": 2
+       },
+       "2023": {
+        "chf": 1560829,
+        "n": 4
+       },
+       "2024": {
+        "chf": 1569834,
+        "n": 4
+       },
+       "2025": {
+        "chf": 33868455,
+        "n": 15
+       }
+      }
+     },
+     {
+      "name": "Securitas S.A. Société Suisse de Surveillance",
+      "years": {
+       "2024": {
+        "chf": 63800,
+        "n": 1
+       }
+      }
+     },
+     {
+      "name": "Securitas SA Société Suisse de Surveillance",
+      "years": {
+       "2021": {
+        "chf": 77681,
+        "n": 1
+       }
+      }
+     },
+     {
+      "name": "Securitas SA Société Suisse de surveillance",
+      "years": {
+       "2021": {
+        "chf": 189821,
+        "n": 1
+       },
+       "2024": {
+        "chf": 51607,
+        "n": 1
+       }
+      }
+     },
+     {
+      "name": "Securitas SA, Société suisse de surveillance",
+      "years": {
+       "2024": {
+        "chf": 57983,
+        "n": 1
+       },
+       "2025": {
+        "chf": 65755,
+        "n": 1
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "Siemens Schweiz AG",
     "variants": [
      {
@@ -5824,43 +6448,39 @@
     ]
    },
    {
-    "name": "swenex - swiss energy exchange Ltd",
+    "name": "Sonio AG",
     "variants": [
      {
-      "name": "swenex - swiss energy exchange Ltd",
+      "name": "Sonio AG",
       "years": {
-       "2021": {
-        "chf": 6827591,
-        "n": 6
-       },
-       "2022": {
-        "chf": 58392969,
-        "n": 71
-       },
        "2023": {
-        "chf": 63110191,
-        "n": 34
+        "chf": 14489457,
+        "n": 23
        },
        "2024": {
-        "chf": 69910684,
-        "n": 35
+        "chf": 20641191,
+        "n": 41
        },
        "2025": {
-        "chf": 178978537,
-        "n": 39
+        "chf": 61330036,
+        "n": 115
        }
       }
      },
      {
-      "name": "swenex swiss energy exchange",
+      "name": "Infoniqa SQL AG",
       "years": {
-       "2022": {
-        "chf": 430800,
-        "n": 1
+       "2021": {
+        "chf": 5237887,
+        "n": 14
        },
-       "2025": {
-        "chf": 289708,
-        "n": 1
+       "2022": {
+        "chf": 2486411,
+        "n": 17
+       },
+       "2023": {
+        "chf": 300831,
+        "n": 3
        }
       }
      }
@@ -5945,6 +6565,76 @@
     ]
    },
    {
+    "name": "SwissP Defence AG",
+    "variants": [
+     {
+      "name": "SwissP Defence AG",
+      "years": {
+       "2022": {
+        "chf": 47026008,
+        "n": 10
+       },
+       "2023": {
+        "chf": 42778509,
+        "n": 8
+       },
+       "2024": {
+        "chf": 61277213,
+        "n": 10
+       },
+       "2025": {
+        "chf": 33956444,
+        "n": 8
+       }
+      }
+     },
+     {
+      "name": "RUAG Ammotec AG",
+      "years": {
+       "2021": {
+        "chf": 71708172,
+        "n": 8
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "Thales Simulation & Training AG",
+    "variants": [
+     {
+      "name": "Thales Simulation & Training AG",
+      "years": {
+       "2022": {
+        "chf": 18990090,
+        "n": 57
+       },
+       "2023": {
+        "chf": 22170293,
+        "n": 54
+       },
+       "2024": {
+        "chf": 38896925,
+        "n": 53
+       },
+       "2025": {
+        "chf": 67244783,
+        "n": 55
+       }
+      }
+     },
+     {
+      "name": "RUAG Simulation & Training AG",
+      "years": {
+       "2021": {
+        "chf": 83684240,
+        "n": 56
+       }
+      }
+     }
+    ]
+   },
+   {
     "name": "trueIT GmbH",
     "variants": [
      {
@@ -5978,6 +6668,49 @@
        "2021": {
         "chf": 814212,
         "n": 1
+       }
+      }
+     }
+    ]
+   },
+   {
+    "name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
+    "variants": [
+     {
+      "name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
+      "years": {
+       "2021": {
+        "chf": 161335,
+        "n": 1
+       },
+       "2022": {
+        "chf": 1790699,
+        "n": 2
+       },
+       "2023": {
+        "chf": 13228758,
+        "n": 15
+       },
+       "2024": {
+        "chf": 17133281,
+        "n": 21
+       },
+       "2025": {
+        "chf": 28545945,
+        "n": 35
+       }
+      }
+     },
+     {
+      "name": "Unisys ( Schweiz) GmbH Zweigniederlassung Bern",
+      "years": {
+       "2021": {
+        "chf": 470897,
+        "n": 2
+       },
+       "2022": {
+        "chf": 597383,
+        "n": 3
        }
       }
      }

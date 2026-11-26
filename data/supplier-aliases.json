@@ -4,15 +4,29 @@
     "en": "Different spellings of the same supplier in the federal procurement lists (BKB, contracts 2021–2025). Each group is a single company of the commercial register, with its UID. Supplier rankings count the spellings of a group together under «name», the name as written in the most recent list (with several spellings, the one with most contracts; after a change of name, the current registered name). Single contracts keep the name written in the list."
   },
   "rule": {
-    "it": "Candidati: nomi uguali dopo aver tolto maiuscole, spazi, punteggiatura, accenti e forma giuridica, e con Schweiz/Suisse/Svizzera/Switzerland come una sola parola. Riuniti solo se ogni grafia corrisponde al nome della stessa ditta nel registro di commercio (Zefix): il nome attuale, una sua traduzione registrata o un nome precedente. Dopo un cambio di nome la ditta compare con il nome attuale («già …»); se il vecchio nome è passato a un'altra ditta, contano solo i contratti iniziati prima del cambio. Non riuniti: succursali scritte con il loro nome, ditte diverse dello stesso gruppo, nomi abbreviati o troncati, luoghi diversi da quelli del registro.",
-    "en": "Candidates: names that are the same once case, spaces, punctuation, accents and legal form are removed, with Schweiz/Suisse/Svizzera/Switzerland as one word. Merged only if every spelling matches the name of the same company in the commercial register (Zefix): its current name, a registered translation of it, or a former name. After a change of name the company is shown with its current name («formerly …»); if the old name went to another company, only the contracts that started before the change count. Not merged: branches written with their own name, different companies of the same group, abbreviated or cut-off names, places other than those in the register."
+    "it": "Candidati: nomi uguali dopo aver tolto maiuscole, spazi, punteggiatura, accenti e forma giuridica, e con Schweiz/Suisse/Svizzera/Switzerland come una sola parola. Riuniti solo se ogni grafia corrisponde al nome della stessa ditta nel registro di commercio (Zefix): il nome attuale, una sua traduzione registrata o un nome precedente. Dopo un cambio di nome la ditta compare con il nome attuale («già …»): contano tutti i contratti scritti con il vecchio nome se nessun'altra ditta l'ha avuto dopo, altrimenti solo quelli iniziati prima del cambio. Non riuniti: nomi senza forma giuridica, succursali scritte con il loro nome, ditte diverse dello stesso gruppo, nomi abbreviati o troncati, luoghi diversi da quelli del registro.",
+    "en": "Candidates: names that are the same once case, spaces, punctuation, accents and legal form are removed, with Schweiz/Suisse/Svizzera/Switzerland as one word. Merged only if every spelling matches the name of the same company in the commercial register (Zefix): its current name, a registered translation of it, or a former name. After a change of name the company is shown with its current name («formerly …»): all the contracts written with the old name count if no other company had it afterwards, otherwise only those that started before the change. Not merged: names without legal form, branches written with their own name, different companies of the same group, abbreviated or cut-off names, places other than those in the register."
   },
   "scope": {
-    "it": "Controllati i gruppi che possono entrare nelle classifiche del sito: i primi 50 fornitori di ogni anno e i primi 100 dei cinque anni insieme. Gli altri nomi restano come sono scritti.",
-    "en": "Checked: the groups that can enter the rankings of the site, the top 50 suppliers of each year and the top 100 of the five years together. Other names stay as written."
+    "it": "Il 26 novembre 2026 sono stati cercati nel registro di commercio (Zefix) tutti i nomi che compaiono nelle classifiche del sito (primi 50 fornitori di ogni anno, primi 100 dei cinque anni insieme), tranne consorzi e governi esteri, che non vi sono iscritti; per ogni ditta trovata, con il suo numero IDI, sono state cercate negli elenchi le grafie del nome, le traduzioni registrate e i nomi precedenti. I nomi che il registro non contiene così come sono scritti (ditte estere, nomi con aggiunte come una divisione) restano come sono, e così i nomi che non entrano nelle classifiche.",
+    "en": "On 26 November 2026 every name in the rankings of the site (top 50 suppliers of each year, top 100 of the five years together) was looked up in the commercial register (Zefix), except consortia and foreign governments, which are not entered in it; for each company found, with its UID, the lists were searched for spellings of its name, registered translations and former names. Names the register does not contain as written (foreign companies, names with additions such as a division) stay as they are, and so do names that do not enter the rankings."
   },
   "source": {"name": "Zefix, Indice centrale delle ditte (UFRC)", "url": "https://www.zefix.ch", "checked": "2026-11-26"},
   "groups": [
+    {
+      "name": "adesso Schweiz AG",
+      "uid": "CHE-103.704.747",
+      "register_name": "adesso Schweiz AG",
+      "seat": "Zürich",
+      "register_status": "active",
+      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-103.704.747",
+      "zefix_id": 70649,
+      "checked": "2026-11-26",
+      "variants": [
+        {"name": "adesso Schweiz AG", "match": "name"},
+        {"name": "Adesso Schweiz AG", "match": "name"}
+      ]
+    },
     {
       "name": "adesso Schweiz AG, Zweigniederlassung Bern",
       "uid": "CHE-410.550.244",
@@ -38,7 +52,7 @@
       "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.013.711",
       "zefix_id": 224067,
       "checked": "2026-11-26",
-      "renamed": {"from": "AdNovum Informatik AG", "to": "Adnovum AG", "register_date": "2023-06-01", "sogc_date": "2023-06-06", "sogc_publication": "1005760936"},
+      "renamed": [{"from": "AdNovum Informatik AG", "to": "Adnovum AG", "register_date": "2023-06-01", "sogc_date": "2023-06-06", "sogc_publication": "1005760936"}],
       "variants": [
         {"name": "Adnovum AG", "match": "name"},
         {"name": "AdNovum AG", "match": "name"},
@@ -46,7 +60,7 @@
         {"name": "Adnovum Informatik AG", "match": "former", "register_name": "AdNovum Informatik AG", "former_name": "AdNovum Informatik AG"},
         {"name": "AdNovum Informatique SA", "match": "former-translation", "register_name": "AdNovum Informatique SA", "former_name": "AdNovum Informatik AG", "lang": "fr"}
       ],
-      "note": {"it": "Nel 2023 la ditta ha assorbito la Adnovum AG (CHE-142.029.398) e ne ha preso il nome: i 9 contratti scritti «Adnovum AG» iniziati prima del cambio di nome sono passati a questa ditta con la fusione.", "en": "In 2023 the company absorbed Adnovum AG (CHE-142.029.398) and took its name: the 9 contracts written «Adnovum AG» that started before the change of name passed to this company with the merger."}
+      "note": {"it": "Il registro mostra il cambio di nome da AdNovum Informatik AG ad Adnovum AG il 1.6.2023, con lo stesso numero IDI.", "en": "The register shows the change of name from AdNovum Informatik AG to Adnovum AG on 1.6.2023, with the same UID number."}
     },
     {
       "name": "APP Unternehmensberatung AG",
@@ -60,6 +74,21 @@
       "variants": [
         {"name": "APP Unternehmensberatung AG", "match": "name"},
         {"name": "APP Unternehmensberatung  AG", "match": "name"}
+      ]
+    },
+    {
+      "name": "Axpo Systems AG",
+      "uid": "CHE-107.410.894",
+      "register_name": "Axpo Systems AG",
+      "seat": "Lupfig",
+      "register_status": "active",
+      "register_url": "https://ag.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-107.410.894",
+      "zefix_id": 303969,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Axpo WZ-Systems AG", "to": "Axpo Systems AG", "register_date": "2023-01-31", "sogc_date": "2023-02-03", "sogc_publication": "1005669618"}],
+      "variants": [
+        {"name": "Axpo Systems AG", "match": "name"},
+        {"name": "Axpo WZ-Systems AG", "match": "former", "register_name": "Axpo WZ-Systems AG", "former_name": "Axpo WZ-Systems AG"}
       ]
     },
     {
@@ -93,6 +122,21 @@
       ]
     },
     {
+      "name": "EBP Schweiz AG",
+      "uid": "CHE-106.007.550",
+      "register_name": "EBP Schweiz AG",
+      "seat": "Zürich",
+      "register_status": "active",
+      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.007.550",
+      "zefix_id": 14524,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Ernst Basler + Partner AG", "to": "EBP Schweiz AG", "register_date": "2016-10-03", "sogc_date": "2016-10-06", "sogc_publication": "3092857"}],
+      "variants": [
+        {"name": "EBP Schweiz AG", "match": "name"},
+        {"name": "Ernst Basler + Partner AG", "match": "former", "register_name": "Ernst Basler + Partner AG", "former_name": "Ernst Basler + Partner AG"}
+      ]
+    },
+    {
       "name": "ELCA Informatique SA",
       "uid": "CHE-105.944.452",
       "register_name": "ELCA Informatique SA",
@@ -111,6 +155,22 @@
       "note": {"it": "ELCA Informatik AG è il nome tedesco registrato della stessa ditta; con questo nome sono iscritte anche le sue succursali di Berna (CHE-288.199.350) e Zurigo (CHE-278.307.690).", "en": "ELCA Informatik AG is the registered German name of the same company; its branches in Bern (CHE-288.199.350) and Zurich (CHE-278.307.690) are entered under this name."}
     },
     {
+      "name": "Equans Switzerland Facility Management AG",
+      "uid": "CHE-105.849.954",
+      "register_name": "Equans Switzerland Facility Management AG",
+      "seat": "Zug",
+      "register_status": "active",
+      "register_url": "https://zg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-105.849.954",
+      "zefix_id": 456322,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Bouygues Energies & Services Schweiz AG", "to": "Equans Switzerland Facility Management AG", "register_date": "2023-12-27", "sogc_date": "2024-01-03", "sogc_publication": "1005924578"}],
+      "variants": [
+        {"name": "Equans Switzerland Facility Management AG", "match": "name"},
+        {"name": "Bouygues Energies & Services Schweiz AG", "match": "former", "register_name": "Bouygues Energies & Services Schweiz AG", "former_name": "Bouygues Energies & Services Schweiz AG"},
+        {"name": "Bouygues Energies & Services Svizzera SA", "match": "former-translation", "register_name": "Bouygues Energies & Services Svizzera SA", "former_name": "Bouygues Energies & Services Schweiz AG", "lang": "it"}
+      ]
+    },
+    {
       "name": "Eraneos Switzerland AG",
       "uid": "CHE-105.318.036",
       "register_name": "Eraneos Switzerland AG",
@@ -119,12 +179,14 @@
       "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-105.318.036",
       "zefix_id": 501514,
       "checked": "2026-11-26",
-      "renamed": {"from": "AWK Group AG", "to": "Eraneos Switzerland AG", "register_date": "2023-01-06", "sogc_date": "2023-01-11", "sogc_publication": "1005649191"},
+      "renamed": [{"from": "AWK Group AG", "to": "Eraneos Switzerland AG", "register_date": "2023-01-06", "sogc_date": "2023-01-11", "sogc_publication": "1005649191"}, {"from": "AWK Engineering AG", "to": "AWK Group AG", "before": "2016-02-12"}],
       "variants": [
         {"name": "Eraneos Switzerland AG", "match": "name"},
+        {"name": "AWK Engineering AG", "match": "former", "register_name": "AWK Engineering AG", "former_name": "AWK Engineering AG"},
         {"name": "AWK Group AG", "match": "former", "register_name": "AWK Group AG", "former_name": "AWK Group AG"},
         {"name": "AWK GROUP AG", "match": "former", "register_name": "AWK Group AG", "former_name": "AWK Group AG"}
-      ]
+      ],
+      "note": {"it": "Nessun'altra ditta ha mai avuto i nomi AWK Group AG o AWK Engineering AG.", "en": "No other company has ever had the names AWK Group AG or AWK Engineering AG."}
     },
     {
       "name": "ESRI Schweiz AG",
@@ -163,13 +225,28 @@
       "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.105.537",
       "zefix_id": 328141,
       "checked": "2026-11-26",
-      "renamed": {"from": "Atos AG", "to": "Eviden AG", "register_date": "2023-07-03", "sogc_date": "2023-07-06", "sogc_publication": "1005788021"},
+      "renamed": [{"from": "Atos AG", "to": "Eviden AG", "register_date": "2023-07-03", "sogc_date": "2023-07-06", "sogc_publication": "1005788021"}],
       "variants": [
         {"name": "Eviden AG", "match": "name"},
         {"name": "Atos AG", "match": "former", "register_name": "Atos AG", "former_name": "Atos AG", "only_before": "2023-07-03"},
         {"name": "ATOS AG", "match": "former", "register_name": "Atos AG", "former_name": "Atos AG", "only_before": "2023-07-03"}
       ],
       "note": {"it": "Dal 3 luglio 2023 il nome Atos AG è di un'altra ditta (CHE-493.823.540): con Eviden AG sono contati solo i contratti scritti «Atos AG» iniziati prima di quella data. Negli elenchi 2021–2025 nessun contratto «Atos AG» inizia dopo.", "en": "Since 3 July 2023 the name Atos AG belongs to another company (CHE-493.823.540): only the contracts written «Atos AG» that started before that date are counted with Eviden AG. In the 2021–2025 lists no «Atos AG» contract starts later."}
+    },
+    {
+      "name": "General Dynamics European Land Systems - Mowag GmbH",
+      "uid": "CHE-108.440.337",
+      "register_name": "General Dynamics European Land Systems - Mowag GmbH",
+      "seat": "Kreuzlingen",
+      "register_status": "active",
+      "register_url": "https://tg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-108.440.337",
+      "zefix_id": 437999,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Mowag GmbH", "to": "General Dynamics European Land Systems - Mowag GmbH", "before": "2016-05-23"}],
+      "variants": [
+        {"name": "General Dynamics European Land Systems - Mowag GmbH", "match": "name"},
+        {"name": "MOWAG GmbH", "match": "former", "register_name": "Mowag GmbH", "former_name": "Mowag GmbH"}
+      ]
     },
     {
       "name": "Grisoni-Zaugg SA",
@@ -200,6 +277,22 @@
         {"name": "HELVETAS Swiss Intercooperation", "match": "name"},
         {"name": "Helvetas Swiss Intercooperation", "match": "name"}
       ]
+    },
+    {
+      "name": "Honegger AG",
+      "uid": "CHE-105.949.952",
+      "register_name": "Honegger AG",
+      "seat": "Köniz",
+      "register_status": "active",
+      "register_url": "https://be.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-105.949.952",
+      "zefix_id": 82641,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Honegger Reinigungen AG", "to": "Honegger AG", "before": "2016-04-08"}],
+      "variants": [
+        {"name": "Honegger AG", "match": "name"},
+        {"name": "Honegger Reinigungen AG", "match": "former", "register_name": "Honegger Reinigungen AG", "former_name": "Honegger Reinigungen AG"}
+      ],
+      "note": {"it": "Il nome Honegger Reinigungen AG era stato di due altre ditte, cancellate nel 1996 e nel 2006; negli anni dei contratti nessun'altra ditta lo aveva.", "en": "The name Honegger Reinigungen AG had belonged to two other companies, deleted in 1996 and 2006; in the years of the contracts no other company had it."}
     },
     {
       "name": "IBM Schweiz AG",
@@ -288,6 +381,35 @@
       ]
     },
     {
+      "name": "Orange Business Digital Switzerland AG",
+      "uid": "CHE-103.472.011",
+      "register_name": "Orange Business Digital Switzerland AG",
+      "seat": "Ittigen",
+      "register_status": "active",
+      "register_url": "https://be.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-103.472.011",
+      "zefix_id": 409813,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Business & Decision AG", "to": "Orange Business Digital Switzerland AG", "register_date": "2023-11-28", "sogc_date": "2023-12-01", "sogc_publication": "1005898498"}],
+      "variants": [
+        {"name": "Orange Business Digital Switzerland AG", "match": "name"},
+        {"name": "Business & Decision AG", "match": "former", "register_name": "Business & Decision AG", "former_name": "Business & Decision AG"}
+      ]
+    },
+    {
+      "name": "ORS SERVICE AG",
+      "uid": "CHE-105.851.253",
+      "register_name": "ORS SERVICE AG",
+      "seat": "Zürich",
+      "register_status": "active",
+      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-105.851.253",
+      "zefix_id": 130962,
+      "checked": "2026-11-26",
+      "variants": [
+        {"name": "ORS SERVICE AG", "match": "name"},
+        {"name": "Ors Service AG", "match": "name"}
+      ]
+    },
+    {
       "name": "PORR SUISSE AG",
       "uid": "CHE-105.738.898",
       "register_name": "PORR SUISSE AG",
@@ -313,6 +435,20 @@
       "variants": [
         {"name": "Protectas S.A.", "match": "name"},
         {"name": "Protectas SA", "match": "name"}
+      ]
+    },
+    {
+      "name": "RENAULT SUISSE SA",
+      "uid": "CHE-106.968.188",
+      "register_name": "RENAULT SUISSE SA",
+      "seat": "Urdorf",
+      "register_status": "active",
+      "register_url": "https://zh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.968.188",
+      "zefix_id": 145407,
+      "checked": "2026-11-26",
+      "variants": [
+        {"name": "RENAULT SUISSE SA", "match": "name"},
+        {"name": "Renault Suisse SA", "match": "name"}
       ]
     },
     {
@@ -358,6 +494,23 @@
       ]
     },
     {
+      "name": "Securitas AG Schweizerische Bewachungsgesellschaft",
+      "uid": "CHE-106.832.531",
+      "register_name": "Securitas AG Schweizerische Bewachungsgesellschaft",
+      "seat": "Bern",
+      "register_status": "active",
+      "register_url": "https://be.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-106.832.531",
+      "zefix_id": 167148,
+      "checked": "2026-11-26",
+      "variants": [
+        {"name": "Securitas AG Schweizerische Bewachungsgesellschaft", "match": "name"},
+        {"name": "Securitas S.A. Société Suisse de Surveillance", "match": "translation", "register_name": "Securitas SA Société Suisse de Surveillance", "lang": "fr"},
+        {"name": "Securitas SA Société Suisse de Surveillance", "match": "translation", "register_name": "Securitas SA Société Suisse de Surveillance", "lang": "fr"},
+        {"name": "Securitas SA Société Suisse de surveillance", "match": "translation", "register_name": "Securitas SA Société Suisse de Surveillance", "lang": "fr"},
+        {"name": "Securitas SA, Société suisse de surveillance", "match": "translation", "register_name": "Securitas SA Société Suisse de Surveillance", "lang": "fr"}
+      ]
+    },
+    {
       "name": "Siemens Schweiz AG",
       "uid": "CHE-103.109.444",
       "register_name": "Siemens Schweiz AG",
@@ -374,19 +527,19 @@
       ]
     },
     {
-      "name": "swenex - swiss energy exchange Ltd",
-      "uid": "CHE-110.041.840",
-      "register_name": "swenex - swiss energy exchange Ltd",
-      "seat": "Kriens",
+      "name": "Sonio AG",
+      "uid": "CHE-107.446.811",
+      "register_name": "Sonio AG",
+      "seat": "Baar",
       "register_status": "active",
-      "register_url": "https://lu.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-110.041.840",
-      "zefix_id": 701466,
+      "register_url": "https://zg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-107.446.811",
+      "zefix_id": 319696,
       "checked": "2026-11-26",
+      "renamed": [{"from": "Infoniqa SQL AG", "to": "Sonio AG", "register_date": "2023-06-27", "sogc_date": "2023-06-30", "sogc_publication": "1005782914"}],
       "variants": [
-        {"name": "swenex - swiss energy exchange Ltd", "match": "name"},
-        {"name": "swenex swiss energy exchange", "match": "no-legal-form"}
-      ],
-      "note": {"it": "Una grafia è senza forma giuridica: i suoi due contratti hanno lo stesso luogo dell'indirizzo registrato (6010 Kriens).", "en": "One spelling has no legal form: its two contracts have the same place as the registered address (6010 Kriens)."}
+        {"name": "Sonio AG", "match": "name"},
+        {"name": "Infoniqa SQL AG", "match": "former", "register_name": "Infoniqa SQL AG", "former_name": "Infoniqa SQL AG"}
+      ]
     },
     {
       "name": "Swisscom (Schweiz) AG",
@@ -406,6 +559,36 @@
       ]
     },
     {
+      "name": "SwissP Defence AG",
+      "uid": "CHE-110.208.100",
+      "register_name": "SwissP Defence AG",
+      "seat": "Thun",
+      "register_status": "active",
+      "register_url": "https://be.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-110.208.100",
+      "zefix_id": 718163,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "RUAG Ammotec AG", "to": "SwissP Defence AG", "register_date": "2022-09-14", "sogc_date": "2022-09-19", "sogc_publication": "1005563946"}],
+      "variants": [
+        {"name": "SwissP Defence AG", "match": "name"},
+        {"name": "RUAG Ammotec AG", "match": "former", "register_name": "RUAG Ammotec AG", "former_name": "RUAG Ammotec AG"}
+      ]
+    },
+    {
+      "name": "Thales Simulation & Training AG",
+      "uid": "CHE-472.152.214",
+      "register_name": "Thales Simulation & Training AG",
+      "seat": "Bern",
+      "register_status": "active",
+      "register_url": "https://be.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-472.152.214",
+      "zefix_id": 1412395,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "RUAG Simulation & Training AG", "to": "Thales Simulation & Training AG", "register_date": "2022-05-06", "sogc_date": "2022-05-11", "sogc_publication": "1005470707"}],
+      "variants": [
+        {"name": "Thales Simulation & Training AG", "match": "name"},
+        {"name": "RUAG Simulation & Training AG", "match": "former", "register_name": "RUAG Simulation & Training AG", "former_name": "RUAG Simulation & Training AG"}
+      ]
+    },
+    {
       "name": "trueIT GmbH",
       "uid": "CHE-115.006.443",
       "register_name": "trueIT GmbH",
@@ -417,6 +600,22 @@
       "variants": [
         {"name": "trueIT GmbH", "match": "name"},
         {"name": "TrueIT GmbH", "match": "name"}
+      ]
+    },
+    {
+      "name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
+      "uid": "CHE-135.813.004",
+      "register_name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz",
+      "seat": "Köniz",
+      "register_status": "active",
+      "register_url": "https://be.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-135.813.004",
+      "zefix_id": 198756,
+      "checked": "2026-11-26",
+      "renamed": [{"from": "Unisys (Schweiz) GmbH Zweigniederlassung Bern", "to": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz", "register_date": "2021-12-07", "sogc_date": "2021-12-10", "sogc_publication": "1005354171"}],
+      "branch_of": {"name": "Unisys (Schweiz) GmbH", "uid": "CHE-105.928.654"},
+      "variants": [
+        {"name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern-Köniz", "match": "name"},
+        {"name": "Unisys ( Schweiz) GmbH Zweigniederlassung Bern", "match": "former", "register_name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern", "former_name": "Unisys (Schweiz) GmbH Zweigniederlassung Bern"}
       ]
     },
     {
@@ -437,11 +636,12 @@
   ],
   "not_merged": [
     {"names": ["IG BYTULU", "IG ByTuLu+"], "why": {"it": "Consorzio (IG) non iscritto nel registro di commercio; il «+» può indicare una composizione diversa.", "en": "Consortium (IG) not in the commercial register; the «+» can mean a different membership."}},
-    {"names": ["Business IT"], "why": {"it": "Senza forma giuridica e con un contratto in un altro luogo (3008 Bern): non si può dire che sia BUSINESS IT AG.", "en": "No legal form and one contract at another place (3008 Bern): it cannot be told to be BUSINESS IT AG."}},
+    {"names": ["BUSINESS IT AG", "Business IT"], "why": {"it": "Senza forma giuridica: «Business IT» non è il nome registrato di nessuna ditta, né una sua traduzione.", "en": "Without legal form: «Business IT» is not the registered name of any company, nor a translation of one."}},
+    {"names": ["swenex - swiss energy exchange Ltd", "swenex swiss energy exchange"], "why": {"it": "Senza forma giuridica: «swenex swiss energy exchange» non è il nome registrato di swenex - swiss energy exchange Ltd (CHE-110.041.840), né una sua traduzione.", "en": "Without legal form: «swenex swiss energy exchange» is not the registered name of swenex - swiss energy exchange Ltd (CHE-110.041.840), nor a translation of it."}},
     {"names": ["RUAG AG", "Ruag AG"], "why": {"it": "Indirizzo diverso: i tre contratti scritti «Ruag AG» hanno come luogo 8602 Wangen ZH; il registro non mostra per RUAG AG (CHE-171.801.818) né succursali né una sede precedente in quel luogo.", "en": "Different address: the three contracts written «Ruag AG» have 8602 Wangen ZH as place; the register shows no branch and no former seat of RUAG AG (CHE-171.801.818) there."}},
     {"names": ["SAP (Schweiz) AG", "SAP (Schweiz) AG Datenverarbeitung", "SAP (Schweiz) AG Systeme Anwendungen Produkte"], "why": {"it": "Il nome precedente nel registro (CHE-105.988.774) è «SAP (Schweiz) AG Systeme, Anwendungen und Produkte in der Datenverarbeitung»: le due forme lunghe non sono quel nome, ma abbreviazioni.", "en": "The former name in the register (CHE-105.988.774) is «SAP (Schweiz) AG Systeme, Anwendungen und Produkte in der Datenverarbeitung»: the two long forms are not that name but abbreviations of it."}},
-    {"names": ["Eraneos Switzerland AG", "AWK Engineering AG"], "why": {"it": "Nome precedente della stessa ditta (CHE-105.318.036), lasciato prima del 2016: la data del cambio non è nelle pubblicazioni del registro consultate, e i tre contratti scritti così sono del 2021 e del 2022.", "en": "Former name of the same company (CHE-105.318.036), dropped before 2016: the date of the change is not in the register publications consulted, and the three contracts written this way are from 2021 and 2022."}},
-    {"names": ["Securitas AG Schweizerische Bewachungsgesellschaft", "Securitas AG Schweizerische Bewachungsges.", "Securitas AG Schweizerische Bewachungsgesellscha"], "why": {"it": "Nomi abbreviati o troncati: non controllati nel registro.", "en": "Abbreviated or cut-off names: not checked in the register."}},
+    {"names": ["Securitas AG Schweizerische Bewachungsgesellschaft", "Securitas AG Schweizerische Bewachungsges.", "Securitas AG Schweizerische Bewachungsgesellscha"], "why": {"it": "Nomi abbreviati o troncati: non sono il nome registrato.", "en": "Abbreviated or cut-off names: not the registered name."}},
+    {"names": ["MEDGATE AG", "Medgate AG"], "why": {"it": "Due ditte diverse: Medgate AG (CHE-105.154.289), cancellata, e Medgate AG (CHE-440.718.407), che ha questo nome dal 21.08.2023.", "en": "Two different companies: Medgate AG (CHE-105.154.289), deleted, and Medgate AG (CHE-440.718.407), which has had this name since 21.08.2023."}},
     {"names": ["Elbit Systems C4I and Cyber Division", "Elbit Systems C4I and Cyber Divisio"], "why": {"it": "Ditta estera, nome troncato: non c'è un registro da consultare.", "en": "Foreign company, cut-off name: no register to check."}},
     {"names": ["Grisoni-Zaugg SA", "Grisoni-Zaugg SA Succ. de Domdidier"], "why": {"it": "Il secondo è la succursale scritta con il suo nome: non è una grafia del nome della ditta.", "en": "The second is the branch written with its own name: not a spelling of the company name."}},
     {"names": ["adesso Schweiz AG", "adesso Schweiz AG, Zweigniederlassung Bern"], "why": {"it": "Sede e succursale hanno voci distinte nel registro: le succursali scritte con il loro nome restano a parte (lo stesso per NTT DATA, Walo Bertschinger, Swisscom, Unisys).", "en": "Head office and branch have separate entries in the register: branches written with their own name stay apart (the same for NTT DATA, Walo Bertschinger, Swisscom, Unisys)."}},
