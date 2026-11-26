@@ -37,7 +37,7 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
           const kids = kidsAll.length > 1 ? kidsAll : [];
           return (
             <li key={c.id} className="text-sm">
-              <button type="button" onClick={() => setOpen((o) => ({ ...o, [c.id]: !o[c.id] }))} className="w-full text-left" aria-expanded={isOpen}>
+              <button type="button" onClick={() => setOpen((o) => ({ ...o, [c.id]: !o[c.id] }))} className="w-full text-left tap-row" aria-expanded={isOpen}>
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="min-w-0">
                     <span className="text-faint mr-1">{kids.length ? (isOpen ? "▾" : "▸") : "·"}</span>

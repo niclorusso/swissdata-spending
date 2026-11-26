@@ -7,7 +7,8 @@ import { BarList } from "@/components/charts/BarList";
 import { SourceBadge } from "@/components/SourceBadge";
 import { TreeExplorer } from "@/components/charts/TreeExplorer";
 import { TimeSeries, type Row } from "@/components/charts/TimeSeries";
-import { Card, Fold, Note, Page, Stat, StatGrid } from "@/components/ui";
+import { Card, Note, Page, Stat, StatGrid } from "@/components/ui";
+import { Fold } from "@/components/Fold";
 import { Treemap } from "@/components/charts/Treemap";
 import { FlowSankey, type FlowLink, type FlowNode } from "@/components/charts/FlowSankey";
 import { treeItems } from "@/lib/viz";
@@ -107,25 +108,24 @@ export default function Confederazione() {
         <div className="hidden md:block"><FlowSankey nodes={nodes} links={links} /></div>
         <div className="md:hidden space-y-6">
           <div><div className="eyebrow mb-3">{S.entrate}</div><BarList items={inList} total={einRoot.values[y] ?? 0} /></div>
-          {/* the areas are in the chart of the next card: here they stay closed, so the same list is not shown twice */}
-          <details className="fold"><summary><span className="eyebrow">{S.spese}</span> <span className="fold-cue !mt-0 ml-2"><span className="when-closed">{T("Apri l'elenco", "Open the list")} <span aria-hidden>↓</span></span><span className="when-open">{T("Chiudi", "Close")} <span aria-hidden>↑</span></span></span></summary><div className="mt-3"><BarList items={outAll.map((c) => ({ label: c.name, value: c.v }))} total={outTotal} /></div></details>
+          <div><div className="eyebrow mb-3">{S.spese}</div><BarList items={outAll.map((c) => ({ label: c.name, value: c.v }))} total={outTotal} /></div>
         </div>
         <SourceBadge meta={ein.meta} />
       </Card>
 
-      <Card title={en ? `Spending ${yR} by area` : `Le spese ${yR} per settore`} subtitle={T("La Confederazione classifica le sue spese in 12 settori. Ogni rettangolo è un settore: più è grande, più costa. Clicca per aprire le sotto-voci.", "The Confederation sorts its spending into 12 areas. Each rectangle is an area: the larger it is, the more it costs. Click to open the sub-items.")}>
+      <Fold on="desktop" title={en ? `Spending ${yR} by area` : `Le spese ${yR} per settore`} subtitle={T("La Confederazione classifica le sue spese in 12 settori. Ogni rettangolo è un settore: più è grande, più costa. Clicca per aprire le sotto-voci.", "The Confederation sorts its spending into 12 areas. Each rectangle is an area: the larger it is, the more it costs. Click to open the sub-items.")}>
         <Treemap root={treeItems(root, y)} unitLabel={T("consuntivo", "actuals")} />
         <SourceBadge meta={aufg.meta} compact />
-      </Card>
+      </Fold>
 
       <Note title={T("Tre voci da non fraintendere", "Three items easy to misread")}>{T("«Finanze e imposte» sono soprattutto le quote d'imposta versate ai Cantoni, la perequazione finanziaria e gli interessi sul debito. «Premesse istituzionali e finanziarie» sono Parlamento, tribunali, amministrazione generale e statistica. «Sanità» è piccola perché i contributi per la riduzione dei premi di cassa malati sono contati nella previdenza sociale.", "«Finances and taxes» is mostly the shares of tax revenue paid to the cantons, fiscal equalisation and interest on the debt. «Institutional and financial conditions» is Parliament, courts, general administration and statistics. «Health» is small because the contributions that reduce health-insurance premiums are counted under social welfare.")}</Note>
 
       <Card title={T("Come è cambiata la spesa, 1990–2030", "How spending has changed, 1990–2030")} subtitle={T("I sette settori maggiori più «Altro». Su fondo grigio, preventivo e piano finanziario.", "The seven largest areas plus «Other». On a grey background, budget and financial plan.")}>
-        <TimeSeries rows={sRows} series={sSeries} yearStatus={ys} kind="stacked" height={360} breakAt={2022} breakLabel={T("nuova base", "new basis")} />
+        <TimeSeries rows={sRows} series={sSeries} yearStatus={ys} kind="stacked" height={360} breakAt={2022} breakLabel={T("dal 2022 le cifre sono su una nuova base contabile (vedi la nota in alto)", "from 2022 the figures are on a new accounting basis (see the note at the top)")} />
         <SourceBadge meta={aufg.meta} compact />
       </Card>
 
-      <Fold title={T("Tutte le voci, anno per anno", "Every item, year by year")} subtitle={T("Scegli l'anno, anche tra preventivo e piano finanziario, e apri un settore per vedere le sotto-voci.", "Pick the year, including budget and financial plan, and open an area to see its sub-items.")}>
+      <Fold on="always" title={T("Tutte le voci, anno per anno", "Every item, year by year")} subtitle={T("Scegli l'anno, anche tra preventivo e piano finanziario, e apri un settore per vedere le sotto-voci.", "Pick the year, including budget and financial plan, and open an area to see its sub-items.")}>
         <TreeExplorer root={root} years={years} yearStatus={ys} defaultYear={yR} />
         <SourceBadge meta={aufg.meta} />
       </Fold>
@@ -148,7 +148,7 @@ export default function Confederazione() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <Fold title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
-          <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} breakAt={2022} breakLabel={T("nuova base", "new basis")} />
+          <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} breakAt={2022} breakLabel={T("dal 2022 le cifre sono su una nuova base contabile (vedi la nota in alto)", "from 2022 the figures are on a new accounting basis (see the note at the top)")} />
           <SourceBadge meta={aufg.meta} />
         </Fold>
         <Fold title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>

@@ -111,7 +111,7 @@ function Legend({ title, classes, unit, missing, notes = [] }: { title: string; 
   if (!classes.length) return null;
   const ticks = [classes[0].lo, ...classes.map((c) => c.hi)];
   const n = classes.length;
-  const short = (v: number) => formatUnit(Math.round(v), unit).replace(" CHF", "").replace(/\u00a0?%$/, "");
+  const short = (v: number) => formatUnit(Math.round(v), unit).replace(/\u00a0CHF$/, "").replace(/\u00a0?%$/, "");
   return (
     <div className="mt-3 text-xs text-muted">
       <div className="font-medium text-foreground">{title}{/CHF|%/.test(title) ? "" : unit === "chf" ? ", in CHF" : unit === "pct" ? ", in %" : ""}</div>

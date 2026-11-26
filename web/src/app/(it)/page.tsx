@@ -124,7 +124,7 @@ export default function Home() {
             </div>
             <p className="mt-5 flex items-center gap-2.5 text-sm text-muted" data-reveal="up" style={{ ["--d" as string]: 4 }}>
               <span className="live-dot shrink-0" aria-hidden />
-              <span>{T("Da quando hai aperto questa pagina:", "Since you opened this page:")} <strong className="text-foreground"><LiveCounter perSecond={perSecond} /> CHF</strong> <span className="text-faint">· {en ? `on average ${num(perSecond)} CHF per second in ${yS}` : `in media ${num(perSecond)} CHF al secondo nel ${yS}`}</span></span>
+              <span>{T("Da quando hai aperto questa pagina:", "Since you opened this page:")} <strong className="text-foreground"><LiveCounter perSecond={perSecond} /></strong> <span className="text-faint">· {en ? `on average ${chf(perSecond)} per second in ${yS}` : `in media ${chf(perSecond)} al secondo nel ${yS}`}</span></span>
             </p>
             <div className="mt-8 max-w-xl" data-reveal="up" style={{ ["--d" as string]: 5 }}>
               <label className="block text-sm font-semibold mb-2">{T("Quanto spende il tuo Comune?", "How much does your municipality spend?")}</label>

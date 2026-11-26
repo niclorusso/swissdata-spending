@@ -6,12 +6,15 @@ import { currentLang, type Lang } from "@/lib/lang";
  * Italian follows the rule of the Federal Chancellery: thousands grouped with a narrow no-break space, only from five digits up
  * (803 250 but 4201), decimal comma (31,6), a no-break space before the per cent sign (31,6 %).
  * English: 803,250 and 31.6%.
+ * In both: a true minus sign (U+2212) that never parts from its number, and a no-break space between a number and its unit,
+ * so an amount in mld CHF stays on one line. A value that is missing or not finite is written with a dash.
  *
  * Nothing here uses the locale data of the machine: the site is built once into static pages and then runs in every browser,
  * and the two must print the same text. Grouping and decimals are written by hand.
  */
-export const NNBSP = " "; // narrow no-break space: between groups of three digits
-export const NBSP = " "; // no-break space: before %
+export const NNBSP = "\u202f"; // narrow no-break space: between groups of three digits
+export const NBSP = "\u00a0"; // no-break space: before % and between a number and its unit
+export const MINUS = "\u2212\u2060"; // minus sign, then a word joiner: no line break between the sign and the number
 
 const RULES: Record<Lang, { group: string; decimal: string; minGroup: number; pct: string }> = {
   it: { group: NNBSP, decimal: ",", minGroup: 5, pct: `${NBSP}%` },
@@ -40,16 +43,16 @@ export function formatNumber(n: number, digits: number, lang: Lang): string {
   const fixed = Math.abs(n).toFixed(digits); // plain digits and a point, the same on every machine
   const [int, dec] = fixed.split(".");
   const zero = Number(fixed) === 0;
-  return `${n < 0 && !zero ? "-" : ""}${groupDigits(int, r.group, r.minGroup)}${dec ? r.decimal + dec : ""}`;
+  return `${n < 0 && !zero ? MINUS : ""}${groupDigits(int, r.group, r.minGroup)}${dec ? r.decimal + dec : ""}`;
 }
 
 /** Reads back a figure written by formatNumber (used by the count-up effect). */
 export function parseNumber(text: string, lang: Lang): number {
   const r = RULES[lang];
-  return Number(text.split(r.group).join("").replace(r.decimal, "."));
+  return Number(text.replace(MINUS, "-").split(r.group).join("").replace(r.decimal, "."));
 }
 /** The first figure in a text as formatNumber writes it, e.g. "29 051" in "29 051 CHF". */
-export const numberPattern = (lang: Lang): RegExp => (lang === "en" ? /\d[\d,]*(?:\.\d+)?/ : /\d[\d ]*(?:,\d+)?/);
+export const numberPattern = (lang: Lang): RegExp => (lang === "en" ? /\d[\d,]*(?:\.\d+)?/ : /\d[\d\u202f]*(?:,\d+)?/);
 
 const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
 /** Day, month, year, hour and minute in Switzerland, as two-digit strings. Only the time zone is taken from the machine, not the wording. */
@@ -61,26 +64,27 @@ function swissParts(d: Date): Record<string, string> {
 export function makeFmt(lang: Lang) {
   const en = lang === "en";
   const fmt = (n: number, d: number) => formatNumber(n, d, lang);
-  const none = (v: number | null | undefined): v is null | undefined => v === null || v === undefined || Number.isNaN(v);
+  const none = (v: number | null | undefined): v is null | undefined => v === null || v === undefined || !Number.isFinite(v);
+  const CHF = `${NBSP}CHF`;
   /** CHF in mld / mio (bn / mn in English): 87,6 mld CHF, 312 mio CHF, 48 500 CHF */
   const chf = (v: number | null | undefined, opts: { digits?: number; unit?: boolean } = {}): string => {
     if (none(v)) return "–";
     const unit = opts.unit ?? true;
     const a = Math.abs(v);
-    if (a >= 1e9) return `${fmt(v / 1e9, opts.digits ?? (a >= 1e11 ? 0 : 1))} ${en ? "bn" : "mld"}${unit ? " CHF" : ""}`;
-    if (a >= 1e6) return `${fmt(v / 1e6, opts.digits ?? (a >= 1e8 ? 0 : 1))} ${en ? "mn" : "mio"}${unit ? " CHF" : ""}`;
-    return `${fmt(v, opts.digits ?? 0)}${unit ? " CHF" : ""}`;
+    if (a >= 1e9) return `${fmt(v / 1e9, opts.digits ?? (a >= 1e11 ? 0 : 1))}${NBSP}${en ? "bn" : "mld"}${unit ? CHF : ""}`;
+    if (a >= 1e6) return `${fmt(v / 1e6, opts.digits ?? (a >= 1e8 ? 0 : 1))}${NBSP}${en ? "mn" : "mio"}${unit ? CHF : ""}`;
+    return `${fmt(v, opts.digits ?? 0)}${unit ? CHF : ""}`;
   };
-  const chfFull = (v: number | null | undefined): string => (none(v) ? "–" : fmt(v, 0) + " CHF");
+  const chfFull = (v: number | null | undefined): string => (none(v) ? "–" : fmt(v, 0) + CHF);
   const num = (v: number | null | undefined, digits = 0): string => (none(v) ? "–" : fmt(v, digits));
   /** 31,6 % in Italian, 31.6% in English */
   const pct = (v: number | null | undefined, digits = 1): string => (none(v) ? "–" : fmt(v, digits) + RULES[lang].pct);
   /** One decimal at most, no trailing zero: 39,9 and 20 */
-  const share = (v: number): string => fmt(v, Math.round(v * 10) % 10 === 0 ? 0 : 1);
+  const share = (v: number): string => (none(v) ? "–" : fmt(v, Math.round(v * 10) % 10 === 0 ? 0 : 1));
   /** The same with the per cent sign: 39,9 % */
-  const sharePct = (v: number): string => share(v) + RULES[lang].pct;
-  /** A whole number of per cent, or one decimal when it has one: 77 %, 111,5 % */
-  const pctAuto = (v: number): string => fmt(v, v % 1 ? 1 : 0) + RULES[lang].pct;
+  const sharePct = (v: number): string => (none(v) ? "–" : share(v) + RULES[lang].pct);
+  /** Tax multipliers and the like, by the same rule: 77 %, 111,5 %; what rounds to a whole number is written whole (111,96 -> 112 %). */
+  const pctAuto = sharePct;
   /** 26.11.2026, the day in Switzerland */
   const date = (iso: string | null | undefined): string => {
     if (!iso) return "–";

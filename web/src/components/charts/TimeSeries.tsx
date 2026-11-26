@@ -38,11 +38,12 @@ export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit 
       formatter={(v: number, name: string) => [unit === "chf" ? chf(v) : fmt(v), name]}
     />,
     zero ? <ReferenceLine key="zero" y={0} stroke="var(--foreground)" strokeWidth={1} /> : null,
-    breakAt && years.includes(breakAt) ? <ReferenceLine key="break" x={breakAt} stroke="var(--foreground)" strokeWidth={1} strokeDasharray="3 3" label={{ value: `${breakAt}: ${breakLabel ?? ""}`, position: "insideTopLeft", fill: "var(--muted)", fontSize: 13 }} /> : null,
-    firstVA ? <ReferenceArea key="ref" x1={firstVA} x2={last} fill="var(--surface-2)" fillOpacity={0.7} label={{ value: T("preventivo / piano", "budget / plan"), position: "insideTopRight", fill: "var(--faint)", fontSize: 11 }} /> : null,
+    breakAt && years.includes(breakAt) ? <ReferenceLine key="break" x={breakAt} stroke="var(--foreground)" strokeWidth={1} strokeDasharray="3 3" /> : null,
+    firstVA ? <ReferenceArea key="ref" x1={firstVA} x2={last} fill="var(--surface-2)" fillOpacity={0.7} label={{ value: T("preventivo / piano", "budget / plan"), position: "insideTopRight", fill: "var(--faint)", fontSize: 13 }} /> : null,
     series.length > 1 ? <Legend key="legend" wrapperStyle={{ fontSize: 13 }} formatter={(v: string) => <span style={{ color: "var(--muted)" }}>{v}</span>} /> : null,
   ];
   return (
+    <>
     <div ref={ref} style={{ width: "100%", height }}>
       {seen && <ResponsiveContainer>
         {kind === "stacked" ? (
@@ -62,5 +63,7 @@ export function TimeSeries({ rows, series, yearStatus = {}, kind = "line", unit 
         )}
       </ResponsiveContainer>}
     </div>
+    {breakAt && breakLabel && <p className="mt-2 text-xs text-muted">{T("Riga tratteggiata", "Dashed rule")}: {breakLabel}</p>}
+    </>
   );
 }

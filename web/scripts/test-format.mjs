@@ -15,7 +15,7 @@ mkdirSync(tmp, { recursive: true });
 writeFileSync(join(tmp, "format.mjs"), js);
 const { makeFmt, formatNumber, parseNumber, numberPattern } = await import(pathToFileURL(join(tmp, "format.mjs")).href + `?t=${Date.now()}`);
 
-const N = " ", B = " "; // narrow no-break space, no-break space
+const N = "\u202f", B = "\u00a0", M = "\u2212\u2060"; // narrow no-break space, no-break space, minus sign + word joiner
 const it = makeFmt("it"), en = makeFmt("en");
 /** [what, got, expected] */
 const cases = [
@@ -32,29 +32,31 @@ const cases = [
   ["it pct 31.6", it.pct(31.6), `31,6${B}%`], ["en pct 31.6", en.pct(31.6), "31.6%"],
   ["it pct 30.54 one decimal", it.pct(30.54), `30,5${B}%`], ["en pct 0 digits", en.pct(18.2, 0), "18%"],
   ["it share 39.9", it.sharePct(39.9), `39,9${B}%`], ["it share 20.0", it.sharePct(20), `20${B}%`], ["en share 39.96", en.sharePct(39.96), "40%"],
-  ["it pctAuto 77", it.pctAuto(77), `77${B}%`], ["it pctAuto 111.48", it.pctAuto(111.48), `111,5${B}%`], ["en pctAuto 112", en.pctAuto(112), "112%"],
+  ["it pctAuto 77", it.pctAuto(77), `77${B}%`], ["it pctAuto 111.48", it.pctAuto(111.48), `111,5${B}%`], ["it pctAuto 111.96 is whole", it.pctAuto(111.96), `112${B}%`], ["it num Infinity", it.num(Infinity), "–"], ["en chf -Infinity", en.chf(-Infinity), "–"], ["it pct NaN", it.sharePct(NaN), "–"], ["en pctAuto 112", en.pctAuto(112), "112%"],
   // negative and zero
-  ["it num -5.5", it.num(-5.5, 1), "-5,5"], ["en num -5.5", en.num(-5.5, 1), "-5.5"],
-  ["it num -0.04 is 0,0 without sign", it.num(-0.04, 1), "0,0"], ["it num -12345", it.num(-12345), `-12${N}345`],
+  ["it num -5.5", it.num(-5.5, 1), `${M}5,5`], ["en num -5.5", en.num(-5.5, 1), `${M}5.5`],
+  ["it num -0.04 is 0,0 without sign", it.num(-0.04, 1), "0,0"], ["it num -12345", it.num(-12345), `${M}12${N}345`],
   // francs
-  ["it chf 263 bn", it.chf(263e9), "263 mld CHF"], ["en chf 263 bn", en.chf(263e9), "263 bn CHF"],
-  ["it chf 262.9 bn one decimal", it.chf(262_942_807_192, { digits: 1 }), "262,9 mld CHF"], ["en same", en.chf(262_942_807_192, { digits: 1 }), "262.9 bn CHF"],
-  ["it chf 5.46 bn", it.chf(5.46e9, { digits: 2 }), "5,46 mld CHF"], ["en chf 5.46 bn", en.chf(5.46e9, { digits: 2 }), "5.46 bn CHF"],
-  ["it chf 5.46 bn default", it.chf(5_458_656_056), "5,5 mld CHF"],
-  ["it chf 520 mio", it.chf(519.5e6), "520 mio CHF"], ["en chf 2.0 mn", en.chf(2_019_659), "2.0 mn CHF"], ["it chf 2.0 mio", it.chf(2_019_659), "2,0 mio CHF"],
-  ["it chf 29051", it.chf(29051), `29${N}051 CHF`], ["en chf 29051", en.chf(29051), "29,051 CHF"], ["it chf 8315", it.chf(8315), "8315 CHF"],
-  ["it chf -5.5 bn", it.chf(-5.4783e9), "-5,5 mld CHF"], ["it chf no unit", it.chf(60.9e9, { unit: false }), "60,9 mld"],
-  ["it chfFull", it.chfFull(1234567), `1${N}234${N}567 CHF`], ["missing value", it.chf(null), "–"], ["NaN", en.num(NaN), "–"],
+  ["it chf 263 bn", it.chf(263e9), `263${B}mld${B}CHF`], ["en chf 263 bn", en.chf(263e9), `263${B}bn${B}CHF`],
+  ["it chf 262.9 bn one decimal", it.chf(262_942_807_192, { digits: 1 }), `262,9${B}mld${B}CHF`], ["en same", en.chf(262_942_807_192, { digits: 1 }), `262.9${B}bn${B}CHF`],
+  ["it chf 5.46 bn", it.chf(5.46e9, { digits: 2 }), `5,46${B}mld${B}CHF`], ["en chf 5.46 bn", en.chf(5.46e9, { digits: 2 }), `5.46${B}bn${B}CHF`],
+  ["it chf 5.46 bn default", it.chf(5_458_656_056), `5,5${B}mld${B}CHF`],
+  ["it chf 520 mio", it.chf(519.5e6), `520${B}mio${B}CHF`], ["en chf 2.0 mn", en.chf(2_019_659), `2.0${B}mn${B}CHF`], ["it chf 2.0 mio", it.chf(2_019_659), `2,0${B}mio${B}CHF`],
+  ["it chf 29051", it.chf(29051), `29${N}051${B}CHF`], ["en chf 29051", en.chf(29051), `29,051${B}CHF`], ["it chf 8315", it.chf(8315), `8315${B}CHF`],
+  ["it chf -5.5 bn", it.chf(-5.4783e9), `${M}5,5${B}mld${B}CHF`], ["it chf no unit", it.chf(60.9e9, { unit: false }), `60,9${B}mld`],
+  ["it chfFull", it.chfFull(1234567), `1${N}234${N}567${B}CHF`], ["missing value", it.chf(null), "–"], ["NaN", en.num(NaN), "–"],
   ["it plural", it.plural(9603, "contratto", "contratti"), "9603 contratti"], ["en plural", en.plural(9603, "contract", "contracts"), "9,603 contracts"],
   // dates: the day in Switzerland, whatever the time zone of the machine
   ["date from UTC evening", it.date("2026-09-21T22:30:00+00:00"), "22.09.2026"], ["date plain day", en.date("2025-01-01"), "01.01.2025"],
   ["dateTime", it.dateTime("2026-11-26T12:22:53+00:00"), "26.11.2026, 13:22 (ora svizzera)"],
   // the count-up effect reads figures back
-  ["parse it", String(parseNumber(`9${N}051${N}029`, "it")), "9051029"], ["parse it decimal", String(parseNumber("31,6", "it")), "31.6"], ["parse en", String(parseNumber("29,051.5", "en")), "29051.5"],
+  ["parse it", String(parseNumber(`9${N}051${N}029`, "it")), "9051029"], ["parse it decimal", String(parseNumber("31,6", "it")), "31.6"], ["parse en", String(parseNumber("29,051.5", "en")), "29051.5"], ["parse minus", String(parseNumber(`${M}5,5`, "it")), "-5.5"],
+  ["minus is U+2212 followed by a word joiner", [...it.num(-1)].map((c) => c.codePointAt(0).toString(16)).join(" "), "2212 2060 31"],
+  ["no ordinary space or hyphen in an amount", String(/[ -]/.test(it.chf(-5.4783e9) + en.chf(29051) + it.chf(60.9e9, { unit: false }))), "false"],
   ["pattern it", `29${N}051 CHF`.match(numberPattern("it"))[0], `29${N}051`], ["pattern en", "30.5% of GDP".match(numberPattern("en"))[0], "30.5"],
   ["formatNumber", formatNumber(1234.5, 1, "it"), "1234,5"],
 ];
-const show = (s) => s.replaceAll(N, "[NNBSP]").replaceAll(B, "[NBSP]");
+const show = (s) => s.replaceAll(N, "[NNBSP]").replaceAll(B, "[NBSP]").replaceAll("\u2060", "[WJ]");
 let bad = 0;
 for (const [what, got, want] of cases) {
   if (got !== want) { bad++; console.error(`FAIL ${what}: got "${show(got)}", expected "${show(want)}"`); }

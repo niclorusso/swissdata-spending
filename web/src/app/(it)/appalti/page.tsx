@@ -10,7 +10,7 @@ import { BarList } from "@/components/charts/BarList";
 import { TimeSeries } from "@/components/charts/TimeSeries";
 import { Card, Note, Page, Stat, StatGrid } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Appalti della Confederazione ≥ 50\u202f000 CHF" };
+export const metadata: Metadata = { title: "Appalti della Confederazione ≥ 50\u202f000\u00a0CHF" };
 
 export default function Appalti() {
   const en = getLang() === "en";

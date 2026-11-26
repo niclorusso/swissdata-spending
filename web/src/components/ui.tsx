@@ -30,24 +30,6 @@ export function Card({ title, subtitle, children, className = "" }: { title?: Re
   );
 }
 
-/**
- * A figure block closed behind its title: title, one line, and a cue; the chart opens with one tap, click or Enter.
- * A <details>: it works without scripts, the browser's find-in-page opens it, and assistive technology hears "collapsed / expanded".
- */
-export function Fold({ title, subtitle, children, cue }: { title: ReactNode; subtitle?: ReactNode; children: ReactNode; cue?: [string, string] }) {
-  const [open, close] = cue ?? [T("Apri il grafico", "Open the chart"), T("Chiudi", "Close")];
-  return (
-    <details className="fold card p-5 md:p-7" data-reveal="up">
-      <summary>
-        <h2 className="text-2xl md:text-[1.7rem] leading-tight">{title}</h2>
-        {subtitle && <p className="text-sm text-muted mt-1.5 max-w-3xl leading-relaxed">{subtitle}</p>}
-        <span className="fold-cue"><span className="when-closed">{open} <span aria-hidden>↓</span></span><span className="when-open">{close} <span aria-hidden>↑</span></span></span>
-      </summary>
-      <div className="mt-4">{children}</div>
-    </details>
-  );
-}
-
 /** Headline number: label, value counting up when first seen, one line of context. */
 export function Stat({ label, value, sub }: { label: string; value: string; sub?: ReactNode }) {
   return (
