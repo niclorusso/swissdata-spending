@@ -23,6 +23,8 @@ const FILES = [
   ["geo-grenzen.json", join(snap, "geo-grenzen.json")],
   // The register of sources (URL, dates, SHA-256 of every file): the provenance record of the site, kept at a public address.
   ["source-ledger.json", join(data, "source-ledger.json")],
+  // The spellings of the same supplier merged in the rankings, with their UID: linked from /appalti/grafie/.
+  ["supplier-aliases.json", join(data, "supplier-aliases.json")],
 ];
 
 const missing = FILES.filter(([, from]) => !existsSync(from)).map(([, from]) => from);
