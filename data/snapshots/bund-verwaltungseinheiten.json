@@ -12,11 +12,11 @@
   "unit": "CHF / FTE",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:02+00:00",
-  "retrieved_at": "2026-09-09T09:19:21+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:42+00:00",
+  "checked_at": "2026-11-26T12:27:42+00:00",
   "sha256": "2c882f749c940bdcd04406dc00dd2e6731230e894f7277ede5c0e12ffb90b565",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)",
-  "coverage": "95 unità amministrative in 7 dipartimenti + autorità e tribunali: spese per il personale, consulenza esterna, informatica e posti a tempo pieno, 2007–2030",
+  "coverage": "87 unità amministrative in 8 gruppi (7 dipartimenti più autorità e tribunali): spese per il personale, consulenza esterna, informatica e posti a tempo pieno, 2007–2030",
   "years": [
    2007,
    2008,
@@ -69,7 +69,7 @@
    "2029": "FP",
    "2030": "FP"
   },
-  "generated_at": "2026-09-09T09:21:14+00:00"
+  "generated_at": "2026-11-26T12:27:42+00:00"
  },
  "data": {
   "units": [

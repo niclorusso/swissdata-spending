@@ -84,6 +84,11 @@ def fetch(url: str, name: str, *, force: bool = False, timeout: int = 120, heade
     return out
 
 
+def file_record(f: Fetched, label: str) -> dict:
+    """One entry of a snapshot's `files` list: what the file holds, where it is, when the publisher last changed it, when we got it, its hash."""
+    return {"label": label, "url": f.url, "published_at": f.last_modified, "retrieved_at": f.retrieved_at, "sha256": f.sha256}
+
+
 @dataclass
 class Source:
     id: str                      # stable dataset id, e.g. "efv-staatsrechnung-funktion"
@@ -144,6 +149,9 @@ def _update_ledger(meta: dict) -> None:
     ledger[meta["id"]] = {k: meta.get(k) for k in (
         "id", "title", "publisher", "publisher_url", "landing_url", "source_url", "license", "frequency",
         "level", "unit", "data_date", "published_at", "retrieved_at", "checked_at", "sha256", "coverage", "notes")}
+    # A snapshot built from several files lists each of them (see file_record): the top-level source_url and sha256 are those of one file only.
+    if meta.get("files"):
+        ledger[meta["id"]]["files"] = meta["files"]
     LEDGER.write_text(json.dumps(dict(sorted(ledger.items())), ensure_ascii=False, indent=1))
 
 

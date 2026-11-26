@@ -12,12 +12,12 @@
   "unit": "CHF (IVA inclusa)",
   "data_date": "2021",
   "published_at": "2024-06-28T13:34:25+00:00",
-  "retrieved_at": "2026-09-09T09:21:15+00:00",
-  "checked_at": "2026-11-12T10:18:23+00:00",
+  "retrieved_at": "2026-11-26T12:21:31+00:00",
+  "checked_at": "2026-11-26T12:22:15+00:00",
   "sha256": "5b4b12dd4bc18746d33d7e2032fc421fad71743e9c24576797a55f12e363545f",
   "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso).",
   "coverage": "9400 contratti dell'Amministrazione federale centrale, anno 2021",
-  "generated_at": "2026-11-12T10:18:23+00:00"
+  "generated_at": "2026-11-26T12:22:15+00:00"
  },
  "data": {
   "rows": [

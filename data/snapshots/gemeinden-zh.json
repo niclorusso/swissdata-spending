@@ -3,7 +3,7 @@
   "id": "gemeinden-zh",
   "title": "Zurigo – indicatori finanziari di tutti i Comuni, 2024",
   "publisher": "Statistisches Amt des Kantons Zürich",
-  "publisher_url": "https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt.html",
+  "publisher_url": "https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten.html",
   "source_url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_431.csv",
   "landing_url": "https://www.zh.ch/de/politik-staat/gemeinden/gemeindeportraet.html",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
@@ -12,12 +12,112 @@
   "unit": "CHF per abitante",
   "data_date": "2019–2024; Steuerfuss fino al 2026",
   "published_at": "2026-03-23T03:17:14+00:00",
-  "retrieved_at": "2026-11-12T10:21:39+00:00",
-  "checked_at": "2026-11-12T10:55:47+00:00",
+  "retrieved_at": "2026-11-26T12:24:29+00:00",
+  "checked_at": "2026-11-26T12:24:53+00:00",
   "sha256": "c34bfc7c94c8d1d705d353c18ec7a8de3eff5a01540c35d35f48a150a125008d",
-  "notes": "Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse.",
+  "notes": "Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse: 14 file, elencati uno per uno con indirizzo e impronta; l'impronta in testa è quella del file dell'indicatore 431.",
   "coverage": "160 Comuni zurighesi: costo netto dei servizi per funzione, patrimonio/debito netto, investimenti netti, risultato, Steuerfuss, forza fiscale",
-  "generated_at": "2026-11-12T10:55:47+00:00"
+  "files": [
+   {
+    "label": "Indicatore 378: Steuerkraft (forza fiscale)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_378.csv",
+    "published_at": "2026-03-23T03:17:12+00:00",
+    "retrieved_at": "2026-11-26T12:24:30+00:00",
+    "sha256": "0cb160b9a13b4807cd14453aab07b9362e7632c978f7b5170fb4eabbae2cdadd"
+   },
+   {
+    "label": "Indicatore 420: Nettoaufwand, Amministrazione generale",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_420.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:31+00:00",
+    "sha256": "f7b634ad590198b387bc46fecb215d73a633978eb73702035f2f5915616e2232"
+   },
+   {
+    "label": "Indicatore 421: Nettoaufwand, Formazione",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_421.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:31+00:00",
+    "sha256": "60e21d39b1d82f6fc597f0f72fa974a89bf5df3b9a1de4e46fe846d7e8830c46"
+   },
+   {
+    "label": "Indicatore 423: Nettoaufwand, Sanità",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_423.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:31+00:00",
+    "sha256": "0defe83ea729adedce64ac060115749a6be637a6b8658d6f5b489e0dd9c4279a"
+   },
+   {
+    "label": "Indicatore 424: Nettoaufwand, Cultura, sport e tempo libero",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_424.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:32+00:00",
+    "sha256": "b6cf62382dd36c11a4e9d94cea461a5c248b43c513fcce7c4150dd8a5e07a5ea"
+   },
+   {
+    "label": "Indicatore 425: Nettoaufwand, Ordine pubblico e sicurezza",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_425.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:32+00:00",
+    "sha256": "dce279178b101019d35f055d917ac68ff544e2e86c48768885fab87fc9a9a528"
+   },
+   {
+    "label": "Indicatore 426: Nettoaufwand, Sicurezza sociale",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_426.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "1e89177f9ccd82d5e732f9b33521ee5d85fdd9b20c2c4ba7af50149905df3440"
+   },
+   {
+    "label": "Indicatore 427: Nettoaufwand, Ambiente e territorio",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_427.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "d535cc6577bcbdafec4648c4e3df511c05e2a2f449a6ed1abd12d88877f3eebf"
+   },
+   {
+    "label": "Indicatore 428: Nettoaufwand, Trasporti",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_428.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "228ed09c1df21f2697a44b4fe0103a03a3f58dcb9ad59f0a9f1180d5bbac780c"
+   },
+   {
+    "label": "Indicatore 429: Nettoaufwand, Economia",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_429.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "ff78b442d2f10d10cf53ccf780b79ad00f69839b2a89219550b94de9e8ec896c"
+   },
+   {
+    "label": "Indicatore 430: Nettoinvestitionen (investimenti netti)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_430.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:29+00:00",
+    "sha256": "6eb8c13fa5aada5e53c445a847d709a639c9f143f0c3e54bf50ef8ba118bdb0a"
+   },
+   {
+    "label": "Indicatore 431: Nettovermögen (patrimonio netto)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_431.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:29+00:00",
+    "sha256": "c34bfc7c94c8d1d705d353c18ec7a8de3eff5a01540c35d35f48a150a125008d"
+   },
+   {
+    "label": "Indicatore 828: Ertrags-/Aufwandüberschuss (risultato d'esercizio)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_828.csv",
+    "published_at": "2026-03-23T03:17:19+00:00",
+    "retrieved_at": "2026-11-26T12:24:30+00:00",
+    "sha256": "51d733e6f3ccd86e8e45f354163be5b56e12ca7d4d7ba5b0a44909912f6a621f"
+   },
+   {
+    "label": "Steuerfüsse (moltiplicatori d'imposta), serie storica",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/steuerfuesse/kanton_zuerich_stf_timeseries.csv",
+    "published_at": "2026-03-31T09:45:47+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "a1ea6ac0e60888a50a0e17be7905bb66b4e5d681d218ccf4a6427037ddb4cd2a"
+   }
+  ],
+  "generated_at": "2026-11-26T12:24:53+00:00"
  },
  "data": {
   "year": 2024,
@@ -40,7 +140,7 @@
     "key": "steuerfuss",
     "label": "Moltiplicatore d'imposta",
     "unit": "pct",
-    "note": "Percentuale dell'imposta cantonale che il Comune preleva, 2024, senza imposta di culto. Più è alta, più imposte comunali si pagano"
+    "note": "Percentuale dell'imposta cantonale semplice che il Comune preleva, 2024, senza imposta di culto. Uster e Turbenthal hanno due moltiplicatori secondo il Comune scolastico: mappa e classifica usano il primo, la scheda del Comune li riporta entrambi. Più è alta, più imposte comunali si pagano"
    },
    {
     "key": "netinv_pc",
@@ -3158,6 +3258,11 @@
       "2021": 122.0,
       "2020": 122.0,
       "2019": 122.0
+     },
+     "steuerfuss_2": {
+      "2021": 122.0,
+      "2020": 122.0,
+      "2019": 122.0
      }
     },
     "steuerfuss_latest": {
@@ -5367,6 +5472,11 @@
       "2021": 129.0,
       "2020": 127.0,
       "2019": 127.0
+     },
+     "steuerfuss_2": {
+      "2021": 129.0,
+      "2020": 127.0,
+      "2019": 127.0
      }
     },
     "steuerfuss_latest": {
@@ -5743,6 +5853,16 @@
       "2021": 112.0,
       "2020": 109.0,
       "2019": 109.0
+     },
+     "steuerfuss_2": {
+      "2026": 110.0,
+      "2025": 110.0,
+      "2024": 108.0,
+      "2023": 108.0,
+      "2022": 108.0,
+      "2021": 108.0,
+      "2020": 105.0,
+      "2019": 105.0
      }
     },
     "steuerfuss_latest": {
@@ -6072,6 +6192,10 @@
       "2021": 87.0,
       "2020": 89.0,
       "2019": 89.0
+     },
+     "steuerfuss_2": {
+      "2020": 85.0,
+      "2019": 85.0
      }
     },
     "steuerfuss_latest": {
@@ -6542,6 +6666,21 @@
       "2021": 126.0,
       "2020": 122.0,
       "2019": 122.0
+     },
+     "steuerfuss_2": {
+      "2026": 112.0,
+      "2025": 112.0,
+      "2024": 109.0,
+      "2023": 109.0,
+      "2022": 121.0,
+      "2021": 116.0,
+      "2020": 117.0,
+      "2019": 116.0
+     },
+     "steuerfuss_3": {
+      "2021": 130.0,
+      "2020": 130.0,
+      "2019": 127.0
      }
     },
     "steuerfuss_latest": {

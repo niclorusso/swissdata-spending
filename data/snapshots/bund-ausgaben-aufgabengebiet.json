@@ -12,11 +12,11 @@
   "unit": "CHF",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:36+00:00",
-  "retrieved_at": "2026-09-09T09:19:05+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:40+00:00",
+  "checked_at": "2026-11-26T12:27:41+00:00",
   "sha256": "fb471a63ffcf27a4e5f654f3f22d81f4f86799b069cd55d2f8972d1fbaa9eb62",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)",
-  "coverage": "Spese della Confederazione per 13 settori di compito e sotto-settori, 1990–2030",
+  "coverage": "Spese della Confederazione per 12 settori di compito e sotto-settori, 1990–2030",
   "year_status": {
    "1990": "R",
    "1991": "R",
@@ -103,7 +103,7 @@
    2029,
    2030
   ],
-  "generated_at": "2026-09-09T09:21:14+00:00"
+  "generated_at": "2026-11-26T12:27:41+00:00"
  },
  "data": {
   "tree": [

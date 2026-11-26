@@ -15,7 +15,7 @@ import unicodedata
 
 import pandas as pd
 
-from etl.common import SNAP_DIR, Source, fetch, write_snapshot
+from etl.common import SNAP_DIR, Source, fetch, file_record, write_snapshot
 
 TI_YEAR = 2024
 TI_BASE = "https://www4.ti.ch/fileadmin/DI/DI_DI/SEL/Comuni/DatiFinanziari/StatisticaFinanziaria/"
@@ -24,6 +24,8 @@ TI_LANDING = "https://www4.ti.ch/di/sel/comuni/dati-finanziari/statistica-finanz
 ZH_BASE = "https://www.web.statistik.zh.ch/ogd/data/"
 ZH_STF = ZH_BASE + "steuerfuesse/kanton_zuerich_stf_timeseries.csv"
 ZH_LANDING = "https://www.zh.ch/de/politik-staat/gemeinden/gemeindeportraet.html"
+ZH_PUBLISHER_URL = "https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten.html"
+ZH_IND_LABEL = {431: "Nettovermögen (patrimonio netto)", 430: "Nettoinvestitionen (investimenti netti)", 828: "Ertrags-/Aufwandüberschuss (risultato d'esercizio)", 378: "Steuerkraft (forza fiscale)"}
 ZH_FUNK = {420: "Amministrazione generale", 421: "Formazione", 423: "Sanità", 424: "Cultura, sport e tempo libero",
            425: "Ordine pubblico e sicurezza", 426: "Sicurezza sociale", 427: "Ambiente e territorio", 428: "Trasporti", 429: "Economia"}
 ZH_IND = {431: "nettovermoegen", 430: "netinv_pc", 828: "risultato_pc", 378: "steuerkraft"}
@@ -54,6 +56,7 @@ def ticino() -> None:
     # column positions are checked against the header text so a layout change fails loudly instead of shifting numbers
     h8, h9, h10, h12 = (x.parse(s, header=None) for s in ("tab8", "tab9", "tab10", "tab12"))
     assert "Popolazione" in str(h8.iloc[1, 1]) and "coordinato" in str(h8.iloc[2, 4]) and "Risorse fiscali" in str(h8.iloc[1, 5])
+    assert "persone fisiche" in str(h8.iloc[2, 2]) and "persone giuridiche" in str(h8.iloc[2, 3]) and f"{TI_YEAR + 1}" in str(h8.iloc[1, 2])
     assert "Spese operative" in str(h9.iloc[1, 2]) and "RISULTATO TOTALE" in str(h9.iloc[1, 16])
     assert "ONERE NETTO" in str(h10.iloc[2, 4])
     assert "procapite" in str(h12.iloc[1, 8])
@@ -73,7 +76,7 @@ def ticino() -> None:
             continue
         g9, g10, g12 = t9.loc[key], t10.loc[key], t12.loc[key]
         parts.setdefault(bfs, []).append({"name": str(g9[0]).replace("[*]", "").strip(), "pop": float(r[1]), "water": bool(g9["water"]),
-                                          "mp": float(r[4]), "risorse_pc": float(r[5]), "spese": float(g9[2]) * 1000, "ricavi": float(g9[3]) * 1000,
+                                          "mp_pf": float(r[2]), "mp_pg": float(r[3]), "mp_coord": float(r[4]), "risorse_pc": float(r[5]), "spese": float(g9[2]) * 1000, "ricavi": float(g9[3]) * 1000,
                                           "risultato": float(g9[16]) * 1000, "netinv": float(g10[4]) * 1000, "debito": float(g12[7]) * 1000})
     out = {}
     for bfs, ps in parts.items():
@@ -82,17 +85,21 @@ def ticino() -> None:
         pop = tot["pop"]
         assert round(pop) == pop_names[str(bfs)]["values"].get(str(TI_YEAR), round(pop)), (bfs, pop)
         out[str(bfs)] = {"name": ps[0]["name"] if one else pop_names[str(bfs)]["name"], "pop": round(pop), "water_included": any(q["water"] for q in ps),
-                         "merged_from": None if one else [{"name": q["name"], "pop": round(q["pop"]), "moltiplicatore": q["mp"]} for q in ps],
+                         "merged_from": None if one else [{"name": q["name"], "pop": round(q["pop"]), "moltiplicatore": q["mp_pf"], "moltiplicatore_pg": q["mp_pg"]} for q in ps],
                          "values": {"spese_pc": round(tot["spese"] / pop), "risultato_pc": round(tot["risultato"] / pop), "netinv_pc": round(tot["netinv"] / pop),
-                                    "debito_pc": round(tot["debito"] / pop), "moltiplicatore": ps[0]["mp"] if len({q["mp"] for q in ps}) == 1 else None,
+                                    "debito_pc": round(tot["debito"] / pop),
+                                    # the explorer needs one number per Comune: the multiplier for individuals (persone fisiche)
+                                    "moltiplicatore": ps[0]["mp_pf"] if len({q["mp_pf"] for q in ps}) == 1 else None,
                                     "risorse_pc": round(ps[0]["risorse_pc"]) if one else None},
-                         "abs": {k: round(tot[k]) for k in ("spese", "ricavi", "netinv", "debito")}}
+                         # the two political multipliers as published (tab8); "coordinato" is the SEL's computed average, not a rate anyone pays
+                         "moltiplicatori": {"year": TI_YEAR + 1, "pf": ps[0]["mp_pf"], "pg": ps[0]["mp_pg"], "coordinato": ps[0]["mp_coord"]} if one else None,
+                         "abs": {k: round(tot[k]) for k in ("spese", "ricavi", "risultato", "netinv", "debito")}}
     if unmatched:
         print("[ti] Comuni senza numero UST:", unmatched)
     measures = [
         {"key": "spese_pc", "label": "Spese operative per abitante", "unit": "chf", "note": f"Spese correnti del Comune nel {TI_YEAR}, senza investimenti"},
         {"key": "debito_pc", "label": "Debito netto per abitante", "unit": "chf", "diverging": True, "note": f"Debiti meno averi finanziari a fine {TI_YEAR}. Se negativo, il Comune ha più averi che debiti"},
-        {"key": "moltiplicatore", "label": "Moltiplicatore d'imposta", "unit": "pct", "note": f"Percentuale dell'imposta cantonale che il Comune preleva, {TI_YEAR + 1}. Più è alta, più imposte comunali si pagano"},
+        {"key": "moltiplicatore", "label": "Moltiplicatore d'imposta (persone fisiche)", "unit": "pct", "note": f"Percentuale dell'imposta cantonale base che il Comune preleva dalle persone fisiche, {TI_YEAR + 1}. Dove il moltiplicatore per le persone giuridiche è diverso, la scheda del Comune li riporta entrambi. Più è alta, più imposte comunali si pagano"},
         {"key": "netinv_pc", "label": "Investimenti netti per abitante", "unit": "chf", "note": f"Spese per opere (strade, scuole, canalizzazioni) nel {TI_YEAR}, tolti i sussidi ricevuti. Se negativo, i sussidi incassati superano le spese"},
         {"key": "risultato_pc", "label": "Risultato d'esercizio per abitante", "unit": "chf", "diverging": True, "note": f"Ricavi meno spese nel {TI_YEAR}. Se negativo, è un disavanzo"},
         {"key": "risorse_pc", "label": "Risorse fiscali per abitante", "unit": "chf", "note": f"Gettito fiscale per abitante nel {TI_YEAR - 2}: misura la forza fiscale del Comune"},
@@ -101,13 +108,17 @@ def ticino() -> None:
                           publisher="Cantone Ticino, Sezione degli enti locali (SEL)", publisher_url="https://www4.ti.ch/di/sel", source_url=TI_URL,
                           landing_url=TI_LANDING, license="nessuna licenza indicata dalla fonte; citazione della fonte", frequency="annuale",
                           level="gemeinden", unit="CHF", data_date=str(TI_YEAR),
-                          coverage=f"{sum(len(v) for v in parts.values())} Comuni ticinesi del {TI_YEAR}, riportati ai {len(out)} Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatore, risorse fiscali",
-                          notes="I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti."),
+                          coverage=f"{sum(len(v) for v in parts.values())} Comuni ticinesi del {TI_YEAR}, riportati ai {len(out)} Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatori per persone fisiche e giuridiche, risorse fiscali",
+                          notes="I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti. Il moltiplicatore di mappa e classifica è quello delle persone fisiche; il «moltiplicatore comunale coordinato» della fonte è una media calcolata e non è usato."),
                    f, {"year": TI_YEAR, "kanton": "ti", "measures": measures, "gemeinden": out}, extra_meta={"unmatched": unmatched})
+
+
+ZH_FILES: dict[str, dict] = {}
 
 
 def zh_csv(ind: int) -> pd.DataFrame:
     f = fetch(f"{ZH_BASE}KANTON_ZUERICH_{ind}.csv", f"zh_gemeindekennziffer_{ind}.csv", headers=H)
+    ZH_FILES[str(ind)] = file_record(f, f"Indicatore {ind}: " + (ZH_IND_LABEL.get(ind) or f"Nettoaufwand, {ZH_FUNK[ind]}"))
     d = pd.read_csv(f.path, index_col=False, encoding="utf-8-sig")
     d = d[(d.BFS_NR >= 1) & (d.BFS_NR <= 299) & (d.INDIKATOR_JAHR >= 2019)]
     return d[["BFS_NR", "GEBIET_NAME", "INDIKATOR_JAHR", "INDIKATOR_VALUE"]].rename(columns={"BFS_NR": "bfs", "GEBIET_NAME": "name", "INDIKATOR_JAHR": "year", "INDIKATOR_VALUE": "v"})
@@ -129,30 +140,37 @@ def zurich() -> None:
             return {int(r.year): float(r.v) for r in g.itertuples() if pd.notna(r.v)}
         nv = ser(frames["nettovermoegen"])
         fvals = {ind: ser(d).get(year) for ind, d in funk.items()}
-        st = stf[stf.BFSNR == bfs].set_index("YEAR").STF_O_KIRCHE1
+        own = stf[stf.BFSNR == bfs].set_index("YEAR")
+        st = own.STF_O_KIRCHE1
+        # a second (third) multiplier applies in the part of the Comune that belongs to another school municipality: 0 = none
+        more = {f"steuerfuss_{i}": {int(y): float(v) for y, v in own[f"STF_O_KIRCHE{i}"].items() if y >= 2019 and v > 0} for i in (2, 3)}
         values = {"servizi_pc": round(sum(v for v in fvals.values() if v is not None)), "debito_pc": -round(nv[year]) if year in nv else None,
                   "steuerfuss": float(st.get(year)) if year in st.index else None, "netinv_pc": ser(frames["netinv_pc"]).get(year),
                   "risultato_pc": ser(frames["risultato_pc"]).get(year), "steuerkraft": ser(frames["steuerkraft"]).get(year)}
         out[str(int(bfs))] = {"name": str(name), "pop": pop_names.get(str(int(bfs)), {}).get("values", {}).get(str(year)),
                               "values": values, "funk": {ZH_FUNK[i]: v for i, v in fvals.items() if v is not None},
-                              "series": {"debito_pc": {y: -round(v) for y, v in nv.items()}, "steuerfuss": {int(y): float(v) for y, v in st.items() if y >= 2019}},
+                              "series": {"debito_pc": {y: -round(v) for y, v in nv.items()}, "steuerfuss": {int(y): float(v) for y, v in st.items() if y >= 2019},
+                                         **{k: v for k, v in more.items() if v}},
                               "steuerfuss_latest": {"year": stf_year, "value": float(st.get(stf_year))} if stf_year in st.index else None}
     measures = [
         {"key": "servizi_pc", "label": "Costo netto dei servizi per abitante", "unit": "chf", "note": f"Costo dei servizi comunali nel {year}, tolti i ricavi propri di ogni servizio (tasse d'uso, contributi ricevuti)"},
         {"key": "debito_pc", "label": "Debito netto per abitante", "unit": "chf", "diverging": True, "note": f"Debiti meno averi finanziari a fine {year}. Se negativo, il Comune ha più averi che debiti"},
-        {"key": "steuerfuss", "label": "Moltiplicatore d'imposta", "unit": "pct", "note": f"Percentuale dell'imposta cantonale che il Comune preleva, {year}, senza imposta di culto. Più è alta, più imposte comunali si pagano"},
+        {"key": "steuerfuss", "label": "Moltiplicatore d'imposta", "unit": "pct", "note": f"Percentuale dell'imposta cantonale semplice che il Comune preleva, {year}, senza imposta di culto. Uster e Turbenthal hanno due moltiplicatori secondo il Comune scolastico: mappa e classifica usano il primo, la scheda del Comune li riporta entrambi. Più è alta, più imposte comunali si pagano"},
         {"key": "netinv_pc", "label": "Investimenti netti per abitante", "unit": "chf", "note": f"Spese per opere (strade, scuole, canalizzazioni) nel {year}, tolti i sussidi ricevuti"},
         {"key": "risultato_pc", "label": "Risultato d'esercizio per abitante", "unit": "chf", "diverging": True, "note": f"Ricavi meno spese nel {year}. Se negativo, è un disavanzo"},
         {"key": "steuerkraft", "label": "Forza fiscale per abitante", "unit": "chf", "note": f"Gettito fiscale per abitante nel {year}, a moltiplicatore uguale per tutti"},
     ]
     f0 = fetch(f"{ZH_BASE}KANTON_ZUERICH_431.csv", "zh_gemeindekennziffer_431.csv", headers=H)
+    two = sorted(v["name"] for v in out.values() if v["series"].get("steuerfuss_2", {}).get(year, v["values"]["steuerfuss"]) != v["values"]["steuerfuss"])
+    assert two == ["Turbenthal", "Uster"], two  # the note of the measure names them
+    files = [ZH_FILES[k] for k in sorted(ZH_FILES, key=int)] + [file_record(fs, "Steuerfüsse (moltiplicatori d'imposta), serie storica")]
     write_snapshot(Source(id="gemeinden-zh", title=f"Zurigo – indicatori finanziari di tutti i Comuni, {year}",
-                          publisher="Statistisches Amt des Kantons Zürich", publisher_url="https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt.html",
+                          publisher="Statistisches Amt des Kantons Zürich", publisher_url=ZH_PUBLISHER_URL,
                           source_url=f"{ZH_BASE}KANTON_ZUERICH_431.csv", landing_url=ZH_LANDING, license="opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
                           frequency="annuale", level="gemeinden", unit="CHF per abitante", data_date=f"2019–{year}; Steuerfuss fino al {stf_year}",
                           coverage=f"{len(out)} Comuni zurighesi: costo netto dei servizi per funzione, patrimonio/debito netto, investimenti netti, risultato, Steuerfuss, forza fiscale",
-                          notes="Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse."),
-                   f0, {"year": year, "kanton": "zh", "measures": measures, "gemeinden": out})
+                          notes=f"Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse: {len(files)} file, elencati uno per uno con indirizzo e impronta; l'impronta in testa è quella del file dell'indicatore 431."),
+                   f0, {"year": year, "kanton": "zh", "measures": measures, "gemeinden": out}, extra_meta={"files": files})
 
 
 def main() -> None:

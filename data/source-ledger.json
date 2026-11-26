@@ -5,18 +5,34 @@
   "publisher": "Ufficio federale di statistica (UST/BFS)",
   "publisher_url": "https://www.bfs.admin.ch",
   "landing_url": "https://www.pxweb.bfs.admin.ch/pxweb/it/px-x-0102020000_201/-/px-x-0102020000_201.px",
-  "source_url": "https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0102020000_201/px-x-0102020000_201.px",
+  "source_url": "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-0102020000_201",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht",
   "frequency": "annuale (agosto)",
   "level": "gemeinden",
   "unit": "persone",
   "data_date": "2008–2025",
-  "published_at": null,
-  "retrieved_at": "2026-09-09T09:34:12+00:00",
-  "checked_at": "2026-09-09T09:34:12+00:00",
-  "sha256": "dff64971c3e2502a5cfbf2bc4509fccb52c0e3b34b6eecc1abce7d85636f77e0",
-  "coverage": "2118 Comuni (stato dei Comuni attuale), 2008–2025",
-  "notes": "Stesso cubo STAT-TAB dei Cantoni; chiave = numero UST del Comune."
+  "published_at": "2026-08-20T08:30:00+02:00",
+  "retrieved_at": "2026-11-26T12:27:09+00:00",
+  "checked_at": "2026-11-26T12:27:22+00:00",
+  "sha256": "894c06b8c0d3b86dadfe931d0a7cb28610f3f19dfb2f3e347dbb9c8aceb3e929",
+  "coverage": "2118 Comuni (stato dei Comuni al 6.4.2025), 2008–2025",
+  "notes": "Stesso cubo STAT-TAB dei Cantoni; chiave = numero UST del Comune. Tutti gli anni sono riferiti ai confini del 6.4.2025: per un Comune aggregato dopo, il dato di un anno precedente è la somma dei Comuni confluiti; le aggregazioni vengono dall'elenco delle mutazioni dell'UST. I valori sono letti dall'API della stessa tabella STAT-TAB; il file indicato è la tabella completa in formato PX e l'impronta è la sua.",
+  "files": [
+   {
+    "label": "Tabella STAT-TAB completa (PX)",
+    "url": "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-0102020000_201",
+    "published_at": null,
+    "retrieved_at": "2026-11-26T12:27:09+00:00",
+    "sha256": "894c06b8c0d3b86dadfe931d0a7cb28610f3f19dfb2f3e347dbb9c8aceb3e929"
+   },
+   {
+    "label": "Elenco delle mutazioni dei Comuni (AGVCH)",
+    "url": "https://www.agvchapp.bfs.admin.ch/api/communes/mutations?startPeriod=02-01-2008&endPeriod=06-04-2025&includeTerritoryExchange=false",
+    "published_at": null,
+    "retrieved_at": "2026-11-26T12:27:22+00:00",
+    "sha256": "1f78320dca6b3a629566a9c35a95c3ed88b6871920ec100fe3fc910203b55863"
+   }
+  ]
  },
  "bfs-bevoelkerung-kantone": {
   "id": "bfs-bevoelkerung-kantone",
@@ -24,18 +40,18 @@
   "publisher": "Ufficio federale di statistica (UST/BFS)",
   "publisher_url": "https://www.bfs.admin.ch",
   "landing_url": "https://www.pxweb.bfs.admin.ch/pxweb/it/px-x-0102020000_201/-/px-x-0102020000_201.px",
-  "source_url": "https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0102020000_201/px-x-0102020000_201.px",
+  "source_url": "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-0102020000_201",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (OPEN-BY-ASK per alcune tabelle)",
   "frequency": "annuale (agosto)",
   "level": "kantone",
   "unit": "persone",
   "data_date": "1981–2025",
-  "published_at": null,
-  "retrieved_at": "2026-09-09T09:34:05+00:00",
-  "checked_at": "2026-09-09T09:34:12+00:00",
-  "sha256": "9613a8c9b6494d5422b9d1e99a863457e8b76c8b58103448c82bc7678f5fb530",
+  "published_at": "2026-08-20T08:30:00+02:00",
+  "retrieved_at": "2026-11-26T12:27:09+00:00",
+  "checked_at": "2026-11-26T12:27:22+00:00",
+  "sha256": "894c06b8c0d3b86dadfe931d0a7cb28610f3f19dfb2f3e347dbb9c8aceb3e929",
   "coverage": "Svizzera + 26 Cantoni, STATPOP/ESPOP, usata per i valori pro capite",
-  "notes": "Cubo STAT-TAB; componente «Stato della popolazione al 31 dicembre», tutte le nazionalità e i sessi."
+  "notes": "Cubo STAT-TAB; componente «Stato della popolazione al 31 dicembre», tutte le nazionalità e i sessi. I valori sono letti dall'API della stessa tabella STAT-TAB; il file indicato è la tabella completa in formato PX e l'impronta è la sua."
  },
  "bund-ausgaben-art": {
   "id": "bund-ausgaben-art",
@@ -50,8 +66,8 @@
   "unit": "CHF",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:36+00:00",
-  "retrieved_at": "2026-09-09T09:19:05+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:40+00:00",
+  "checked_at": "2026-11-26T12:27:41+00:00",
   "sha256": "fb471a63ffcf27a4e5f654f3f22d81f4f86799b069cd55d2f8972d1fbaa9eb62",
   "coverage": "Spese correnti e d'investimento per natura economica (personale, beni e servizi, trasferimenti…), 2023–2030",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)"
@@ -69,10 +85,10 @@
   "unit": "CHF",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:36+00:00",
-  "retrieved_at": "2026-09-09T09:19:05+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:40+00:00",
+  "checked_at": "2026-11-26T12:27:41+00:00",
   "sha256": "fb471a63ffcf27a4e5f654f3f22d81f4f86799b069cd55d2f8972d1fbaa9eb62",
-  "coverage": "Spese della Confederazione per 13 settori di compito e sotto-settori, 1990–2030",
+  "coverage": "Spese della Confederazione per 12 settori di compito e sotto-settori, 1990–2030",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)"
  },
  "bund-beschaffungen": {
@@ -81,18 +97,18 @@
   "publisher": "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)",
   "publisher_url": "https://www.bkb.admin.ch",
   "landing_url": "https://opendata.swiss/de/organization/bkb",
-  "source_url": "https://www.bkb.admin.ch/dam/de/sd-web/mhYFV5ZlNhYV/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202024%20DE.xlsx",
+  "source_url": "https://www.bkb.admin.ch/dam/de/sd-web/B-uK73aAeJBp/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202025%20DE.xlsx",
   "license": "opendata.swiss: Freie Nutzung (terms_open)",
   "frequency": "annuale (settembre dell'anno successivo)",
   "level": "bund",
   "unit": "CHF (IVA inclusa)",
-  "data_date": "2021–2024",
+  "data_date": "2021–2025",
   "published_at": null,
-  "retrieved_at": "2026-09-09T09:21:33+00:00",
-  "checked_at": "2026-09-09T09:21:33+00:00",
+  "retrieved_at": "2026-11-26T12:21:35+00:00",
+  "checked_at": "2026-11-26T12:21:35+00:00",
   "sha256": null,
-  "coverage": "38103 contratti, 11741 fornitori, 29.8 mld CHF in 4 anni",
-  "notes": "Il dataset 'Beschaffungen 2024' su opendata.swiss contiene i contratti 2023 (l'anno del titolo è l'anno di pubblicazione)."
+  "coverage": "47706 contratti, 13651 fornitori, 35.9 mld CHF in 5 anni",
+  "notes": "Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Elenco dei file sul sito della CA: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken"
  },
  "bund-beschaffungen-2021": {
   "id": "bund-beschaffungen-2021",
@@ -107,8 +123,8 @@
   "unit": "CHF (IVA inclusa)",
   "data_date": "2021",
   "published_at": "2024-06-28T13:34:25+00:00",
-  "retrieved_at": "2026-09-09T09:21:15+00:00",
-  "checked_at": "2026-11-12T10:18:23+00:00",
+  "retrieved_at": "2026-11-26T12:21:31+00:00",
+  "checked_at": "2026-11-26T12:22:15+00:00",
   "sha256": "5b4b12dd4bc18746d33d7e2032fc421fad71743e9c24576797a55f12e363545f",
   "coverage": "9400 contratti dell'Amministrazione federale centrale, anno 2021",
   "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso)."
@@ -126,10 +142,10 @@
   "unit": "CHF (IVA inclusa)",
   "data_date": "2022",
   "published_at": "2024-06-28T13:35:32+00:00",
-  "retrieved_at": "2026-09-09T09:21:16+00:00",
-  "checked_at": "2026-11-12T10:18:23+00:00",
+  "retrieved_at": "2026-11-26T12:21:32+00:00",
+  "checked_at": "2026-11-26T12:22:16+00:00",
   "sha256": "8ed4bbf5381d3356265d46d0cba02e6dbf64b12d280c2dc3fbf2925f4aad427d",
-  "coverage": "10097 contratti dell'Amministrazione federale centrale, anno 2022",
+  "coverage": "10097 contratti dell'Amministrazione federale centrale, anno 2022; in più 1 senza importo pubblicato, non contati",
   "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso)."
  },
  "bund-beschaffungen-2023": {
@@ -137,7 +153,7 @@
   "title": "Confederazione – appalti ≥ 50 000 CHF, contratti 2023",
   "publisher": "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)",
   "publisher_url": "https://www.bkb.admin.ch",
-  "landing_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20241",
+  "landing_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20231",
   "source_url": "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/11/14/65a1a791-d80e-44bb-8da8-08d2e95afe9c.xlsx",
   "license": "opendata.swiss: Freie Nutzung (terms_open)",
   "frequency": "annuale (settembre dell'anno successivo)",
@@ -145,8 +161,8 @@
   "unit": "CHF (IVA inclusa)",
   "data_date": "2023",
   "published_at": "2024-11-14T09:57:00+00:00",
-  "retrieved_at": "2026-09-09T09:21:17+00:00",
-  "checked_at": "2026-11-12T10:18:24+00:00",
+  "retrieved_at": "2026-11-26T12:21:32+00:00",
+  "checked_at": "2026-11-26T12:22:16+00:00",
   "sha256": "a90a9cc6bad99cecbb8e30ff8caf9dc95263d98a60aafca66675012285cf1157",
   "coverage": "9557 contratti dell'Amministrazione federale centrale, anno 2023",
   "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso)."
@@ -156,7 +172,7 @@
   "title": "Confederazione – appalti ≥ 50 000 CHF, contratti 2024",
   "publisher": "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)",
   "publisher_url": "https://www.bkb.admin.ch",
-  "landing_url": "https://www.bkb.admin.ch/de/berichterstattung-ab-50000",
+  "landing_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20241",
   "source_url": "https://www.bkb.admin.ch/dam/de/sd-web/mhYFV5ZlNhYV/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202024%20DE.xlsx",
   "license": "opendata.swiss: Freie Nutzung (terms_open)",
   "frequency": "annuale (settembre dell'anno successivo)",
@@ -164,10 +180,29 @@
   "unit": "CHF (IVA inclusa)",
   "data_date": "2024",
   "published_at": "2025-09-12T07:01:36+00:00",
-  "retrieved_at": "2026-09-09T09:21:33+00:00",
-  "checked_at": "2026-11-12T10:18:24+00:00",
+  "retrieved_at": "2026-11-26T12:21:33+00:00",
+  "checked_at": "2026-11-26T12:22:17+00:00",
   "sha256": "5912a8a3f5b37cfae7af3f956fe02a7dd49981865deb8326457dfdd4ebcabb33",
   "coverage": "9049 contratti dell'Amministrazione federale centrale, anno 2024",
+  "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso)."
+ },
+ "bund-beschaffungen-2025": {
+  "id": "bund-beschaffungen-2025",
+  "title": "Confederazione – appalti ≥ 50 000 CHF, contratti 2025",
+  "publisher": "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)",
+  "publisher_url": "https://www.bkb.admin.ch",
+  "landing_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-2025",
+  "source_url": "https://www.bkb.admin.ch/dam/de/sd-web/B-uK73aAeJBp/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202025%20DE.xlsx",
+  "license": "opendata.swiss: Freie Nutzung (terms_open)",
+  "frequency": "annuale (settembre dell'anno successivo)",
+  "level": "bund",
+  "unit": "CHF (IVA inclusa)",
+  "data_date": "2025",
+  "published_at": "2026-09-18T07:31:26+00:00",
+  "retrieved_at": "2026-11-26T12:21:35+00:00",
+  "checked_at": "2026-11-26T12:22:17+00:00",
+  "sha256": "a3ca129c665d243227cfda6d089e40540d542d6444847c9089e925ba49d3f65f",
+  "coverage": "9603 contratti dell'Amministrazione federale centrale, anno 2025; in più 1 senza importo pubblicato, non contati",
   "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso)."
  },
  "bund-einnahmen": {
@@ -183,8 +218,8 @@
   "unit": "CHF",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:36+00:00",
-  "retrieved_at": "2026-09-09T09:19:05+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:40+00:00",
+  "checked_at": "2026-11-26T12:27:41+00:00",
   "sha256": "fb471a63ffcf27a4e5f654f3f22d81f4f86799b069cd55d2f8972d1fbaa9eb62",
   "coverage": "Entrate della Confederazione per tipo (imposta federale diretta, IVA, imposta preventiva…), 1990–2030",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)"
@@ -202,8 +237,8 @@
   "unit": "CHF",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:36+00:00",
-  "retrieved_at": "2026-09-09T09:19:05+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:40+00:00",
+  "checked_at": "2026-11-26T12:27:41+00:00",
   "sha256": "fb471a63ffcf27a4e5f654f3f22d81f4f86799b069cd55d2f8972d1fbaa9eb62",
   "coverage": "Quota di spesa, quota fiscale, debito lordo/netto, saldo di finanziamento, PIL nominale, 1990–2030",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)"
@@ -221,17 +256,17 @@
   "unit": "CHF / FTE",
   "data_date": "Rechnung 2025; Voranschlag 2026–2027; Finanzplan 2028–2030",
   "published_at": "2026-08-20T10:45:02+00:00",
-  "retrieved_at": "2026-09-09T09:19:21+00:00",
-  "checked_at": "2026-09-09T09:21:14+00:00",
+  "retrieved_at": "2026-11-26T12:27:42+00:00",
+  "checked_at": "2026-11-26T12:27:42+00:00",
   "sha256": "2c882f749c940bdcd04406dc00dd2e6731230e894f7277ede5c0e12ffb90b565",
-  "coverage": "95 unità amministrative in 7 dipartimenti + autorità e tribunali: spese per il personale, consulenza esterna, informatica e posti a tempo pieno, 2007–2030",
+  "coverage": "87 unità amministrative in 8 gruppi (7 dipartimenti più autorità e tribunali): spese per il personale, consulenza esterna, informatica e posti a tempo pieno, 2007–2030",
   "notes": "anno <= 2025: Rechnung (consuntivo); 2026-2027: Voranschlag (preventivo); >= 2028: Finanzplan (piano finanziario)"
  },
  "fs-gemeinden-5000": {
   "id": "fs-gemeinden-5000",
   "title": "Statistica finanziaria – Comuni con almeno 5 000 abitanti, conti per singolo Comune",
   "publisher": "Eidgenössische Finanzverwaltung (EFV), Finanzstatistik / Amministrazione federale delle finanze (AFF), statistica finanziaria",
-  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik",
+  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik-daten",
   "landing_url": "https://www.efv.admin.ch/de/fs-daten",
   "source_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/gdn_ab_5000-d.csv",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
@@ -240,8 +275,8 @@
   "unit": "CHF",
   "data_date": "2008–2024",
   "published_at": "2026-08-27T06:53:20+00:00",
-  "retrieved_at": "2026-09-09T09:29:12+00:00",
-  "checked_at": "2026-09-09T09:33:48+00:00",
+  "retrieved_at": "2026-11-26T12:27:58+00:00",
+  "checked_at": "2026-11-26T12:28:00+00:00",
   "sha256": "43dd5f0b147cf1d78e5e614fbab45bc717af0414cc6a0fc9bdbd20f53cc81943",
   "coverage": "435 Comuni, spese correnti (Aufwand) per funzione, ricavi, investimenti, 2008–2024",
   "notes": "Conto economico HRM2 (Aufwand/Ertrag), non conto di finanziamento: i totali non sono sommabili con le «uscite» del modello FS. L'ultimo anno può essere incompleto per alcuni Comuni."
@@ -250,18 +285,18 @@
   "id": "fs-hauptaggregate",
   "title": "Statistica finanziaria – aggregati principali, debito e stato dei dati per livello",
   "publisher": "Eidgenössische Finanzverwaltung (EFV), Finanzstatistik / Amministrazione federale delle finanze (AFF), statistica finanziaria",
-  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik",
+  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik-daten",
   "landing_url": "https://www.efv.admin.ch/de/fs-daten",
   "source_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/main_extern.csv",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
   "frequency": "2 volte l'anno (febbraio/marzo e agosto/settembre)",
   "level": "gesamt",
   "unit": "CHF",
-  "data_date": "1990–2025",
-  "published_at": "2026-08-27T07:06:54+00:00",
-  "retrieved_at": "2026-09-09T09:29:12+00:00",
-  "checked_at": "2026-11-12T10:18:26+00:00",
-  "sha256": "fe48784fe905ca3e3612c70085acb7b993074db8ca0a5002230ee51fc3f3474c",
+  "data_date": "1990–2030",
+  "published_at": "2026-09-22T08:54:56+00:00",
+  "retrieved_at": "2026-11-26T12:22:51+00:00",
+  "checked_at": "2026-11-26T12:22:53+00:00",
+  "sha256": "d5fe12eeae55bf854949880a29f7f5b1cc372b20a22f3ad770a20980bc88e48c",
   "coverage": "Entrate, uscite e saldo (modello FS); debito secondo Maastricht, debito netto e quote sul PIL (modello GFS) per Stato, Confederazione, Cantoni, Comuni e assicurazioni sociali; per ogni anno l'indicazione dell'AFF se il dato è consuntivo, parziale o previsione",
   "notes": "Lo stato di ogni anno (Rechnung / Vorhandene Daten / Prognosen) è quello dichiarato dall'AFF nella colonna «source» del file."
  },
@@ -269,7 +304,7 @@
   "id": "fs-haushalte",
   "title": "Statistica finanziaria – Confederazione, Cantoni, Comuni e assicurazioni sociali (modello FS)",
   "publisher": "Eidgenössische Finanzverwaltung (EFV), Finanzstatistik / Amministrazione federale delle finanze (AFF), statistica finanziaria",
-  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik",
+  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik-daten",
   "landing_url": "https://www.efv.admin.ch/de/fs-daten",
   "source_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/standardauswertung.csv",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
@@ -278,8 +313,8 @@
   "unit": "CHF",
   "data_date": "consuntivi: Confederazione 2025, Cantoni 2024, Comuni 2024, assicurazioni sociali 2025; anni successivi = dati parziali o previsioni AFF",
   "published_at": "2026-08-27T07:07:22+00:00",
-  "retrieved_at": "2026-09-09T09:28:50+00:00",
-  "checked_at": "2026-11-12T10:18:26+00:00",
+  "retrieved_at": "2026-11-26T12:22:51+00:00",
+  "checked_at": "2026-11-26T12:22:53+00:00",
   "sha256": "bea848d6e2e8b2accd7cd038a9cd7ada617b2f4369018c66b4f7260a218e0d98",
   "coverage": "91 enti/aggregati: Stato, Confederazione, 26 Cantoni, Comuni per Cantone, Cantone+Comuni, 6 rami delle assicurazioni sociali; spese per funzione (2 livelli) e natura, entrate; 1990–2025",
   "notes": "Modello FS (statistica finanziaria svizzera), dati armonizzati e non direttamente confrontabili con i conti pubblicati dai singoli Cantoni. Le rilevazioni comunali sono in parte stimate su campione (FAQ EFV)."
@@ -297,17 +332,17 @@
   "unit": "CHF",
   "data_date": "2024",
   "published_at": "2025-12-09T08:20:24+00:00",
-  "retrieved_at": "2026-11-12T10:21:38+00:00",
-  "checked_at": "2026-11-12T10:55:46+00:00",
+  "retrieved_at": "2026-11-26T12:24:28+00:00",
+  "checked_at": "2026-11-26T12:24:52+00:00",
   "sha256": "51b46683fcc10e4a7c75ff9e8394063997d3c15a04e589491989bac3060236c9",
-  "coverage": "106 Comuni ticinesi del 2024, riportati ai 100 Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatore, risorse fiscali",
-  "notes": "I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti."
+  "coverage": "106 Comuni ticinesi del 2024, riportati ai 100 Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatori per persone fisiche e giuridiche, risorse fiscali",
+  "notes": "I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti. Il moltiplicatore di mappa e classifica è quello delle persone fisiche; il «moltiplicatore comunale coordinato» della fonte è una media calcolata e non è usato."
  },
  "gemeinden-zh": {
   "id": "gemeinden-zh",
   "title": "Zurigo – indicatori finanziari di tutti i Comuni, 2024",
   "publisher": "Statistisches Amt des Kantons Zürich",
-  "publisher_url": "https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt.html",
+  "publisher_url": "https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten.html",
   "landing_url": "https://www.zh.ch/de/politik-staat/gemeinden/gemeindeportraet.html",
   "source_url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_431.csv",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
@@ -316,17 +351,117 @@
   "unit": "CHF per abitante",
   "data_date": "2019–2024; Steuerfuss fino al 2026",
   "published_at": "2026-03-23T03:17:14+00:00",
-  "retrieved_at": "2026-11-12T10:21:39+00:00",
-  "checked_at": "2026-11-12T10:55:47+00:00",
+  "retrieved_at": "2026-11-26T12:24:29+00:00",
+  "checked_at": "2026-11-26T12:24:53+00:00",
   "sha256": "c34bfc7c94c8d1d705d353c18ec7a8de3eff5a01540c35d35f48a150a125008d",
   "coverage": "160 Comuni zurighesi: costo netto dei servizi per funzione, patrimonio/debito netto, investimenti netti, risultato, Steuerfuss, forza fiscale",
-  "notes": "Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse."
+  "notes": "Base «Konsolidierte Gemeinde»: i conti dei Comuni scolastici sono attribuiti pro quota ai Comuni politici. Un file CSV per indicatore (ID 378, 420–431, 828) più il file degli Steuerfüsse: 14 file, elencati uno per uno con indirizzo e impronta; l'impronta in testa è quella del file dell'indicatore 431.",
+  "files": [
+   {
+    "label": "Indicatore 378: Steuerkraft (forza fiscale)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_378.csv",
+    "published_at": "2026-03-23T03:17:12+00:00",
+    "retrieved_at": "2026-11-26T12:24:30+00:00",
+    "sha256": "0cb160b9a13b4807cd14453aab07b9362e7632c978f7b5170fb4eabbae2cdadd"
+   },
+   {
+    "label": "Indicatore 420: Nettoaufwand, Amministrazione generale",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_420.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:31+00:00",
+    "sha256": "f7b634ad590198b387bc46fecb215d73a633978eb73702035f2f5915616e2232"
+   },
+   {
+    "label": "Indicatore 421: Nettoaufwand, Formazione",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_421.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:31+00:00",
+    "sha256": "60e21d39b1d82f6fc597f0f72fa974a89bf5df3b9a1de4e46fe846d7e8830c46"
+   },
+   {
+    "label": "Indicatore 423: Nettoaufwand, Sanità",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_423.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:31+00:00",
+    "sha256": "0defe83ea729adedce64ac060115749a6be637a6b8658d6f5b489e0dd9c4279a"
+   },
+   {
+    "label": "Indicatore 424: Nettoaufwand, Cultura, sport e tempo libero",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_424.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:32+00:00",
+    "sha256": "b6cf62382dd36c11a4e9d94cea461a5c248b43c513fcce7c4150dd8a5e07a5ea"
+   },
+   {
+    "label": "Indicatore 425: Nettoaufwand, Ordine pubblico e sicurezza",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_425.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:32+00:00",
+    "sha256": "dce279178b101019d35f055d917ac68ff544e2e86c48768885fab87fc9a9a528"
+   },
+   {
+    "label": "Indicatore 426: Nettoaufwand, Sicurezza sociale",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_426.csv",
+    "published_at": "2026-03-23T03:17:13+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "1e89177f9ccd82d5e732f9b33521ee5d85fdd9b20c2c4ba7af50149905df3440"
+   },
+   {
+    "label": "Indicatore 427: Nettoaufwand, Ambiente e territorio",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_427.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "d535cc6577bcbdafec4648c4e3df511c05e2a2f449a6ed1abd12d88877f3eebf"
+   },
+   {
+    "label": "Indicatore 428: Nettoaufwand, Trasporti",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_428.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "228ed09c1df21f2697a44b4fe0103a03a3f58dcb9ad59f0a9f1180d5bbac780c"
+   },
+   {
+    "label": "Indicatore 429: Nettoaufwand, Economia",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_429.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "ff78b442d2f10d10cf53ccf780b79ad00f69839b2a89219550b94de9e8ec896c"
+   },
+   {
+    "label": "Indicatore 430: Nettoinvestitionen (investimenti netti)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_430.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:29+00:00",
+    "sha256": "6eb8c13fa5aada5e53c445a847d709a639c9f143f0c3e54bf50ef8ba118bdb0a"
+   },
+   {
+    "label": "Indicatore 431: Nettovermögen (patrimonio netto)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_431.csv",
+    "published_at": "2026-03-23T03:17:14+00:00",
+    "retrieved_at": "2026-11-26T12:24:29+00:00",
+    "sha256": "c34bfc7c94c8d1d705d353c18ec7a8de3eff5a01540c35d35f48a150a125008d"
+   },
+   {
+    "label": "Indicatore 828: Ertrags-/Aufwandüberschuss (risultato d'esercizio)",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/KANTON_ZUERICH_828.csv",
+    "published_at": "2026-03-23T03:17:19+00:00",
+    "retrieved_at": "2026-11-26T12:24:30+00:00",
+    "sha256": "51d733e6f3ccd86e8e45f354163be5b56e12ca7d4d7ba5b0a44909912f6a621f"
+   },
+   {
+    "label": "Steuerfüsse (moltiplicatori d'imposta), serie storica",
+    "url": "https://www.web.statistik.zh.ch/ogd/data/steuerfuesse/kanton_zuerich_stf_timeseries.csv",
+    "published_at": "2026-03-31T09:45:47+00:00",
+    "retrieved_at": "2026-11-26T12:24:33+00:00",
+    "sha256": "a1ea6ac0e60888a50a0e17be7905bb66b4e5d681d218ccf4a6427037ddb4cd2a"
+   }
+  ]
  },
  "geo-grenzen": {
   "id": "geo-grenzen",
   "title": "Confini generalizzati di Cantoni, Comuni e laghi (2026)",
   "publisher": "Ufficio federale di statistica (UST), GEOSTAT / swisstopo, via swiss-maps (Interactive Things)",
-  "publisher_url": "https://www.bfs.admin.ch/bfs/it/home/servizi/geostat.html",
+  "publisher_url": "https://statistik.admin.ch/de/daten/geodaten-bundesstatistik-geostat",
   "landing_url": "https://github.com/interactivethings/swiss-maps",
   "source_url": "https://unpkg.com/swiss-maps@4/2026/ch-combined.json",
   "license": "Geodati: fonte «UST, GEOSTAT»; codice swiss-maps BSD-3-Clause",
@@ -335,8 +470,8 @@
   "unit": "–",
   "data_date": "stato dei Comuni 2026",
   "published_at": "2026-11-01T18:26:16+00:00",
-  "retrieved_at": "2026-11-12T10:19:36+00:00",
-  "checked_at": "2026-11-12T10:36:19+00:00",
+  "retrieved_at": "2026-11-26T12:28:01+00:00",
+  "checked_at": "2026-11-26T12:28:05+00:00",
   "sha256": "320eeaec5a70436a87c193f83c944435b0b4a35b36ee6af31198e83b43125aef",
   "coverage": "26 Cantoni, 2113 Comuni, 22 laghi",
   "notes": "Confini generalizzati per la visualizzazione, non per misure."

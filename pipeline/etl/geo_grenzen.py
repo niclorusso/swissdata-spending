@@ -110,7 +110,7 @@ def main() -> None:
 
     write_snapshot(Source(id="geo-grenzen", title=f"Confini generalizzati di Cantoni, Comuni e laghi ({YEAR})",
                           publisher="Ufficio federale di statistica (UST), GEOSTAT / swisstopo, via swiss-maps (Interactive Things)",
-                          publisher_url="https://www.bfs.admin.ch/bfs/it/home/servizi/geostat.html", source_url=URL,
+                          publisher_url="https://statistik.admin.ch/de/daten/geodaten-bundesstatistik-geostat", source_url=URL,
                           landing_url="https://github.com/interactivethings/swiss-maps", license="Geodati: fonte «UST, GEOSTAT»; codice swiss-maps BSD-3-Clause",
                           frequency="annuale", level="gesamt", unit="–", data_date=f"stato dei Comuni {YEAR}",
                           coverage=f"{len(cantons)} Cantoni, {len(munis)} Comuni, {len(lakes)} laghi",

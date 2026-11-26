@@ -75,9 +75,11 @@ def main() -> None:
     extra = {"year_status": status, "years": years}
 
     aufg = df[df.topic == "Ausgaben nach Aufgabengebiet"]
+    aufg_tree = build_tree(aufg, 3)
+    n_areas = len(aufg_tree[0]["children"])  # counted in the file (category_level 2), not written by hand
     write_snapshot(Source(id="bund-ausgaben-aufgabengebiet", title="Confederazione – spese per settore di compito",
-                          coverage="Spese della Confederazione per 13 settori di compito e sotto-settori, 1990–2030", **common),
-                   f, {"tree": build_tree(aufg, 3)}, extra_meta=extra)
+                          coverage=f"Spese della Confederazione per {n_areas} settori di compito e sotto-settori, 1990–2030", **common),
+                   f, {"tree": aufg_tree}, extra_meta=extra)
 
     art = df[df.topic == "Ausgaben nach Art"]
     write_snapshot(Source(id="bund-ausgaben-art", title="Confederazione – spese per natura",

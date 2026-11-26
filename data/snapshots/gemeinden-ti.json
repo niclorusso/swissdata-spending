@@ -12,13 +12,13 @@
   "unit": "CHF",
   "data_date": "2024",
   "published_at": "2025-12-09T08:20:24+00:00",
-  "retrieved_at": "2026-11-12T10:21:38+00:00",
-  "checked_at": "2026-11-12T10:55:46+00:00",
+  "retrieved_at": "2026-11-26T12:24:28+00:00",
+  "checked_at": "2026-11-26T12:24:52+00:00",
   "sha256": "51b46683fcc10e4a7c75ff9e8394063997d3c15a04e589491989bac3060236c9",
-  "notes": "I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti.",
-  "coverage": "106 Comuni ticinesi del 2024, riportati ai 100 Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatore, risorse fiscali",
+  "notes": "I Comuni segnati dalla fonte con [*] includono nei conti l'approvvigionamento idrico, che negli altri è tenuto a parte: il confronto delle spese ne risente. Il Comune è identificato dal nome e abbinato al numero UST. I Comuni aggregati dopo il 2024 (Lema, Giornico con Bodio, Quinto con Prato Leventina) sono sommati nel Comune attuale; per loro le risorse fiscali non sono calcolate e il moltiplicatore è indicato solo se era uguale in tutti i Comuni confluiti. Il moltiplicatore di mappa e classifica è quello delle persone fisiche; il «moltiplicatore comunale coordinato» della fonte è una media calcolata e non è usato.",
+  "coverage": "106 Comuni ticinesi del 2024, riportati ai 100 Comuni attuali: spese operative, risultato, investimenti netti, debito pubblico netto, moltiplicatori per persone fisiche e giuridiche, risorse fiscali",
   "unmatched": [],
-  "generated_at": "2026-11-12T10:55:46+00:00"
+  "generated_at": "2026-11-26T12:24:52+00:00"
  },
  "data": {
   "year": 2024,
@@ -39,9 +39,9 @@
    },
    {
     "key": "moltiplicatore",
-    "label": "Moltiplicatore d'imposta",
+    "label": "Moltiplicatore d'imposta (persone fisiche)",
     "unit": "pct",
-    "note": "Percentuale dell'imposta cantonale che il Comune preleva, 2025. Più è alta, più imposte comunali si pagano"
+    "note": "Percentuale dell'imposta cantonale base che il Comune preleva dalle persone fisiche, 2025. Dove il moltiplicatore per le persone giuridiche è diverso, la scheda del Comune li riporta entrambi. Più è alta, più imposte comunali si pagano"
    },
    {
     "key": "netinv_pc",
@@ -77,9 +77,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3116
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 9459890,
      "ricavi": 9613918,
+     "risultato": -49939,
      "netinv": 957434,
      "debito": 15887176
     }
@@ -94,12 +101,19 @@
      "risultato_pc": 24,
      "netinv_pc": 450,
      "debito_pc": 4901,
-     "moltiplicatore": 84.0,
+     "moltiplicatore": 82.0,
      "risorse_pc": 3269
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 82.0,
+     "pg": 95.0,
+     "coordinato": 84.0
     },
     "abs": {
      "spese": 21486593,
      "ricavi": 21502774,
+     "risultato": 108274,
      "netinv": 2047702,
      "debito": 22320098
     }
@@ -117,9 +131,16 @@
      "moltiplicatore": 87.0,
      "risorse_pc": 3190
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 87.0,
+     "pg": 87.0,
+     "coordinato": 87.0
+    },
     "abs": {
      "spese": 9767190,
      "ricavi": 9282752,
+     "risultato": 112269,
      "netinv": 598434,
      "debito": 10124600
     }
@@ -137,9 +158,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 3178
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 6408384,
      "ricavi": 6700357,
+     "risultato": 176460,
      "netinv": 577709,
      "debito": 10215247
     }
@@ -157,9 +185,16 @@
      "moltiplicatore": 92.0,
      "risorse_pc": 2993
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 92.0,
+     "pg": 92.0,
+     "coordinato": 92.0
+    },
     "abs": {
      "spese": 1636302,
      "ricavi": 1744808,
+     "risultato": 85396,
      "netinv": 222193,
      "debito": 2818966
     }
@@ -177,9 +212,16 @@
      "moltiplicatore": 91.0,
      "risorse_pc": 2953
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 91.0,
+     "pg": 91.0,
+     "coordinato": 91.0
+    },
     "abs": {
      "spese": 20822417,
      "ricavi": 20978473,
+     "risultato": 136926,
      "netinv": 2493555,
      "debito": 20631687
     }
@@ -197,9 +239,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3247
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 4246834,
      "ricavi": 4422305,
+     "risultato": 116737,
      "netinv": 310110,
      "debito": 8033852
     }
@@ -217,9 +266,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 6030
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 38325467,
      "ricavi": 38123557,
+     "risultato": 2310147,
      "netinv": 5891173,
      "debito": 12562075
     }
@@ -232,27 +288,32 @@
      {
       "name": "Astano",
       "pop": 313,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      },
      {
       "name": "Bedigliora",
       "pop": 619,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      },
      {
       "name": "Curio",
       "pop": 587,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      },
      {
       "name": "Miglieglia",
       "pop": 293,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      },
      {
       "name": "Novaggio",
       "pop": 850,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      }
     ],
     "values": {
@@ -263,9 +324,11 @@
      "moltiplicatore": 95.0,
      "risorse_pc": null
     },
+    "moltiplicatori": null,
     "abs": {
      "spese": 12619278,
      "ricavi": 12813050,
+     "risultato": 207010,
      "netinv": 1064667,
      "debito": 11920719
     }
@@ -280,12 +343,19 @@
      "risultato_pc": 88,
      "netinv_pc": 337,
      "debito_pc": 5306,
-     "moltiplicatore": 98.0,
+     "moltiplicatore": 95.0,
      "risorse_pc": 3184
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 121.0,
+     "coordinato": 98.0
     },
     "abs": {
      "spese": 6977946,
      "ricavi": 7155511,
+     "risultato": 134229,
      "netinv": 516270,
      "debito": 8139775
     }
@@ -303,9 +373,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 5744
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 19154315,
      "ricavi": 17996874,
+     "risultato": -456913,
      "netinv": 436978,
      "debito": 8722451
     }
@@ -323,9 +400,16 @@
      "moltiplicatore": 78.0,
      "risorse_pc": 4575
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 78.0,
+     "pg": 78.0,
+     "coordinato": 78.0
+    },
     "abs": {
      "spese": 7347995,
      "ricavi": 7822059,
+     "risultato": 470090,
      "netinv": 349400,
      "debito": 12173765
     }
@@ -343,9 +427,16 @@
      "moltiplicatore": 60.0,
      "risorse_pc": 10377
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 60.0,
+     "pg": 60.0,
+     "coordinato": 60.0
+    },
     "abs": {
      "spese": 1401424,
      "ricavi": 1373695,
+     "risultato": 54839,
      "netinv": 263813,
      "debito": 955907
     }
@@ -363,9 +454,16 @@
      "moltiplicatore": 93.0,
      "risorse_pc": 3077
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 93.0,
+     "pg": 93.0,
+     "coordinato": 93.0
+    },
     "abs": {
      "spese": 222816829,
      "ricavi": 214284914,
+     "risultato": -1938633,
      "netinv": 23578734,
      "debito": 288467271
     }
@@ -383,9 +481,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3146
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 28198115,
      "ricavi": 28689060,
+     "risultato": 1242699,
      "netinv": 7922363,
      "debito": 23344728
     }
@@ -400,12 +505,19 @@
      "risultato_pc": 107,
      "netinv_pc": 472,
      "debito_pc": 9527,
-     "moltiplicatore": 68.0,
+     "moltiplicatore": 65.0,
      "risorse_pc": 5101
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 72.0,
+     "coordinato": 68.0
     },
     "abs": {
      "spese": 18774279,
      "ricavi": 19176638,
+     "risultato": 300692,
      "netinv": 1323250,
      "debito": 26685644
     }
@@ -423,9 +535,16 @@
      "moltiplicatore": 69.0,
      "risorse_pc": 5792
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 69.0,
+     "pg": 69.0,
+     "coordinato": 69.0
+    },
     "abs": {
      "spese": 6008871,
      "ricavi": 5903202,
+     "risultato": 42183,
      "netinv": 765990,
      "debito": 8181285
     }
@@ -443,9 +562,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 2959
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 9555175,
      "ricavi": 9851645,
+     "risultato": 162816,
      "netinv": 1705720,
      "debito": 16991534
     }
@@ -458,12 +584,14 @@
      {
       "name": "Bodio",
       "pop": 961,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      },
      {
       "name": "Giornico",
       "pop": 801,
-      "moltiplicatore": 95.0
+      "moltiplicatore": 95.0,
+      "moltiplicatore_pg": 95.0
      }
     ],
     "values": {
@@ -474,9 +602,11 @@
      "moltiplicatore": 95.0,
      "risorse_pc": null
     },
+    "moltiplicatori": null,
     "abs": {
      "spese": 8827371,
      "ricavi": 8981652,
+     "risultato": 285507,
      "netinv": 930690,
      "debito": 6816482
     }
@@ -494,9 +624,16 @@
      "moltiplicatore": 100.0,
      "risorse_pc": 3973
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 100.0,
+     "pg": 100.0,
+     "coordinato": 100.0
+    },
     "abs": {
      "spese": 817403,
      "ricavi": 772400,
+     "risultato": -100077,
      "netinv": 241145,
      "debito": 3157123
     }
@@ -514,9 +651,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3164
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 8965835,
      "ricavi": 8892029,
+     "risultato": -282735,
      "netinv": 1826759,
      "debito": 24865302
     }
@@ -534,9 +678,16 @@
      "moltiplicatore": 78.0,
      "risorse_pc": 5695
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 78.0,
+     "pg": 78.0,
+     "coordinato": 78.0
+    },
     "abs": {
      "spese": 3002633,
      "ricavi": 2995145,
+     "risultato": 160706,
      "netinv": 212383,
      "debito": 4735784
     }
@@ -554,9 +705,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 5274
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 13074472,
      "ricavi": 12725242,
+     "risultato": 245805,
      "netinv": 4277164,
      "debito": 23339033
     }
@@ -574,9 +732,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3771
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 2429741,
      "ricavi": 2456744,
+     "risultato": 415942,
      "netinv": 1097663,
      "debito": 3387870
     }
@@ -594,9 +759,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3472
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 3532340,
      "ricavi": 3622763,
+     "risultato": 19039,
      "netinv": 988464,
      "debito": 8055826
     }
@@ -614,9 +786,16 @@
      "moltiplicatore": 70.0,
      "risorse_pc": 332
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 70.0,
+     "pg": 70.0,
+     "coordinato": 70.0
+    },
     "abs": {
      "spese": 11601041,
      "ricavi": 8460201,
+     "risultato": -2652386,
      "netinv": 711902,
      "debito": 6216517
     }
@@ -634,9 +813,16 @@
      "moltiplicatore": 88.0,
      "risorse_pc": 2729
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 88.0,
+     "pg": 88.0,
+     "coordinato": 88.0
+    },
     "abs": {
      "spese": 12461666,
      "ricavi": 12583723,
+     "risultato": 292954,
      "netinv": 2305336,
      "debito": 11671553
     }
@@ -654,9 +840,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 2947
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 546859,
      "ricavi": 542504,
+     "risultato": 252562,
      "netinv": 115088,
      "debito": -848585
     }
@@ -674,9 +867,16 @@
      "moltiplicatore": 78.0,
      "risorse_pc": 3779
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 78.0,
+     "pg": 78.0,
+     "coordinato": 78.0
+    },
     "abs": {
      "spese": 9672692,
      "ricavi": 9604071,
+     "risultato": -107335,
      "netinv": 629042,
      "debito": 10488783
     }
@@ -694,9 +894,16 @@
      "moltiplicatore": 94.0,
      "risorse_pc": 3196
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 94.0,
+     "pg": 94.0,
+     "coordinato": 94.0
+    },
     "abs": {
      "spese": 31450076,
      "ricavi": 31718320,
+     "risultato": 499742,
      "netinv": 2821672,
      "debito": 60657349
     }
@@ -714,9 +921,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3260
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 18542923,
      "ricavi": 18752820,
+     "risultato": -51369,
      "netinv": 5680598,
      "debito": 27630109
     }
@@ -731,12 +945,19 @@
      "risultato_pc": -1294,
      "netinv_pc": 861,
      "debito_pc": 6425,
-     "moltiplicatore": 66.0,
+     "moltiplicatore": 65.0,
      "risorse_pc": 5623
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 70.0,
+     "coordinato": 66.0
     },
     "abs": {
      "spese": 14531417,
      "ricavi": 11366103,
+     "risultato": -2926373,
      "netinv": 1947148,
      "debito": 14534320
     }
@@ -754,9 +975,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3015
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 5977102,
      "ricavi": 6101798,
+     "risultato": 178800,
      "netinv": 1473601,
      "debito": 11128972
     }
@@ -774,9 +1002,16 @@
      "moltiplicatore": 100.0,
      "risorse_pc": 2439
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 100.0,
+     "pg": 100.0,
+     "coordinato": 100.0
+    },
     "abs": {
      "spese": 424903,
      "ricavi": 467998,
+     "risultato": -23015,
      "netinv": 180093,
      "debito": 2777720
     }
@@ -791,12 +1026,19 @@
      "risultato_pc": -294,
      "netinv_pc": 453,
      "debito_pc": 7083,
-     "moltiplicatore": 97.0,
+     "moltiplicatore": 94.0,
      "risorse_pc": 2759
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 94.0,
+     "pg": 113.0,
+     "coordinato": 97.0
     },
     "abs": {
      "spese": 6189197,
      "ricavi": 5870562,
+     "risultato": -327111,
      "netinv": 503485,
      "debito": 7868975
     }
@@ -814,9 +1056,16 @@
      "moltiplicatore": 88.0,
      "risorse_pc": 4886
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 88.0,
+     "pg": 88.0,
+     "coordinato": 88.0
+    },
     "abs": {
      "spese": 72650077,
      "ricavi": 68665967,
+     "risultato": -149472,
      "netinv": 6796274,
      "debito": 66057067
     }
@@ -834,9 +1083,16 @@
      "moltiplicatore": 80.0,
      "risorse_pc": 2596
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 80.0,
+     "pg": 80.0,
+     "coordinato": 80.0
+    },
     "abs": {
      "spese": 11556095,
      "ricavi": 10808618,
+     "risultato": 16140,
      "netinv": 1249151,
      "debito": 25706375
     }
@@ -854,9 +1110,16 @@
      "moltiplicatore": 60.0,
      "risorse_pc": 10180
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 60.0,
+     "pg": 60.0,
+     "coordinato": 60.0
+    },
     "abs": {
      "spese": 43176635,
      "ricavi": 44440242,
+     "risultato": 1658150,
      "netinv": 4554787,
      "debito": 9883082
     }
@@ -874,9 +1137,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 4364
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 11368196,
      "ricavi": 10298731,
+     "risultato": -995849,
      "netinv": 936899,
      "debito": 8470210
     }
@@ -894,9 +1164,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 2935
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 11803063,
      "ricavi": 12221540,
+     "risultato": 370718,
      "netinv": 1410054,
      "debito": 7413082
     }
@@ -914,9 +1191,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 4447
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 7024926,
      "ricavi": 6553386,
+     "risultato": -526106,
      "netinv": 1136530,
      "debito": 5832788
     }
@@ -934,9 +1218,16 @@
      "moltiplicatore": 70.0,
      "risorse_pc": 3547
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 70.0,
+     "pg": 70.0,
+     "coordinato": 70.0
+    },
     "abs": {
      "spese": 1034639,
      "ricavi": 1068188,
+     "risultato": 67532,
      "netinv": -7190,
      "debito": 282901
     }
@@ -954,9 +1245,16 @@
      "moltiplicatore": 94.0,
      "risorse_pc": 2693
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 94.0,
+     "pg": 94.0,
+     "coordinato": 94.0
+    },
     "abs": {
      "spese": 15316773,
      "ricavi": 15438699,
+     "risultato": 48253,
      "netinv": 1031479,
      "debito": 16996943
     }
@@ -971,12 +1269,19 @@
      "risultato_pc": -440,
      "netinv_pc": 994,
      "debito_pc": 9883,
-     "moltiplicatore": 87.0,
+     "moltiplicatore": 85.0,
      "risorse_pc": 3543
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 100.0,
+     "coordinato": 87.0
     },
     "abs": {
      "spese": 26912780,
      "ricavi": 24835576,
+     "risultato": -2211643,
      "netinv": 4991872,
      "debito": 49653687
     }
@@ -994,9 +1299,16 @@
      "moltiplicatore": 86.0,
      "risorse_pc": 2966
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 86.0,
+     "pg": 86.0,
+     "coordinato": 86.0
+    },
     "abs": {
      "spese": 20445306,
      "ricavi": 20949759,
+     "risultato": 462959,
      "netinv": 4423946,
      "debito": 28638351
     }
@@ -1014,9 +1326,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 8988
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 2907022,
      "ricavi": 3285335,
+     "risultato": 296873,
      "netinv": 206408,
      "debito": 1510013
     }
@@ -1034,9 +1353,16 @@
      "moltiplicatore": 70.0,
      "risorse_pc": 4755
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 70.0,
+     "pg": 70.0,
+     "coordinato": 70.0
+    },
     "abs": {
      "spese": 6325555,
      "ricavi": 5892730,
+     "risultato": -160932,
      "netinv": 824655,
      "debito": 5773454
     }
@@ -1054,9 +1380,16 @@
      "moltiplicatore": 92.0,
      "risorse_pc": 2984
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 92.0,
+     "pg": 92.0,
+     "coordinato": 92.0
+    },
     "abs": {
      "spese": 1790513,
      "ricavi": 1897380,
+     "risultato": 43124,
      "netinv": 152811,
      "debito": 6282957
     }
@@ -1071,12 +1404,19 @@
      "risultato_pc": 318,
      "netinv_pc": 2947,
      "debito_pc": 9066,
-     "moltiplicatore": 88.0,
+     "moltiplicatore": 85.0,
      "risorse_pc": 3698
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 95.0,
+     "coordinato": 88.0
     },
     "abs": {
      "spese": 10272466,
      "ricavi": 10868743,
+     "risultato": 559125,
      "netinv": 5177126,
      "debito": 15928284
     }
@@ -1094,9 +1434,16 @@
      "moltiplicatore": 100.0,
      "risorse_pc": 3114
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 100.0,
+     "pg": 100.0,
+     "coordinato": 100.0
+    },
     "abs": {
      "spese": 5606690,
      "ricavi": 5827039,
+     "risultato": 284802,
      "netinv": 352710,
      "debito": 3212735
     }
@@ -1114,9 +1461,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 2784
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 3686750,
      "ricavi": 3666373,
+     "risultato": 5752,
      "netinv": -234813,
      "debito": 1787693
     }
@@ -1134,9 +1488,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 3305
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 260350,
      "ricavi": 247303,
+     "risultato": -24517,
      "netinv": 115349,
      "debito": 402159
     }
@@ -1151,12 +1512,19 @@
      "risultato_pc": 55,
      "netinv_pc": 718,
      "debito_pc": 5169,
-     "moltiplicatore": 91.0,
+     "moltiplicatore": 90.0,
      "risorse_pc": 3336
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 97.0,
+     "coordinato": 91.0
     },
     "abs": {
      "spese": 78613805,
      "ricavi": 74390636,
+     "risultato": 898152,
      "netinv": 11751067,
      "debito": 84630873
     }
@@ -1174,9 +1542,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 3086
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 26024672,
      "ricavi": 27119264,
+     "risultato": 1175788,
      "netinv": 4317071,
      "debito": 24964554
     }
@@ -1191,12 +1566,19 @@
      "risultato_pc": -32,
      "netinv_pc": 1186,
      "debito_pc": 10302,
-     "moltiplicatore": 78.0,
+     "moltiplicatore": 77.0,
      "risorse_pc": 6788
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 77.0,
+     "pg": 82.0,
+     "coordinato": 78.0
     },
     "abs": {
      "spese": 466927681,
      "ricavi": 432637403,
+     "risultato": -2019659,
      "netinv": 75483381,
      "debito": 655536688
     }
@@ -1214,9 +1596,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 3028
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 6475319,
      "ricavi": 6531939,
+     "risultato": 4686,
      "netinv": 1987661,
      "debito": 13082243
     }
@@ -1231,12 +1620,19 @@
      "risultato_pc": -169,
      "netinv_pc": 592,
      "debito_pc": 5828,
-     "moltiplicatore": 93.0,
+     "moltiplicatore": 90.0,
      "risorse_pc": 2959
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 126.0,
+     "coordinato": 93.0
     },
     "abs": {
      "spese": 12891619,
      "ricavi": 12556377,
+     "risultato": -452085,
      "netinv": 1584173,
      "debito": 15584013
     }
@@ -1254,9 +1650,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 3978
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 7111686,
      "ricavi": 7214332,
+     "risultato": 285035,
      "netinv": -59839,
      "debito": 361308
     }
@@ -1274,9 +1677,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 10969
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 15378102,
      "ricavi": 17343195,
+     "risultato": 2442504,
      "netinv": 1426256,
      "debito": -22173083
     }
@@ -1294,9 +1704,16 @@
      "moltiplicatore": 70.0,
      "risorse_pc": 4375
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 70.0,
+     "pg": 70.0,
+     "coordinato": 70.0
+    },
     "abs": {
      "spese": 32733479,
      "ricavi": 36022206,
+     "risultato": 3566413,
      "netinv": 2097799,
      "debito": 24474928
     }
@@ -1314,9 +1731,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 4556
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 9104222,
      "ricavi": 8614626,
+     "risultato": 105610,
      "netinv": 1143416,
      "debito": 9782949
     }
@@ -1331,12 +1755,19 @@
      "risultato_pc": 319,
      "netinv_pc": 456,
      "debito_pc": 5890,
-     "moltiplicatore": 79.0,
+     "moltiplicatore": 77.0,
      "risorse_pc": 5509
+    },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 77.0,
+     "pg": 82.0,
+     "coordinato": 79.0
     },
     "abs": {
      "spese": 89712370,
      "ricavi": 90377803,
+     "risultato": 4813749,
      "netinv": 6881765,
      "debito": 88844937
     }
@@ -1354,9 +1785,16 @@
      "moltiplicatore": 100.0,
      "risorse_pc": 3421
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 100.0,
+     "pg": 100.0,
+     "coordinato": 100.0
+    },
     "abs": {
      "spese": 1508944,
      "ricavi": 1371596,
+     "risultato": -166850,
      "netinv": 213793,
      "debito": 2622484
     }
@@ -1374,9 +1812,16 @@
      "moltiplicatore": 60.0,
      "risorse_pc": 6406
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 60.0,
+     "pg": 60.0,
+     "coordinato": 60.0
+    },
     "abs": {
      "spese": 8982944,
      "ricavi": 9045434,
+     "risultato": 10078,
      "netinv": 1383747,
      "debito": 14265893
     }
@@ -1394,9 +1839,16 @@
      "moltiplicatore": 82.0,
      "risorse_pc": 3868
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 82.0,
+     "pg": 82.0,
+     "coordinato": 82.0
+    },
     "abs": {
      "spese": 38493095,
      "ricavi": 37255266,
+     "risultato": -422441,
      "netinv": 4302908,
      "debito": 33602524
     }
@@ -1414,9 +1866,16 @@
      "moltiplicatore": 92.0,
      "risorse_pc": 3065
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 92.0,
+     "pg": 92.0,
+     "coordinato": 92.0
+    },
     "abs": {
      "spese": 18863430,
      "ricavi": 19089331,
+     "risultato": 203329,
      "netinv": -481958,
      "debito": 12010812
     }
@@ -1434,9 +1893,16 @@
      "moltiplicatore": 82.0,
      "risorse_pc": 3604
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 82.0,
+     "pg": 82.0,
+     "coordinato": 82.0
+    },
     "abs": {
      "spese": 16538731,
      "ricavi": 17683287,
+     "risultato": 1370087,
      "netinv": 1175712,
      "debito": 2589136
     }
@@ -1454,9 +1920,16 @@
      "moltiplicatore": 80.0,
      "risorse_pc": 18280
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 80.0,
+     "pg": 80.0,
+     "coordinato": 80.0
+    },
     "abs": {
      "spese": 8818786,
      "ricavi": 9975021,
+     "risultato": 1715388,
      "netinv": 1567241,
      "debito": 6359251
     }
@@ -1474,9 +1947,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 4511
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 12927220,
      "ricavi": 12518909,
+     "risultato": 771973,
      "netinv": 908630,
      "debito": -1570305
     }
@@ -1494,9 +1974,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 4434
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 5235740,
      "ricavi": 5235665,
+     "risultato": 67040,
      "netinv": 834095,
      "debito": 3377649
     }
@@ -1514,9 +2001,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 3979
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 1470097,
      "ricavi": 1484883,
+     "risultato": -25246,
      "netinv": 1239148,
      "debito": 4183596
     }
@@ -1534,9 +2028,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 5589
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 11511780,
      "ricavi": 12304348,
+     "risultato": 857272,
      "netinv": 1932296,
      "debito": -636379
     }
@@ -1554,9 +2055,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 2702
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 4528248,
      "ricavi": 4802178,
+     "risultato": 415726,
      "netinv": 424799,
      "debito": 4969985
     }
@@ -1574,9 +2082,16 @@
      "moltiplicatore": 70.0,
      "risorse_pc": 5164
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 70.0,
+     "pg": 70.0,
+     "coordinato": 70.0
+    },
     "abs": {
      "spese": 6091072,
      "ricavi": 6137482,
+     "risultato": 58717,
      "netinv": 191853,
      "debito": 3926346
     }
@@ -1594,9 +2109,16 @@
      "moltiplicatore": 82.0,
      "risorse_pc": 6161
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 82.0,
+     "pg": 82.0,
+     "coordinato": 82.0
+    },
     "abs": {
      "spese": 4962126,
      "ricavi": 5005629,
+     "risultato": 174757,
      "netinv": 378303,
      "debito": 5121688
     }
@@ -1614,9 +2136,16 @@
      "moltiplicatore": 58.0,
      "risorse_pc": 12002
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 58.0,
+     "pg": 58.0,
+     "coordinato": 58.0
+    },
     "abs": {
      "spese": 46799954,
      "ricavi": 49917731,
+     "risultato": 4604147,
      "netinv": 8067511,
      "debito": -4027409
     }
@@ -1634,9 +2163,16 @@
      "moltiplicatore": 90.0,
      "risorse_pc": 3038
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 90.0,
+     "pg": 90.0,
+     "coordinato": 90.0
+    },
     "abs": {
      "spese": 1910196,
      "ricavi": 1843908,
+     "risultato": -51051,
      "netinv": 394430,
      "debito": 971535
     }
@@ -1654,9 +2190,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 2614
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 3039636,
      "ricavi": 3020261,
+     "risultato": -30931,
      "netinv": 465678,
      "debito": 191328
     }
@@ -1674,9 +2217,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3328
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 8466316,
      "ricavi": 8528100,
+     "risultato": 108631,
      "netinv": 1071686,
      "debito": 6641064
     }
@@ -1694,9 +2244,16 @@
      "moltiplicatore": 56.0,
      "risorse_pc": 7598
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 56.0,
+     "pg": 56.0,
+     "coordinato": 56.0
+    },
     "abs": {
      "spese": 10843615,
      "ricavi": 10745812,
+     "risultato": 89721,
      "netinv": 700855,
      "debito": -2890804
     }
@@ -1709,12 +2266,14 @@
      {
       "name": "Prato (Leventina)",
       "pop": 376,
-      "moltiplicatore": 90.0
+      "moltiplicatore": 90.0,
+      "moltiplicatore_pg": 90.0
      },
      {
       "name": "Quinto",
       "pop": 926,
-      "moltiplicatore": 90.0
+      "moltiplicatore": 90.0,
+      "moltiplicatore_pg": 90.0
      }
     ],
     "values": {
@@ -1725,9 +2284,11 @@
      "moltiplicatore": 90.0,
      "risorse_pc": null
     },
+    "moltiplicatori": null,
     "abs": {
      "spese": 8406997,
      "ricavi": 8365225,
+     "risultato": 124969,
      "netinv": 1125675,
      "debito": 10969234
     }
@@ -1745,9 +2306,16 @@
      "moltiplicatore": 87.0,
      "risorse_pc": 3648
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 87.0,
+     "pg": 87.0,
+     "coordinato": 87.0
+    },
     "abs": {
      "spese": 6320058,
      "ricavi": 6057580,
+     "risultato": -257613,
      "netinv": 1092195,
      "debito": 11290688
     }
@@ -1765,9 +2333,16 @@
      "moltiplicatore": 80.0,
      "risorse_pc": 3448
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 80.0,
+     "pg": 80.0,
+     "coordinato": 80.0
+    },
     "abs": {
      "spese": 11155024,
      "ricavi": 10699544,
+     "risultato": -61739,
      "netinv": 1887915,
      "debito": 14224248
     }
@@ -1785,9 +2360,16 @@
      "moltiplicatore": 95.0,
      "risorse_pc": 3019
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 95.0,
+     "pg": 95.0,
+     "coordinato": 95.0
+    },
     "abs": {
      "spese": 17796277,
      "ricavi": 17405254,
+     "risultato": -501954,
      "netinv": 1559118,
      "debito": 24130533
     }
@@ -1805,9 +2387,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 8688
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 6157780,
      "ricavi": 5977287,
+     "risultato": -62798,
      "netinv": 1275359,
      "debito": -1297073
     }
@@ -1825,9 +2414,16 @@
      "moltiplicatore": 70.0,
      "risorse_pc": 4396
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 70.0,
+     "pg": 70.0,
+     "coordinato": 70.0
+    },
     "abs": {
      "spese": 11903337,
      "ricavi": 11239019,
+     "risultato": -689779,
      "netinv": 2265102,
      "debito": 11845778
     }
@@ -1845,9 +2441,16 @@
      "moltiplicatore": 75.0,
      "risorse_pc": 5293
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 75.0,
+     "pg": 75.0,
+     "coordinato": 75.0
+    },
     "abs": {
      "spese": 10880503,
      "ricavi": 11748226,
+     "risultato": 1176224,
      "netinv": 1540745,
      "debito": 4292641
     }
@@ -1865,9 +2468,16 @@
      "moltiplicatore": 93.0,
      "risorse_pc": 3190
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 93.0,
+     "pg": 93.0,
+     "coordinato": 93.0
+    },
     "abs": {
      "spese": 9134823,
      "ricavi": 9604483,
+     "risultato": 201122,
      "netinv": 3742485,
      "debito": 17135241
     }
@@ -1885,9 +2495,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 6533
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 10975803,
      "ricavi": 12039268,
+     "risultato": 1054056,
      "netinv": 872253,
      "debito": 5174882
     }
@@ -1905,9 +2522,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 8439
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 29075533,
      "ricavi": 32099879,
+     "risultato": 3561603,
      "netinv": 5725458,
      "debito": 1485116
     }
@@ -1925,9 +2549,16 @@
      "moltiplicatore": 93.0,
      "risorse_pc": 3194
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 93.0,
+     "pg": 93.0,
+     "coordinato": 93.0
+    },
     "abs": {
      "spese": 14620651,
      "ricavi": 14838725,
+     "risultato": 210211,
      "netinv": 4923767,
      "debito": 16474915
     }
@@ -1945,9 +2576,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3135
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 10186013,
      "ricavi": 9826990,
+     "risultato": -238342,
      "netinv": 5457674,
      "debito": 7931825
     }
@@ -1965,9 +2603,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3115
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 12490906,
      "ricavi": 12528096,
+     "risultato": 82695,
      "netinv": -139435,
      "debito": 13945001
     }
@@ -1985,9 +2630,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3366
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 14425221,
      "ricavi": 13723759,
+     "risultato": -425829,
      "netinv": 2202738,
      "debito": 13569967
     }
@@ -2005,9 +2657,16 @@
      "moltiplicatore": 84.0,
      "risorse_pc": 4585
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 84.0,
+     "pg": 84.0,
+     "coordinato": 84.0
+    },
     "abs": {
      "spese": 14464242,
      "ricavi": 18994692,
+     "risultato": 4607952,
      "netinv": 789478,
      "debito": -4330652
     }
@@ -2025,9 +2684,16 @@
      "moltiplicatore": 80.0,
      "risorse_pc": 3231
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 80.0,
+     "pg": 80.0,
+     "coordinato": 80.0
+    },
     "abs": {
      "spese": 15903117,
      "ricavi": 20995812,
+     "risultato": 5583805,
      "netinv": 4037089,
      "debito": 6261035
     }
@@ -2045,9 +2711,16 @@
      "moltiplicatore": 80.0,
      "risorse_pc": 4957
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 80.0,
+     "pg": 80.0,
+     "coordinato": 80.0
+    },
     "abs": {
      "spese": 3184543,
      "ricavi": 3271430,
+     "risultato": 9904,
      "netinv": 1589391,
      "debito": 5664574
     }
@@ -2065,9 +2738,16 @@
      "moltiplicatore": 100.0,
      "risorse_pc": 3263
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 100.0,
+     "pg": 100.0,
+     "coordinato": 100.0
+    },
     "abs": {
      "spese": 5846701,
      "ricavi": 5294460,
+     "risultato": -329292,
      "netinv": 2603731,
      "debito": 7236026
     }
@@ -2085,9 +2765,16 @@
      "moltiplicatore": 85.0,
      "risorse_pc": 3651
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 85.0,
+     "pg": 85.0,
+     "coordinato": 85.0
+    },
     "abs": {
      "spese": 8432634,
      "ricavi": 7872328,
+     "risultato": -515982,
      "netinv": 3982609,
      "debito": 7991731
     }
@@ -2105,9 +2792,16 @@
      "moltiplicatore": 65.0,
      "risorse_pc": 10846
     },
+    "moltiplicatori": {
+     "year": 2025,
+     "pf": 65.0,
+     "pg": 65.0,
+     "coordinato": 65.0
+    },
     "abs": {
      "spese": 4330628,
      "ricavi": 4655469,
+     "risultato": 411851,
      "netinv": 1118703,
      "debito": 5493950
     }

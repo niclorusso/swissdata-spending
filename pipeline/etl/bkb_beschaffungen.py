@@ -19,16 +19,20 @@ PUBLISHER = "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti 
 PUBLISHER_URL = "https://www.bkb.admin.ch"
 LICENSE = "opendata.swiss: Freie Nutzung (terms_open)"
 LANDING = "https://opendata.swiss/de/organization/bkb"
+# The BKB's own page listing the yearly files (the opendata.swiss datasets link to the same files).
+PUBLISHER_PAGE = "https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken"
 
 FILES = [  # (contract year, opendata.swiss dataset, file url)
     (2021, "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20211",
      "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/06/28/dd1ea653-914e-496a-812b-4b8a71eb5e1b.xlsx"),
     (2022, "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20221",
      "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/06/28/3d0a1157-63da-4e6c-b933-90dac67c45c9.xlsx"),
-    (2023, "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20241",
+    (2023, "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20231",
      "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/11/14/65a1a791-d80e-44bb-8da8-08d2e95afe9c.xlsx"),
-    (2024, "https://www.bkb.admin.ch/de/berichterstattung-ab-50000",
+    (2024, "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20241",
      "https://www.bkb.admin.ch/dam/de/sd-web/mhYFV5ZlNhYV/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202024%20DE.xlsx"),
+    (2025, "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-2025",
+     "https://www.bkb.admin.ch/dam/de/sd-web/B-uK73aAeJBp/Vertr%C3%A4ge%20ab%2050%20000%20Franken%202025%20DE.xlsx"),
 ]
 
 COLS = {"Departement": "dep", "Verwaltungseinheit (Auftraggeber)": "unit", "Lieferant (Auftragnehmer)": "supplier",
@@ -62,6 +66,8 @@ def load(year: int, url: str) -> tuple[pd.DataFrame, object, dict]:
     df = df.rename(columns=COLS)[list(COLS.values())]
     df = df.dropna(subset=["supplier", "chf"], how="all")
     df["chf"] = df["chf"].map(to_num)
+    # rows whose volume is a text ("keine Angabe gemäss …"): the amount is not published, so the contract cannot be counted in the totals
+    late["no_amount"] = int(df.chf.isna().sum())
     df = df[df.chf.notna()]
     df["dep"] = df.dep.map(norm_dep)
     for c in ("start", "end"):
@@ -89,7 +95,7 @@ def main() -> None:
             "total_chf": round(float(df.chf.sum())), "n": int(len(df)), "n_suppliers": int(df.supplier.nunique()),
             # rows identical in every published field: possibly distinct contracts, possibly double entries. Counted, not removed.
             "identical_rows": {"n": int(dup.sum()), "chf": round(float(df[dup].chf.sum()))},
-            "late_additions": late,
+            "late_additions": {k: v for k, v in late.items() if k != "no_amount"}, "no_amount": late["no_amount"],
             "largest": {"supplier": str(df.loc[df.chf.idxmax(), "supplier"]), "object": str(df.loc[df.chf.idxmax(), "object"]), "chf": round(float(df.chf.max()))},
             "by_department": top(df, "dep", 20), "by_procedure": top(df, "procedure", 10),
             "top_suppliers": top(df, "supplier", 50), "top_units": top(df, "unit", 30), "top_objects": top(df, "object", 30),
@@ -101,7 +107,7 @@ def main() -> None:
         write_snapshot(Source(id=f"bund-beschaffungen-{year}", title=f"Confederazione – appalti ≥ 50 000 CHF, contratti {year}",
                               publisher=PUBLISHER, publisher_url=PUBLISHER_URL, source_url=url, landing_url=ds, license=LICENSE,
                               frequency="annuale (settembre dell'anno successivo)", level="bund", unit="CHF (IVA inclusa)",
-                              data_date=str(year), coverage=f"{len(df)} contratti dell'Amministrazione federale centrale, anno {year}",
+                              data_date=str(year), coverage=f"{len(df)} contratti dell'Amministrazione federale centrale, anno {year}" + (f"; in più {late['no_amount']} senza importo pubblicato, non contati" if late["no_amount"] else ""),
                               notes="Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso)."),
                        f, {"rows": recs})
     allc = pd.concat(all_rows)
@@ -110,7 +116,7 @@ def main() -> None:
                           frequency="annuale (settembre dell'anno successivo)", level="bund", unit="CHF (IVA inclusa)",
                           data_date=f"{min(years)}–{max(years)}",
                           coverage=f"{len(allc)} contratti, {allc.supplier.nunique()} fornitori, {allc.chf.sum()/1e9:.1f} mld CHF in {len(years)} anni",
-                          notes="Il dataset 'Beschaffungen 2024' su opendata.swiss contiene i contratti 2023 (l'anno del titolo è l'anno di pubblicazione)."),
+                          notes=f"Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Elenco dei file sul sito della CA: {PUBLISHER_PAGE}"),
                    None, {"years": years, "top_suppliers_all": top(allc, "supplier", 100)},
                    extra_meta={"retrieved_at": max(v["retrieved_at"] for v in years.values()),
                                "checked_at": max(v["retrieved_at"] for v in years.values())})

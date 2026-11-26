@@ -20,6 +20,8 @@ BASE = "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/"
 URL = BASE + "standardauswertung.csv"
 CODELIST = BASE + "standardauswertung_codelist.csv"
 LANDING = "https://www.efv.admin.ch/de/fs-daten"
+# The FFA page of the financial statistics data (the address the landing link redirects to).
+PUBLISHER_URL = "https://www.efv.admin.ch/de/finanzstatistik-daten"
 PUBLISHER = "Eidgenössische Finanzverwaltung (EFV), Finanzstatistik / Amministrazione federale delle finanze (AFF), statistica finanziaria"
 LICENSE = "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by)."
 H = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36",
@@ -125,7 +127,7 @@ def main() -> None:
         out[hh] = e
 
     write_snapshot(Source(id="fs-haushalte", title="Statistica finanziaria – Confederazione, Cantoni, Comuni e assicurazioni sociali (modello FS)",
-                          publisher=PUBLISHER, publisher_url="https://www.efv.admin.ch/de/finanzstatistik", source_url=URL, landing_url=LANDING, license=LICENSE,
+                          publisher=PUBLISHER, publisher_url=PUBLISHER_URL, source_url=URL, landing_url=LANDING, license=LICENSE,
                           frequency="2 volte l'anno (febbraio/marzo e agosto/settembre)", level="gesamt", unit="CHF",
                           data_date="consuntivi: " + ", ".join(f"{lab} {max(y for y, c in status[k].items() if c == 'R')}" for k, lab in (("bund", "Confederazione"), ("ktn", "Cantoni"), ("gdn", "Comuni"), ("sv", "assicurazioni sociali"))) + "; anni successivi = dati parziali o previsioni AFF",
                           coverage=f"{len(out)} enti/aggregati: Stato, Confederazione, 26 Cantoni, Comuni per Cantone, Cantone+Comuni, 6 rami delle assicurazioni sociali; spese per funzione (2 livelli) e natura, entrate; {years[0]}–{years[-1]}",
@@ -134,7 +136,7 @@ def main() -> None:
 
     main_years = sorted({y for v in status.values() for y in v})
     write_snapshot(Source(id="fs-hauptaggregate", title="Statistica finanziaria – aggregati principali, debito e stato dei dati per livello",
-                          publisher=PUBLISHER, publisher_url="https://www.efv.admin.ch/de/finanzstatistik", source_url=MAIN, landing_url=LANDING, license=LICENSE,
+                          publisher=PUBLISHER, publisher_url=PUBLISHER_URL, source_url=MAIN, landing_url=LANDING, license=LICENSE,
                           frequency="2 volte l'anno (febbraio/marzo e agosto/settembre)", level="gesamt", unit="CHF",
                           data_date=f"{main_years[0]}–{main_years[-1]}",
                           coverage="Entrate, uscite e saldo (modello FS); debito secondo Maastricht, debito netto e quote sul PIL (modello GFS) per Stato, Confederazione, Cantoni, Comuni e assicurazioni sociali; per ogni anno l'indicazione dell'AFF se il dato è consuntivo, parziale o previsione",

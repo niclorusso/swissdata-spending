@@ -3,7 +3,7 @@
   "id": "fs-gemeinden-5000",
   "title": "Statistica finanziaria – Comuni con almeno 5 000 abitanti, conti per singolo Comune",
   "publisher": "Eidgenössische Finanzverwaltung (EFV), Finanzstatistik / Amministrazione federale delle finanze (AFF), statistica finanziaria",
-  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik",
+  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik-daten",
   "source_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/gdn_ab_5000-d.csv",
   "landing_url": "https://www.efv.admin.ch/de/fs-daten",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
@@ -12,8 +12,8 @@
   "unit": "CHF",
   "data_date": "2008–2024",
   "published_at": "2026-08-27T06:53:20+00:00",
-  "retrieved_at": "2026-09-09T09:29:12+00:00",
-  "checked_at": "2026-09-09T09:33:48+00:00",
+  "retrieved_at": "2026-11-26T12:27:58+00:00",
+  "checked_at": "2026-11-26T12:28:00+00:00",
   "sha256": "43dd5f0b147cf1d78e5e614fbab45bc717af0414cc6a0fc9bdbd20f53cc81943",
   "notes": "Conto economico HRM2 (Aufwand/Ertrag), non conto di finanziamento: i totali non sono sommabili con le «uscite» del modello FS. L'ultimo anno può essere incompleto per alcuni Comuni.",
   "coverage": "435 Comuni, spese correnti (Aufwand) per funzione, ricavi, investimenti, 2008–2024",
@@ -36,7 +36,7 @@
    2023,
    2024
   ],
-  "generated_at": "2026-09-09T09:33:48+00:00"
+  "generated_at": "2026-11-26T12:28:00+00:00"
  },
  "data": {
   "gemeinden": {

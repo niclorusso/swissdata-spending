@@ -10,10 +10,10 @@ Ispirato a [France Transparence](https://francetransparence.fr).
 
 | Sezione | Dati | Fonte | Anni |
 |---|---|---|---|
-| Confederazione | Spese per 13 settori di compito e sotto-settori, spese per natura, entrate per imposta, debito, freno all'indebitamento | AFF, `bundeshaushalt_de.csv` (OGD) | 1990–2030 (consuntivi ≤ 2025, poi preventivo e piano finanziario, sempre marcati) |
-| Uffici federali | Personale, consulenza esterna, informatica e posti a tempo pieno per 95 unità amministrative | AFF, `institutionen_de.csv` (OGD) | 2007–2030 |
-| Appalti | Tutti i contratti ≥ 50 000 CHF dell'Amministrazione federale centrale: committente, fornitore, oggetto, procedura, volume | BKB (art. 27 OAPub), XLSX annuali | 2021–2024 (~38 000 contratti) |
-| Cantoni e Comuni | Statistica finanziaria: spese per funzione e natura per ogni Cantone, Comuni aggregati per Cantone, rami delle assicurazioni sociali; 432 Comuni ≥ 5 000 abitanti singolarmente | AFF Finanzstatistik (modello FS) | 1990–2025 |
+| Confederazione | Spese per 12 settori di compito e sotto-settori, spese per natura, entrate per imposta, debito, freno all'indebitamento | AFF, `bundeshaushalt_de.csv` (OGD) | 1990–2030 (consuntivi ≤ 2025, poi preventivo e piano finanziario, sempre marcati) |
+| Uffici federali | Personale, consulenza esterna, informatica e posti a tempo pieno per 87 unità amministrative (in 8 gruppi: 7 dipartimenti più autorità e tribunali) | AFF, `institutionen_de.csv` (OGD) | 2007–2030 |
+| Appalti | Tutti i contratti ≥ 50 000 CHF dell'Amministrazione federale centrale: committente, fornitore, oggetto, procedura, volume | BKB (art. 27 OAPub), XLSX annuali | 2021–2025 (47 706 contratti) |
+| Cantoni e Comuni | Statistica finanziaria: spese per funzione e natura per ogni Cantone, Comuni aggregati per Cantone, rami delle assicurazioni sociali; 435 Comuni ≥ 5 000 abitanti singolarmente | AFF Finanzstatistik (modello FS) | 1990–2025 |
 
 | Comuni di Ticino e Zurigo | Tutti i Comuni, uno per uno: spese, debito netto, moltiplicatore, investimenti, risultato | TI: Sezione degli enti locali; ZH: Statistisches Amt | 2024 (ZH: serie dal 2019) |
 
@@ -49,7 +49,7 @@ make dev      # http://localhost:3000
 make build    # sito statico in web/out
 ```
 
-`ETL_FORCE=1 make etl` (o `make etl-force`) riscarica tutto ignorando la cache.
+`ETL_FORCE=1 make etl` (o `make etl-force`) riscarica tutto ignorando la cache. Senza `ETL_FORCE` lo script riusa i file in `data/raw` e aggiorna comunque la data «verificato»: per dire che un file è stato confrontato con la fonte va riscaricato. Un solo script: `cd pipeline && ETL_FORCE=1 uv run python -m etl.bkb_beschaffungen`.
 
 ## Contribuire
 

@@ -4,18 +4,18 @@
   "title": "Popolazione residente permanente al 31 dicembre, Svizzera e Cantoni",
   "publisher": "Ufficio federale di statistica (UST/BFS)",
   "publisher_url": "https://www.bfs.admin.ch",
-  "source_url": "https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0102020000_201/px-x-0102020000_201.px",
+  "source_url": "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-0102020000_201",
   "landing_url": "https://www.pxweb.bfs.admin.ch/pxweb/it/px-x-0102020000_201/-/px-x-0102020000_201.px",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (OPEN-BY-ASK per alcune tabelle)",
   "frequency": "annuale (agosto)",
   "level": "kantone",
   "unit": "persone",
   "data_date": "1981–2025",
-  "published_at": null,
-  "retrieved_at": "2026-09-09T09:34:05+00:00",
-  "checked_at": "2026-09-09T09:34:12+00:00",
-  "sha256": "9613a8c9b6494d5422b9d1e99a863457e8b76c8b58103448c82bc7678f5fb530",
-  "notes": "Cubo STAT-TAB; componente «Stato della popolazione al 31 dicembre», tutte le nazionalità e i sessi.",
+  "published_at": "2026-08-20T08:30:00+02:00",
+  "retrieved_at": "2026-11-26T12:27:09+00:00",
+  "checked_at": "2026-11-26T12:27:22+00:00",
+  "sha256": "894c06b8c0d3b86dadfe931d0a7cb28610f3f19dfb2f3e347dbb9c8aceb3e929",
+  "notes": "Cubo STAT-TAB; componente «Stato della popolazione al 31 dicembre», tutte le nazionalità e i sessi. I valori sono letti dall'API della stessa tabella STAT-TAB; il file indicato è la tabella completa in formato PX e l'impronta è la sua.",
   "coverage": "Svizzera + 26 Cantoni, STATPOP/ESPOP, usata per i valori pro capite",
   "years": [
    1981,
@@ -64,7 +64,8 @@
    2024,
    2025
   ],
-  "generated_at": "2026-09-09T09:34:12+00:00"
+  "api_url": "https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0102020000_201/px-x-0102020000_201.px",
+  "generated_at": "2026-11-26T12:27:22+00:00"
  },
  "data": {
   "population": {

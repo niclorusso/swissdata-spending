@@ -3,7 +3,7 @@
   "id": "fs-haushalte",
   "title": "Statistica finanziaria – Confederazione, Cantoni, Comuni e assicurazioni sociali (modello FS)",
   "publisher": "Eidgenössische Finanzverwaltung (EFV), Finanzstatistik / Amministrazione federale delle finanze (AFF), statistica finanziaria",
-  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik",
+  "publisher_url": "https://www.efv.admin.ch/de/finanzstatistik-daten",
   "source_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/standardauswertung.csv",
   "landing_url": "https://www.efv.admin.ch/de/fs-daten",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht (terms_by).",
@@ -12,8 +12,8 @@
   "unit": "CHF",
   "data_date": "consuntivi: Confederazione 2025, Cantoni 2024, Comuni 2024, assicurazioni sociali 2025; anni successivi = dati parziali o previsioni AFF",
   "published_at": "2026-08-27T07:07:22+00:00",
-  "retrieved_at": "2026-09-09T09:28:50+00:00",
-  "checked_at": "2026-11-12T10:18:26+00:00",
+  "retrieved_at": "2026-11-26T12:22:51+00:00",
+  "checked_at": "2026-11-26T12:22:53+00:00",
   "sha256": "bea848d6e2e8b2accd7cd038a9cd7ada617b2f4369018c66b4f7260a218e0d98",
   "notes": "Modello FS (statistica finanziaria svizzera), dati armonizzati e non direttamente confrontabili con i conti pubblicati dai singoli Cantoni. Le rilevazioni comunali sono in parte stimate su campione (FAQ EFV).",
   "coverage": "91 enti/aggregati: Stato, Confederazione, 26 Cantoni, Comuni per Cantone, Cantone+Comuni, 6 rami delle assicurazioni sociali; spese per funzione (2 livelli) e natura, entrate; 1990–2025",
@@ -56,7 +56,7 @@
    2025
   ],
   "codelist_sha256": "c87e9b20c8e5c4a063d831362ab06b5fdf67be075281b8358d50045088481181",
-  "generated_at": "2026-11-12T10:18:26+00:00"
+  "generated_at": "2026-11-26T12:22:53+00:00"
  },
  "data": {
   "haushalte": {

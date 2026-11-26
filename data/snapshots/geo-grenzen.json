@@ -3,7 +3,7 @@
   "id": "geo-grenzen",
   "title": "Confini generalizzati di Cantoni, Comuni e laghi (2026)",
   "publisher": "Ufficio federale di statistica (UST), GEOSTAT / swisstopo, via swiss-maps (Interactive Things)",
-  "publisher_url": "https://www.bfs.admin.ch/bfs/it/home/servizi/geostat.html",
+  "publisher_url": "https://statistik.admin.ch/de/daten/geodaten-bundesstatistik-geostat",
   "source_url": "https://unpkg.com/swiss-maps@4/2026/ch-combined.json",
   "landing_url": "https://github.com/interactivethings/swiss-maps",
   "license": "Geodati: fonte «UST, GEOSTAT»; codice swiss-maps BSD-3-Clause",
@@ -12,12 +12,12 @@
   "unit": "–",
   "data_date": "stato dei Comuni 2026",
   "published_at": "2026-11-01T18:26:16+00:00",
-  "retrieved_at": "2026-11-12T10:19:36+00:00",
-  "checked_at": "2026-11-12T10:36:19+00:00",
+  "retrieved_at": "2026-11-26T12:28:01+00:00",
+  "checked_at": "2026-11-26T12:28:05+00:00",
   "sha256": "320eeaec5a70436a87c193f83c944435b0b4a35b36ee6af31198e83b43125aef",
   "notes": "Confini generalizzati per la visualizzazione, non per misure.",
   "coverage": "26 Cantoni, 2113 Comuni, 22 laghi",
-  "generated_at": "2026-11-12T10:36:19+00:00"
+  "generated_at": "2026-11-26T12:28:05+00:00"
  },
  "data": {
   "viewBox": [

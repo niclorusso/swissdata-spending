@@ -5,19 +5,19 @@
   "publisher": "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)",
   "publisher_url": "https://www.bkb.admin.ch",
   "source_url": "https://backend.bkb.admin.ch/fileservice/sdweb-docs-prod-bkbadminch-files/files/2024/11/14/65a1a791-d80e-44bb-8da8-08d2e95afe9c.xlsx",
-  "landing_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20241",
+  "landing_url": "https://opendata.swiss/de/dataset/beschaffungen-ab-50-000-franken-der-zentralen-bundesverwaltung-20231",
   "license": "opendata.swiss: Freie Nutzung (terms_open)",
   "frequency": "annuale (settembre dell'anno successivo)",
   "level": "bund",
   "unit": "CHF (IVA inclusa)",
   "data_date": "2023",
   "published_at": "2024-11-14T09:57:00+00:00",
-  "retrieved_at": "2026-09-09T09:21:17+00:00",
-  "checked_at": "2026-11-12T10:18:24+00:00",
+  "retrieved_at": "2026-11-26T12:21:32+00:00",
+  "checked_at": "2026-11-26T12:22:16+00:00",
   "sha256": "a90a9cc6bad99cecbb8e30ff8caf9dc95263d98a60aafca66675012285cf1157",
   "notes": "Art. 27 OAPub: pubblicazione dei contratti ≥ 50 000 CHF; il file successivo può contenere ripubblicazioni (foglio 'Nachpublikationen', non incluso).",
   "coverage": "9557 contratti dell'Amministrazione federale centrale, anno 2023",
-  "generated_at": "2026-11-12T10:18:24+00:00"
+  "generated_at": "2026-11-26T12:22:16+00:00"
  },
  "data": {
   "rows": [

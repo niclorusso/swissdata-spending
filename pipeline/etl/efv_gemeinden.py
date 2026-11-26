@@ -10,7 +10,7 @@ from __future__ import annotations
 import pandas as pd
 
 from etl.common import Source, fetch, write_snapshot
-from etl.efv_finanzstatistik import H, LANDING, LICENSE, PUBLISHER
+from etl.efv_finanzstatistik import H, LANDING, LICENSE, PUBLISHER, PUBLISHER_URL
 
 URL = "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/gdn_ab_5000-d.csv"
 KT_BY_CODE = {1: "ZH", 2: "BE", 3: "LU", 4: "UR", 5: "SZ", 6: "OW", 7: "NW", 8: "GL", 9: "ZG", 10: "FR", 11: "SO", 12: "BS", 13: "BL",
@@ -44,7 +44,7 @@ def main() -> None:
                    "investitionen": {int(y): round(float(v)) for y, v in inv.items()},
                    "funk1": funk1}
     write_snapshot(Source(id="fs-gemeinden-5000", title="Statistica finanziaria – Comuni con almeno 5 000 abitanti, conti per singolo Comune",
-                          publisher=PUBLISHER, publisher_url="https://www.efv.admin.ch/de/finanzstatistik", source_url=URL, landing_url=LANDING, license=LICENSE,
+                          publisher=PUBLISHER, publisher_url=PUBLISHER_URL, source_url=URL, landing_url=LANDING, license=LICENSE,
                           frequency="annuale", level="gemeinden", unit="CHF", data_date=f"{years[0]}–{years[-1]}",
                           coverage=f"{len(out)} Comuni, spese correnti (Aufwand) per funzione, ricavi, investimenti, {years[0]}–{years[-1]}",
                           notes="Conto economico HRM2 (Aufwand/Ertrag), non conto di finanziamento: i totali non sono sommabili con le «uscite» del modello FS. L'ultimo anno può essere incompleto per alcuni Comuni."),

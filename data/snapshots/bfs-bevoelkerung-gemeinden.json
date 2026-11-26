@@ -4,19 +4,19 @@
   "title": "Popolazione residente permanente al 31 dicembre per Comune",
   "publisher": "Ufficio federale di statistica (UST/BFS)",
   "publisher_url": "https://www.bfs.admin.ch",
-  "source_url": "https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0102020000_201/px-x-0102020000_201.px",
+  "source_url": "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-0102020000_201",
   "landing_url": "https://www.pxweb.bfs.admin.ch/pxweb/it/px-x-0102020000_201/-/px-x-0102020000_201.px",
   "license": "opendata.swiss: Freie Nutzung. Quellenangabe ist Pflicht",
   "frequency": "annuale (agosto)",
   "level": "gemeinden",
   "unit": "persone",
   "data_date": "2008–2025",
-  "published_at": null,
-  "retrieved_at": "2026-09-09T09:34:12+00:00",
-  "checked_at": "2026-09-09T09:34:12+00:00",
-  "sha256": "dff64971c3e2502a5cfbf2bc4509fccb52c0e3b34b6eecc1abce7d85636f77e0",
-  "notes": "Stesso cubo STAT-TAB dei Cantoni; chiave = numero UST del Comune.",
-  "coverage": "2118 Comuni (stato dei Comuni attuale), 2008–2025",
+  "published_at": "2026-08-20T08:30:00+02:00",
+  "retrieved_at": "2026-11-26T12:27:09+00:00",
+  "checked_at": "2026-11-26T12:27:22+00:00",
+  "sha256": "894c06b8c0d3b86dadfe931d0a7cb28610f3f19dfb2f3e347dbb9c8aceb3e929",
+  "notes": "Stesso cubo STAT-TAB dei Cantoni; chiave = numero UST del Comune. Tutti gli anni sono riferiti ai confini del 6.4.2025: per un Comune aggregato dopo, il dato di un anno precedente è la somma dei Comuni confluiti; le aggregazioni vengono dall'elenco delle mutazioni dell'UST. I valori sono letti dall'API della stessa tabella STAT-TAB; il file indicato è la tabella completa in formato PX e l'impronta è la sua.",
+  "coverage": "2118 Comuni (stato dei Comuni al 6.4.2025), 2008–2025",
   "years": [
    2008,
    2009,
@@ -37,7 +37,24 @@
    2024,
    2025
   ],
-  "generated_at": "2026-09-09T09:34:12+00:00"
+  "api_url": "https://www.pxweb.bfs.admin.ch/api/v1/it/px-x-0102020000_201/px-x-0102020000_201.px",
+  "files": [
+   {
+    "label": "Tabella STAT-TAB completa (PX)",
+    "url": "https://www.pxweb.bfs.admin.ch/DownloadFile.aspx?file=px-x-0102020000_201",
+    "published_at": null,
+    "retrieved_at": "2026-11-26T12:27:09+00:00",
+    "sha256": "894c06b8c0d3b86dadfe931d0a7cb28610f3f19dfb2f3e347dbb9c8aceb3e929"
+   },
+   {
+    "label": "Elenco delle mutazioni dei Comuni (AGVCH)",
+    "url": "https://www.agvchapp.bfs.admin.ch/api/communes/mutations?startPeriod=02-01-2008&endPeriod=06-04-2025&includeTerritoryExchange=false",
+    "published_at": null,
+    "retrieved_at": "2026-11-26T12:27:22+00:00",
+    "sha256": "1f78320dca6b3a629566a9c35a95c3ed88b6871920ec100fe3fc910203b55863"
+   }
+  ],
+  "generated_at": "2026-11-26T12:27:22+00:00"
  },
  "data": {
   "population": {
@@ -48754,6 +48771,8839 @@
      "2024": 736,
      "2025": 741
     }
+   }
+  },
+  "boundaries_as_of": "2025-04-06",
+  "mergers": {
+   "5138": [
+    {
+     "date": "2008-04-20",
+     "parts": [
+      {
+       "bfs": 5104,
+       "name": "Cugnasco"
+      },
+      {
+       "bfs": 5107,
+       "name": "Gerra (Verzasca)"
+      }
+     ]
+    }
+   ],
+   "5192": [
+    {
+     "date": "2008-04-20",
+     "parts": [
+      {
+       "bfs": 5235,
+       "name": "Villa Luganese"
+      },
+      {
+       "bfs": 5168,
+       "name": "Carabbia"
+      },
+      {
+       "bfs": 5147,
+       "name": "Barbengo"
+      },
+      {
+       "bfs": 5192,
+       "name": "Lugano"
+      }
+     ]
+    },
+    {
+     "date": "2013-04-14",
+     "parts": [
+      {
+       "bfs": 5224,
+       "name": "Sonvico"
+      },
+      {
+       "bfs": 5229,
+       "name": "Valcolla"
+      },
+      {
+       "bfs": 5173,
+       "name": "Certara"
+      },
+      {
+       "bfs": 5170,
+       "name": "Carona"
+      },
+      {
+       "bfs": 5163,
+       "name": "Cadro"
+      },
+      {
+       "bfs": 5174,
+       "name": "Cimadera"
+      },
+      {
+       "bfs": 5155,
+       "name": "Bogno"
+      },
+      {
+       "bfs": 5192,
+       "name": "Lugano"
+      }
+     ]
+    }
+   ],
+   "5226": [
+    {
+     "date": "2008-04-20",
+     "parts": [
+      {
+       "bfs": 5177,
+       "name": "Corticiasca"
+      },
+      {
+       "bfs": 5150,
+       "name": "Bidogno"
+      },
+      {
+       "bfs": 5191,
+       "name": "Lugaggia"
+      },
+      {
+       "bfs": 5226,
+       "name": "Capriasca"
+      }
+     ]
+    }
+   ],
+   "5151": [
+    {
+     "date": "2008-04-20",
+     "parts": [
+      {
+       "bfs": 5188,
+       "name": "Iseo"
+      },
+      {
+       "bfs": 5151,
+       "name": "Bioggio"
+      }
+     ]
+    }
+   ],
+   "5324": [
+    {
+     "date": "2008-04-20",
+     "parts": [
+      {
+       "bfs": 5302,
+       "name": "Avegno"
+      },
+      {
+       "bfs": 5314,
+       "name": "Gordevio"
+      }
+     ]
+    }
+   ],
+   "879": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 879,
+       "name": "Riggisberg"
+      },
+      {
+       "bfs": 882,
+       "name": "Rüti bei Riggisberg"
+      }
+     ]
+    },
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 879,
+       "name": "Riggisberg"
+      },
+      {
+       "bfs": 881,
+       "name": "Rümligen"
+      }
+     ]
+    }
+   ],
+   "977": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 977,
+       "name": "Heimenhausen"
+      },
+      {
+       "bfs": 986,
+       "name": "Röthenbach bei Herzogenbuchsee"
+      },
+      {
+       "bfs": 994,
+       "name": "Wanzwil"
+      }
+     ]
+    }
+   ],
+   "1030": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 1042,
+       "name": "Sulz (LU)"
+      },
+      {
+       "bfs": 1028,
+       "name": "Hämikon"
+      },
+      {
+       "bfs": 1027,
+       "name": "Gelfingen"
+      },
+      {
+       "bfs": 1030,
+       "name": "Hitzkirch"
+      },
+      {
+       "bfs": 1035,
+       "name": "Mosen"
+      },
+      {
+       "bfs": 1036,
+       "name": "Müswangen"
+      },
+      {
+       "bfs": 1038,
+       "name": "Retschwil"
+      }
+     ]
+    },
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 1022,
+       "name": "Altwis"
+      },
+      {
+       "bfs": 1030,
+       "name": "Hitzkirch"
+      }
+     ]
+    }
+   ],
+   "1081": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 1087,
+       "name": "Gunzwil"
+      },
+      {
+       "bfs": 1081,
+       "name": "Beromünster"
+      }
+     ]
+    },
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 1092,
+       "name": "Neudorf"
+      },
+      {
+       "bfs": 1081,
+       "name": "Beromünster"
+      }
+     ]
+    }
+   ],
+   "1104": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 1106,
+       "name": "Winikon"
+      },
+      {
+       "bfs": 1104,
+       "name": "Triengen"
+      }
+     ]
+    }
+   ],
+   "2920": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 2911,
+       "name": "Altdorf (SH)"
+      },
+      {
+       "bfs": 2913,
+       "name": "Bibern (SH)"
+      },
+      {
+       "bfs": 2916,
+       "name": "Hofen"
+      },
+      {
+       "bfs": 2918,
+       "name": "Opfertshofen (SH)"
+      },
+      {
+       "bfs": 2920,
+       "name": "Thayngen"
+      }
+     ]
+    }
+   ],
+   "2939": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 2934,
+       "name": "Hemmental"
+      },
+      {
+       "bfs": 2939,
+       "name": "Schaffhausen"
+      }
+     ]
+    }
+   ],
+   "3378": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3371,
+       "name": "Brunnadern"
+      },
+      {
+       "bfs": 3376,
+       "name": "St. Peterzell"
+      },
+      {
+       "bfs": 3406,
+       "name": "Mogelsberg"
+      }
+     ]
+    }
+   ],
+   "3851": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3523,
+       "name": "Wiesen (GR)"
+      },
+      {
+       "bfs": 3851,
+       "name": "Davos"
+      }
+     ]
+    }
+   ],
+   "3617": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3573,
+       "name": "Flond"
+      },
+      {
+       "bfs": 3600,
+       "name": "Surcuolm"
+      }
+     ]
+    }
+   ],
+   "3671": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3632,
+       "name": "Feldis/Veulden"
+      },
+      {
+       "bfs": 3639,
+       "name": "Scheid"
+      },
+      {
+       "bfs": 3641,
+       "name": "Trans"
+      },
+      {
+       "bfs": 3642,
+       "name": "Tumegl/Tomils"
+      }
+     ]
+    }
+   ],
+   "3701": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3701,
+       "name": "Andeer"
+      },
+      {
+       "bfs": 3704,
+       "name": "Clugin"
+      },
+      {
+       "bfs": 3710,
+       "name": "Pignia"
+      }
+     ]
+    }
+   ],
+   "3847": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3841,
+       "name": "Fuldera"
+      },
+      {
+       "bfs": 3842,
+       "name": "Lü"
+      },
+      {
+       "bfs": 3843,
+       "name": "Müstair"
+      },
+      {
+       "bfs": 3844,
+       "name": "Sta. Maria Val Müstair"
+      },
+      {
+       "bfs": 3845,
+       "name": "Tschierv"
+      },
+      {
+       "bfs": 3846,
+       "name": "Valchava"
+      }
+     ]
+    }
+   ],
+   "3932": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 3914,
+       "name": "Praden"
+      },
+      {
+       "bfs": 3915,
+       "name": "Tschiertschen"
+      }
+     ]
+    }
+   ],
+   "5511": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 5526,
+       "name": "Malapalud"
+      },
+      {
+       "bfs": 5511,
+       "name": "Assens"
+      }
+     ]
+    },
+    {
+     "date": "2021-07-01",
+     "parts": [
+      {
+       "bfs": 5513,
+       "name": "Bioley-Orjulaz"
+      },
+      {
+       "bfs": 5511,
+       "name": "Assens"
+      }
+     ]
+    }
+   ],
+   "6076": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6071,
+       "name": "Ulrichen"
+      },
+      {
+       "bfs": 6065,
+       "name": "Obergesteln"
+      },
+      {
+       "bfs": 6066,
+       "name": "Oberwald"
+      }
+     ]
+    }
+   ],
+   "6118": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6103,
+       "name": "Bratsch"
+      },
+      {
+       "bfs": 6107,
+       "name": "Gampel"
+      }
+     ]
+    }
+   ],
+   "6203": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6174,
+       "name": "Filet"
+      },
+      {
+       "bfs": 6179,
+       "name": "Mörel"
+      }
+     ]
+    }
+   ],
+   "6204": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6200,
+       "name": "Steg"
+      },
+      {
+       "bfs": 6196,
+       "name": "Hohtenn"
+      }
+     ]
+    }
+   ],
+   "6252": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6251,
+       "name": "Vissoie"
+      },
+      {
+       "bfs": 6233,
+       "name": "Chandolin"
+      },
+      {
+       "bfs": 6231,
+       "name": "Ayer"
+      },
+      {
+       "bfs": 6237,
+       "name": "Grimentz"
+      },
+      {
+       "bfs": 6245,
+       "name": "Saint-Jean"
+      },
+      {
+       "bfs": 6247,
+       "name": "Saint-Luc"
+      }
+     ]
+    }
+   ],
+   "6461": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6460,
+       "name": "Thielle-Wavre"
+      },
+      {
+       "bfs": 6457,
+       "name": "Marin-Epagnier"
+      }
+     ]
+    }
+   ],
+   "6512": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6510,
+       "name": "Travers"
+      },
+      {
+       "bfs": 6503,
+       "name": "Buttes"
+      },
+      {
+       "bfs": 6505,
+       "name": "Couvet"
+      },
+      {
+       "bfs": 6502,
+       "name": "Boveresse"
+      },
+      {
+       "bfs": 6506,
+       "name": "Fleurier"
+      },
+      {
+       "bfs": 6507,
+       "name": "Môtiers (NE)"
+      },
+      {
+       "bfs": 6508,
+       "name": "Noiraigue"
+      },
+      {
+       "bfs": 6501,
+       "name": "Les Bayards"
+      },
+      {
+       "bfs": 6509,
+       "name": "Saint-Sulpice (NE)"
+      }
+     ]
+    }
+   ],
+   "6808": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6746,
+       "name": "Epauvillers"
+      },
+      {
+       "bfs": 6747,
+       "name": "Epiquerez"
+      },
+      {
+       "bfs": 6795,
+       "name": "Montenol"
+      },
+      {
+       "bfs": 6797,
+       "name": "Montmelon"
+      },
+      {
+       "bfs": 6798,
+       "name": "Ocourt"
+      },
+      {
+       "bfs": 6804,
+       "name": "Saint-Ursanne"
+      },
+      {
+       "bfs": 6805,
+       "name": "Seleute"
+      }
+     ]
+    }
+   ],
+   "6757": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6749,
+       "name": "Goumois"
+      },
+      {
+       "bfs": 6756,
+       "name": "Les Pommerats"
+      },
+      {
+       "bfs": 6757,
+       "name": "Saignelégier"
+      }
+     ]
+    }
+   ],
+   "6751": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6751,
+       "name": "Montfaucon"
+      },
+      {
+       "bfs": 6752,
+       "name": "Montfavergier"
+      }
+     ]
+    }
+   ],
+   "6753": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6753,
+       "name": "Muriaux"
+      },
+      {
+       "bfs": 6755,
+       "name": "Le Peuchapatte"
+      }
+     ]
+    }
+   ],
+   "6810": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6772,
+       "name": "Asuel"
+      },
+      {
+       "bfs": 6779,
+       "name": "Charmoille"
+      },
+      {
+       "bfs": 6791,
+       "name": "Fregiécourt"
+      },
+      {
+       "bfs": 6794,
+       "name": "Miécourt"
+      },
+      {
+       "bfs": 6799,
+       "name": "Pleujouse"
+      }
+     ]
+    }
+   ],
+   "6807": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6777,
+       "name": "Buix"
+      },
+      {
+       "bfs": 6786,
+       "name": "Courtemaîche"
+      },
+      {
+       "bfs": 6796,
+       "name": "Montignez"
+      }
+     ]
+    }
+   ],
+   "6809": [
+    {
+     "date": "2009-01-01",
+     "parts": [
+      {
+       "bfs": 6780,
+       "name": "Chevenez"
+      },
+      {
+       "bfs": 6788,
+       "name": "Damvant"
+      },
+      {
+       "bfs": 6801,
+       "name": "Réclère"
+      },
+      {
+       "bfs": 6802,
+       "name": "Roche-d'Or"
+      }
+     ]
+    },
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 6803,
+       "name": "Rocourt"
+      },
+      {
+       "bfs": 6809,
+       "name": "Haute-Ajoie"
+      }
+     ]
+    }
+   ],
+   "5254": [
+    {
+     "date": "2009-04-05",
+     "parts": [
+      {
+       "bfs": 5267,
+       "name": "Tremona"
+      },
+      {
+       "bfs": 5247,
+       "name": "Capolago"
+      },
+      {
+       "bfs": 5241,
+       "name": "Arzo"
+      },
+      {
+       "bfs": 5252,
+       "name": "Genestrerio"
+      },
+      {
+       "bfs": 5262,
+       "name": "Rancate"
+      },
+      {
+       "bfs": 5254,
+       "name": "Mendrisio"
+      }
+     ]
+    },
+    {
+     "date": "2013-04-14",
+     "parts": [
+      {
+       "bfs": 5243,
+       "name": "Besazio"
+      },
+      {
+       "bfs": 5255,
+       "name": "Meride"
+      },
+      {
+       "bfs": 5253,
+       "name": "Ligornetto"
+      },
+      {
+       "bfs": 5254,
+       "name": "Mendrisio"
+      }
+     ]
+    }
+   ],
+   "5397": [
+    {
+     "date": "2009-10-25",
+     "parts": [
+      {
+       "bfs": 5094,
+       "name": "Borgnone"
+      },
+      {
+       "bfs": 5122,
+       "name": "Palagnedra"
+      },
+      {
+       "bfs": 5111,
+       "name": "Intragna"
+      }
+     ]
+    }
+   ],
+   "5269": [
+    {
+     "date": "2009-10-25",
+     "parts": [
+      {
+       "bfs": 5244,
+       "name": "Bruzella"
+      },
+      {
+       "bfs": 5245,
+       "name": "Cabbio"
+      },
+      {
+       "bfs": 5258,
+       "name": "Morbio Superiore"
+      },
+      {
+       "bfs": 5259,
+       "name": "Muggio"
+      },
+      {
+       "bfs": 5264,
+       "name": "Sagno"
+      },
+      {
+       "bfs": 5246,
+       "name": "Caneggio"
+      }
+     ]
+    }
+   ],
+   "329": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 343,
+       "name": "Untersteckholz"
+      },
+      {
+       "bfs": 329,
+       "name": "Langenthal"
+      }
+     ]
+    },
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 329,
+       "name": "Langenthal"
+      },
+      {
+       "bfs": 334,
+       "name": "Obersteckholz"
+      }
+     ]
+    }
+   ],
+   "540": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 531,
+       "name": "Ballmoos"
+      },
+      {
+       "bfs": 540,
+       "name": "Jegenstorf"
+      }
+     ]
+    },
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 540,
+       "name": "Jegenstorf"
+      },
+      {
+       "bfs": 547,
+       "name": "Münchringen"
+      },
+      {
+       "bfs": 550,
+       "name": "Scheunen"
+      }
+     ]
+    }
+   ],
+   "619": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 601,
+       "name": "Aeschlen"
+      },
+      {
+       "bfs": 619,
+       "name": "Oberdiessbach"
+      }
+     ]
+    },
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 619,
+       "name": "Oberdiessbach"
+      },
+      {
+       "bfs": 604,
+       "name": "Bleiken bei Oberdiessbach"
+      }
+     ]
+    }
+   ],
+   "756": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 752,
+       "name": "Tüscherz-Alfermée"
+      },
+      {
+       "bfs": 753,
+       "name": "Twann"
+      }
+     ]
+    }
+   ],
+   "1061": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 1061,
+       "name": "Luzern"
+      },
+      {
+       "bfs": 1060,
+       "name": "Littau"
+      }
+     ]
+    }
+   ],
+   "2457": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 2447,
+       "name": "Brunnenthal"
+      },
+      {
+       "bfs": 2443,
+       "name": "Balm bei Messen"
+      },
+      {
+       "bfs": 2457,
+       "name": "Messen"
+      },
+      {
+       "bfs": 2460,
+       "name": "Oberramsern"
+      }
+     ]
+    }
+   ],
+   "3359": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 3351,
+       "name": "Alt St. Johann"
+      },
+      {
+       "bfs": 3357,
+       "name": "Wildhaus"
+      }
+     ]
+    }
+   ],
+   "3661": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 3661,
+       "name": "Cazis"
+      },
+      {
+       "bfs": 3664,
+       "name": "Portein"
+      },
+      {
+       "bfs": 3665,
+       "name": "Präz"
+      },
+      {
+       "bfs": 3666,
+       "name": "Sarn"
+      },
+      {
+       "bfs": 3667,
+       "name": "Tartar"
+      }
+     ]
+    }
+   ],
+   "3792": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 3771,
+       "name": "Bondo"
+      },
+      {
+       "bfs": 3773,
+       "name": "Castasegna"
+      },
+      {
+       "bfs": 3774,
+       "name": "Soglio"
+      },
+      {
+       "bfs": 3775,
+       "name": "Stampa"
+      },
+      {
+       "bfs": 3776,
+       "name": "Vicosoprano"
+      }
+     ]
+    }
+   ],
+   "3911": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 3911,
+       "name": "Churwalden"
+      },
+      {
+       "bfs": 3912,
+       "name": "Malix"
+      },
+      {
+       "bfs": 3913,
+       "name": "Parpan"
+      }
+     ]
+    }
+   ],
+   "4001": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 4001,
+       "name": "Aarau"
+      },
+      {
+       "bfs": 4011,
+       "name": "Rohr (AG)"
+      }
+     ]
+    }
+   ],
+   "4080": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 4080,
+       "name": "Villmergen"
+      },
+      {
+       "bfs": 4070,
+       "name": "Hilfikon"
+      }
+     ]
+    }
+   ],
+   "4095": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 4118,
+       "name": "Umiken"
+      },
+      {
+       "bfs": 4095,
+       "name": "Brugg"
+      }
+     ]
+    },
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 4114,
+       "name": "Schinznach-Bad"
+      },
+      {
+       "bfs": 4095,
+       "name": "Brugg"
+      }
+     ]
+    }
+   ],
+   "4184": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 4180,
+       "name": "Wil (AG)"
+      },
+      {
+       "bfs": 4101,
+       "name": "Hottwil"
+      },
+      {
+       "bfs": 4162,
+       "name": "Etzgen"
+      },
+      {
+       "bfs": 4171,
+       "name": "Mettau"
+      },
+      {
+       "bfs": 4174,
+       "name": "Oberhofen (AG)"
+      }
+     ]
+    }
+   ],
+   "4169": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 4169,
+       "name": "Kaisten"
+      },
+      {
+       "bfs": 4168,
+       "name": "Ittenthal"
+      }
+     ]
+    }
+   ],
+   "4170": [
+    {
+     "date": "2010-01-01",
+     "parts": [
+      {
+       "bfs": 4178,
+       "name": "Sulz (AG)"
+      },
+      {
+       "bfs": 4170,
+       "name": "Laufenburg"
+      }
+     ]
+    }
+   ],
+   "5398": [
+    {
+     "date": "2010-04-25",
+     "parts": [
+      {
+       "bfs": 5134,
+       "name": "Vira (Gambarogno)"
+      },
+      {
+       "bfs": 5098,
+       "name": "Caviano"
+      },
+      {
+       "bfs": 5101,
+       "name": "Contone"
+      },
+      {
+       "bfs": 5106,
+       "name": "Gerra (Gambarogno)"
+      },
+      {
+       "bfs": 5110,
+       "name": "Indemini"
+      },
+      {
+       "bfs": 5116,
+       "name": "Magadino"
+      },
+      {
+       "bfs": 5128,
+       "name": "Sant'Abbondio"
+      },
+      {
+       "bfs": 5127,
+       "name": "San Nazzaro"
+      },
+      {
+       "bfs": 5123,
+       "name": "Piazzogna"
+      }
+     ]
+    }
+   ],
+   "5238": [
+    {
+     "date": "2010-11-21",
+     "parts": [
+      {
+       "bfs": 5165,
+       "name": "Camignolo"
+      },
+      {
+       "bfs": 5153,
+       "name": "Bironico"
+      },
+      {
+       "bfs": 5011,
+       "name": "Medeglia"
+      },
+      {
+       "bfs": 5217,
+       "name": "Rivera"
+      },
+      {
+       "bfs": 5223,
+       "name": "Sigirino"
+      }
+     ]
+    }
+   ],
+   "306": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 306,
+       "name": "Lyss"
+      },
+      {
+       "bfs": 384,
+       "name": "Busswil bei Büren"
+      }
+     ]
+    }
+   ],
+   "332": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 328,
+       "name": "Kleindietwil"
+      },
+      {
+       "bfs": 330,
+       "name": "Leimiswil"
+      },
+      {
+       "bfs": 332,
+       "name": "Madiswil"
+      }
+     ]
+    }
+   ],
+   "855": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 851,
+       "name": "Albligen"
+      },
+      {
+       "bfs": 854,
+       "name": "Wahlern"
+      }
+     ]
+    }
+   ],
+   "973": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 973,
+       "name": "Bettenhausen"
+      },
+      {
+       "bfs": 974,
+       "name": "Bollodingen"
+      }
+     ]
+    }
+   ],
+   "1631": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 1629,
+       "name": "Sool"
+      },
+      {
+       "bfs": 1603,
+       "name": "Braunwald"
+      },
+      {
+       "bfs": 1601,
+       "name": "Betschwanden"
+      },
+      {
+       "bfs": 1605,
+       "name": "Elm"
+      },
+      {
+       "bfs": 1606,
+       "name": "Engi"
+      },
+      {
+       "bfs": 1616,
+       "name": "Mitlödi"
+      },
+      {
+       "bfs": 1615,
+       "name": "Matt"
+      },
+      {
+       "bfs": 1613,
+       "name": "Linthal"
+      },
+      {
+       "bfs": 1626,
+       "name": "Rüti (GL)"
+      },
+      {
+       "bfs": 1627,
+       "name": "Schwanden (GL)"
+      },
+      {
+       "bfs": 1628,
+       "name": "Schwändi"
+      },
+      {
+       "bfs": 1614,
+       "name": "Luchsingen"
+      },
+      {
+       "bfs": 1610,
+       "name": "Haslen"
+      }
+     ]
+    }
+   ],
+   "1630": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 1602,
+       "name": "Bilten"
+      },
+      {
+       "bfs": 1608,
+       "name": "Filzbach"
+      },
+      {
+       "bfs": 1618,
+       "name": "Mühlehorn"
+      },
+      {
+       "bfs": 1617,
+       "name": "Mollis"
+      },
+      {
+       "bfs": 1623,
+       "name": "Oberurnen"
+      },
+      {
+       "bfs": 1624,
+       "name": "Obstalden"
+      },
+      {
+       "bfs": 1619,
+       "name": "Näfels"
+      },
+      {
+       "bfs": 1622,
+       "name": "Niederurnen"
+      }
+     ]
+    }
+   ],
+   "1632": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 1609,
+       "name": "Glarus"
+      },
+      {
+       "bfs": 1607,
+       "name": "Ennenda"
+      },
+      {
+       "bfs": 1620,
+       "name": "Netstal"
+      },
+      {
+       "bfs": 1625,
+       "name": "Riedern"
+      }
+     ]
+    }
+   ],
+   "2129": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 2159,
+       "name": "Villarvolard"
+      },
+      {
+       "bfs": 2129,
+       "name": "Corbières"
+      }
+     ]
+    }
+   ],
+   "2554": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 2552,
+       "name": "Niederwil (SO)"
+      },
+      {
+       "bfs": 2554,
+       "name": "Riedholz"
+      }
+     ]
+    }
+   ],
+   "3961": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 3961,
+       "name": "Grüsch"
+      },
+      {
+       "bfs": 3971,
+       "name": "Fanas"
+      },
+      {
+       "bfs": 3973,
+       "name": "Valzeina"
+      }
+     ]
+    }
+   ],
+   "6090": [
+    {
+     "date": "2011-01-01",
+     "parts": [
+      {
+       "bfs": 6088,
+       "name": "Vernamiège"
+      },
+      {
+       "bfs": 6086,
+       "name": "Nax"
+      },
+      {
+       "bfs": 6085,
+       "name": "Mase"
+      }
+     ]
+    }
+   ],
+   "5422": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5433,
+       "name": "Pizy"
+      },
+      {
+       "bfs": 5422,
+       "name": "Aubonne"
+      }
+     ]
+    },
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 5432,
+       "name": "Montherod"
+      },
+      {
+       "bfs": 5422,
+       "name": "Aubonne"
+      }
+     ]
+    }
+   ],
+   "5451": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5451,
+       "name": "Avenches"
+      },
+      {
+       "bfs": 5461,
+       "name": "Oleyres"
+      }
+     ]
+    }
+   ],
+   "5464": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5460,
+       "name": "Mur (VD)"
+      },
+      {
+       "bfs": 5459,
+       "name": "Montmagny"
+      },
+      {
+       "bfs": 5452,
+       "name": "Bellerive (VD)"
+      },
+      {
+       "bfs": 5455,
+       "name": "Constantine"
+      },
+      {
+       "bfs": 5453,
+       "name": "Chabrey"
+      },
+      {
+       "bfs": 5462,
+       "name": "Vallamand"
+      },
+      {
+       "bfs": 5463,
+       "name": "Villars-le-Grand"
+      }
+     ]
+    }
+   ],
+   "5540": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5532,
+       "name": "Poliez-le-Grand"
+      },
+      {
+       "bfs": 5528,
+       "name": "Naz"
+      },
+      {
+       "bfs": 5517,
+       "name": "Dommartin"
+      },
+      {
+       "bfs": 5536,
+       "name": "Sugnens"
+      }
+     ]
+    }
+   ],
+   "5541": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5519,
+       "name": "Eclagnens"
+      },
+      {
+       "bfs": 5525,
+       "name": "Goumoens-le-Jux"
+      },
+      {
+       "bfs": 5524,
+       "name": "Goumoens-la-Ville"
+      }
+     ]
+    }
+   ],
+   "5804": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5796,
+       "name": "Peney-le-Jorat"
+      },
+      {
+       "bfs": 5677,
+       "name": "Montaubion-Chardonney"
+      },
+      {
+       "bfs": 5691,
+       "name": "Villars-Mendraz"
+      },
+      {
+       "bfs": 5687,
+       "name": "Sottens"
+      },
+      {
+       "bfs": 5538,
+       "name": "Villars-Tiercelin"
+      }
+     ]
+    }
+   ],
+   "5571": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5567,
+       "name": "Romairon"
+      },
+      {
+       "bfs": 5558,
+       "name": "Fontanezier"
+      },
+      {
+       "bfs": 5569,
+       "name": "Vaugondry"
+      },
+      {
+       "bfs": 5570,
+       "name": "Villars-Burquin"
+      }
+     ]
+    }
+   ],
+   "5613": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5608,
+       "name": "Riex"
+      },
+      {
+       "bfs": 5603,
+       "name": "Epesses"
+      },
+      {
+       "bfs": 5605,
+       "name": "Grandvaux"
+      },
+      {
+       "bfs": 5602,
+       "name": "Cully"
+      },
+      {
+       "bfs": 5612,
+       "name": "Villette (Lavaux)"
+      }
+     ]
+    }
+   ],
+   "5634": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5647,
+       "name": "Saint-Saphorin-sur-Morges"
+      },
+      {
+       "bfs": 5641,
+       "name": "Monnaz"
+      },
+      {
+       "bfs": 5634,
+       "name": "Echichens"
+      },
+      {
+       "bfs": 5630,
+       "name": "Colombier (VD)"
+      }
+     ]
+    }
+   ],
+   "5675": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5681,
+       "name": "Oulens-sur-Lucens"
+      },
+      {
+       "bfs": 5675,
+       "name": "Lucens"
+      }
+     ]
+    },
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 5686,
+       "name": "Sarzens"
+      },
+      {
+       "bfs": 5672,
+       "name": "Forel-sur-Lucens"
+      },
+      {
+       "bfs": 5662,
+       "name": "Brenles"
+      },
+      {
+       "bfs": 5666,
+       "name": "Chesalles-sur-Moudon"
+      },
+      {
+       "bfs": 5668,
+       "name": "Cremin"
+      },
+      {
+       "bfs": 5675,
+       "name": "Lucens"
+      }
+     ]
+    }
+   ],
+   "5831": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5824,
+       "name": "Sassel"
+      },
+      {
+       "bfs": 5826,
+       "name": "Seigneux"
+      },
+      {
+       "bfs": 5820,
+       "name": "Marnand"
+      },
+      {
+       "bfs": 5818,
+       "name": "Granges-près-Marnand"
+      },
+      {
+       "bfs": 5815,
+       "name": "Combremont-le-Petit"
+      },
+      {
+       "bfs": 5814,
+       "name": "Combremont-le-Grand"
+      },
+      {
+       "bfs": 5811,
+       "name": "Cerniaz (VD)"
+      },
+      {
+       "bfs": 5829,
+       "name": "Villars-Bramard"
+      }
+     ]
+    }
+   ],
+   "5938": [
+    {
+     "date": "2011-07-01",
+     "parts": [
+      {
+       "bfs": 5938,
+       "name": "Yverdon-les-Bains"
+      },
+      {
+       "bfs": 5918,
+       "name": "Gressy"
+      }
+     ]
+    }
+   ],
+   "861": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 861,
+       "name": "Belp"
+      },
+      {
+       "bfs": 862,
+       "name": "Belpberg"
+      }
+     ]
+    }
+   ],
+   "2015": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 2017,
+       "name": "Font"
+      },
+      {
+       "bfs": 2015,
+       "name": "Estavayer-le-Lac"
+      }
+     ]
+    }
+   ],
+   "2102": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 2102,
+       "name": "Ursy"
+      },
+      {
+       "bfs": 2112,
+       "name": "Vuarmarens"
+      }
+     ]
+    },
+    {
+     "date": "2025-01-01",
+     "parts": [
+      {
+       "bfs": 2089,
+       "name": "Montet (Glâne)"
+      },
+      {
+       "bfs": 2102,
+       "name": "Ursy"
+      }
+     ]
+    }
+   ],
+   "2511": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 2531,
+       "name": "Steinhof"
+      },
+      {
+       "bfs": 2511,
+       "name": "Aeschi (SO)"
+      }
+     ]
+    }
+   ],
+   "3955": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 3942,
+       "name": "Igis"
+      },
+      {
+       "bfs": 3943,
+       "name": "Mastrils"
+      }
+     ]
+    }
+   ],
+   "3987": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 3984,
+       "name": "Schlans"
+      },
+      {
+       "bfs": 3987,
+       "name": "Trun"
+      }
+     ]
+    }
+   ],
+   "4234": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 4225,
+       "name": "Benzenschwil"
+      },
+      {
+       "bfs": 4234,
+       "name": "Merenschwand"
+      }
+     ]
+    }
+   ],
+   "5805": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 5795,
+       "name": "Palézieux"
+      },
+      {
+       "bfs": 5801,
+       "name": "Les Thioleyres"
+      },
+      {
+       "bfs": 5800,
+       "name": "Les Tavernes"
+      },
+      {
+       "bfs": 5793,
+       "name": "Oron-la-Ville"
+      },
+      {
+       "bfs": 5794,
+       "name": "Oron-le-Châtel"
+      },
+      {
+       "bfs": 5787,
+       "name": "Ecoteaux"
+      },
+      {
+       "bfs": 5784,
+       "name": "Chesalles-sur-Oron"
+      },
+      {
+       "bfs": 5781,
+       "name": "Bussigny-sur-Oron"
+      },
+      {
+       "bfs": 5783,
+       "name": "Châtillens"
+      },
+      {
+       "bfs": 5802,
+       "name": "Vuibroye"
+      }
+     ]
+    },
+    {
+     "date": "2022-01-01",
+     "parts": [
+      {
+       "bfs": 5788,
+       "name": "Essertes"
+      },
+      {
+       "bfs": 5805,
+       "name": "Oron"
+      }
+     ]
+    }
+   ],
+   "5799": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 5799,
+       "name": "Servion"
+      },
+      {
+       "bfs": 5786,
+       "name": "Les Cullayes"
+      }
+     ]
+    }
+   ],
+   "5905": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 5916,
+       "name": "Essert-sous-Champvent"
+      },
+      {
+       "bfs": 5905,
+       "name": "Champvent"
+      },
+      {
+       "bfs": 5936,
+       "name": "Villars-sous-Champvent"
+      }
+     ]
+    }
+   ],
+   "5913": [
+    {
+     "date": "2012-01-01",
+     "parts": [
+      {
+       "bfs": 5927,
+       "name": "Prahins"
+      },
+      {
+       "bfs": 5913,
+       "name": "Donneloye"
+      }
+     ]
+    }
+   ],
+   "5050": [
+    {
+     "date": "2012-04-01",
+     "parts": [
+      {
+       "bfs": 5041,
+       "name": "Malvaglia"
+      },
+      {
+       "bfs": 5040,
+       "name": "Ludiano"
+      },
+      {
+       "bfs": 5046,
+       "name": "Semione"
+      }
+     ]
+    }
+   ],
+   "5072": [
+    {
+     "date": "2012-04-01",
+     "parts": [
+      {
+       "bfs": 5067,
+       "name": "Campello"
+      },
+      {
+       "bfs": 5068,
+       "name": "Cavagnago"
+      },
+      {
+       "bfs": 5066,
+       "name": "Calpiogna"
+      },
+      {
+       "bfs": 5070,
+       "name": "Chironico"
+      },
+      {
+       "bfs": 5062,
+       "name": "Anzonico"
+      },
+      {
+       "bfs": 5074,
+       "name": "Mairengo"
+      },
+      {
+       "bfs": 5075,
+       "name": "Osco"
+      },
+      {
+       "bfs": 5072,
+       "name": "Faido"
+      }
+     ]
+    },
+    {
+     "date": "2016-04-10",
+     "parts": [
+      {
+       "bfs": 5081,
+       "name": "Sobrio"
+      },
+      {
+       "bfs": 5072,
+       "name": "Faido"
+      }
+     ]
+    }
+   ],
+   "5236": [
+    {
+     "date": "2012-04-01",
+     "parts": [
+      {
+       "bfs": 5169,
+       "name": "Carabietta"
+      },
+      {
+       "bfs": 5236,
+       "name": "Collina d'Oro"
+      }
+     ]
+    }
+   ],
+   "304": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 304,
+       "name": "Kallnach"
+      },
+      {
+       "bfs": 308,
+       "name": "Niederried bei Kallnach"
+      }
+     ]
+    },
+    {
+     "date": "2019-01-01",
+     "parts": [
+      {
+       "bfs": 664,
+       "name": "Golaten"
+      },
+      {
+       "bfs": 304,
+       "name": "Kallnach"
+      }
+     ]
+    }
+   ],
+   "310": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 310,
+       "name": "Rapperswil (BE)"
+      },
+      {
+       "bfs": 548,
+       "name": "Ruppoldsried"
+      }
+     ]
+    },
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 532,
+       "name": "Bangerten"
+      },
+      {
+       "bfs": 310,
+       "name": "Rapperswil (BE)"
+      }
+     ]
+    }
+   ],
+   "616": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 616,
+       "name": "Münsingen"
+      },
+      {
+       "bfs": 631,
+       "name": "Trimstein"
+      }
+     ]
+    },
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 625,
+       "name": "Tägertschi"
+      },
+      {
+       "bfs": 616,
+       "name": "Münsingen"
+      }
+     ]
+    }
+   ],
+   "1010": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 1003,
+       "name": "Escholzmatt"
+      },
+      {
+       "bfs": 1006,
+       "name": "Marbach (LU)"
+      }
+     ]
+    }
+   ],
+   "1097": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 1097,
+       "name": "Rickenbach (LU)"
+      },
+      {
+       "bfs": 1096,
+       "name": "Pfeffikon"
+      }
+     ]
+    }
+   ],
+   "1143": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 1138,
+       "name": "Ohmstal"
+      },
+      {
+       "bfs": 1143,
+       "name": "Schötz"
+      }
+     ]
+    }
+   ],
+   "2275": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 2244,
+       "name": "Büchslen"
+      },
+      {
+       "bfs": 2275,
+       "name": "Murten"
+      }
+     ]
+    },
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 2264,
+       "name": "Jeuss"
+      },
+      {
+       "bfs": 2270,
+       "name": "Lurtigen"
+      },
+      {
+       "bfs": 2277,
+       "name": "Salvenach"
+      },
+      {
+       "bfs": 2251,
+       "name": "Courlevon"
+      },
+      {
+       "bfs": 2275,
+       "name": "Murten"
+      }
+     ]
+    },
+    {
+     "date": "2022-01-01",
+     "parts": [
+      {
+       "bfs": 2260,
+       "name": "Gempenach"
+      },
+      {
+       "bfs": 2259,
+       "name": "Galmiz"
+      },
+      {
+       "bfs": 661,
+       "name": "Clavaleyres"
+      },
+      {
+       "bfs": 2275,
+       "name": "Murten"
+      }
+     ]
+    }
+   ],
+   "2464": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 2459,
+       "name": "Nennigkofen"
+      },
+      {
+       "bfs": 2454,
+       "name": "Lüsslingen"
+      }
+     ]
+    }
+   ],
+   "2535": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 2522,
+       "name": "Hersiwil"
+      },
+      {
+       "bfs": 2521,
+       "name": "Heinrichswil-Winistorf"
+      }
+     ]
+    }
+   ],
+   "2932": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 2932,
+       "name": "Beringen"
+      },
+      {
+       "bfs": 2902,
+       "name": "Guntmadingen"
+      }
+     ]
+    }
+   ],
+   "3341": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3314,
+       "name": "Rieden"
+      },
+      {
+       "bfs": 3331,
+       "name": "Ernetschwil"
+      },
+      {
+       "bfs": 3334,
+       "name": "Gommiswald"
+      }
+     ]
+    }
+   ],
+   "3342": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3332,
+       "name": "Eschenbach (SG)"
+      },
+      {
+       "bfs": 3333,
+       "name": "Goldingen"
+      },
+      {
+       "bfs": 3337,
+       "name": "St. Gallenkappel"
+      }
+     ]
+    }
+   ],
+   "3360": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3356,
+       "name": "Stein (SG)"
+      },
+      {
+       "bfs": 3358,
+       "name": "Nesslau-Krummenau"
+      }
+     ]
+    }
+   ],
+   "3379": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3373,
+       "name": "Krinau"
+      },
+      {
+       "bfs": 3377,
+       "name": "Wattwil"
+      }
+     ]
+    }
+   ],
+   "3395": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3391,
+       "name": "Bütschwil"
+      },
+      {
+       "bfs": 3403,
+       "name": "Ganterschwil"
+      }
+     ]
+    }
+   ],
+   "3427": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3421,
+       "name": "Bronschhofen"
+      },
+      {
+       "bfs": 3425,
+       "name": "Wil (SG)"
+      }
+     ]
+    }
+   ],
+   "3672": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3586,
+       "name": "Valendas"
+      },
+      {
+       "bfs": 3587,
+       "name": "Versam"
+      },
+      {
+       "bfs": 3651,
+       "name": "Safien"
+      },
+      {
+       "bfs": 3652,
+       "name": "Tenna"
+      }
+     ]
+    }
+   ],
+   "3618": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3592,
+       "name": "Cumbel"
+      },
+      {
+       "bfs": 3594,
+       "name": "Degen"
+      },
+      {
+       "bfs": 3595,
+       "name": "Lumbrein"
+      },
+      {
+       "bfs": 3596,
+       "name": "Morissen"
+      },
+      {
+       "bfs": 3604,
+       "name": "Vignogn"
+      },
+      {
+       "bfs": 3605,
+       "name": "Vella"
+      },
+      {
+       "bfs": 3606,
+       "name": "Vrin"
+      },
+      {
+       "bfs": 3599,
+       "name": "Suraua"
+      }
+     ]
+    }
+   ],
+   "3764": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3751,
+       "name": "Ramosch"
+      },
+      {
+       "bfs": 3753,
+       "name": "Tschlin"
+      }
+     ]
+    }
+   ],
+   "3921": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 3921,
+       "name": "Arosa"
+      },
+      {
+       "bfs": 3922,
+       "name": "Calfreisen"
+      },
+      {
+       "bfs": 3923,
+       "name": "Castiel"
+      },
+      {
+       "bfs": 3924,
+       "name": "Langwies"
+      },
+      {
+       "bfs": 3925,
+       "name": "Lüen"
+      },
+      {
+       "bfs": 3927,
+       "name": "Molinis"
+      },
+      {
+       "bfs": 3929,
+       "name": "Peist"
+      },
+      {
+       "bfs": 3931,
+       "name": "St. Peter-Pagig"
+      }
+     ]
+    }
+   ],
+   "4124": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 4119,
+       "name": "Unterbözberg"
+      },
+      {
+       "bfs": 4098,
+       "name": "Gallenkirch"
+      },
+      {
+       "bfs": 4108,
+       "name": "Oberbözberg"
+      },
+      {
+       "bfs": 4103,
+       "name": "Linn"
+      }
+     ]
+    }
+   ],
+   "5693": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 5682,
+       "name": "Peyres-Possens"
+      },
+      {
+       "bfs": 5685,
+       "name": "Saint-Cierges"
+      },
+      {
+       "bfs": 5676,
+       "name": "Martherenges"
+      },
+      {
+       "bfs": 5679,
+       "name": "Neyruz-sur-Moudon"
+      },
+      {
+       "bfs": 5667,
+       "name": "Correvon"
+      },
+      {
+       "bfs": 5670,
+       "name": "Denezy"
+      },
+      {
+       "bfs": 5664,
+       "name": "Chapelle-sur-Moudon"
+      },
+      {
+       "bfs": 5906,
+       "name": "Chanéaz"
+      },
+      {
+       "bfs": 5689,
+       "name": "Thierrens"
+      }
+     ]
+    }
+   ],
+   "6007": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6001,
+       "name": "Birgisch"
+      },
+      {
+       "bfs": 6006,
+       "name": "Mund"
+      },
+      {
+       "bfs": 6007,
+       "name": "Naters"
+      }
+     ]
+    }
+   ],
+   "6110": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6105,
+       "name": "Erschmatt"
+      },
+      {
+       "bfs": 6110,
+       "name": "Leuk"
+      }
+     ]
+    }
+   ],
+   "6119": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6114,
+       "name": "Turtmann"
+      },
+      {
+       "bfs": 6115,
+       "name": "Unterems"
+      }
+     ]
+    }
+   ],
+   "6217": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6216,
+       "name": "Mex (VS)"
+      },
+      {
+       "bfs": 6217,
+       "name": "Saint-Maurice"
+      }
+     ]
+    }
+   ],
+   "6266": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6264,
+       "name": "Salins"
+      },
+      {
+       "bfs": 6266,
+       "name": "Sion"
+      }
+     ]
+    },
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 6081,
+       "name": "Les Agettes"
+      },
+      {
+       "bfs": 6266,
+       "name": "Sion"
+      }
+     ]
+    }
+   ],
+   "6416": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6406,
+       "name": "Colombier (NE)"
+      },
+      {
+       "bfs": 6401,
+       "name": "Auvernier"
+      },
+      {
+       "bfs": 6403,
+       "name": "Bôle"
+      }
+     ]
+    }
+   ],
+   "6487": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6486,
+       "name": "Villiers"
+      },
+      {
+       "bfs": 6472,
+       "name": "Cernier"
+      },
+      {
+       "bfs": 6474,
+       "name": "Coffrane"
+      },
+      {
+       "bfs": 6473,
+       "name": "Chézard-Saint-Martin"
+      },
+      {
+       "bfs": 6471,
+       "name": "Boudevilliers"
+      },
+      {
+       "bfs": 6479,
+       "name": "Fontaines (NE)"
+      },
+      {
+       "bfs": 6478,
+       "name": "Fontainemelon"
+      },
+      {
+       "bfs": 6477,
+       "name": "Fenin-Vilars-Saules"
+      },
+      {
+       "bfs": 6475,
+       "name": "Dombresson"
+      },
+      {
+       "bfs": 6476,
+       "name": "Engollon"
+      },
+      {
+       "bfs": 6482,
+       "name": "Montmollin"
+      },
+      {
+       "bfs": 6483,
+       "name": "Le Pâquier (NE)"
+      },
+      {
+       "bfs": 6480,
+       "name": "Les Geneveys-sur-Coffrane"
+      },
+      {
+       "bfs": 6481,
+       "name": "Les Hauts-Geneveys"
+      },
+      {
+       "bfs": 6484,
+       "name": "Savagnier"
+      }
+     ]
+    }
+   ],
+   "6729": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6701,
+       "name": "Bassecourt"
+      },
+      {
+       "bfs": 6707,
+       "name": "Courfaivre"
+      },
+      {
+       "bfs": 6714,
+       "name": "Glovelier"
+      },
+      {
+       "bfs": 6723,
+       "name": "Soulce"
+      },
+      {
+       "bfs": 6725,
+       "name": "Undervelier"
+      }
+     ]
+    }
+   ],
+   "6730": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6717,
+       "name": "Montsevelier"
+      },
+      {
+       "bfs": 6726,
+       "name": "Vermes"
+      },
+      {
+       "bfs": 6727,
+       "name": "Vicques"
+      }
+     ]
+    },
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 6705,
+       "name": "Corban"
+      },
+      {
+       "bfs": 6730,
+       "name": "Val Terbi"
+      }
+     ]
+    }
+   ],
+   "6790": [
+    {
+     "date": "2013-01-01",
+     "parts": [
+      {
+       "bfs": 6776,
+       "name": "Bressaucourt"
+      },
+      {
+       "bfs": 6790,
+       "name": "Fontenais"
+      }
+     ]
+    }
+   ],
+   "5396": [
+    {
+     "date": "2013-04-14",
+     "parts": [
+      {
+       "bfs": 5130,
+       "name": "Tegna"
+      },
+      {
+       "bfs": 5133,
+       "name": "Verscio"
+      },
+      {
+       "bfs": 5099,
+       "name": "Cavigliano"
+      }
+     ]
+    }
+   ],
+   "298": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 229,
+       "name": "Wiesendangen"
+      },
+      {
+       "bfs": 212,
+       "name": "Bertschikon"
+      }
+     ]
+    }
+   ],
+   "449": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 440,
+       "name": "Plagne"
+      },
+      {
+       "bfs": 447,
+       "name": "Vauffelin"
+      }
+     ]
+    }
+   ],
+   "538": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 534,
+       "name": "Büren zum Hof"
+      },
+      {
+       "bfs": 537,
+       "name": "Etzelkofen"
+      },
+      {
+       "bfs": 538,
+       "name": "Fraubrunnen"
+      },
+      {
+       "bfs": 539,
+       "name": "Grafenried"
+      },
+      {
+       "bfs": 542,
+       "name": "Limpach"
+      },
+      {
+       "bfs": 545,
+       "name": "Mülchi"
+      },
+      {
+       "bfs": 549,
+       "name": "Schalunen"
+      },
+      {
+       "bfs": 555,
+       "name": "Zauggenried"
+      }
+     ]
+    }
+   ],
+   "726": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 721,
+       "name": "Diesse"
+      },
+      {
+       "bfs": 722,
+       "name": "Lamboing"
+      },
+      {
+       "bfs": 725,
+       "name": "Prêles"
+      }
+     ]
+    }
+   ],
+   "770": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 764,
+       "name": "Niederstocken"
+      },
+      {
+       "bfs": 765,
+       "name": "Oberstocken"
+      },
+      {
+       "bfs": 930,
+       "name": "Höfen"
+      }
+     ]
+    }
+   ],
+   "784": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 781,
+       "name": "Gadmen"
+      },
+      {
+       "bfs": 784,
+       "name": "Innertkirchen"
+      }
+     ]
+    }
+   ],
+   "885": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 871,
+       "name": "Kienersrüti"
+      },
+      {
+       "bfs": 885,
+       "name": "Uttigen"
+      }
+     ]
+    }
+   ],
+   "2163": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 2126,
+       "name": "Cerniat (FR)"
+      },
+      {
+       "bfs": 2127,
+       "name": "Charmey"
+      }
+     ]
+    }
+   ],
+   "2465": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 2462,
+       "name": "Tscheppach"
+      },
+      {
+       "bfs": 2446,
+       "name": "Brügglen"
+      },
+      {
+       "bfs": 2442,
+       "name": "Aetingen"
+      },
+      {
+       "bfs": 2441,
+       "name": "Aetigkofen"
+      },
+      {
+       "bfs": 2444,
+       "name": "Bibern (SO)"
+      },
+      {
+       "bfs": 2449,
+       "name": "Gossliwil"
+      },
+      {
+       "bfs": 2450,
+       "name": "Hessigkofen"
+      },
+      {
+       "bfs": 2458,
+       "name": "Mühledorf (SO)"
+      },
+      {
+       "bfs": 2452,
+       "name": "Küttigkofen"
+      },
+      {
+       "bfs": 2453,
+       "name": "Kyburg-Buchegg"
+      }
+     ]
+    },
+    {
+     "date": "2024-01-01",
+     "parts": [
+      {
+       "bfs": 2456,
+       "name": "Lüterswil-Gächliwil"
+      },
+      {
+       "bfs": 2465,
+       "name": "Buchegg"
+      }
+     ]
+    }
+   ],
+   "3619": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 3571,
+       "name": "Castrisch"
+      },
+      {
+       "bfs": 3574,
+       "name": "Ilanz"
+      },
+      {
+       "bfs": 3576,
+       "name": "Ladir"
+      },
+      {
+       "bfs": 3577,
+       "name": "Luven"
+      },
+      {
+       "bfs": 3578,
+       "name": "Pitasch"
+      },
+      {
+       "bfs": 3579,
+       "name": "Riein"
+      },
+      {
+       "bfs": 3580,
+       "name": "Ruschein"
+      },
+      {
+       "bfs": 3583,
+       "name": "Schnaus"
+      },
+      {
+       "bfs": 3584,
+       "name": "Sevgein"
+      },
+      {
+       "bfs": 3593,
+       "name": "Duvin"
+      },
+      {
+       "bfs": 3613,
+       "name": "Pigniu"
+      },
+      {
+       "bfs": 3614,
+       "name": "Rueun"
+      },
+      {
+       "bfs": 3615,
+       "name": "Siat"
+      }
+     ]
+    }
+   ],
+   "4063": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 4063,
+       "name": "Bremgarten (AG)"
+      },
+      {
+       "bfs": 4069,
+       "name": "Hermetschwil-Staffeln"
+      }
+     ]
+    }
+   ],
+   "4125": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 4109,
+       "name": "Oberflachs"
+      },
+      {
+       "bfs": 4115,
+       "name": "Schinznach-Dorf"
+      }
+     ]
+    }
+   ],
+   "4305": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 4321,
+       "name": "Unterendingen"
+      },
+      {
+       "bfs": 4305,
+       "name": "Endingen"
+      }
+     ]
+    }
+   ],
+   "6205": [
+    {
+     "date": "2014-01-01",
+     "parts": [
+      {
+       "bfs": 6171,
+       "name": "Betten"
+      },
+      {
+       "bfs": 6178,
+       "name": "Martisberg"
+      }
+     ]
+    }
+   ],
+   "297": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 179,
+       "name": "Sternenberg"
+      },
+      {
+       "bfs": 171,
+       "name": "Bauma"
+      }
+     ]
+    }
+   ],
+   "450": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 436,
+       "name": "La Heutte"
+      },
+      {
+       "bfs": 439,
+       "name": "Péry"
+      }
+     ]
+    }
+   ],
+   "717": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 682,
+       "name": "Bévilard"
+      },
+      {
+       "bfs": 697,
+       "name": "Malleray"
+      },
+      {
+       "bfs": 702,
+       "name": "Pontenet"
+      }
+     ]
+    }
+   ],
+   "716": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 684,
+       "name": "Châtelat"
+      },
+      {
+       "bfs": 699,
+       "name": "Monible"
+      },
+      {
+       "bfs": 710,
+       "name": "Sornetan"
+      },
+      {
+       "bfs": 712,
+       "name": "Souboz"
+      }
+     ]
+    }
+   ],
+   "3542": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 3501,
+       "name": "Alvaschein"
+      },
+      {
+       "bfs": 3502,
+       "name": "Mon"
+      },
+      {
+       "bfs": 3504,
+       "name": "Stierva"
+      },
+      {
+       "bfs": 3505,
+       "name": "Tiefencastel"
+      },
+      {
+       "bfs": 3511,
+       "name": "Alvaneu"
+      },
+      {
+       "bfs": 3512,
+       "name": "Brienz/Brinzauls"
+      },
+      {
+       "bfs": 3515,
+       "name": "Surava"
+      }
+     ]
+    }
+   ],
+   "3603": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 3598,
+       "name": "St. Martin"
+      },
+      {
+       "bfs": 3603,
+       "name": "Vals"
+      }
+     ]
+    }
+   ],
+   "3673": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 3631,
+       "name": "Almens"
+      },
+      {
+       "bfs": 3634,
+       "name": "Paspels"
+      },
+      {
+       "bfs": 3635,
+       "name": "Pratval"
+      },
+      {
+       "bfs": 3636,
+       "name": "Rodels"
+      },
+      {
+       "bfs": 3671,
+       "name": "Tomils"
+      }
+     ]
+    }
+   ],
+   "3762": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 3741,
+       "name": "Ardez"
+      },
+      {
+       "bfs": 3742,
+       "name": "Guarda"
+      },
+      {
+       "bfs": 3745,
+       "name": "Tarasp"
+      },
+      {
+       "bfs": 3761,
+       "name": "Ftan"
+      },
+      {
+       "bfs": 3762,
+       "name": "Scuol"
+      },
+      {
+       "bfs": 3763,
+       "name": "Sent"
+      }
+     ]
+    }
+   ],
+   "3746": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 3743,
+       "name": "Lavin"
+      },
+      {
+       "bfs": 3744,
+       "name": "Susch"
+      },
+      {
+       "bfs": 3746,
+       "name": "Zernez"
+      }
+     ]
+    }
+   ],
+   "3837": [
+    {
+     "date": "2015-01-01",
+     "parts": [
+      {
+       "bfs": 3801,
+       "name": "Arvigo"
+      },
+      {
+       "bfs": 3803,
+       "name": "Braggio"
+      },
+      {
+       "bfs": 3806,
+       "name": "Cauco"
+      },
+      {
+       "bfs": 3811,
+       "name": "Selma"
+      }
+     ]
+    }
+   ],
+   "296": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 175,
+       "name": "Kyburg"
+      },
+      {
+       "bfs": 174,
+       "name": "Illnau-Effretikon"
+      }
+     ]
+    }
+   ],
+   "405": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 405,
+       "name": "Ersigen"
+      },
+      {
+       "bfs": 417,
+       "name": "Niederösch"
+      },
+      {
+       "bfs": 419,
+       "name": "Oberösch"
+      }
+     ]
+    }
+   ],
+   "988": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 978,
+       "name": "Hermiswil"
+      },
+      {
+       "bfs": 988,
+       "name": "Seeberg"
+      }
+     ]
+    }
+   ],
+   "2053": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 2014,
+       "name": "Dompierre (FR)"
+      },
+      {
+       "bfs": 2013,
+       "name": "Domdidier"
+      },
+      {
+       "bfs": 2040,
+       "name": "Russy"
+      },
+      {
+       "bfs": 2024,
+       "name": "Léchelles"
+      }
+     ]
+    }
+   ],
+   "2175": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 2172,
+       "name": "Autafond"
+      },
+      {
+       "bfs": 2175,
+       "name": "Belfaux"
+      }
+     ]
+    }
+   ],
+   "2236": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 2231,
+       "name": "Vuisternens-en-Ogoz"
+      },
+      {
+       "bfs": 2222,
+       "name": "Rossens (FR)"
+      },
+      {
+       "bfs": 2192,
+       "name": "Farvagny"
+      },
+      {
+       "bfs": 2184,
+       "name": "Corpataux-Magnedens"
+      },
+      {
+       "bfs": 2223,
+       "name": "Le Glèbe"
+      }
+     ]
+    }
+   ],
+   "2284": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 2281,
+       "name": "Haut-Vully"
+      },
+      {
+       "bfs": 2280,
+       "name": "Bas-Vully"
+      }
+     ]
+    }
+   ],
+   "3543": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 3531,
+       "name": "Bivio"
+      },
+      {
+       "bfs": 3532,
+       "name": "Cunter"
+      },
+      {
+       "bfs": 3533,
+       "name": "Marmorera"
+      },
+      {
+       "bfs": 3534,
+       "name": "Mulegns"
+      },
+      {
+       "bfs": 3536,
+       "name": "Riom-Parsonz"
+      },
+      {
+       "bfs": 3538,
+       "name": "Salouf"
+      },
+      {
+       "bfs": 3539,
+       "name": "Savognin"
+      },
+      {
+       "bfs": 3540,
+       "name": "Sur"
+      },
+      {
+       "bfs": 3541,
+       "name": "Tinizong-Rona"
+      }
+     ]
+    }
+   ],
+   "3988": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 3612,
+       "name": "Obersaxen"
+      },
+      {
+       "bfs": 3617,
+       "name": "Mundaun"
+      }
+     ]
+    }
+   ],
+   "3871": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 3871,
+       "name": "Klosters-Serneus"
+      },
+      {
+       "bfs": 3883,
+       "name": "Saas"
+      }
+     ]
+    }
+   ],
+   "3891": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 3891,
+       "name": "Luzein"
+      },
+      {
+       "bfs": 3893,
+       "name": "St. Antönien"
+      }
+     ]
+    }
+   ],
+   "6413": [
+    {
+     "date": "2016-01-01",
+     "parts": [
+      {
+       "bfs": 6405,
+       "name": "Brot-Dessous"
+      },
+      {
+       "bfs": 6413,
+       "name": "Rochefort"
+      }
+     ]
+    }
+   ],
+   "5136": [
+    {
+     "date": "2016-04-10",
+     "parts": [
+      {
+       "bfs": 5132,
+       "name": "Vergeletto"
+      },
+      {
+       "bfs": 5109,
+       "name": "Gresso"
+      },
+      {
+       "bfs": 5119,
+       "name": "Mosogno"
+      },
+      {
+       "bfs": 5136,
+       "name": "Onsernone"
+      },
+      {
+       "bfs": 5137,
+       "name": "Isorno"
+      }
+     ]
+    }
+   ],
+   "5806": [
+    {
+     "date": "2016-07-01",
+     "parts": [
+      {
+       "bfs": 5791,
+       "name": "Mézières (VD)"
+      },
+      {
+       "bfs": 5789,
+       "name": "Ferlens (VD)"
+      },
+      {
+       "bfs": 5782,
+       "name": "Carrouge (VD)"
+      }
+     ]
+    }
+   ],
+   "2054": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 2049,
+       "name": "Vuissens"
+      },
+      {
+       "bfs": 2004,
+       "name": "Bussy (FR)"
+      },
+      {
+       "bfs": 2033,
+       "name": "Morens (FR)"
+      },
+      {
+       "bfs": 2039,
+       "name": "Rueyres-les-Prés"
+      },
+      {
+       "bfs": 2034,
+       "name": "Murist"
+      },
+      {
+       "bfs": 2052,
+       "name": "Vernay"
+      },
+      {
+       "bfs": 2015,
+       "name": "Estavayer-le-Lac"
+      }
+     ]
+    }
+   ],
+   "2055": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 2005,
+       "name": "Châbles"
+      },
+      {
+       "bfs": 2010,
+       "name": "Cheyres"
+      }
+     ]
+    }
+   ],
+   "2044": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 2047,
+       "name": "Villeneuve (FR)"
+      },
+      {
+       "bfs": 2044,
+       "name": "Surpierre"
+      }
+     ]
+    },
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 2009,
+       "name": "Cheiry"
+      },
+      {
+       "bfs": 2044,
+       "name": "Surpierre"
+      }
+     ]
+    }
+   ],
+   "2183": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 2179,
+       "name": "Chésopelloz"
+      },
+      {
+       "bfs": 2183,
+       "name": "Corminboeuf"
+      }
+     ]
+    }
+   ],
+   "2254": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 2283,
+       "name": "Wallenried"
+      },
+      {
+       "bfs": 2243,
+       "name": "Barberêche"
+      },
+      {
+       "bfs": 2279,
+       "name": "Villarepos"
+      },
+      {
+       "bfs": 2254,
+       "name": "Courtepin"
+      }
+     ]
+    }
+   ],
+   "2299": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 2310,
+       "name": "Zumholz"
+      },
+      {
+       "bfs": 2298,
+       "name": "Oberschrot"
+      },
+      {
+       "bfs": 2299,
+       "name": "Plaffeien"
+      }
+     ]
+    }
+   ],
+   "3832": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 3832,
+       "name": "Grono"
+      },
+      {
+       "bfs": 3833,
+       "name": "Leggia"
+      },
+      {
+       "bfs": 3836,
+       "name": "Verdabbio"
+      }
+     ]
+    }
+   ],
+   "5749": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 5915,
+       "name": "Essert-Pittet"
+      },
+      {
+       "bfs": 5751,
+       "name": "Corcelles-sur-Chavornay"
+      },
+      {
+       "bfs": 5749,
+       "name": "Chavornay"
+      }
+     ]
+    }
+   ],
+   "6077": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 6055,
+       "name": "Blitzingen"
+      },
+      {
+       "bfs": 6064,
+       "name": "Niederwald"
+      },
+      {
+       "bfs": 6073,
+       "name": "Grafschaft"
+      },
+      {
+       "bfs": 6074,
+       "name": "Münster-Geschinen"
+      },
+      {
+       "bfs": 6075,
+       "name": "Reckingen-Gluringen"
+      }
+     ]
+    }
+   ],
+   "6253": [
+    {
+     "date": "2017-01-01",
+     "parts": [
+      {
+       "bfs": 6234,
+       "name": "Chermignon"
+      },
+      {
+       "bfs": 6243,
+       "name": "Montana"
+      },
+      {
+       "bfs": 6242,
+       "name": "Mollens (VS)"
+      },
+      {
+       "bfs": 6244,
+       "name": "Randogne"
+      }
+     ]
+    }
+   ],
+   "5002": [
+    {
+     "date": "2017-04-02",
+     "parts": [
+      {
+       "bfs": 5004,
+       "name": "Camorino"
+      },
+      {
+       "bfs": 5282,
+       "name": "Claro"
+      },
+      {
+       "bfs": 5002,
+       "name": "Bellinzona"
+      },
+      {
+       "bfs": 5008,
+       "name": "Gudo"
+      },
+      {
+       "bfs": 5006,
+       "name": "Gnosca"
+      },
+      {
+       "bfs": 5007,
+       "name": "Gorduno"
+      },
+      {
+       "bfs": 5005,
+       "name": "Giubiasco"
+      },
+      {
+       "bfs": 5013,
+       "name": "Monte Carasso"
+      },
+      {
+       "bfs": 5012,
+       "name": "Moleno"
+      },
+      {
+       "bfs": 5019,
+       "name": "Sementina"
+      },
+      {
+       "bfs": 5018,
+       "name": "Sant'Antonio"
+      },
+      {
+       "bfs": 5015,
+       "name": "Preonzo"
+      },
+      {
+       "bfs": 5014,
+       "name": "Pianezzo"
+      }
+     ]
+    }
+   ],
+   "5287": [
+    {
+     "date": "2017-04-02",
+     "parts": [
+      {
+       "bfs": 5283,
+       "name": "Cresciano"
+      },
+      {
+       "bfs": 5284,
+       "name": "Iragna"
+      },
+      {
+       "bfs": 5285,
+       "name": "Lodrino"
+      },
+      {
+       "bfs": 5286,
+       "name": "Osogna"
+      }
+     ]
+    }
+   ],
+   "295": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 132,
+       "name": "Hirzel"
+      },
+      {
+       "bfs": 133,
+       "name": "Horgen"
+      }
+     ]
+    }
+   ],
+   "294": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 217,
+       "name": "Elgg"
+      },
+      {
+       "bfs": 222,
+       "name": "Hofstetten (ZH)"
+      }
+     ]
+    }
+   ],
+   "608": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 608,
+       "name": "Grosshöchstetten"
+      },
+      {
+       "bfs": 624,
+       "name": "Schlosswil"
+      }
+     ]
+    }
+   ],
+   "872": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 865,
+       "name": "Gelterfingen"
+      },
+      {
+       "bfs": 872,
+       "name": "Kirchdorf (BE)"
+      },
+      {
+       "bfs": 875,
+       "name": "Mühledorf (BE)"
+      },
+      {
+       "bfs": 878,
+       "name": "Noflen"
+      }
+     ]
+    }
+   ],
+   "3668": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 3503,
+       "name": "Mutten"
+      },
+      {
+       "bfs": 3668,
+       "name": "Thusis"
+      }
+     ]
+    }
+   ],
+   "3544": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 3521,
+       "name": "Bergün/Bravuogn"
+      },
+      {
+       "bfs": 3522,
+       "name": "Filisur"
+      }
+     ]
+    }
+   ],
+   "3981": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 3611,
+       "name": "Andiast"
+      },
+      {
+       "bfs": 3616,
+       "name": "Waltensburg/Vuorz"
+      },
+      {
+       "bfs": 3981,
+       "name": "Breil/Brigels"
+      }
+     ]
+    }
+   ],
+   "4104": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 4104,
+       "name": "Lupfig"
+      },
+      {
+       "bfs": 4113,
+       "name": "Scherz"
+      }
+     ]
+    }
+   ],
+   "6417": [
+    {
+     "date": "2018-01-01",
+     "parts": [
+      {
+       "bfs": 6402,
+       "name": "Bevaix"
+      },
+      {
+       "bfs": 6409,
+       "name": "Fresens"
+      },
+      {
+       "bfs": 6410,
+       "name": "Gorgier"
+      },
+      {
+       "bfs": 6411,
+       "name": "Montalchez"
+      },
+      {
+       "bfs": 6414,
+       "name": "Saint-Aubin-Sauges"
+      },
+      {
+       "bfs": 6415,
+       "name": "Vaumarcus"
+      }
+     ]
+    }
+   ],
+   "292": [
+    {
+     "date": "2019-01-01",
+     "parts": [
+      {
+       "bfs": 44,
+       "name": "Waltalingen"
+      },
+      {
+       "bfs": 42,
+       "name": "Unterstammheim"
+      },
+      {
+       "bfs": 36,
+       "name": "Oberstammheim"
+      }
+     ]
+    }
+   ],
+   "293": [
+    {
+     "date": "2019-01-01",
+     "parts": [
+      {
+       "bfs": 142,
+       "name": "Wädenswil"
+      },
+      {
+       "bfs": 134,
+       "name": "Hütten"
+      },
+      {
+       "bfs": 140,
+       "name": "Schönenberg (ZH)"
+      }
+     ]
+    }
+   ],
+   "3714": [
+    {
+     "date": "2019-01-01",
+     "parts": [
+      {
+       "bfs": 3691,
+       "name": "Hinterrhein"
+      },
+      {
+       "bfs": 3693,
+       "name": "Nufenen"
+      },
+      {
+       "bfs": 3694,
+       "name": "Splügen"
+      }
+     ]
+    }
+   ],
+   "4281": [
+    {
+     "date": "2019-01-01",
+     "parts": [
+      {
+       "bfs": 4272,
+       "name": "Attelwil"
+      },
+      {
+       "bfs": 4281,
+       "name": "Reitnau"
+      }
+     ]
+    }
+   ],
+   "6708": [
+    {
+     "date": "2019-01-01",
+     "parts": [
+      {
+       "bfs": 6708,
+       "name": "Courrendlin"
+      },
+      {
+       "bfs": 6720,
+       "name": "Rebeuvelier"
+      },
+      {
+       "bfs": 6728,
+       "name": "Vellerat"
+      }
+     ]
+    }
+   ],
+   "889": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 873,
+       "name": "Kirchenthurnen"
+      },
+      {
+       "bfs": 874,
+       "name": "Lohnstorf"
+      },
+      {
+       "bfs": 876,
+       "name": "Mühlethurnen"
+      }
+     ]
+    }
+   ],
+   "939": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 937,
+       "name": "Schwendibach"
+      },
+      {
+       "bfs": 939,
+       "name": "Steffisburg"
+      }
+     ]
+    }
+   ],
+   "981": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 981,
+       "name": "Niederbipp"
+      },
+      {
+       "bfs": 996,
+       "name": "Wolfisberg"
+      }
+     ]
+    }
+   ],
+   "1123": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 1123,
+       "name": "Altishofen"
+      },
+      {
+       "bfs": 1126,
+       "name": "Ebersecken"
+      }
+     ]
+    }
+   ],
+   "2117": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 2111,
+       "name": "Villaz-Saint-Pierre"
+      },
+      {
+       "bfs": 2116,
+       "name": "La Folliaz"
+      }
+     ]
+    }
+   ],
+   "2237": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 2185,
+       "name": "Corserey"
+      },
+      {
+       "bfs": 2213,
+       "name": "Noréaz"
+      },
+      {
+       "bfs": 2221,
+       "name": "Prez-vers-Noréaz"
+      }
+     ]
+    }
+   ],
+   "3901": [
+    {
+     "date": "2020-01-01",
+     "parts": [
+      {
+       "bfs": 3901,
+       "name": "Chur"
+      },
+      {
+       "bfs": 3926,
+       "name": "Maladers"
+      }
+     ]
+    },
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 3941,
+       "name": "Haldenstein"
+      },
+      {
+       "bfs": 3901,
+       "name": "Chur"
+      }
+     ]
+    },
+    {
+     "date": "2025-01-01",
+     "parts": [
+      {
+       "bfs": 3932,
+       "name": "Tschiertschen-Praden"
+      },
+      {
+       "bfs": 3901,
+       "name": "Chur"
+      }
+     ]
+    }
+   ],
+   "5399": [
+    {
+     "date": "2020-10-17",
+     "parts": [
+      {
+       "bfs": 5135,
+       "name": "Vogorno"
+      },
+      {
+       "bfs": 5129,
+       "name": "Sonogno"
+      },
+      {
+       "bfs": 5102,
+       "name": "Corippo"
+      },
+      {
+       "bfs": 5095,
+       "name": "Brione (Verzasca)"
+      },
+      {
+       "bfs": 5105,
+       "name": "Frasco"
+      }
+     ]
+    }
+   ],
+   "1151": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 1130,
+       "name": "Gettnau"
+      },
+      {
+       "bfs": 1151,
+       "name": "Willisau"
+      }
+     ]
+    }
+   ],
+   "1214": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 1204,
+       "name": "Bauen"
+      },
+      {
+       "bfs": 1214,
+       "name": "Seedorf (UR)"
+      }
+     ]
+    }
+   ],
+   "2238": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 2171,
+       "name": "Arconciel"
+      },
+      {
+       "bfs": 2225,
+       "name": "Senèdes"
+      },
+      {
+       "bfs": 2189,
+       "name": "Ependes (FR)"
+      }
+     ]
+    }
+   ],
+   "2306": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 2302,
+       "name": "St. Antoni"
+      },
+      {
+       "bfs": 2306,
+       "name": "Tafers"
+      },
+      {
+       "bfs": 2291,
+       "name": "Alterswil"
+      }
+     ]
+    }
+   ],
+   "2430": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 2423,
+       "name": "Gänsbrunnen"
+      },
+      {
+       "bfs": 2429,
+       "name": "Welschenrohr"
+      }
+     ]
+    }
+   ],
+   "2499": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 2499,
+       "name": "Stüsslingen"
+      },
+      {
+       "bfs": 2498,
+       "name": "Rohr (SO)"
+      }
+     ]
+    }
+   ],
+   "3715": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 3703,
+       "name": "Casti-Wergenstein"
+      },
+      {
+       "bfs": 3707,
+       "name": "Lohn (GR)"
+      },
+      {
+       "bfs": 3708,
+       "name": "Mathon"
+      },
+      {
+       "bfs": 3705,
+       "name": "Donat"
+      }
+     ]
+    }
+   ],
+   "6037": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 6036,
+       "name": "Vollèges"
+      },
+      {
+       "bfs": 6031,
+       "name": "Bagnes"
+      }
+     ]
+    }
+   ],
+   "6136": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 6132,
+       "name": "Charrat"
+      },
+      {
+       "bfs": 6136,
+       "name": "Martigny"
+      }
+     ]
+    }
+   ],
+   "6254": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 6249,
+       "name": "Venthône"
+      },
+      {
+       "bfs": 6250,
+       "name": "Veyras"
+      },
+      {
+       "bfs": 6241,
+       "name": "Miège"
+      }
+     ]
+    }
+   ],
+   "6458": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 6407,
+       "name": "Corcelles-Cormondrèche"
+      },
+      {
+       "bfs": 6412,
+       "name": "Peseux"
+      },
+      {
+       "bfs": 6458,
+       "name": "Neuchâtel"
+      },
+      {
+       "bfs": 6485,
+       "name": "Valangin"
+      }
+     ]
+    }
+   ],
+   "6436": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 6431,
+       "name": "Les Brenets"
+      },
+      {
+       "bfs": 6436,
+       "name": "Le Locle"
+      }
+     ]
+    }
+   ],
+   "409": [
+    {
+     "date": "2021-01-01",
+     "parts": [
+      {
+       "bfs": 409,
+       "name": "Hindelbank"
+      },
+      {
+       "bfs": 416,
+       "name": "Mötschwil"
+      }
+     ]
+    }
+   ],
+   "5239": [
+    {
+     "date": "2021-04-18",
+     "parts": [
+      {
+       "bfs": 5202,
+       "name": "Monteggio"
+      },
+      {
+       "bfs": 5222,
+       "name": "Sessa"
+      },
+      {
+       "bfs": 5213,
+       "name": "Ponte Tresa"
+      },
+      {
+       "bfs": 5178,
+       "name": "Croglio"
+      }
+     ]
+    }
+   ],
+   "5656": [
+    {
+     "date": "2021-07-01",
+     "parts": [
+      {
+       "bfs": 5625,
+       "name": "Bussy-Chardonney"
+      },
+      {
+       "bfs": 5494,
+       "name": "Pampigny"
+      },
+      {
+       "bfs": 5500,
+       "name": "Sévery"
+      },
+      {
+       "bfs": 5644,
+       "name": "Reverolle"
+      },
+      {
+       "bfs": 5421,
+       "name": "Apples"
+      },
+      {
+       "bfs": 5478,
+       "name": "Cottens (VD)"
+      }
+     ]
+    }
+   ],
+   "4185": [
+    {
+     "date": "2022-01-01",
+     "parts": [
+      {
+       "bfs": 4094,
+       "name": "Bözen"
+      },
+      {
+       "bfs": 4096,
+       "name": "Effingen"
+      },
+      {
+       "bfs": 4167,
+       "name": "Hornussen"
+      },
+      {
+       "bfs": 4097,
+       "name": "Elfingen"
+      }
+     ]
+    }
+   ],
+   "4324": [
+    {
+     "date": "2022-01-01",
+     "parts": [
+      {
+       "bfs": 4322,
+       "name": "Wislikofen"
+      },
+      {
+       "bfs": 4301,
+       "name": "Baldingen"
+      },
+      {
+       "bfs": 4302,
+       "name": "Böbikon"
+      },
+      {
+       "bfs": 4308,
+       "name": "Kaiserstuhl"
+      },
+      {
+       "bfs": 4317,
+       "name": "Rümikon"
+      },
+      {
+       "bfs": 4316,
+       "name": "Rietheim"
+      },
+      {
+       "bfs": 4315,
+       "name": "Rekingen (AG)"
+      },
+      {
+       "bfs": 4323,
+       "name": "Bad Zurzach"
+      }
+     ]
+    }
+   ],
+   "5892": [
+    {
+     "date": "2022-01-01",
+     "parts": [
+      {
+       "bfs": 5888,
+       "name": "Saint-Légier-La Chiésaz"
+      },
+      {
+       "bfs": 5881,
+       "name": "Blonay"
+      }
+     ]
+    }
+   ],
+   "5240": [
+    {
+     "date": "2022-04-10",
+     "parts": [
+      {
+       "bfs": 5197,
+       "name": "Melano"
+      },
+      {
+       "bfs": 5195,
+       "name": "Maroggia"
+      },
+      {
+       "bfs": 5219,
+       "name": "Rovio"
+      }
+     ]
+    }
+   ],
+   "3112": [
+    {
+     "date": "2022-05-01",
+     "parts": [
+      {
+       "bfs": 3103,
+       "name": "Rüte"
+      },
+      {
+       "bfs": 3105,
+       "name": "Schwende"
+      }
+     ]
+    }
+   ],
+   "291": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 21,
+       "name": "Adlikon"
+      },
+      {
+       "bfs": 32,
+       "name": "Humlikon"
+      },
+      {
+       "bfs": 30,
+       "name": "Andelfingen"
+      }
+     ]
+    }
+   ],
+   "546": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 536,
+       "name": "Diemerswil"
+      },
+      {
+       "bfs": 546,
+       "name": "Münchenbuchsee"
+      }
+     ]
+    }
+   ],
+   "3396": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 3372,
+       "name": "Hemberg"
+      },
+      {
+       "bfs": 3375,
+       "name": "Oberhelfenschwil"
+      },
+      {
+       "bfs": 3378,
+       "name": "Neckertal"
+      }
+     ]
+    }
+   ],
+   "6743": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 6743,
+       "name": "Les Breuleux"
+      },
+      {
+       "bfs": 6744,
+       "name": "La Chaux-des-Breuleux"
+      }
+     ]
+    }
+   ],
+   "4139": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 4133,
+       "name": "Burg (AG)"
+      },
+      {
+       "bfs": 4139,
+       "name": "Menziken"
+      }
+     ]
+    }
+   ],
+   "4186": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 4179,
+       "name": "Ueken"
+      },
+      {
+       "bfs": 4166,
+       "name": "Herznach"
+      }
+     ]
+    }
+   ],
+   "6811": [
+    {
+     "date": "2023-01-01",
+     "parts": [
+      {
+       "bfs": 6787,
+       "name": "Damphreux"
+      },
+      {
+       "bfs": 6793,
+       "name": "Lugnez"
+      }
+     ]
+    }
+   ],
+   "767": [
+    {
+     "date": "2024-01-01",
+     "parts": [
+      {
+       "bfs": 767,
+       "name": "Reutigen"
+      },
+      {
+       "bfs": 947,
+       "name": "Zwieselberg"
+      }
+     ]
+    }
+   ],
+   "992": [
+    {
+     "date": "2024-01-01",
+     "parts": [
+      {
+       "bfs": 992,
+       "name": "Wangen an der Aare"
+      },
+      {
+       "bfs": 993,
+       "name": "Wangenried"
+      }
+     ]
+    }
+   ],
+   "6812": [
+    {
+     "date": "2024-01-01",
+     "parts": [
+      {
+       "bfs": 6773,
+       "name": "Beurnevésin"
+      },
+      {
+       "bfs": 6775,
+       "name": "Bonfol"
+      }
+     ]
+    }
+   ],
+   "4021": [
+    {
+     "date": "2024-01-01",
+     "parts": [
+      {
+       "bfs": 4042,
+       "name": "Turgi"
+      },
+      {
+       "bfs": 4021,
+       "name": "Baden"
+      }
+     ]
+    }
+   ],
+   "1065": [
+    {
+     "date": "2025-01-01",
+     "parts": [
+      {
+       "bfs": 1057,
+       "name": "Honau"
+      },
+      {
+       "bfs": 1065,
+       "name": "Root"
+      }
+     ]
+    }
+   ],
+   "2097": [
+    {
+     "date": "2025-01-01",
+     "parts": [
+      {
+       "bfs": 2066,
+       "name": "Chapelle (Glâne)"
+      },
+      {
+       "bfs": 2061,
+       "name": "Auboranges"
+      },
+      {
+       "bfs": 2072,
+       "name": "Ecublens (FR)"
+      },
+      {
+       "bfs": 2097,
+       "name": "Rue"
+      }
+     ]
+    }
+   ],
+   "2239": [
+    {
+     "date": "2025-01-01",
+     "parts": [
+      {
+       "bfs": 2217,
+       "name": "Ponthaux"
+      },
+      {
+       "bfs": 2200,
+       "name": "Grolley"
+      }
+     ]
+    }
+   ],
+   "6513": [
+    {
+     "date": "2025-01-01",
+     "parts": [
+      {
+       "bfs": 6453,
+       "name": "Enges"
+      },
+      {
+       "bfs": 6454,
+       "name": "Hauterive (NE)"
+      },
+      {
+       "bfs": 6459,
+       "name": "Saint-Blaise"
+      },
+      {
+       "bfs": 6461,
+       "name": "La Tène"
+      }
+     ]
+    }
+   ],
+   "5073": [
+    {
+     "date": "2025-04-06",
+     "parts": [
+      {
+       "bfs": 5064,
+       "name": "Bodio"
+      },
+      {
+       "bfs": 5073,
+       "name": "Giornico"
+      }
+     ]
+    }
+   ],
+   "5079": [
+    {
+     "date": "2025-04-06",
+     "parts": [
+      {
+       "bfs": 5079,
+       "name": "Quinto"
+      },
+      {
+       "bfs": 5078,
+       "name": "Prato (Leventina)"
+      }
+     ]
+    }
+   ],
+   "5395": [
+    {
+     "date": "2025-04-06",
+     "parts": [
+      {
+       "bfs": 5181,
+       "name": "Curio"
+      },
+      {
+       "bfs": 5146,
+       "name": "Astano"
+      },
+      {
+       "bfs": 5149,
+       "name": "Bedigliora"
+      },
+      {
+       "bfs": 5200,
+       "name": "Miglieglia"
+      },
+      {
+       "bfs": 5207,
+       "name": "Novaggio"
+      }
+     ]
+    }
+   ]
+  },
+  "dissolved": {
+   "5104": {
+    "date": "2008-04-20",
+    "into": 5138,
+    "into_name": "Cugnasco-Gerra"
+   },
+   "5107": {
+    "date": "2008-04-20",
+    "into": 5138,
+    "into_name": "Cugnasco-Gerra"
+   },
+   "5235": {
+    "date": "2008-04-20",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5168": {
+    "date": "2008-04-20",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5147": {
+    "date": "2008-04-20",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5177": {
+    "date": "2008-04-20",
+    "into": 5226,
+    "into_name": "Capriasca"
+   },
+   "5150": {
+    "date": "2008-04-20",
+    "into": 5226,
+    "into_name": "Capriasca"
+   },
+   "5191": {
+    "date": "2008-04-20",
+    "into": 5226,
+    "into_name": "Capriasca"
+   },
+   "5188": {
+    "date": "2008-04-20",
+    "into": 5151,
+    "into_name": "Bioggio"
+   },
+   "5302": {
+    "date": "2008-04-20",
+    "into": 5324,
+    "into_name": "Avegno Gordevio"
+   },
+   "5314": {
+    "date": "2008-04-20",
+    "into": 5324,
+    "into_name": "Avegno Gordevio"
+   },
+   "882": {
+    "date": "2009-01-01",
+    "into": 879,
+    "into_name": "Riggisberg"
+   },
+   "986": {
+    "date": "2009-01-01",
+    "into": 977,
+    "into_name": "Heimenhausen"
+   },
+   "994": {
+    "date": "2009-01-01",
+    "into": 977,
+    "into_name": "Heimenhausen"
+   },
+   "1042": {
+    "date": "2009-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1028": {
+    "date": "2009-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1027": {
+    "date": "2009-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1035": {
+    "date": "2009-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1036": {
+    "date": "2009-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1038": {
+    "date": "2009-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1087": {
+    "date": "2009-01-01",
+    "into": 1081,
+    "into_name": "Beromünster"
+   },
+   "1106": {
+    "date": "2009-01-01",
+    "into": 1104,
+    "into_name": "Triengen"
+   },
+   "2911": {
+    "date": "2009-01-01",
+    "into": 2920,
+    "into_name": "Thayngen"
+   },
+   "2913": {
+    "date": "2009-01-01",
+    "into": 2920,
+    "into_name": "Thayngen"
+   },
+   "2916": {
+    "date": "2009-01-01",
+    "into": 2920,
+    "into_name": "Thayngen"
+   },
+   "2918": {
+    "date": "2009-01-01",
+    "into": 2920,
+    "into_name": "Thayngen"
+   },
+   "2934": {
+    "date": "2009-01-01",
+    "into": 2939,
+    "into_name": "Schaffhausen"
+   },
+   "3371": {
+    "date": "2009-01-01",
+    "into": 3378,
+    "into_name": "Neckertal"
+   },
+   "3376": {
+    "date": "2009-01-01",
+    "into": 3378,
+    "into_name": "Neckertal"
+   },
+   "3406": {
+    "date": "2009-01-01",
+    "into": 3378,
+    "into_name": "Neckertal"
+   },
+   "3523": {
+    "date": "2009-01-01",
+    "into": 3851,
+    "into_name": "Davos"
+   },
+   "3573": {
+    "date": "2009-01-01",
+    "into": 3617,
+    "into_name": "Mundaun"
+   },
+   "3600": {
+    "date": "2009-01-01",
+    "into": 3617,
+    "into_name": "Mundaun"
+   },
+   "3632": {
+    "date": "2009-01-01",
+    "into": 3671,
+    "into_name": "Tomils"
+   },
+   "3639": {
+    "date": "2009-01-01",
+    "into": 3671,
+    "into_name": "Tomils"
+   },
+   "3641": {
+    "date": "2009-01-01",
+    "into": 3671,
+    "into_name": "Tomils"
+   },
+   "3642": {
+    "date": "2009-01-01",
+    "into": 3671,
+    "into_name": "Tomils"
+   },
+   "3704": {
+    "date": "2009-01-01",
+    "into": 3701,
+    "into_name": "Andeer"
+   },
+   "3710": {
+    "date": "2009-01-01",
+    "into": 3701,
+    "into_name": "Andeer"
+   },
+   "3841": {
+    "date": "2009-01-01",
+    "into": 3847,
+    "into_name": "Val Müstair"
+   },
+   "3842": {
+    "date": "2009-01-01",
+    "into": 3847,
+    "into_name": "Val Müstair"
+   },
+   "3843": {
+    "date": "2009-01-01",
+    "into": 3847,
+    "into_name": "Val Müstair"
+   },
+   "3844": {
+    "date": "2009-01-01",
+    "into": 3847,
+    "into_name": "Val Müstair"
+   },
+   "3845": {
+    "date": "2009-01-01",
+    "into": 3847,
+    "into_name": "Val Müstair"
+   },
+   "3846": {
+    "date": "2009-01-01",
+    "into": 3847,
+    "into_name": "Val Müstair"
+   },
+   "3914": {
+    "date": "2009-01-01",
+    "into": 3932,
+    "into_name": "Tschiertschen-Praden"
+   },
+   "3915": {
+    "date": "2009-01-01",
+    "into": 3932,
+    "into_name": "Tschiertschen-Praden"
+   },
+   "5526": {
+    "date": "2009-01-01",
+    "into": 5511,
+    "into_name": "Assens"
+   },
+   "6071": {
+    "date": "2009-01-01",
+    "into": 6076,
+    "into_name": "Obergoms"
+   },
+   "6065": {
+    "date": "2009-01-01",
+    "into": 6076,
+    "into_name": "Obergoms"
+   },
+   "6066": {
+    "date": "2009-01-01",
+    "into": 6076,
+    "into_name": "Obergoms"
+   },
+   "6103": {
+    "date": "2009-01-01",
+    "into": 6118,
+    "into_name": "Gampel-Bratsch"
+   },
+   "6107": {
+    "date": "2009-01-01",
+    "into": 6118,
+    "into_name": "Gampel-Bratsch"
+   },
+   "6174": {
+    "date": "2009-01-01",
+    "into": 6203,
+    "into_name": "Mörel-Filet"
+   },
+   "6179": {
+    "date": "2009-01-01",
+    "into": 6203,
+    "into_name": "Mörel-Filet"
+   },
+   "6200": {
+    "date": "2009-01-01",
+    "into": 6204,
+    "into_name": "Steg-Hohtenn"
+   },
+   "6196": {
+    "date": "2009-01-01",
+    "into": 6204,
+    "into_name": "Steg-Hohtenn"
+   },
+   "6251": {
+    "date": "2009-01-01",
+    "into": 6252,
+    "into_name": "Anniviers"
+   },
+   "6233": {
+    "date": "2009-01-01",
+    "into": 6252,
+    "into_name": "Anniviers"
+   },
+   "6231": {
+    "date": "2009-01-01",
+    "into": 6252,
+    "into_name": "Anniviers"
+   },
+   "6237": {
+    "date": "2009-01-01",
+    "into": 6252,
+    "into_name": "Anniviers"
+   },
+   "6245": {
+    "date": "2009-01-01",
+    "into": 6252,
+    "into_name": "Anniviers"
+   },
+   "6247": {
+    "date": "2009-01-01",
+    "into": 6252,
+    "into_name": "Anniviers"
+   },
+   "6460": {
+    "date": "2009-01-01",
+    "into": 6461,
+    "into_name": "La Tène"
+   },
+   "6457": {
+    "date": "2009-01-01",
+    "into": 6461,
+    "into_name": "La Tène"
+   },
+   "6510": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6503": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6505": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6502": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6506": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6507": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6508": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6501": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6509": {
+    "date": "2009-01-01",
+    "into": 6512,
+    "into_name": "Val-de-Travers"
+   },
+   "6746": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6747": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6795": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6797": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6798": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6804": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6805": {
+    "date": "2009-01-01",
+    "into": 6808,
+    "into_name": "Clos du Doubs"
+   },
+   "6749": {
+    "date": "2009-01-01",
+    "into": 6757,
+    "into_name": "Saignelégier"
+   },
+   "6756": {
+    "date": "2009-01-01",
+    "into": 6757,
+    "into_name": "Saignelégier"
+   },
+   "6752": {
+    "date": "2009-01-01",
+    "into": 6751,
+    "into_name": "Montfaucon"
+   },
+   "6755": {
+    "date": "2009-01-01",
+    "into": 6753,
+    "into_name": "Muriaux"
+   },
+   "6772": {
+    "date": "2009-01-01",
+    "into": 6810,
+    "into_name": "La Baroche"
+   },
+   "6779": {
+    "date": "2009-01-01",
+    "into": 6810,
+    "into_name": "La Baroche"
+   },
+   "6791": {
+    "date": "2009-01-01",
+    "into": 6810,
+    "into_name": "La Baroche"
+   },
+   "6794": {
+    "date": "2009-01-01",
+    "into": 6810,
+    "into_name": "La Baroche"
+   },
+   "6799": {
+    "date": "2009-01-01",
+    "into": 6810,
+    "into_name": "La Baroche"
+   },
+   "6777": {
+    "date": "2009-01-01",
+    "into": 6807,
+    "into_name": "Basse-Allaine"
+   },
+   "6786": {
+    "date": "2009-01-01",
+    "into": 6807,
+    "into_name": "Basse-Allaine"
+   },
+   "6796": {
+    "date": "2009-01-01",
+    "into": 6807,
+    "into_name": "Basse-Allaine"
+   },
+   "6780": {
+    "date": "2009-01-01",
+    "into": 6809,
+    "into_name": "Haute-Ajoie"
+   },
+   "6788": {
+    "date": "2009-01-01",
+    "into": 6809,
+    "into_name": "Haute-Ajoie"
+   },
+   "6801": {
+    "date": "2009-01-01",
+    "into": 6809,
+    "into_name": "Haute-Ajoie"
+   },
+   "6802": {
+    "date": "2009-01-01",
+    "into": 6809,
+    "into_name": "Haute-Ajoie"
+   },
+   "5267": {
+    "date": "2009-04-05",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5247": {
+    "date": "2009-04-05",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5241": {
+    "date": "2009-04-05",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5252": {
+    "date": "2009-04-05",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5262": {
+    "date": "2009-04-05",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5094": {
+    "date": "2009-10-25",
+    "into": 5397,
+    "into_name": "Centovalli"
+   },
+   "5122": {
+    "date": "2009-10-25",
+    "into": 5397,
+    "into_name": "Centovalli"
+   },
+   "5111": {
+    "date": "2009-10-25",
+    "into": 5397,
+    "into_name": "Centovalli"
+   },
+   "5244": {
+    "date": "2009-10-25",
+    "into": 5269,
+    "into_name": "Breggia"
+   },
+   "5245": {
+    "date": "2009-10-25",
+    "into": 5269,
+    "into_name": "Breggia"
+   },
+   "5258": {
+    "date": "2009-10-25",
+    "into": 5269,
+    "into_name": "Breggia"
+   },
+   "5259": {
+    "date": "2009-10-25",
+    "into": 5269,
+    "into_name": "Breggia"
+   },
+   "5264": {
+    "date": "2009-10-25",
+    "into": 5269,
+    "into_name": "Breggia"
+   },
+   "5246": {
+    "date": "2009-10-25",
+    "into": 5269,
+    "into_name": "Breggia"
+   },
+   "343": {
+    "date": "2010-01-01",
+    "into": 329,
+    "into_name": "Langenthal"
+   },
+   "531": {
+    "date": "2010-01-01",
+    "into": 540,
+    "into_name": "Jegenstorf"
+   },
+   "601": {
+    "date": "2010-01-01",
+    "into": 619,
+    "into_name": "Oberdiessbach"
+   },
+   "752": {
+    "date": "2010-01-01",
+    "into": 756,
+    "into_name": "Twann-Tüscherz"
+   },
+   "753": {
+    "date": "2010-01-01",
+    "into": 756,
+    "into_name": "Twann-Tüscherz"
+   },
+   "1060": {
+    "date": "2010-01-01",
+    "into": 1061,
+    "into_name": "Luzern"
+   },
+   "2447": {
+    "date": "2010-01-01",
+    "into": 2457,
+    "into_name": "Messen"
+   },
+   "2443": {
+    "date": "2010-01-01",
+    "into": 2457,
+    "into_name": "Messen"
+   },
+   "2460": {
+    "date": "2010-01-01",
+    "into": 2457,
+    "into_name": "Messen"
+   },
+   "3351": {
+    "date": "2010-01-01",
+    "into": 3359,
+    "into_name": "Wildhaus-Alt St. Johann"
+   },
+   "3357": {
+    "date": "2010-01-01",
+    "into": 3359,
+    "into_name": "Wildhaus-Alt St. Johann"
+   },
+   "3664": {
+    "date": "2010-01-01",
+    "into": 3661,
+    "into_name": "Cazis"
+   },
+   "3665": {
+    "date": "2010-01-01",
+    "into": 3661,
+    "into_name": "Cazis"
+   },
+   "3666": {
+    "date": "2010-01-01",
+    "into": 3661,
+    "into_name": "Cazis"
+   },
+   "3667": {
+    "date": "2010-01-01",
+    "into": 3661,
+    "into_name": "Cazis"
+   },
+   "3771": {
+    "date": "2010-01-01",
+    "into": 3792,
+    "into_name": "Bregaglia"
+   },
+   "3773": {
+    "date": "2010-01-01",
+    "into": 3792,
+    "into_name": "Bregaglia"
+   },
+   "3774": {
+    "date": "2010-01-01",
+    "into": 3792,
+    "into_name": "Bregaglia"
+   },
+   "3775": {
+    "date": "2010-01-01",
+    "into": 3792,
+    "into_name": "Bregaglia"
+   },
+   "3776": {
+    "date": "2010-01-01",
+    "into": 3792,
+    "into_name": "Bregaglia"
+   },
+   "3912": {
+    "date": "2010-01-01",
+    "into": 3911,
+    "into_name": "Churwalden"
+   },
+   "3913": {
+    "date": "2010-01-01",
+    "into": 3911,
+    "into_name": "Churwalden"
+   },
+   "4011": {
+    "date": "2010-01-01",
+    "into": 4001,
+    "into_name": "Aarau"
+   },
+   "4070": {
+    "date": "2010-01-01",
+    "into": 4080,
+    "into_name": "Villmergen"
+   },
+   "4118": {
+    "date": "2010-01-01",
+    "into": 4095,
+    "into_name": "Brugg"
+   },
+   "4180": {
+    "date": "2010-01-01",
+    "into": 4184,
+    "into_name": "Mettauertal"
+   },
+   "4101": {
+    "date": "2010-01-01",
+    "into": 4184,
+    "into_name": "Mettauertal"
+   },
+   "4162": {
+    "date": "2010-01-01",
+    "into": 4184,
+    "into_name": "Mettauertal"
+   },
+   "4171": {
+    "date": "2010-01-01",
+    "into": 4184,
+    "into_name": "Mettauertal"
+   },
+   "4174": {
+    "date": "2010-01-01",
+    "into": 4184,
+    "into_name": "Mettauertal"
+   },
+   "4168": {
+    "date": "2010-01-01",
+    "into": 4169,
+    "into_name": "Kaisten"
+   },
+   "4178": {
+    "date": "2010-01-01",
+    "into": 4170,
+    "into_name": "Laufenburg"
+   },
+   "5134": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5098": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5101": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5106": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5110": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5116": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5128": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5127": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5123": {
+    "date": "2010-04-25",
+    "into": 5398,
+    "into_name": "Gambarogno"
+   },
+   "5165": {
+    "date": "2010-11-21",
+    "into": 5238,
+    "into_name": "Monteceneri"
+   },
+   "5153": {
+    "date": "2010-11-21",
+    "into": 5238,
+    "into_name": "Monteceneri"
+   },
+   "5011": {
+    "date": "2010-11-21",
+    "into": 5238,
+    "into_name": "Monteceneri"
+   },
+   "5217": {
+    "date": "2010-11-21",
+    "into": 5238,
+    "into_name": "Monteceneri"
+   },
+   "5223": {
+    "date": "2010-11-21",
+    "into": 5238,
+    "into_name": "Monteceneri"
+   },
+   "384": {
+    "date": "2011-01-01",
+    "into": 306,
+    "into_name": "Lyss"
+   },
+   "328": {
+    "date": "2011-01-01",
+    "into": 332,
+    "into_name": "Madiswil"
+   },
+   "330": {
+    "date": "2011-01-01",
+    "into": 332,
+    "into_name": "Madiswil"
+   },
+   "851": {
+    "date": "2011-01-01",
+    "into": 855,
+    "into_name": "Schwarzenburg"
+   },
+   "854": {
+    "date": "2011-01-01",
+    "into": 855,
+    "into_name": "Schwarzenburg"
+   },
+   "974": {
+    "date": "2011-01-01",
+    "into": 973,
+    "into_name": "Bettenhausen"
+   },
+   "1629": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1603": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1601": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1605": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1606": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1616": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1615": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1613": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1626": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1627": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1628": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1614": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1610": {
+    "date": "2011-01-01",
+    "into": 1631,
+    "into_name": "Glarus Süd"
+   },
+   "1602": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1608": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1618": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1617": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1623": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1624": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1619": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1622": {
+    "date": "2011-01-01",
+    "into": 1630,
+    "into_name": "Glarus Nord"
+   },
+   "1609": {
+    "date": "2011-01-01",
+    "into": 1632,
+    "into_name": "Glarus"
+   },
+   "1607": {
+    "date": "2011-01-01",
+    "into": 1632,
+    "into_name": "Glarus"
+   },
+   "1620": {
+    "date": "2011-01-01",
+    "into": 1632,
+    "into_name": "Glarus"
+   },
+   "1625": {
+    "date": "2011-01-01",
+    "into": 1632,
+    "into_name": "Glarus"
+   },
+   "2159": {
+    "date": "2011-01-01",
+    "into": 2129,
+    "into_name": "Corbières"
+   },
+   "2552": {
+    "date": "2011-01-01",
+    "into": 2554,
+    "into_name": "Riedholz"
+   },
+   "3971": {
+    "date": "2011-01-01",
+    "into": 3961,
+    "into_name": "Grüsch"
+   },
+   "3973": {
+    "date": "2011-01-01",
+    "into": 3961,
+    "into_name": "Grüsch"
+   },
+   "6088": {
+    "date": "2011-01-01",
+    "into": 6090,
+    "into_name": "Mont-Noble"
+   },
+   "6086": {
+    "date": "2011-01-01",
+    "into": 6090,
+    "into_name": "Mont-Noble"
+   },
+   "6085": {
+    "date": "2011-01-01",
+    "into": 6090,
+    "into_name": "Mont-Noble"
+   },
+   "5433": {
+    "date": "2011-07-01",
+    "into": 5422,
+    "into_name": "Aubonne"
+   },
+   "5461": {
+    "date": "2011-07-01",
+    "into": 5451,
+    "into_name": "Avenches"
+   },
+   "5460": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5459": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5452": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5455": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5453": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5462": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5463": {
+    "date": "2011-07-01",
+    "into": 5464,
+    "into_name": "Vully-les-Lacs"
+   },
+   "5532": {
+    "date": "2011-07-01",
+    "into": 5540,
+    "into_name": "Montilliez"
+   },
+   "5528": {
+    "date": "2011-07-01",
+    "into": 5540,
+    "into_name": "Montilliez"
+   },
+   "5517": {
+    "date": "2011-07-01",
+    "into": 5540,
+    "into_name": "Montilliez"
+   },
+   "5536": {
+    "date": "2011-07-01",
+    "into": 5540,
+    "into_name": "Montilliez"
+   },
+   "5519": {
+    "date": "2011-07-01",
+    "into": 5541,
+    "into_name": "Goumoëns"
+   },
+   "5525": {
+    "date": "2011-07-01",
+    "into": 5541,
+    "into_name": "Goumoëns"
+   },
+   "5524": {
+    "date": "2011-07-01",
+    "into": 5541,
+    "into_name": "Goumoëns"
+   },
+   "5796": {
+    "date": "2011-07-01",
+    "into": 5804,
+    "into_name": "Jorat-Menthue"
+   },
+   "5677": {
+    "date": "2011-07-01",
+    "into": 5804,
+    "into_name": "Jorat-Menthue"
+   },
+   "5691": {
+    "date": "2011-07-01",
+    "into": 5804,
+    "into_name": "Jorat-Menthue"
+   },
+   "5687": {
+    "date": "2011-07-01",
+    "into": 5804,
+    "into_name": "Jorat-Menthue"
+   },
+   "5538": {
+    "date": "2011-07-01",
+    "into": 5804,
+    "into_name": "Jorat-Menthue"
+   },
+   "5567": {
+    "date": "2011-07-01",
+    "into": 5571,
+    "into_name": "Tévenon"
+   },
+   "5558": {
+    "date": "2011-07-01",
+    "into": 5571,
+    "into_name": "Tévenon"
+   },
+   "5569": {
+    "date": "2011-07-01",
+    "into": 5571,
+    "into_name": "Tévenon"
+   },
+   "5570": {
+    "date": "2011-07-01",
+    "into": 5571,
+    "into_name": "Tévenon"
+   },
+   "5608": {
+    "date": "2011-07-01",
+    "into": 5613,
+    "into_name": "Bourg-en-Lavaux"
+   },
+   "5603": {
+    "date": "2011-07-01",
+    "into": 5613,
+    "into_name": "Bourg-en-Lavaux"
+   },
+   "5605": {
+    "date": "2011-07-01",
+    "into": 5613,
+    "into_name": "Bourg-en-Lavaux"
+   },
+   "5602": {
+    "date": "2011-07-01",
+    "into": 5613,
+    "into_name": "Bourg-en-Lavaux"
+   },
+   "5612": {
+    "date": "2011-07-01",
+    "into": 5613,
+    "into_name": "Bourg-en-Lavaux"
+   },
+   "5647": {
+    "date": "2011-07-01",
+    "into": 5634,
+    "into_name": "Echichens"
+   },
+   "5641": {
+    "date": "2011-07-01",
+    "into": 5634,
+    "into_name": "Echichens"
+   },
+   "5630": {
+    "date": "2011-07-01",
+    "into": 5634,
+    "into_name": "Echichens"
+   },
+   "5681": {
+    "date": "2011-07-01",
+    "into": 5675,
+    "into_name": "Lucens"
+   },
+   "5824": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5826": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5820": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5818": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5815": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5814": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5811": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5829": {
+    "date": "2011-07-01",
+    "into": 5831,
+    "into_name": "Valbroye"
+   },
+   "5918": {
+    "date": "2011-07-01",
+    "into": 5938,
+    "into_name": "Yverdon-les-Bains"
+   },
+   "862": {
+    "date": "2012-01-01",
+    "into": 861,
+    "into_name": "Belp"
+   },
+   "2017": {
+    "date": "2012-01-01",
+    "into": 2015,
+    "into_name": "Estavayer-le-Lac"
+   },
+   "2112": {
+    "date": "2012-01-01",
+    "into": 2102,
+    "into_name": "Ursy"
+   },
+   "2531": {
+    "date": "2012-01-01",
+    "into": 2511,
+    "into_name": "Aeschi (SO)"
+   },
+   "3942": {
+    "date": "2012-01-01",
+    "into": 3955,
+    "into_name": "Landquart"
+   },
+   "3943": {
+    "date": "2012-01-01",
+    "into": 3955,
+    "into_name": "Landquart"
+   },
+   "3984": {
+    "date": "2012-01-01",
+    "into": 3987,
+    "into_name": "Trun"
+   },
+   "4225": {
+    "date": "2012-01-01",
+    "into": 4234,
+    "into_name": "Merenschwand"
+   },
+   "5795": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5801": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5800": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5793": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5794": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5787": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5784": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5781": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5783": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5802": {
+    "date": "2012-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5786": {
+    "date": "2012-01-01",
+    "into": 5799,
+    "into_name": "Servion"
+   },
+   "5916": {
+    "date": "2012-01-01",
+    "into": 5905,
+    "into_name": "Champvent"
+   },
+   "5936": {
+    "date": "2012-01-01",
+    "into": 5905,
+    "into_name": "Champvent"
+   },
+   "5927": {
+    "date": "2012-01-01",
+    "into": 5913,
+    "into_name": "Donneloye"
+   },
+   "5041": {
+    "date": "2012-04-01",
+    "into": 5050,
+    "into_name": "Serravalle"
+   },
+   "5040": {
+    "date": "2012-04-01",
+    "into": 5050,
+    "into_name": "Serravalle"
+   },
+   "5046": {
+    "date": "2012-04-01",
+    "into": 5050,
+    "into_name": "Serravalle"
+   },
+   "5067": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5068": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5066": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5070": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5062": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5074": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5075": {
+    "date": "2012-04-01",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5169": {
+    "date": "2012-04-01",
+    "into": 5236,
+    "into_name": "Collina d'Oro"
+   },
+   "308": {
+    "date": "2013-01-01",
+    "into": 304,
+    "into_name": "Kallnach"
+   },
+   "548": {
+    "date": "2013-01-01",
+    "into": 310,
+    "into_name": "Rapperswil (BE)"
+   },
+   "631": {
+    "date": "2013-01-01",
+    "into": 616,
+    "into_name": "Münsingen"
+   },
+   "1003": {
+    "date": "2013-01-01",
+    "into": 1010,
+    "into_name": "Escholzmatt-Marbach"
+   },
+   "1006": {
+    "date": "2013-01-01",
+    "into": 1010,
+    "into_name": "Escholzmatt-Marbach"
+   },
+   "1092": {
+    "date": "2013-01-01",
+    "into": 1081,
+    "into_name": "Beromünster"
+   },
+   "1096": {
+    "date": "2013-01-01",
+    "into": 1097,
+    "into_name": "Rickenbach (LU)"
+   },
+   "1138": {
+    "date": "2013-01-01",
+    "into": 1143,
+    "into_name": "Schötz"
+   },
+   "2244": {
+    "date": "2013-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "2459": {
+    "date": "2013-01-01",
+    "into": 2464,
+    "into_name": "Lüsslingen-Nennigkofen"
+   },
+   "2454": {
+    "date": "2013-01-01",
+    "into": 2464,
+    "into_name": "Lüsslingen-Nennigkofen"
+   },
+   "2522": {
+    "date": "2013-01-01",
+    "into": 2535,
+    "into_name": "Drei Höfe"
+   },
+   "2521": {
+    "date": "2013-01-01",
+    "into": 2535,
+    "into_name": "Drei Höfe"
+   },
+   "2902": {
+    "date": "2013-01-01",
+    "into": 2932,
+    "into_name": "Beringen"
+   },
+   "3314": {
+    "date": "2013-01-01",
+    "into": 3341,
+    "into_name": "Gommiswald"
+   },
+   "3331": {
+    "date": "2013-01-01",
+    "into": 3341,
+    "into_name": "Gommiswald"
+   },
+   "3334": {
+    "date": "2013-01-01",
+    "into": 3341,
+    "into_name": "Gommiswald"
+   },
+   "3332": {
+    "date": "2013-01-01",
+    "into": 3342,
+    "into_name": "Eschenbach (SG)"
+   },
+   "3333": {
+    "date": "2013-01-01",
+    "into": 3342,
+    "into_name": "Eschenbach (SG)"
+   },
+   "3337": {
+    "date": "2013-01-01",
+    "into": 3342,
+    "into_name": "Eschenbach (SG)"
+   },
+   "3356": {
+    "date": "2013-01-01",
+    "into": 3360,
+    "into_name": "Nesslau"
+   },
+   "3358": {
+    "date": "2013-01-01",
+    "into": 3360,
+    "into_name": "Nesslau"
+   },
+   "3373": {
+    "date": "2013-01-01",
+    "into": 3379,
+    "into_name": "Wattwil"
+   },
+   "3377": {
+    "date": "2013-01-01",
+    "into": 3379,
+    "into_name": "Wattwil"
+   },
+   "3391": {
+    "date": "2013-01-01",
+    "into": 3395,
+    "into_name": "Bütschwil-Ganterschwil"
+   },
+   "3403": {
+    "date": "2013-01-01",
+    "into": 3395,
+    "into_name": "Bütschwil-Ganterschwil"
+   },
+   "3421": {
+    "date": "2013-01-01",
+    "into": 3427,
+    "into_name": "Wil (SG)"
+   },
+   "3425": {
+    "date": "2013-01-01",
+    "into": 3427,
+    "into_name": "Wil (SG)"
+   },
+   "3586": {
+    "date": "2013-01-01",
+    "into": 3672,
+    "into_name": "Safiental"
+   },
+   "3587": {
+    "date": "2013-01-01",
+    "into": 3672,
+    "into_name": "Safiental"
+   },
+   "3651": {
+    "date": "2013-01-01",
+    "into": 3672,
+    "into_name": "Safiental"
+   },
+   "3652": {
+    "date": "2013-01-01",
+    "into": 3672,
+    "into_name": "Safiental"
+   },
+   "3592": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3594": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3595": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3596": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3604": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3605": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3606": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3599": {
+    "date": "2013-01-01",
+    "into": 3618,
+    "into_name": "Lumnezia"
+   },
+   "3751": {
+    "date": "2013-01-01",
+    "into": 3764,
+    "into_name": "Valsot"
+   },
+   "3753": {
+    "date": "2013-01-01",
+    "into": 3764,
+    "into_name": "Valsot"
+   },
+   "3922": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "3923": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "3924": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "3925": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "3927": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "3929": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "3931": {
+    "date": "2013-01-01",
+    "into": 3921,
+    "into_name": "Arosa"
+   },
+   "4119": {
+    "date": "2013-01-01",
+    "into": 4124,
+    "into_name": "Bözberg"
+   },
+   "4098": {
+    "date": "2013-01-01",
+    "into": 4124,
+    "into_name": "Bözberg"
+   },
+   "4108": {
+    "date": "2013-01-01",
+    "into": 4124,
+    "into_name": "Bözberg"
+   },
+   "4103": {
+    "date": "2013-01-01",
+    "into": 4124,
+    "into_name": "Bözberg"
+   },
+   "5682": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5685": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5676": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5679": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5667": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5670": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5664": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5906": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "5689": {
+    "date": "2013-01-01",
+    "into": 5693,
+    "into_name": "Montanaire"
+   },
+   "6001": {
+    "date": "2013-01-01",
+    "into": 6007,
+    "into_name": "Naters"
+   },
+   "6006": {
+    "date": "2013-01-01",
+    "into": 6007,
+    "into_name": "Naters"
+   },
+   "6105": {
+    "date": "2013-01-01",
+    "into": 6110,
+    "into_name": "Leuk"
+   },
+   "6114": {
+    "date": "2013-01-01",
+    "into": 6119,
+    "into_name": "Turtmann-Unterems"
+   },
+   "6115": {
+    "date": "2013-01-01",
+    "into": 6119,
+    "into_name": "Turtmann-Unterems"
+   },
+   "6216": {
+    "date": "2013-01-01",
+    "into": 6217,
+    "into_name": "Saint-Maurice"
+   },
+   "6264": {
+    "date": "2013-01-01",
+    "into": 6266,
+    "into_name": "Sion"
+   },
+   "6406": {
+    "date": "2013-01-01",
+    "into": 6416,
+    "into_name": "Milvignes"
+   },
+   "6401": {
+    "date": "2013-01-01",
+    "into": 6416,
+    "into_name": "Milvignes"
+   },
+   "6403": {
+    "date": "2013-01-01",
+    "into": 6416,
+    "into_name": "Milvignes"
+   },
+   "6486": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6472": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6474": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6473": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6471": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6479": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6478": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6477": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6475": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6476": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6482": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6483": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6480": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6481": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6484": {
+    "date": "2013-01-01",
+    "into": 6487,
+    "into_name": "Val-de-Ruz"
+   },
+   "6701": {
+    "date": "2013-01-01",
+    "into": 6729,
+    "into_name": "Haute-Sorne"
+   },
+   "6707": {
+    "date": "2013-01-01",
+    "into": 6729,
+    "into_name": "Haute-Sorne"
+   },
+   "6714": {
+    "date": "2013-01-01",
+    "into": 6729,
+    "into_name": "Haute-Sorne"
+   },
+   "6723": {
+    "date": "2013-01-01",
+    "into": 6729,
+    "into_name": "Haute-Sorne"
+   },
+   "6725": {
+    "date": "2013-01-01",
+    "into": 6729,
+    "into_name": "Haute-Sorne"
+   },
+   "6717": {
+    "date": "2013-01-01",
+    "into": 6730,
+    "into_name": "Val Terbi"
+   },
+   "6726": {
+    "date": "2013-01-01",
+    "into": 6730,
+    "into_name": "Val Terbi"
+   },
+   "6727": {
+    "date": "2013-01-01",
+    "into": 6730,
+    "into_name": "Val Terbi"
+   },
+   "6776": {
+    "date": "2013-01-01",
+    "into": 6790,
+    "into_name": "Fontenais"
+   },
+   "5130": {
+    "date": "2013-04-14",
+    "into": 5396,
+    "into_name": "Terre di Pedemonte"
+   },
+   "5133": {
+    "date": "2013-04-14",
+    "into": 5396,
+    "into_name": "Terre di Pedemonte"
+   },
+   "5099": {
+    "date": "2013-04-14",
+    "into": 5396,
+    "into_name": "Terre di Pedemonte"
+   },
+   "5224": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5229": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5173": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5170": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5163": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5174": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5155": {
+    "date": "2013-04-14",
+    "into": 5192,
+    "into_name": "Lugano"
+   },
+   "5243": {
+    "date": "2013-04-14",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5255": {
+    "date": "2013-04-14",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "5253": {
+    "date": "2013-04-14",
+    "into": 5254,
+    "into_name": "Mendrisio"
+   },
+   "229": {
+    "date": "2014-01-01",
+    "into": 298,
+    "into_name": "Wiesendangen"
+   },
+   "212": {
+    "date": "2014-01-01",
+    "into": 298,
+    "into_name": "Wiesendangen"
+   },
+   "440": {
+    "date": "2014-01-01",
+    "into": 449,
+    "into_name": "Sauge"
+   },
+   "447": {
+    "date": "2014-01-01",
+    "into": 449,
+    "into_name": "Sauge"
+   },
+   "534": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "537": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "539": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "542": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "545": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "549": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "555": {
+    "date": "2014-01-01",
+    "into": 538,
+    "into_name": "Fraubrunnen"
+   },
+   "547": {
+    "date": "2014-01-01",
+    "into": 540,
+    "into_name": "Jegenstorf"
+   },
+   "550": {
+    "date": "2014-01-01",
+    "into": 540,
+    "into_name": "Jegenstorf"
+   },
+   "604": {
+    "date": "2014-01-01",
+    "into": 619,
+    "into_name": "Oberdiessbach"
+   },
+   "721": {
+    "date": "2014-01-01",
+    "into": 726,
+    "into_name": "Plateau de Diesse"
+   },
+   "722": {
+    "date": "2014-01-01",
+    "into": 726,
+    "into_name": "Plateau de Diesse"
+   },
+   "725": {
+    "date": "2014-01-01",
+    "into": 726,
+    "into_name": "Plateau de Diesse"
+   },
+   "764": {
+    "date": "2014-01-01",
+    "into": 770,
+    "into_name": "Stocken-Höfen"
+   },
+   "765": {
+    "date": "2014-01-01",
+    "into": 770,
+    "into_name": "Stocken-Höfen"
+   },
+   "930": {
+    "date": "2014-01-01",
+    "into": 770,
+    "into_name": "Stocken-Höfen"
+   },
+   "781": {
+    "date": "2014-01-01",
+    "into": 784,
+    "into_name": "Innertkirchen"
+   },
+   "871": {
+    "date": "2014-01-01",
+    "into": 885,
+    "into_name": "Uttigen"
+   },
+   "2126": {
+    "date": "2014-01-01",
+    "into": 2163,
+    "into_name": "Val-de-Charmey"
+   },
+   "2127": {
+    "date": "2014-01-01",
+    "into": 2163,
+    "into_name": "Val-de-Charmey"
+   },
+   "2462": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2446": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2442": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2441": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2444": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2449": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2450": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2458": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2452": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "2453": {
+    "date": "2014-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "3571": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3574": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3576": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3577": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3578": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3579": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3580": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3583": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3584": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3593": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3613": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3614": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "3615": {
+    "date": "2014-01-01",
+    "into": 3619,
+    "into_name": "Ilanz/Glion"
+   },
+   "4069": {
+    "date": "2014-01-01",
+    "into": 4063,
+    "into_name": "Bremgarten (AG)"
+   },
+   "4109": {
+    "date": "2014-01-01",
+    "into": 4125,
+    "into_name": "Schinznach"
+   },
+   "4115": {
+    "date": "2014-01-01",
+    "into": 4125,
+    "into_name": "Schinznach"
+   },
+   "4321": {
+    "date": "2014-01-01",
+    "into": 4305,
+    "into_name": "Endingen"
+   },
+   "6171": {
+    "date": "2014-01-01",
+    "into": 6205,
+    "into_name": "Bettmeralp"
+   },
+   "6178": {
+    "date": "2014-01-01",
+    "into": 6205,
+    "into_name": "Bettmeralp"
+   },
+   "179": {
+    "date": "2015-01-01",
+    "into": 297,
+    "into_name": "Bauma"
+   },
+   "171": {
+    "date": "2015-01-01",
+    "into": 297,
+    "into_name": "Bauma"
+   },
+   "436": {
+    "date": "2015-01-01",
+    "into": 450,
+    "into_name": "Péry-La Heutte"
+   },
+   "439": {
+    "date": "2015-01-01",
+    "into": 450,
+    "into_name": "Péry-La Heutte"
+   },
+   "682": {
+    "date": "2015-01-01",
+    "into": 717,
+    "into_name": "Valbirse"
+   },
+   "697": {
+    "date": "2015-01-01",
+    "into": 717,
+    "into_name": "Valbirse"
+   },
+   "702": {
+    "date": "2015-01-01",
+    "into": 717,
+    "into_name": "Valbirse"
+   },
+   "684": {
+    "date": "2015-01-01",
+    "into": 716,
+    "into_name": "Petit-Val"
+   },
+   "699": {
+    "date": "2015-01-01",
+    "into": 716,
+    "into_name": "Petit-Val"
+   },
+   "710": {
+    "date": "2015-01-01",
+    "into": 716,
+    "into_name": "Petit-Val"
+   },
+   "712": {
+    "date": "2015-01-01",
+    "into": 716,
+    "into_name": "Petit-Val"
+   },
+   "3501": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3502": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3504": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3505": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3511": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3512": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3515": {
+    "date": "2015-01-01",
+    "into": 3542,
+    "into_name": "Albula/Alvra"
+   },
+   "3598": {
+    "date": "2015-01-01",
+    "into": 3603,
+    "into_name": "Vals"
+   },
+   "3631": {
+    "date": "2015-01-01",
+    "into": 3673,
+    "into_name": "Domleschg"
+   },
+   "3634": {
+    "date": "2015-01-01",
+    "into": 3673,
+    "into_name": "Domleschg"
+   },
+   "3635": {
+    "date": "2015-01-01",
+    "into": 3673,
+    "into_name": "Domleschg"
+   },
+   "3636": {
+    "date": "2015-01-01",
+    "into": 3673,
+    "into_name": "Domleschg"
+   },
+   "3671": {
+    "date": "2015-01-01",
+    "into": 3673,
+    "into_name": "Domleschg"
+   },
+   "3741": {
+    "date": "2015-01-01",
+    "into": 3762,
+    "into_name": "Scuol"
+   },
+   "3742": {
+    "date": "2015-01-01",
+    "into": 3762,
+    "into_name": "Scuol"
+   },
+   "3745": {
+    "date": "2015-01-01",
+    "into": 3762,
+    "into_name": "Scuol"
+   },
+   "3761": {
+    "date": "2015-01-01",
+    "into": 3762,
+    "into_name": "Scuol"
+   },
+   "3763": {
+    "date": "2015-01-01",
+    "into": 3762,
+    "into_name": "Scuol"
+   },
+   "3743": {
+    "date": "2015-01-01",
+    "into": 3746,
+    "into_name": "Zernez"
+   },
+   "3744": {
+    "date": "2015-01-01",
+    "into": 3746,
+    "into_name": "Zernez"
+   },
+   "3801": {
+    "date": "2015-01-01",
+    "into": 3837,
+    "into_name": "Calanca"
+   },
+   "3803": {
+    "date": "2015-01-01",
+    "into": 3837,
+    "into_name": "Calanca"
+   },
+   "3806": {
+    "date": "2015-01-01",
+    "into": 3837,
+    "into_name": "Calanca"
+   },
+   "3811": {
+    "date": "2015-01-01",
+    "into": 3837,
+    "into_name": "Calanca"
+   },
+   "175": {
+    "date": "2016-01-01",
+    "into": 296,
+    "into_name": "Illnau-Effretikon"
+   },
+   "174": {
+    "date": "2016-01-01",
+    "into": 296,
+    "into_name": "Illnau-Effretikon"
+   },
+   "532": {
+    "date": "2016-01-01",
+    "into": 310,
+    "into_name": "Rapperswil (BE)"
+   },
+   "417": {
+    "date": "2016-01-01",
+    "into": 405,
+    "into_name": "Ersigen"
+   },
+   "419": {
+    "date": "2016-01-01",
+    "into": 405,
+    "into_name": "Ersigen"
+   },
+   "978": {
+    "date": "2016-01-01",
+    "into": 988,
+    "into_name": "Seeberg"
+   },
+   "2014": {
+    "date": "2016-01-01",
+    "into": 2053,
+    "into_name": "Belmont-Broye"
+   },
+   "2013": {
+    "date": "2016-01-01",
+    "into": 2053,
+    "into_name": "Belmont-Broye"
+   },
+   "2040": {
+    "date": "2016-01-01",
+    "into": 2053,
+    "into_name": "Belmont-Broye"
+   },
+   "2024": {
+    "date": "2016-01-01",
+    "into": 2053,
+    "into_name": "Belmont-Broye"
+   },
+   "2172": {
+    "date": "2016-01-01",
+    "into": 2175,
+    "into_name": "Belfaux"
+   },
+   "2231": {
+    "date": "2016-01-01",
+    "into": 2236,
+    "into_name": "Gibloux"
+   },
+   "2222": {
+    "date": "2016-01-01",
+    "into": 2236,
+    "into_name": "Gibloux"
+   },
+   "2192": {
+    "date": "2016-01-01",
+    "into": 2236,
+    "into_name": "Gibloux"
+   },
+   "2184": {
+    "date": "2016-01-01",
+    "into": 2236,
+    "into_name": "Gibloux"
+   },
+   "2223": {
+    "date": "2016-01-01",
+    "into": 2236,
+    "into_name": "Gibloux"
+   },
+   "2264": {
+    "date": "2016-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "2270": {
+    "date": "2016-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "2277": {
+    "date": "2016-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "2251": {
+    "date": "2016-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "2281": {
+    "date": "2016-01-01",
+    "into": 2284,
+    "into_name": "Mont-Vully"
+   },
+   "2280": {
+    "date": "2016-01-01",
+    "into": 2284,
+    "into_name": "Mont-Vully"
+   },
+   "3531": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3532": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3533": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3534": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3536": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3538": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3539": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3540": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3541": {
+    "date": "2016-01-01",
+    "into": 3543,
+    "into_name": "Surses"
+   },
+   "3612": {
+    "date": "2016-01-01",
+    "into": 3988,
+    "into_name": "Obersaxen Mundaun"
+   },
+   "3617": {
+    "date": "2016-01-01",
+    "into": 3988,
+    "into_name": "Obersaxen Mundaun"
+   },
+   "3883": {
+    "date": "2016-01-01",
+    "into": 3871,
+    "into_name": "Klosters-Serneus"
+   },
+   "3893": {
+    "date": "2016-01-01",
+    "into": 3891,
+    "into_name": "Luzein"
+   },
+   "6405": {
+    "date": "2016-01-01",
+    "into": 6413,
+    "into_name": "Rochefort"
+   },
+   "5081": {
+    "date": "2016-04-10",
+    "into": 5072,
+    "into_name": "Faido"
+   },
+   "5132": {
+    "date": "2016-04-10",
+    "into": 5136,
+    "into_name": "Onsernone"
+   },
+   "5109": {
+    "date": "2016-04-10",
+    "into": 5136,
+    "into_name": "Onsernone"
+   },
+   "5119": {
+    "date": "2016-04-10",
+    "into": 5136,
+    "into_name": "Onsernone"
+   },
+   "5137": {
+    "date": "2016-04-10",
+    "into": 5136,
+    "into_name": "Onsernone"
+   },
+   "5791": {
+    "date": "2016-07-01",
+    "into": 5806,
+    "into_name": "Jorat-Mézières"
+   },
+   "5789": {
+    "date": "2016-07-01",
+    "into": 5806,
+    "into_name": "Jorat-Mézières"
+   },
+   "5782": {
+    "date": "2016-07-01",
+    "into": 5806,
+    "into_name": "Jorat-Mézières"
+   },
+   "625": {
+    "date": "2017-01-01",
+    "into": 616,
+    "into_name": "Münsingen"
+   },
+   "2049": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2004": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2033": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2039": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2034": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2052": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2015": {
+    "date": "2017-01-01",
+    "into": 2054,
+    "into_name": "Estavayer"
+   },
+   "2005": {
+    "date": "2017-01-01",
+    "into": 2055,
+    "into_name": "Cheyres-Châbles"
+   },
+   "2010": {
+    "date": "2017-01-01",
+    "into": 2055,
+    "into_name": "Cheyres-Châbles"
+   },
+   "2047": {
+    "date": "2017-01-01",
+    "into": 2044,
+    "into_name": "Surpierre"
+   },
+   "2179": {
+    "date": "2017-01-01",
+    "into": 2183,
+    "into_name": "Corminboeuf"
+   },
+   "2283": {
+    "date": "2017-01-01",
+    "into": 2254,
+    "into_name": "Courtepin"
+   },
+   "2243": {
+    "date": "2017-01-01",
+    "into": 2254,
+    "into_name": "Courtepin"
+   },
+   "2279": {
+    "date": "2017-01-01",
+    "into": 2254,
+    "into_name": "Courtepin"
+   },
+   "2310": {
+    "date": "2017-01-01",
+    "into": 2299,
+    "into_name": "Plaffeien"
+   },
+   "2298": {
+    "date": "2017-01-01",
+    "into": 2299,
+    "into_name": "Plaffeien"
+   },
+   "3833": {
+    "date": "2017-01-01",
+    "into": 3832,
+    "into_name": "Grono"
+   },
+   "3836": {
+    "date": "2017-01-01",
+    "into": 3832,
+    "into_name": "Grono"
+   },
+   "5686": {
+    "date": "2017-01-01",
+    "into": 5675,
+    "into_name": "Lucens"
+   },
+   "5672": {
+    "date": "2017-01-01",
+    "into": 5675,
+    "into_name": "Lucens"
+   },
+   "5662": {
+    "date": "2017-01-01",
+    "into": 5675,
+    "into_name": "Lucens"
+   },
+   "5666": {
+    "date": "2017-01-01",
+    "into": 5675,
+    "into_name": "Lucens"
+   },
+   "5668": {
+    "date": "2017-01-01",
+    "into": 5675,
+    "into_name": "Lucens"
+   },
+   "5915": {
+    "date": "2017-01-01",
+    "into": 5749,
+    "into_name": "Chavornay"
+   },
+   "5751": {
+    "date": "2017-01-01",
+    "into": 5749,
+    "into_name": "Chavornay"
+   },
+   "6055": {
+    "date": "2017-01-01",
+    "into": 6077,
+    "into_name": "Goms"
+   },
+   "6064": {
+    "date": "2017-01-01",
+    "into": 6077,
+    "into_name": "Goms"
+   },
+   "6073": {
+    "date": "2017-01-01",
+    "into": 6077,
+    "into_name": "Goms"
+   },
+   "6074": {
+    "date": "2017-01-01",
+    "into": 6077,
+    "into_name": "Goms"
+   },
+   "6075": {
+    "date": "2017-01-01",
+    "into": 6077,
+    "into_name": "Goms"
+   },
+   "6081": {
+    "date": "2017-01-01",
+    "into": 6266,
+    "into_name": "Sion"
+   },
+   "6234": {
+    "date": "2017-01-01",
+    "into": 6253,
+    "into_name": "Crans-Montana"
+   },
+   "6243": {
+    "date": "2017-01-01",
+    "into": 6253,
+    "into_name": "Crans-Montana"
+   },
+   "6242": {
+    "date": "2017-01-01",
+    "into": 6253,
+    "into_name": "Crans-Montana"
+   },
+   "6244": {
+    "date": "2017-01-01",
+    "into": 6253,
+    "into_name": "Crans-Montana"
+   },
+   "5004": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5282": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5008": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5006": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5007": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5005": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5013": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5012": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5019": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5018": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5015": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5014": {
+    "date": "2017-04-02",
+    "into": 5002,
+    "into_name": "Bellinzona"
+   },
+   "5283": {
+    "date": "2017-04-02",
+    "into": 5287,
+    "into_name": "Riviera"
+   },
+   "5284": {
+    "date": "2017-04-02",
+    "into": 5287,
+    "into_name": "Riviera"
+   },
+   "5285": {
+    "date": "2017-04-02",
+    "into": 5287,
+    "into_name": "Riviera"
+   },
+   "5286": {
+    "date": "2017-04-02",
+    "into": 5287,
+    "into_name": "Riviera"
+   },
+   "132": {
+    "date": "2018-01-01",
+    "into": 295,
+    "into_name": "Horgen"
+   },
+   "133": {
+    "date": "2018-01-01",
+    "into": 295,
+    "into_name": "Horgen"
+   },
+   "217": {
+    "date": "2018-01-01",
+    "into": 294,
+    "into_name": "Elgg"
+   },
+   "222": {
+    "date": "2018-01-01",
+    "into": 294,
+    "into_name": "Elgg"
+   },
+   "624": {
+    "date": "2018-01-01",
+    "into": 608,
+    "into_name": "Grosshöchstetten"
+   },
+   "865": {
+    "date": "2018-01-01",
+    "into": 872,
+    "into_name": "Kirchdorf (BE)"
+   },
+   "875": {
+    "date": "2018-01-01",
+    "into": 872,
+    "into_name": "Kirchdorf (BE)"
+   },
+   "878": {
+    "date": "2018-01-01",
+    "into": 872,
+    "into_name": "Kirchdorf (BE)"
+   },
+   "3503": {
+    "date": "2018-01-01",
+    "into": 3668,
+    "into_name": "Thusis"
+   },
+   "3521": {
+    "date": "2018-01-01",
+    "into": 3544,
+    "into_name": "Bergün Filisur"
+   },
+   "3522": {
+    "date": "2018-01-01",
+    "into": 3544,
+    "into_name": "Bergün Filisur"
+   },
+   "3611": {
+    "date": "2018-01-01",
+    "into": 3981,
+    "into_name": "Breil/Brigels"
+   },
+   "3616": {
+    "date": "2018-01-01",
+    "into": 3981,
+    "into_name": "Breil/Brigels"
+   },
+   "4113": {
+    "date": "2018-01-01",
+    "into": 4104,
+    "into_name": "Lupfig"
+   },
+   "6402": {
+    "date": "2018-01-01",
+    "into": 6417,
+    "into_name": "La Grande-Béroche"
+   },
+   "6409": {
+    "date": "2018-01-01",
+    "into": 6417,
+    "into_name": "La Grande-Béroche"
+   },
+   "6410": {
+    "date": "2018-01-01",
+    "into": 6417,
+    "into_name": "La Grande-Béroche"
+   },
+   "6411": {
+    "date": "2018-01-01",
+    "into": 6417,
+    "into_name": "La Grande-Béroche"
+   },
+   "6414": {
+    "date": "2018-01-01",
+    "into": 6417,
+    "into_name": "La Grande-Béroche"
+   },
+   "6415": {
+    "date": "2018-01-01",
+    "into": 6417,
+    "into_name": "La Grande-Béroche"
+   },
+   "6705": {
+    "date": "2018-01-01",
+    "into": 6730,
+    "into_name": "Val Terbi"
+   },
+   "6803": {
+    "date": "2018-01-01",
+    "into": 6809,
+    "into_name": "Haute-Ajoie"
+   },
+   "44": {
+    "date": "2019-01-01",
+    "into": 292,
+    "into_name": "Stammheim"
+   },
+   "42": {
+    "date": "2019-01-01",
+    "into": 292,
+    "into_name": "Stammheim"
+   },
+   "36": {
+    "date": "2019-01-01",
+    "into": 292,
+    "into_name": "Stammheim"
+   },
+   "142": {
+    "date": "2019-01-01",
+    "into": 293,
+    "into_name": "Wädenswil"
+   },
+   "134": {
+    "date": "2019-01-01",
+    "into": 293,
+    "into_name": "Wädenswil"
+   },
+   "140": {
+    "date": "2019-01-01",
+    "into": 293,
+    "into_name": "Wädenswil"
+   },
+   "664": {
+    "date": "2019-01-01",
+    "into": 304,
+    "into_name": "Kallnach"
+   },
+   "3691": {
+    "date": "2019-01-01",
+    "into": 3714,
+    "into_name": "Rheinwald"
+   },
+   "3693": {
+    "date": "2019-01-01",
+    "into": 3714,
+    "into_name": "Rheinwald"
+   },
+   "3694": {
+    "date": "2019-01-01",
+    "into": 3714,
+    "into_name": "Rheinwald"
+   },
+   "4272": {
+    "date": "2019-01-01",
+    "into": 4281,
+    "into_name": "Reitnau"
+   },
+   "6720": {
+    "date": "2019-01-01",
+    "into": 6708,
+    "into_name": "Courrendlin"
+   },
+   "6728": {
+    "date": "2019-01-01",
+    "into": 6708,
+    "into_name": "Courrendlin"
+   },
+   "873": {
+    "date": "2020-01-01",
+    "into": 889,
+    "into_name": "Thurnen"
+   },
+   "874": {
+    "date": "2020-01-01",
+    "into": 889,
+    "into_name": "Thurnen"
+   },
+   "876": {
+    "date": "2020-01-01",
+    "into": 889,
+    "into_name": "Thurnen"
+   },
+   "937": {
+    "date": "2020-01-01",
+    "into": 939,
+    "into_name": "Steffisburg"
+   },
+   "996": {
+    "date": "2020-01-01",
+    "into": 981,
+    "into_name": "Niederbipp"
+   },
+   "1126": {
+    "date": "2020-01-01",
+    "into": 1123,
+    "into_name": "Altishofen"
+   },
+   "2111": {
+    "date": "2020-01-01",
+    "into": 2117,
+    "into_name": "Villaz"
+   },
+   "2116": {
+    "date": "2020-01-01",
+    "into": 2117,
+    "into_name": "Villaz"
+   },
+   "2185": {
+    "date": "2020-01-01",
+    "into": 2237,
+    "into_name": "Prez"
+   },
+   "2213": {
+    "date": "2020-01-01",
+    "into": 2237,
+    "into_name": "Prez"
+   },
+   "2221": {
+    "date": "2020-01-01",
+    "into": 2237,
+    "into_name": "Prez"
+   },
+   "3926": {
+    "date": "2020-01-01",
+    "into": 3901,
+    "into_name": "Chur"
+   },
+   "4114": {
+    "date": "2020-01-01",
+    "into": 4095,
+    "into_name": "Brugg"
+   },
+   "5135": {
+    "date": "2020-10-17",
+    "into": 5399,
+    "into_name": "Verzasca"
+   },
+   "5129": {
+    "date": "2020-10-17",
+    "into": 5399,
+    "into_name": "Verzasca"
+   },
+   "5102": {
+    "date": "2020-10-17",
+    "into": 5399,
+    "into_name": "Verzasca"
+   },
+   "5095": {
+    "date": "2020-10-17",
+    "into": 5399,
+    "into_name": "Verzasca"
+   },
+   "5105": {
+    "date": "2020-10-17",
+    "into": 5399,
+    "into_name": "Verzasca"
+   },
+   "1022": {
+    "date": "2021-01-01",
+    "into": 1030,
+    "into_name": "Hitzkirch"
+   },
+   "1130": {
+    "date": "2021-01-01",
+    "into": 1151,
+    "into_name": "Willisau"
+   },
+   "1204": {
+    "date": "2021-01-01",
+    "into": 1214,
+    "into_name": "Seedorf (UR)"
+   },
+   "2009": {
+    "date": "2021-01-01",
+    "into": 2044,
+    "into_name": "Surpierre"
+   },
+   "2171": {
+    "date": "2021-01-01",
+    "into": 2238,
+    "into_name": "Bois-d'Amont"
+   },
+   "2225": {
+    "date": "2021-01-01",
+    "into": 2238,
+    "into_name": "Bois-d'Amont"
+   },
+   "2189": {
+    "date": "2021-01-01",
+    "into": 2238,
+    "into_name": "Bois-d'Amont"
+   },
+   "2302": {
+    "date": "2021-01-01",
+    "into": 2306,
+    "into_name": "Tafers"
+   },
+   "2291": {
+    "date": "2021-01-01",
+    "into": 2306,
+    "into_name": "Tafers"
+   },
+   "2423": {
+    "date": "2021-01-01",
+    "into": 2430,
+    "into_name": "Welschenrohr-Gänsbrunnen"
+   },
+   "2429": {
+    "date": "2021-01-01",
+    "into": 2430,
+    "into_name": "Welschenrohr-Gänsbrunnen"
+   },
+   "2498": {
+    "date": "2021-01-01",
+    "into": 2499,
+    "into_name": "Stüsslingen"
+   },
+   "3703": {
+    "date": "2021-01-01",
+    "into": 3715,
+    "into_name": "Muntogna da Schons"
+   },
+   "3707": {
+    "date": "2021-01-01",
+    "into": 3715,
+    "into_name": "Muntogna da Schons"
+   },
+   "3708": {
+    "date": "2021-01-01",
+    "into": 3715,
+    "into_name": "Muntogna da Schons"
+   },
+   "3705": {
+    "date": "2021-01-01",
+    "into": 3715,
+    "into_name": "Muntogna da Schons"
+   },
+   "3941": {
+    "date": "2021-01-01",
+    "into": 3901,
+    "into_name": "Chur"
+   },
+   "5432": {
+    "date": "2021-01-01",
+    "into": 5422,
+    "into_name": "Aubonne"
+   },
+   "6036": {
+    "date": "2021-01-01",
+    "into": 6037,
+    "into_name": "Val de Bagnes"
+   },
+   "6031": {
+    "date": "2021-01-01",
+    "into": 6037,
+    "into_name": "Val de Bagnes"
+   },
+   "6132": {
+    "date": "2021-01-01",
+    "into": 6136,
+    "into_name": "Martigny"
+   },
+   "6249": {
+    "date": "2021-01-01",
+    "into": 6254,
+    "into_name": "Noble-Contrée"
+   },
+   "6250": {
+    "date": "2021-01-01",
+    "into": 6254,
+    "into_name": "Noble-Contrée"
+   },
+   "6241": {
+    "date": "2021-01-01",
+    "into": 6254,
+    "into_name": "Noble-Contrée"
+   },
+   "6407": {
+    "date": "2021-01-01",
+    "into": 6458,
+    "into_name": "Neuchâtel"
+   },
+   "6412": {
+    "date": "2021-01-01",
+    "into": 6458,
+    "into_name": "Neuchâtel"
+   },
+   "6485": {
+    "date": "2021-01-01",
+    "into": 6458,
+    "into_name": "Neuchâtel"
+   },
+   "6431": {
+    "date": "2021-01-01",
+    "into": 6436,
+    "into_name": "Le Locle"
+   },
+   "334": {
+    "date": "2021-01-01",
+    "into": 329,
+    "into_name": "Langenthal"
+   },
+   "416": {
+    "date": "2021-01-01",
+    "into": 409,
+    "into_name": "Hindelbank"
+   },
+   "881": {
+    "date": "2021-01-01",
+    "into": 879,
+    "into_name": "Riggisberg"
+   },
+   "5202": {
+    "date": "2021-04-18",
+    "into": 5239,
+    "into_name": "Tresa"
+   },
+   "5222": {
+    "date": "2021-04-18",
+    "into": 5239,
+    "into_name": "Tresa"
+   },
+   "5213": {
+    "date": "2021-04-18",
+    "into": 5239,
+    "into_name": "Tresa"
+   },
+   "5178": {
+    "date": "2021-04-18",
+    "into": 5239,
+    "into_name": "Tresa"
+   },
+   "5625": {
+    "date": "2021-07-01",
+    "into": 5656,
+    "into_name": "Hautemorges"
+   },
+   "5494": {
+    "date": "2021-07-01",
+    "into": 5656,
+    "into_name": "Hautemorges"
+   },
+   "5500": {
+    "date": "2021-07-01",
+    "into": 5656,
+    "into_name": "Hautemorges"
+   },
+   "5644": {
+    "date": "2021-07-01",
+    "into": 5656,
+    "into_name": "Hautemorges"
+   },
+   "5421": {
+    "date": "2021-07-01",
+    "into": 5656,
+    "into_name": "Hautemorges"
+   },
+   "5478": {
+    "date": "2021-07-01",
+    "into": 5656,
+    "into_name": "Hautemorges"
+   },
+   "5513": {
+    "date": "2021-07-01",
+    "into": 5511,
+    "into_name": "Assens"
+   },
+   "2260": {
+    "date": "2022-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "2259": {
+    "date": "2022-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "661": {
+    "date": "2022-01-01",
+    "into": 2275,
+    "into_name": "Murten"
+   },
+   "4094": {
+    "date": "2022-01-01",
+    "into": 4185,
+    "into_name": "Böztal"
+   },
+   "4096": {
+    "date": "2022-01-01",
+    "into": 4185,
+    "into_name": "Böztal"
+   },
+   "4167": {
+    "date": "2022-01-01",
+    "into": 4185,
+    "into_name": "Böztal"
+   },
+   "4097": {
+    "date": "2022-01-01",
+    "into": 4185,
+    "into_name": "Böztal"
+   },
+   "4322": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4301": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4302": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4308": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4317": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4316": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4315": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "4323": {
+    "date": "2022-01-01",
+    "into": 4324,
+    "into_name": "Zurzach"
+   },
+   "5788": {
+    "date": "2022-01-01",
+    "into": 5805,
+    "into_name": "Oron"
+   },
+   "5888": {
+    "date": "2022-01-01",
+    "into": 5892,
+    "into_name": "Blonay - Saint-Légier"
+   },
+   "5881": {
+    "date": "2022-01-01",
+    "into": 5892,
+    "into_name": "Blonay - Saint-Légier"
+   },
+   "5197": {
+    "date": "2022-04-10",
+    "into": 5240,
+    "into_name": "Val Mara"
+   },
+   "5195": {
+    "date": "2022-04-10",
+    "into": 5240,
+    "into_name": "Val Mara"
+   },
+   "5219": {
+    "date": "2022-04-10",
+    "into": 5240,
+    "into_name": "Val Mara"
+   },
+   "3103": {
+    "date": "2022-05-01",
+    "into": 3112,
+    "into_name": "Schwende-Rüte"
+   },
+   "3105": {
+    "date": "2022-05-01",
+    "into": 3112,
+    "into_name": "Schwende-Rüte"
+   },
+   "21": {
+    "date": "2023-01-01",
+    "into": 291,
+    "into_name": "Andelfingen"
+   },
+   "32": {
+    "date": "2023-01-01",
+    "into": 291,
+    "into_name": "Andelfingen"
+   },
+   "30": {
+    "date": "2023-01-01",
+    "into": 291,
+    "into_name": "Andelfingen"
+   },
+   "536": {
+    "date": "2023-01-01",
+    "into": 546,
+    "into_name": "Münchenbuchsee"
+   },
+   "3372": {
+    "date": "2023-01-01",
+    "into": 3396,
+    "into_name": "Neckertal"
+   },
+   "3375": {
+    "date": "2023-01-01",
+    "into": 3396,
+    "into_name": "Neckertal"
+   },
+   "3378": {
+    "date": "2023-01-01",
+    "into": 3396,
+    "into_name": "Neckertal"
+   },
+   "6744": {
+    "date": "2023-01-01",
+    "into": 6743,
+    "into_name": "Les Breuleux"
+   },
+   "4133": {
+    "date": "2023-01-01",
+    "into": 4139,
+    "into_name": "Menziken"
+   },
+   "4179": {
+    "date": "2023-01-01",
+    "into": 4186,
+    "into_name": "Herznach-Ueken"
+   },
+   "4166": {
+    "date": "2023-01-01",
+    "into": 4186,
+    "into_name": "Herznach-Ueken"
+   },
+   "6787": {
+    "date": "2023-01-01",
+    "into": 6811,
+    "into_name": "Damphreux-Lugnez"
+   },
+   "6793": {
+    "date": "2023-01-01",
+    "into": 6811,
+    "into_name": "Damphreux-Lugnez"
+   },
+   "947": {
+    "date": "2024-01-01",
+    "into": 767,
+    "into_name": "Reutigen"
+   },
+   "993": {
+    "date": "2024-01-01",
+    "into": 992,
+    "into_name": "Wangen an der Aare"
+   },
+   "2456": {
+    "date": "2024-01-01",
+    "into": 2465,
+    "into_name": "Buchegg"
+   },
+   "6773": {
+    "date": "2024-01-01",
+    "into": 6812,
+    "into_name": "Basse-Vendline"
+   },
+   "6775": {
+    "date": "2024-01-01",
+    "into": 6812,
+    "into_name": "Basse-Vendline"
+   },
+   "4042": {
+    "date": "2024-01-01",
+    "into": 4021,
+    "into_name": "Baden"
+   },
+   "3932": {
+    "date": "2025-01-01",
+    "into": 3901,
+    "into_name": "Chur"
+   },
+   "1057": {
+    "date": "2025-01-01",
+    "into": 1065,
+    "into_name": "Root"
+   },
+   "2066": {
+    "date": "2025-01-01",
+    "into": 2097,
+    "into_name": "Rue"
+   },
+   "2061": {
+    "date": "2025-01-01",
+    "into": 2097,
+    "into_name": "Rue"
+   },
+   "2072": {
+    "date": "2025-01-01",
+    "into": 2097,
+    "into_name": "Rue"
+   },
+   "2089": {
+    "date": "2025-01-01",
+    "into": 2102,
+    "into_name": "Ursy"
+   },
+   "2217": {
+    "date": "2025-01-01",
+    "into": 2239,
+    "into_name": "Grolley-Ponthaux"
+   },
+   "2200": {
+    "date": "2025-01-01",
+    "into": 2239,
+    "into_name": "Grolley-Ponthaux"
+   },
+   "6453": {
+    "date": "2025-01-01",
+    "into": 6513,
+    "into_name": "Laténa"
+   },
+   "6454": {
+    "date": "2025-01-01",
+    "into": 6513,
+    "into_name": "Laténa"
+   },
+   "6459": {
+    "date": "2025-01-01",
+    "into": 6513,
+    "into_name": "Laténa"
+   },
+   "6461": {
+    "date": "2025-01-01",
+    "into": 6513,
+    "into_name": "Laténa"
+   },
+   "5064": {
+    "date": "2025-04-06",
+    "into": 5073,
+    "into_name": "Giornico"
+   },
+   "5078": {
+    "date": "2025-04-06",
+    "into": 5079,
+    "into_name": "Quinto"
+   },
+   "5181": {
+    "date": "2025-04-06",
+    "into": 5395,
+    "into_name": "Lema"
+   },
+   "5146": {
+    "date": "2025-04-06",
+    "into": 5395,
+    "into_name": "Lema"
+   },
+   "5149": {
+    "date": "2025-04-06",
+    "into": 5395,
+    "into_name": "Lema"
+   },
+   "5200": {
+    "date": "2025-04-06",
+    "into": 5395,
+    "into_name": "Lema"
+   },
+   "5207": {
+    "date": "2025-04-06",
+    "into": 5395,
+    "into_name": "Lema"
    }
   }
  }
