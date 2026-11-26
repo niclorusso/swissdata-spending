@@ -1,0 +1,36 @@
+name: check
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # pnpm version comes from "packageManager" in web/package.json
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      # Node 20, as in netlify.toml
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - name: Install web dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: web
+      # tsc needs the route types (PageProps, LayoutProps) that Next writes into .next/types;
+      # they are not in git, so a fresh checkout has to generate them first.
+      - name: Generate Next route types
+        run: pnpm exec next typegen
+        working-directory: web
+      # make check = pnpm lint + npx tsc --noEmit (no Python, no uv)
+      - run: make check
