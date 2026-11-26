@@ -20,6 +20,7 @@ dev:
 build:
 	cd web && pnpm build
 
-## Type-check + lint
+## Type-check + lint. tsc needs the route types (PageProps, LayoutProps) that Next writes into web/.next/types:
+## they are not in git, so they are generated first.
 check:
-	cd web && pnpm lint && npx tsc --noEmit
+	cd web && pnpm lint && pnpm exec next typegen && npx tsc --noEmit
