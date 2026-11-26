@@ -38,13 +38,14 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
           return (
             <li key={c.id} className="text-sm">
               <button type="button" onClick={() => setOpen((o) => ({ ...o, [c.id]: !o[c.id] }))} className="w-full text-left tap-row" aria-expanded={isOpen}>
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="min-w-0">
+                {/* as in BarList: the figures go under the label when its longest word does not fit beside them */}
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <span className="fig-label flex-1 break-words">
                     <span className="text-faint mr-1">{kids.length ? (isOpen ? "▾" : "▸") : "·"}</span>
                     {it(c.name, labelDict, lang)}
                     
                   </span>
-                  <span className="tabular whitespace-nowrap shrink-0 text-muted">
+                  <span className="tabular whitespace-nowrap shrink-0 ml-auto text-muted">
                     {chf(v)} <span className="text-faint">· {total ? sharePct((v / total) * 100) : "–"}</span>
                     {delta !== null && <span className="ml-2 text-muted">{delta >= 0 ? "+" : ""}{sharePct(delta)}</span>}
                   </span>
@@ -56,9 +57,9 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
               {isOpen && kids.length > 0 && (
                 <ol className="ml-5 mt-2 mb-3 space-y-1.5 border-l border-border pl-3">
                   {kids.map((k) => (
-                    <li key={k.id} className="flex items-baseline justify-between gap-3 text-xs">
-                      <span className="min-w-0">{it(k.name, labelDict, lang)}</span>
-                      <span className="tabular text-muted whitespace-nowrap shrink-0">{chf(k.values[y])} <span className="text-faint">· {v ? sharePct(((k.values[y] ?? 0) / v) * 100) : "–"}</span></span>
+                    <li key={k.id} className="flex flex-wrap items-baseline justify-between gap-x-3 text-xs">
+                      <span className="fig-label flex-1 break-words">{it(k.name, labelDict, lang)}</span>
+                      <span className="tabular text-muted whitespace-nowrap shrink-0 ml-auto">{chf(k.values[y])} <span className="text-faint">· {v ? sharePct(((k.values[y] ?? 0) / v) * 100) : "–"}</span></span>
                     </li>
                   ))}
                 </ol>

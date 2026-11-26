@@ -14,9 +14,10 @@ export function BarList({ items, total, max, unit = "chf", showShare = true, neg
         const label = i.href ? <a className="link" href={ha(i.href)}>{i.label}</a> : i.label;
         return (
           <li key={idx} className="text-sm">
-            <div className="flex items-baseline justify-between gap-3">
-              <span className="min-w-0">{label}{i.sub && <span className="text-faint"> · {i.sub}</span>}{i.value < 0 && negativeNote && <span className="text-faint"> · {negativeNote}</span>}</span>
-              <span className="tabular whitespace-nowrap shrink-0 text-muted">
+            {/* the label is never narrower than its longest word (.fig-label): when that word and the figure do not fit side by side (phones, long names), the figure goes under the label */}
+            <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+              <span className="fig-label flex-1 break-words">{label}{i.sub && <span className="text-faint"> · {i.sub}</span>}{i.value < 0 && negativeNote && <span className="text-faint"> · {negativeNote}</span>}</span>
+              <span className="tabular whitespace-nowrap shrink-0 ml-auto text-muted">
                 {unit === "chf" ? chf(i.value) : num(i.value)}
                 {showShare && share !== null && <span className="text-faint"> · {sharePct(share)}</span>}
               </span>

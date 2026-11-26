@@ -11,7 +11,8 @@ export function Page({ title, lead, kicker, back, children }: { title: string; l
           {back && <Link href={back.href} className="chip text-muted !py-1">← {back.label}</Link>}
           {kicker && <span className="kicker">{kicker}</span>}
         </div>
-        <h1 className="mt-4 text-[2.6rem] md:text-6xl leading-[1.02] max-w-4xl text-balance">{title}</h1>
+        {/* below 388px the size follows the screen, so the longest words ("Confederazione", "Herzogenbuchsee") stay inside the page margins down to 320px; a longer one breaks rather than spill */}
+        <h1 className="mt-4 text-[length:clamp(1.75rem,11.75vw_-_0.25rem,2.6rem)] md:text-6xl leading-[1.02] max-w-4xl text-balance break-words">{title}</h1>
         {lead && <div className="mt-5 text-lg md:text-xl text-muted max-w-3xl prose-narrow leading-relaxed">{lead}</div>}
       </div>
       <div className="mt-10 md:mt-12 space-y-10">{children}</div>
