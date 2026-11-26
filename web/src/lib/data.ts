@@ -38,7 +38,8 @@ export const tree = (id: string) => loadSnapshot<{ tree: TreeNode[] }>(id);
 export const kennzahlen = () => loadSnapshot<{ series: Record<string, Series> }>("bund-kennzahlen");
 export const units = () => loadSnapshot<{ units: Unit[] }>("bund-verwaltungseinheiten");
 /** Each spelling of each group of data/supplier-aliases.json with its contracts and value per year (computed by the ETL). */
-export type SupplierGroupTotals = { name: string; variants: { name: string; years: Record<string, { chf: number; n: number }> }[] };
+/** `apart`: contracts of a spelling that joins its group only before a date (`only_before`) and stay apart because they start later. */
+export type SupplierGroupTotals = { name: string; variants: { name: string; years: Record<string, { chf: number; n: number }>; apart?: { n: number; chf: number } }[] };
 export const procurement = () => loadSnapshot<{ years: Record<string, ProcYear>; top_suppliers_all: Top[]; supplier_groups: SupplierGroupTotals[] }>("bund-beschaffungen");
 
 // ---- Spellings of the same supplier (data/supplier-aliases.json, checked in the commercial register) ----
@@ -47,7 +48,11 @@ type Text = { it: string; en: string };
 export type AliasMatch = "name" | "translation" | "former" | "former-translation" | "no-legal-form";
 export type AliasGroup = {
   name: string; uid: string; register_name: string; seat: string; register_status: string; register_url: string; zefix_id: number; checked: string;
-  branch_of?: { name: string; uid: string }; variants: { name: string; match: AliasMatch; register_name?: string; lang?: "de" | "fr" | "it" | "en" }[]; note?: Text;
+  branch_of?: { name: string; uid: string }; note?: Text;
+  /** Change of name from the register: date of the entry and of its publication in the SOGC. */
+  renamed?: { from: string; to: string; register_date: string; sogc_date: string; sogc_publication: string };
+  /** `former_name`: the old name a spelling stands for; `only_before`: the spelling joins the group only for contracts that start before this date. */
+  variants: { name: string; match: AliasMatch; register_name?: string; lang?: "de" | "fr" | "it" | "en"; former_name?: string; only_before?: string }[];
 };
 export type SupplierAliases = { about: Text; rule: Text; scope: Text; source: { name: string; url: string; checked: string }; groups: AliasGroup[]; not_merged: { names: string[]; why: Text }[] };
 export const supplierAliases = () => JSON.parse(readFileSync(join(process.cwd(), "..", "data", "supplier-aliases.json"), "utf8")) as SupplierAliases;

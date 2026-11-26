@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
-import { bigContracts, loadSnapshot, procurement, type Top } from "@/lib/data";
+import { bigContracts, loadSnapshot, procurement, supplierAliases, type Top } from "@/lib/data";
 import { chf, num, plural } from "@/lib/format";
 import { depCode, verfahren } from "@/lib/labels";
 import { getLang, T } from "@/lib/lang-server";
@@ -27,8 +27,13 @@ export default function Appalti() {
     return r;
   });
   // The year with the highest total and the single contracts of a billion or more that explain it (the build stops if they are no longer the two US ones).
-  // A row that merges several spellings of the same company says so; the list of spellings is on /appalti/grafie/.
-  const supplierItem = (d: Top) => ({ label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) + (d.variants ? ` · ${d.variants.length} ${T("grafie", "spellings")}` : "") });
+  // A row that merges several spellings of the same company says so, and names the old name of a renamed company; the list is on /appalti/grafie/.
+  const formerName = new Map(supplierAliases().groups.flatMap((g) => g.variants.flatMap((v) => (v.former_name ? [[v.name, v.former_name] as const] : []))));
+  const supplierItem = (d: Top) => {
+    const spellings = d.variants?.length ?? 0;
+    const former = Array.from(new Set((d.variants ?? []).flatMap((v) => formerName.get(v.name) ?? [])));
+    return { label: d.name ?? "–", value: d.chf, sub: plural(d.n, T("contratto", "contract"), T("contratti", "contracts")) + (spellings > 1 ? ` · ${spellings} ${T("grafie", "spellings")}` : "") + (former.length ? ` · ${T("già", "formerly")} ${former.join(", ")}` : "") };
+  };
   const maxY = years.reduce((a, b) => (p.data.years[String(a)].total_chf > p.data.years[String(b)].total_chf ? a : b));
   const big = bigContracts(maxY).map((r) => ({ name: r.supplier, chf: r.chf }));
   if (big.length !== 2 || big.some((s) => !/^US .* FMS$/.test(s.name))) throw new Error(`[appalti] the note on ${maxY} no longer matches the data: ${JSON.stringify(big)}`);
@@ -38,7 +43,7 @@ export default function Appalti() {
       : <p>Ogni anno l&apos;Amministrazione federale centrale pubblica l&apos;elenco dei contratti da 50 000 franchi in su: committente, fornitore, oggetto, procedura e valore. In {years.length} anni sono {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contratti per {chf(totalAll, { digits: 1 })}.</p>}>
       <StatGrid>
         {years.map((y) => (
-          <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("fornitori", "suppliers")} →</Link>} />
+          <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("nomi di fornitori", "supplier names")} →</Link>} />
         ))}
       </StatGrid>
       <div data-reveal="up"><SourceBadge meta={p.meta} /></div>

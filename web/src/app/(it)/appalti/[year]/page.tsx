@@ -24,12 +24,18 @@ export default async function AppaltiAnno({ params }: PageProps<"/appalti/[year]
   const p = procurement();
   const v = p.data.years[String(y)];
   // The spellings of the same company (data/supplier-aliases.json) that occur in this year: the search finds all of them from any one.
+  // A spelling valid only before a date (an old name that went to another company) is left out if a contract of the year starts on or after it.
   const names = new Set(s.data.rows.map((r) => r.supplier));
-  const groups = supplierAliases().groups.map((g) => g.variants.map((x) => x.name).filter((n) => names.has(n))).filter((g) => g.length > 1);
+  const lateOnes = (n: string, before: string) => s.data.rows.some((r) => r.supplier === n && !(r.start && r.start < before));
+  // The name of the group goes in too, so that the current name of a renamed company finds the contracts written with the old one.
+  const groups = supplierAliases().groups.map((g) => {
+    const present = g.variants.filter((x) => names.has(x.name) && !(x.only_before && lateOnes(x.name, x.only_before))).map((x) => x.name);
+    return present.length ? Array.from(new Set([g.name, ...present])) : [];
+  }).filter((g) => g.length > 1);
   return (
     <Page kicker={T("Appalti", "Procurement")} back={{ href: "/appalti/", label: T("Riepilogo per anno", "Summary by year") }} title={en ? `Contracts signed in ${y}` : `I contratti firmati nel ${y}`} lead={en
-      ? <p>{num(v.n)} contracts of 50,000 francs and above, worth {chf(v.total_chf, { digits: 1 })} over their whole duration, with {num(v.n_suppliers)} suppliers.</p>
-      : <p>{num(v.n)} contratti da 50 000 franchi in su, per {chf(v.total_chf, { digits: 1 })} sull&apos;intera durata, con {num(v.n_suppliers)} fornitori.</p>}>
+      ? <p>{num(v.n)} contracts of 50,000 francs and above, worth {chf(v.total_chf, { digits: 1 })} over their whole duration, with {num(v.n_suppliers)} different supplier names, as written in the list.</p>
+      : <p>{num(v.n)} contratti da 50 000 franchi in su, per {chf(v.total_chf, { digits: 1 })} sull&apos;intera durata, con {num(v.n_suppliers)} nomi di fornitori diversi, così come scritti nell&apos;elenco.</p>}>
       <nav className="flex flex-wrap gap-2" aria-label={T("Anno", "Year")}>
         {Object.keys(p.data.years).sort().map((yy) => (
           <Link key={yy} href={`/appalti/${yy}/`} aria-current={Number(yy) === y ? "page" : undefined} className="chip tabular">{yy}</Link>

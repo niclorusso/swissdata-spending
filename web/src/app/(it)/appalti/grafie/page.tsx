@@ -16,7 +16,7 @@ function how(g: AliasGroup, v: AliasGroup["variants"][number], en: boolean): str
   switch (v.match) {
     case "name": return v.name === g.register_name ? T("nome nel registro", "name in the register") : T("nome nel registro, scritto in altro modo", "name in the register, written differently");
     case "translation": return `${T("nome registrato", "registered name")} ${lang}${reg}`;
-    case "former": return `${T("nome precedente nel registro", "former name in the register")}${reg ? `, ${T("scritto in altro modo", "written differently")}${reg}` : ""}`;
+    case "former": return `${T("nome precedente nel registro", "former name in the register")}${reg ? `, ${T("scritto in altro modo", "written differently")}${reg}` : ""}${v.only_before ? `; ${T("solo i contratti iniziati prima del", "only the contracts that started before")} ${date(v.only_before)}` : ""}`;
     case "former-translation": return `${T("nome precedente nel registro", "former name in the register")}, ${lang}${reg}`;
     case "no-legal-form": return T("nome nel registro, senza forma giuridica", "name in the register, without legal form");
   }
@@ -25,7 +25,9 @@ function how(g: AliasGroup, v: AliasGroup["variants"][number], en: boolean): str
 export default function Grafie() {
   const en = getLang() === "en";
   const a = supplierAliases();
-  const totals = new Map(procurement().data.supplier_groups.map((g) => [g.name, new Map(g.variants.map((v) => [v.name, v.years]))]));
+  const sg = procurement().data.supplier_groups;
+  const totals = new Map(sg.map((g) => [g.name, new Map(g.variants.map((v) => [v.name, v.years]))]));
+  const totalsApart = new Map(sg.flatMap((g) => g.variants.flatMap((v) => (v.apart ? [[`${g.name}|${v.name}`, v.apart] as const] : []))));
   const sum = (ys: Record<string, { chf: number; n: number }>) => Object.values(ys).reduce((s, x) => ({ chf: s.chf + x.chf, n: s.n + x.n }), { chf: 0, n: 0 });
   const groups = a.groups.map((g) => {
     const t = totals.get(g.name);
@@ -33,15 +35,15 @@ export default function Grafie() {
     const variants = g.variants.map((v) => {
       const years = t?.get(v.name);
       if (!years) throw new Error(`[grafie] ${JSON.stringify(v.name)} of ${JSON.stringify(g.name)} is not in bund-beschaffungen.json: rerun the procurement ETL step`);
-      return { ...v, years, ...sum(years) };
+      return { ...v, years, apart: totalsApart.get(`${g.name}|${v.name}`), ...sum(years) };
     });
     return { ...g, variants, chf: variants.reduce((s, v) => s + v.chf, 0), n: variants.reduce((s, v) => s + v.n, 0) };
   }).sort((x, y) => y.chf - x.chf);
   const contracts = (n: number) => plural(n, T("contratto", "contract"), T("contratti", "contracts"));
   return (
     <Page kicker={T("Appalti", "Procurement")} back={{ href: "/appalti/", label: T("I contratti della Confederazione", "The Confederation's contracts") }} title={T("Fornitori scritti in più modi", "Suppliers written in more than one way")} lead={en
-      ? <p>In the federal procurement lists the same company is sometimes written in more than one way: with different capitals, spaces or punctuation, with its legal form abbreviated differently, or with its name in another language. In the rankings of the site these spellings are counted together when the commercial register shows that they are the same company, with the same UID number. Each contract keeps the name written in the list.</p>
-      : <p>Negli elenchi federali degli appalti la stessa ditta è a volte scritta in più modi: con maiuscole, spazi o punteggiatura diversi, con la forma giuridica abbreviata in un altro modo o con il suo nome in un&apos;altra lingua. Nelle classifiche del sito queste grafie sono contate insieme quando il registro di commercio mostra che sono la stessa ditta, con lo stesso numero IDI. Ogni contratto resta con il nome scritto nell&apos;elenco.</p>}>
+      ? <p>In the federal procurement lists the same company is sometimes written in more than one way: with different capitals, spaces or punctuation, with its legal form abbreviated differently, or with its name in another language, or under the name it had before a change of name. In the rankings of the site these spellings are counted together when the commercial register shows that they are the same company, with the same UID number. Each contract keeps the name written in the list.</p>
+      : <p>Negli elenchi federali degli appalti la stessa ditta è a volte scritta in più modi: con maiuscole, spazi o punteggiatura diversi, con la forma giuridica abbreviata in un altro modo con il suo nome in un&apos;altra lingua o con il nome che aveva prima di cambiarlo. Nelle classifiche del sito queste grafie sono contate insieme quando il registro di commercio mostra che sono la stessa ditta, con lo stesso numero IDI. Ogni contratto resta con il nome scritto nell&apos;elenco.</p>}>
       <div className="text-sm text-muted max-w-3xl space-y-2 leading-relaxed" data-reveal="up">
         <p>{en ? a.rule.en : a.rule.it}</p>
         <p>{en ? a.scope.en : a.scope.it}</p>
@@ -60,11 +62,12 @@ export default function Grafie() {
                   {g.branch_of && <> · {T("succursale di", "branch of")} {g.branch_of.name} ({g.branch_of.uid})</>}
                   {deleted && <> · {T("cancellata il", "deleted on")} {date(deleted)}</>}
                 </p>
+                {g.renamed && <p className="mt-1 text-xs text-muted leading-relaxed">{T("già", "formerly")} {g.renamed.from}: {T("nome cambiato nel registro il", "name changed in the register on")} {date(g.renamed.register_date)} ({T("FUSC del", "SOGC of")} {date(g.renamed.sogc_date)}, {T("pubblicazione", "publication")} {g.renamed.sogc_publication})</p>}
                 <ul className="mt-3 space-y-2">
                   {g.variants.map((v) => (
                     <li key={v.name}>
                       <div className="whitespace-pre-wrap break-words">«{v.name}»</div>
-                      <div className="text-xs text-muted">{Object.keys(v.years).sort().join(", ")} · {contracts(v.n)} · {chf(v.chf)} · {how(g, v, en)}</div>
+                      <div className="text-xs text-muted">{Object.keys(v.years).sort().join(", ")} · {contracts(v.n)} · {chf(v.chf)} · {how(g, v, en)}{v.apart && <>; {T("contratti iniziati dopo, lasciati a parte", "contracts that started later, left apart")}: {v.apart.n}</>}</div>
                     </li>
                   ))}
                 </ul>
