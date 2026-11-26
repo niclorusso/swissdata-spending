@@ -4,7 +4,7 @@ import { useL } from "@/lib/useLang";
 
 /** Francs spent since the page was opened, at the average rate of the year (total divided by the seconds of that year). */
 export function LiveCounter({ perSecond }: { perSecond: number }) {
-  const { num } = useL();
+  const { chfFull } = useL();
   const [v, setV] = useState(0);
   useEffect(() => {
     const t0 = performance.now();
@@ -15,5 +15,5 @@ export function LiveCounter({ perSecond }: { perSecond: number }) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [perSecond]);
-  return <span className="tabular">{num(Math.round(v))}</span>;
+  return <span className="tabular">{chfFull(Math.round(v))}</span>;
 }

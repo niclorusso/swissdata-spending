@@ -13,9 +13,15 @@ pnpm build    # sito statico in out/
 pnpm start    # serve out/ in locale (npx serve)
 pnpm lint
 npx tsc --noEmit
+pnpm test     # tabella di casi del formato dei numeri
 ```
 
-Dalla radice del repository gli stessi comandi sono `make web`, `make dev`, `make build` e `make check` (lint, `next typegen`, tsc).
+Dalla radice del repository gli stessi comandi sono `make web`, `make dev`, `make build` e `make check` (lint, `next typegen`, tsc, `pnpm test`).
+
+## Numeri e aspetto
+
+- Tutti i numeri passano da `src/lib/format.ts`: in italiano 803 250 ma 4201, 31,6 %; in inglese 803,250 e 31.6%. Gruppi e decimali sono scritti a mano, senza i dati di lingua della macchina. Nei testi si scrive `{num(5000)}`, non la cifra.
+- `src/app/family-tokens.css` è il file di colori e misure comune ai tre siti SwissData; `globals.css` lo legge. Intestazione, piè di pagina e riga della fonte (`.sdf-*`) seguono lo stesso modello negli altri due siti.
 
 ## Dati
 

@@ -10,7 +10,7 @@ const keys = (i: SearchItem) => [i.name, ...(i.alt ?? [])].map(norm);
 /** Type a municipality, get its page. Arrow keys move, Enter opens. */
 export function ComuneSearch({ items, placeholder }: { items: SearchItem[]; placeholder?: string }) {
   const router = useRouter();
-  const { T, h, link } = useL();
+  const { T, h, link, num } = useL();
   const pathOf = (i: SearchItem) => i.href ?? `/comuni/${i.id}/`;
   const hrefOf = (i: SearchItem) => h(pathOf(i));
   const ph = placeholder ?? T("Cerca il tuo Comune…", "Find your municipality…");
@@ -43,7 +43,7 @@ export function ComuneSearch({ items, placeholder }: { items: SearchItem[]; plac
               </a>
             </li>
           ))}
-          {hits.length === 0 && <li className="px-3 py-2 text-muted">{T("Nessun Comune trovato con questo nome. Hanno una scheda i Comuni sopra i 5 000 abitanti e tutti quelli di Ticino e Zurigo.", "No municipality found with this name. There is a page for municipalities above 5,000 inhabitants and for all those in Ticino and Zurich.")}</li>}
+          {hits.length === 0 && <li className="px-3 py-2 text-muted">{T(`Nessun Comune trovato con questo nome. Hanno una scheda i Comuni sopra i ${num(5000)} abitanti e tutti quelli di Ticino e Zurigo.`, `No municipality found with this name. There is a page for municipalities above ${num(5000)} inhabitants and for all those in Ticino and Zurich.`)}</li>}
         </ul>
       )}
     </div>

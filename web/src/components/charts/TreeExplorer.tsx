@@ -6,7 +6,7 @@ import { it } from "@/lib/labels";
 
 /** Year picker + drill-down bar list for a hierarchical spending tree (settori > sotto-settori). */
 export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }: { root: TreeNode; years: number[]; yearStatus: Record<string, string>; defaultYear: number; labelDict?: Record<string, string> }) {
-  const { chf, share, status, T, lang } = useL();
+  const { chf, sharePct, status, T, lang } = useL();
   const [year, setYear] = useState(defaultYear);
   const [open, setOpen] = useState<Record<number, boolean>>({});
   const y = String(year);
@@ -37,16 +37,17 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
           const kids = kidsAll.length > 1 ? kidsAll : [];
           return (
             <li key={c.id} className="text-sm">
-              <button type="button" onClick={() => setOpen((o) => ({ ...o, [c.id]: !o[c.id] }))} className="w-full text-left" aria-expanded={isOpen}>
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="min-w-0">
+              <button type="button" onClick={() => setOpen((o) => ({ ...o, [c.id]: !o[c.id] }))} className="w-full text-left tap-row" aria-expanded={isOpen}>
+                {/* as in BarList: the figures go under the label when its longest word does not fit beside them */}
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <span className="fig-label flex-1 break-words">
                     <span className="text-faint mr-1">{kids.length ? (isOpen ? "▾" : "▸") : "·"}</span>
                     {it(c.name, labelDict, lang)}
                     
                   </span>
-                  <span className="tabular whitespace-nowrap shrink-0 text-muted">
-                    {chf(v)} <span className="text-faint">· {total ? share((v / total) * 100) : "–"} %</span>
-                    {delta !== null && <span className={`ml-2 ${delta >= 0 ? "text-foreground/70" : "text-foreground/70"}`}>{delta >= 0 ? "+" : ""}{share(delta)} %</span>}
+                  <span className="tabular whitespace-nowrap shrink-0 ml-auto text-muted">
+                    {chf(v)} <span className="text-faint">· {total ? sharePct((v / total) * 100) : "–"}</span>
+                    {delta !== null && <span className="ml-2 text-muted">{delta >= 0 ? "+" : ""}{sharePct(delta)}</span>}
                   </span>
                 </div>
                 <div className="bar mt-1.5">
@@ -56,9 +57,9 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
               {isOpen && kids.length > 0 && (
                 <ol className="ml-5 mt-2 mb-3 space-y-1.5 border-l border-border pl-3">
                   {kids.map((k) => (
-                    <li key={k.id} className="flex items-baseline justify-between gap-3 text-xs">
-                      <span className="min-w-0">{it(k.name, labelDict, lang)}</span>
-                      <span className="tabular text-muted whitespace-nowrap shrink-0">{chf(k.values[y])} <span className="text-faint">· {v ? share(((k.values[y] ?? 0) / v) * 100) : "–"} %</span></span>
+                    <li key={k.id} className="flex flex-wrap items-baseline justify-between gap-x-3 text-xs">
+                      <span className="fig-label flex-1 break-words">{it(k.name, labelDict, lang)}</span>
+                      <span className="tabular text-muted whitespace-nowrap shrink-0 ml-auto">{chf(k.values[y])} <span className="text-faint">· {v ? sharePct(((k.values[y] ?? 0) / v) * 100) : "–"}</span></span>
                     </li>
                   ))}
                 </ol>
@@ -67,7 +68,7 @@ export function TreeExplorer({ root, years, yearStatus, defaultYear, labelDict }
           );
         })}
       </ol>
-      <p className="mt-3 text-xs text-faint">{T("L'ultima cifra è la variazione rispetto all'anno prima. Le voci con ▸ si aprono.", "The last figure is the change from the year before. Items with ▸ open.")}</p>
+      <p className="mt-3 text-xs text-faint">{T("L’ultima cifra è la variazione rispetto all’anno prima. Le voci con ▸ si aprono.", "The last figure is the change from the year before. Items with ▸ open.")}</p>
     </div>
   );
 }

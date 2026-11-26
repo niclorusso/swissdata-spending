@@ -10,7 +10,7 @@ const COLS: { key: Key; label: string; en: string; wide?: boolean }[] = [
   { key: "personal", label: "Spese per il personale", en: "Staff costs" }, { key: "fte", label: "Posti a tempo pieno", en: "Full-time positions" },
   { key: "beratung", label: "Consulenza esterna", en: "External consultancy", wide: true }, { key: "informatik", label: "Informatica", en: "IT", wide: true },
 ];
-const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\u2019/g, "'").toLowerCase(); // dell'ambiente finds dell’ambiente
 
 export function UnitsTable({ units, years, defaultYear, yearStatus = {} }: { units: Unit[]; years: number[]; defaultYear: number; yearStatus?: Record<string, string> }) {
   const { chf, num, status, T, lang, en } = useL();
