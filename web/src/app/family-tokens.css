@@ -1,0 +1,23 @@
+/* SwissData family tokens — the one small file to copy into each repo.
+   swiss-data: paste into src/app/globals.css (and point the Tailwind colours at the variables)
+   swissdata-parliament: paste at the top of client/src/index.css (it already has the same idea under other names)
+   spesa-pubblica-ch: paste into web/src/app/globals.css (Tailwind 4 reads the variables directly)
+   Each site sets only --sdf-accent. */
+:root {
+  --sdf-red: #d82525;        /* the family red: the mark and "Data" in the wordmark; 4.53:1 on paper, 4.99:1 on white */
+  --sdf-paper: #f5f4ef;      /* page background */
+  --sdf-surface: #ffffff;    /* cards, header */
+  --sdf-line: #dedbd1;       /* hairlines */
+  --sdf-ink: #14181d;        /* text */
+  --sdf-muted: #4b5058;      /* secondary text, 7.4:1 on paper */
+  --sdf-subtle: #5f6873;     /* captions and source lines, 5.2:1 on paper, 5.7:1 on white */
+  --sdf-footer: #14181d;     /* footer background */
+  --sdf-font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sdf-text-small: 0.8125rem; /* 13px: the smallest text allowed (source lines, captions) */
+  --sdf-text-body: 1rem;
+  --sdf-h1-phone: 2rem;
+  --sdf-h1-desktop: 3rem;
+  --sdf-radius-card: 16px;
+  --sdf-radius-control: 999px;
+  --sdf-tap: 44px;           /* smallest tap target on phones */
+}

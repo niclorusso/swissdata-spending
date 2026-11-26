@@ -8,6 +8,7 @@ import { SourceBadge } from "@/components/SourceBadge";
 import { TreeExplorer } from "@/components/charts/TreeExplorer";
 import { TimeSeries, type Row } from "@/components/charts/TimeSeries";
 import { Card, Note, Page, Stat, StatGrid } from "@/components/ui";
+import { Fold } from "@/components/Fold";
 import { Treemap } from "@/components/charts/Treemap";
 import { FlowSankey, type FlowLink, type FlowNode } from "@/components/charts/FlowSankey";
 import { treeItems } from "@/lib/viz";
@@ -94,7 +95,7 @@ export default function Confederazione() {
       <StatGrid>
         <Stat label={`${S.spese} ${yR}`} value={chf(root.values[y])} sub={`${pct(k["Ausgabenquote"]?.values[y])} ${T("del PIL", "of GDP")}`} />
         <Stat label={`${S.entrate} ${yR}`} value={chf(einRoot.values[y])} sub={`${T("di cui fiscali", "of which taxes")} ${chf(fisk?.values[y])}`} />
-        <Stat label={`${T("Risultato", "Result")} ${yR}`} value={`${(k["Finanzierungssaldo"]?.values[y] ?? 0) >= 0 ? "+" : ""}${chf(k["Finanzierungssaldo"]?.values[y])}`} sub={T("entrate meno spese", "revenue minus spending")} />
+        <Stat label={`${T("Risultato", "Result")} ${yR}`} value={chf(k["Finanzierungssaldo"]?.values[y], { sign: true })} sub={T("entrate meno spese", "revenue minus spending")} />
         <Stat label={`${S.lordo} ${yR}`} value={chf(k["Bruttoschulden"]?.values[y])} sub={`${pct(k["Schuldenquote brutto"]?.values[y])} ${T("del PIL", "of GDP")}`} />
       </StatGrid>
       <div data-reveal="up"><SourceBadge meta={aufg.meta} /></div>
@@ -104,9 +105,9 @@ export default function Confederazione() {
 
       <Note title={T("Dal 2022 con le nuove regole contabili", "New accounting rules from 2022")}>{en
         ? <>On 19 March 2021 Parliament amended the Financial Budget Act (in German «Finanzhaushaltgesetz», FHG), in force since 1 January 2022. The new rules were first applied to the 2023 budget and accounts; 2022 was restated retroactively, as if they had already applied (FFA, <a className="link" href={SR23_1B.de}>«Staatsrechnung 2023», volume 1B, part A, section 72 «Änderungen in der Rechnung 2023»</a>, in German). In the FFA&apos;s file the figures from 2022 therefore follow the new rules, those up to 2021 the earlier ones. The 2022 accounts as published in 2023 showed revenue of {chf(RA_2022.revenue, { digits: 1 })}, spending of {chf(RA_2022.spending, { digits: 2 })} and a balance of {chf(RA_2022.balance, { digits: 1 })} (ordinary plus extraordinary; FFA, <a className="link" href={RA_URL}>«Rechnungsabschlüsse des Bundes 1990–2022»</a>), against {chf(einRoot.values["2022"], { digits: 1 })}, {chf(root.values["2022"], { digits: 1 })} and {chf(k["Finanzierungssaldo"]?.values["2022"], { digits: 1 })} here. In the charts of the totals a dashed rule marks 2022.</>
-        : <>Il 19 marzo 2021 il Parlamento ha modificato la legge sulle finanze della Confederazione (LFC), in vigore dal 1° gennaio 2022. Le nuove regole sono state applicate per la prima volta al preventivo e al consuntivo 2023; il 2022 è stato ricalcolato con effetto retroattivo, come se valessero già (AFF, <a className="link" href={SR23_1B.it}>«Consuntivo 2023», volume 1B, parte A, numero 72 «Modifiche nel consuntivo 2023»</a>). Nel file dell&apos;AFF le cifre dal 2022 seguono quindi le nuove regole, quelle fino al 2021 le precedenti. Il consuntivo 2022 pubblicato nel 2023 indicava entrate di {chf(RA_2022.revenue, { digits: 1 })}, uscite di {chf(RA_2022.spending, { digits: 2 })} e un saldo di {chf(RA_2022.balance, { digits: 1 })} (ordinarie più straordinarie; AFF, <a className="link" href={RA_URL}>«Rechnungsabschlüsse des Bundes 1990–2022»</a>), contro {chf(einRoot.values["2022"], { digits: 1 })}, {chf(root.values["2022"], { digits: 1 })} e {chf(k["Finanzierungssaldo"]?.values["2022"], { digits: 1 })} qui. Nei grafici dei totali una riga tratteggiata segna il 2022.</>}</Note>
+        : <>Il 19 marzo 2021 il Parlamento ha modificato la legge sulle finanze della Confederazione (LFC), in vigore dal 1° gennaio 2022. Le nuove regole sono state applicate per la prima volta al preventivo e al consuntivo 2023; il 2022 è stato ricalcolato con effetto retroattivo, come se valessero già (AFF, <a className="link" href={SR23_1B.it}>«Consuntivo 2023», volume 1B, parte A, numero 72 «Modifiche nel consuntivo 2023»</a>). Nel file dell’AFF le cifre dal 2022 seguono quindi le nuove regole, quelle fino al 2021 le precedenti. Il consuntivo 2022 pubblicato nel 2023 indicava entrate di {chf(RA_2022.revenue, { digits: 1 })}, uscite di {chf(RA_2022.spending, { digits: 2 })} e un saldo di {chf(RA_2022.balance, { digits: 1 })} (ordinarie più straordinarie; AFF, <a className="link" href={RA_URL}>«Rechnungsabschlüsse des Bundes 1990–2022»</a>), contro {chf(einRoot.values["2022"], { digits: 1 })}, {chf(root.values["2022"], { digits: 1 })} e {chf(k["Finanzierungssaldo"]?.values["2022"], { digits: 1 })} qui. Nei grafici dei totali una riga tratteggiata segna il 2022.</>}</Note>
 
-      <Card title={en ? `Revenue and spending of the Confederation, ${yR}` : `Entrate e spese della Confederazione, ${yR}`} subtitle={en ? `On the left ${chf(einRoot.values[y], { digits: 1 })} of revenue, on the right ${chf(root.values[y], { digits: 1 })} of spending. Thickness is proportional to the amount.` : `A sinistra ${chf(einRoot.values[y], { digits: 1 })} di entrate, a destra ${chf(root.values[y], { digits: 1 })} di spese. Lo spessore è proporzionale all'importo.`}>
+      <Card title={en ? `Revenue and spending of the Confederation, ${yR}` : `Entrate e spese della Confederazione, ${yR}`} subtitle={en ? `On the left ${chf(einRoot.values[y], { digits: 1 })} of revenue, on the right ${chf(root.values[y], { digits: 1 })} of spending. Thickness is proportional to the amount.` : `A sinistra ${chf(einRoot.values[y], { digits: 1 })} di entrate, a destra ${chf(root.values[y], { digits: 1 })} di spese. Lo spessore è proporzionale all’importo.`}>
         <div className="hidden md:block"><FlowSankey nodes={nodes} links={links} /></div>
         <div className="md:hidden space-y-6">
           <div><div className="eyebrow mb-3">{S.entrate}</div><BarList items={inList} total={einRoot.values[y] ?? 0} /></div>
@@ -115,53 +116,53 @@ export default function Confederazione() {
         <SourceBadge meta={ein.meta} />
       </Card>
 
-      <Card title={en ? `Spending ${yR} by area` : `Le spese ${yR} per settore`} subtitle={T("La Confederazione classifica le sue spese in 12 settori. Ogni rettangolo è un settore: più è grande, più costa. Clicca per aprire le sotto-voci.", "The Confederation sorts its spending into 12 areas. Each rectangle is an area: the larger it is, the more it costs. Click to open the sub-items.")}>
+      <Fold on="desktop" title={en ? `Spending ${yR} by area` : `Le spese ${yR} per settore`} subtitle={T("La Confederazione classifica le sue spese in 12 settori. Ogni rettangolo è un settore: più è grande, più costa. Clicca per aprire le sotto-voci.", "The Confederation sorts its spending into 12 areas. Each rectangle is an area: the larger it is, the more it costs. Click to open the sub-items.")}>
         <Treemap root={treeItems(root, y)} unitLabel={T("consuntivo", "actuals")} />
         <SourceBadge meta={aufg.meta} compact />
-      </Card>
+      </Fold>
 
-      <Note title={T("Tre voci da non fraintendere", "Three items easy to misread")}>{T("«Finanze e imposte» sono soprattutto le quote d'imposta versate ai Cantoni, la perequazione finanziaria e gli interessi sul debito. «Premesse istituzionali e finanziarie» sono Parlamento, tribunali, amministrazione generale e statistica. «Sanità» è piccola perché i contributi per la riduzione dei premi di cassa malati sono contati nella previdenza sociale.", "«Finances and taxes» is mostly the shares of tax revenue paid to the cantons, fiscal equalisation and interest on the debt. «Institutional and financial conditions» is Parliament, courts, general administration and statistics. «Health» is small because the contributions that reduce health-insurance premiums are counted under social welfare.")}</Note>
+      <Note title={T("Tre voci da non fraintendere", "Three items easy to misread")}>{T("«Finanze e imposte» sono soprattutto le quote d’imposta versate ai Cantoni, la perequazione finanziaria e gli interessi sul debito. «Premesse istituzionali e finanziarie» sono Parlamento, tribunali, amministrazione generale e statistica. «Sanità» è piccola perché i contributi per la riduzione dei premi di cassa malati sono contati nella previdenza sociale.", "«Finances and taxes» is mostly the shares of tax revenue paid to the cantons, fiscal equalisation and interest on the debt. «Institutional and financial conditions» is Parliament, courts, general administration and statistics. «Health» is small because the contributions that reduce health-insurance premiums are counted under social welfare.")}</Note>
 
       <Card title={T("Come è cambiata la spesa, 1990–2030", "How spending has changed, 1990–2030")} subtitle={T("I sette settori maggiori più «Altro». Su fondo grigio, preventivo e piano finanziario.", "The seven largest areas plus «Other». On a grey background, budget and financial plan.")}>
         <TimeSeries rows={sRows} series={sSeries} yearStatus={ys} kind="stacked" height={360} breakAt={2022} breakLabel={T("nuove regole", "new rules")} />
         <SourceBadge meta={aufg.meta} compact />
       </Card>
 
-      <Card title={T("Tutte le voci, anno per anno", "Every item, year by year")} subtitle={T("Scegli l'anno, anche tra preventivo e piano finanziario, e apri un settore per vedere le sotto-voci.", "Pick the year, including budget and financial plan, and open an area to see its sub-items.")}>
+      <Fold on="always" title={T("Tutte le voci, anno per anno", "Every item, year by year")} subtitle={T("Scegli l’anno, anche tra preventivo e piano finanziario, e apri un settore per vedere le sotto-voci.", "Pick the year, including budget and financial plan, and open an area to see its sub-items.")}>
         <TreeExplorer root={root} years={years} yearStatus={ys} defaultYear={yR} />
         <SourceBadge meta={aufg.meta} />
-      </Card>
+      </Fold>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card title={T("Per che cosa: personale, acquisti, contributi", "On what: staff, purchases, contributions")} subtitle={T("Dal 2023, con il nuovo modello contabile. Apri una voce per il dettaglio.", "From 2023, with the new accounting model. Open an item for the detail.")}>
+        <Fold title={T("Per che cosa: personale, acquisti, contributi", "On what: staff, purchases, contributions")} subtitle={T("Dal 2023, con il nuovo modello contabile. Apri una voce per il dettaglio.", "From 2023, with the new accounting model. Open an item for the detail.")}>
           <TreeExplorer root={natureRoot} years={art.meta.years ?? []} yearStatus={art.meta.year_status ?? {}} defaultYear={yR} />
           <SourceBadge meta={art.meta} />
-        </Card>
-        <Card title={S.entrate} subtitle={T("Per tipo di entrata; apri «Entrate correnti» per le singole imposte", "By type of revenue; open «Current revenue» for the single taxes")}>
+        </Fold>
+        <Fold title={S.entrate} subtitle={T("Per tipo di entrata; apri «Entrate correnti» per le singole imposte", "By type of revenue; open «Current revenue» for the single taxes")}>
           <TreeExplorer root={einRoot} years={years} yearStatus={ys} defaultYear={yR} />
           <SourceBadge meta={ein.meta} />
-        </Card>
+        </Fold>
       </div>
 
-      <Card title={T("Le entrate fiscali nel tempo", "Tax revenue over time")} subtitle={T("Imposta federale diretta, IVA, imposta preventiva e le altre imposte principali", "Direct federal tax, VAT, withholding tax and the other main taxes")}>
+      <Fold title={T("Le entrate fiscali nel tempo", "Tax revenue over time")} subtitle={T("Imposta federale diretta, IVA, imposta preventiva e le altre imposte principali", "Direct federal tax, VAT, withholding tax and the other main taxes")}>
         <TimeSeries rows={eRows} series={eSeries} yearStatus={ys} kind="stacked" height={320} />
         <SourceBadge meta={ein.meta} compact />
-      </Card>
+      </Fold>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
+        <Fold title={T("Spese ed entrate", "Spending and revenue")} subtitle={T("Totali per anno", "Totals per year")}>
           <TimeSeries rows={kRows} series={[S.spese, S.entrate]} yearStatus={ys} height={280} colors={["var(--s2)", "var(--s1)"]} breakAt={2022} breakLabel={T("nuove regole", "new rules")} />
           <SourceBadge meta={aufg.meta} />
-        </Card>
-        <Card title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>
+        </Fold>
+        <Fold title={T("Debito lordo della Confederazione", "Gross debt of the Confederation")} subtitle={T("In franchi, a fine anno.", "In francs, at year end.")}>
           <TimeSeries rows={dRows} series={[S.lordo]} yearStatus={ys} height={280} colors={["var(--s8)"]} />
           <SourceBadge meta={kz.meta} />
-        </Card>
+        </Fold>
       </div>
-      <Card title={T("Quote sul PIL", "Ratios to GDP")} subtitle={T("Quota di spesa, quota fiscale e debito lordo in % del PIL nominale", "Spending ratio, tax ratio and gross debt in % of nominal GDP")}>
+      <Fold title={T("Quote sul PIL", "Ratios to GDP")} subtitle={T("Quota di spesa, quota fiscale e debito lordo in % del PIL nominale", "Spending ratio, tax ratio and gross debt in % of nominal GDP")}>
         <TimeSeries rows={qRows} series={[S.qs, S.qf, S.qd]} yearStatus={ys} unit="pct" height={280} colors={["var(--s2)", "var(--s1)", "var(--s8)"]} />
         <SourceBadge meta={kz.meta} />
-      </Card>
+      </Fold>
       <p className="text-muted"><Link className="link" href="/confederazione/unita/">{T("Personale, consulenze e informatica ufficio per ufficio", "Staff, consultancy and IT office by office")} →</Link></p>
     </Page>
   );

@@ -106,10 +106,10 @@ export default function Home() {
             <p className="mt-6 text-lg text-muted leading-relaxed max-w-xl" data-reveal="up" style={{ ["--d" as string]: 2 }}>
               {en
                 ? <>The total covers the Confederation, cantons, municipalities and social insurance, counted once.{forecast ? <> For {nextY} the Federal Finance Administration forecasts {chf(forecast, { digits: 0 })}.</> : null}</>
-                : <>Il totale comprende Confederazione, Cantoni, Comuni e assicurazioni sociali, contati una volta sola.{forecast ? <> Per il {nextY} l&apos;Amministrazione federale delle finanze prevede {chf(forecast, { digits: 0 })}.</> : null}</>}
+                : <>Il totale comprende Confederazione, Cantoni, Comuni e assicurazioni sociali, contati una volta sola.{forecast ? <> Per il {nextY} l’Amministrazione federale delle finanze prevede {chf(forecast, { digits: 0 })}.</> : null}</>}
             </p>
             <div className="mt-7 grid grid-cols-3 gap-3 max-w-xl" data-reveal="up" style={{ ["--d" as string]: 3 }}>
-              {[[chf(perHead), T("per abitante all'anno", "per inhabitant per year")], [chf(perHead / (leap ? 366 : 365)), T("per abitante al giorno", "per inhabitant per day")], ...(quota ? [[pct(quota * 100), en ? `of ${yS} GDP` : `del PIL ${yS}`]] : [])].map(([v, l]) => (
+              {[[chf(perHead), T("per abitante all’anno", "per inhabitant per year")], [chf(perHead / (leap ? 366 : 365)), T("per abitante al giorno", "per inhabitant per day")], ...(quota ? [[pct(quota * 100), en ? `of ${yS} GDP` : `del PIL ${yS}`]] : [])].map(([v, l]) => (
                 <div key={l} className="glass px-3.5 py-3">
                   <div className="display text-base sm:text-xl md:text-2xl leading-none whitespace-nowrap"><CountUp text={v} /></div>
                   <div className="mt-1.5 text-xs text-muted leading-snug">{l}</div>
@@ -119,12 +119,12 @@ export default function Home() {
             <div className="max-w-xl" data-reveal="up" style={{ ["--d" as string]: 3 }}>
               <p className="mt-3 text-xs text-muted leading-relaxed">{en
                 ? <>Per inhabitant: {chf(total, { digits: 1 })} divided by {num(popCH)} inhabitants on 31.12.{yS}, and by the {leap ? 366 : 365} days of the year.{quota && gdp ? <> Share of GDP: the {chf(total, { digits: 1 })} of spending in {yS} (financial statistics model; file standardauswertung.csv, the same amount as in main_extern.csv, row 206) divided by the {yS} gross domestic product of {chf(gdp, { digits: 1 })} (main_extern.csv, row 6240, in the file of {date(main.meta.published_at)}: GDP can be revised).{gfsQuota ? <> The FFA&apos;s own ratio for {yS} is {pct(gfsQuota * 100)}: it follows the international GFS model, where spending is a larger amount (main_extern.csv, row 5216, «staatsquote»).</> : null}</> : null} Divisions made by the site.</>
-                : <>Per abitante: {chf(total, { digits: 1 })} divisi per {num(popCH)} abitanti al 31.12.{yS}, e per i {leap ? 366 : 365} giorni dell&apos;anno.{quota && gdp ? <> Quota del PIL: i {chf(total, { digits: 1 })} di uscite {yS} (modello della statistica finanziaria; file standardauswertung.csv, lo stesso importo di main_extern.csv, riga 206) divisi per il prodotto interno lordo {yS} di {chf(gdp, { digits: 1 })} (main_extern.csv, riga 6240, nel file del {date(main.meta.published_at)}: il PIL può essere rivisto).{gfsQuota ? <> La quota ufficiale dell&apos;AFF per il {yS} è {pct(gfsQuota * 100)}: segue il modello internazionale GFS, in cui le uscite sono un importo maggiore (main_extern.csv, riga 5216, «staatsquote»).</> : null}</> : null} Divisioni fatte dal sito.</>}</p>
+                : <>Per abitante: {chf(total, { digits: 1 })} divisi per {num(popCH)} abitanti al 31.12.{yS}, e per i {leap ? 366 : 365} giorni dell’anno.{quota && gdp ? <> Quota del PIL: i {chf(total, { digits: 1 })} di uscite {yS} (modello della statistica finanziaria; file standardauswertung.csv, lo stesso importo di main_extern.csv, riga 206) divisi per il prodotto interno lordo {yS} di {chf(gdp, { digits: 1 })} (main_extern.csv, riga 6240, nel file del {date(main.meta.published_at)}: il PIL può essere rivisto).{gfsQuota ? <> La quota ufficiale dell’AFF per il {yS} è {pct(gfsQuota * 100)}: segue il modello internazionale GFS, in cui le uscite sono un importo maggiore (main_extern.csv, riga 5216, «staatsquote»).</> : null}</> : null} Divisioni fatte dal sito.</>}</p>
               <SourceBadge meta={main.meta} also={popKantone().meta} />
             </div>
             <p className="mt-5 flex items-center gap-2.5 text-sm text-muted" data-reveal="up" style={{ ["--d" as string]: 4 }}>
               <span className="live-dot shrink-0" aria-hidden />
-              <span>{T("Da quando hai aperto questa pagina:", "Since you opened this page:")} <strong className="text-foreground"><LiveCounter perSecond={perSecond} /> CHF</strong> <span className="text-faint">· {en ? `on average ${num(perSecond)} CHF per second in ${yS}` : `in media ${num(perSecond)} CHF al secondo nel ${yS}`}</span></span>
+              <span>{T("Da quando hai aperto questa pagina:", "Since you opened this page:")} <strong className="text-foreground"><LiveCounter perSecond={perSecond} /></strong> <span className="text-faint">· {en ? `on average ${chf(perSecond)} per second in ${yS}` : `in media ${chf(perSecond)} al secondo nel ${yS}`}</span></span>
             </p>
             <div className="mt-8 max-w-xl" data-reveal="up" style={{ ["--d" as string]: 5 }}>
               <label className="block text-sm font-semibold mb-2">{T("Quanto spende il tuo Comune?", "How much does your municipality spend?")}</label>
@@ -151,7 +151,7 @@ export default function Home() {
           <p className="mt-4 text-muted leading-relaxed">{T("I Cantoni spendono più della Confederazione. Le assicurazioni sociali (AVS, AI, IPG, AD) spendono più dei Comuni.", "The cantons spend more than the Confederation. Social insurance (AHV, IV, EO, ALV) spends more than the municipalities.")}</p>
           <div className="mt-5"><Note>{en
             ? <>The four levels add up to {chf(levelSum, { digits: 0 })}, more than the total of {chf(total, { digits: 0 })}: transfers from one level to another appear twice. The consolidated total counts them once.</>
-            : <>La somma dei quattro livelli fa {chf(levelSum, { digits: 0 })}, più del totale di {chf(total, { digits: 0 })}: i trasferimenti da un livello all&apos;altro compaiono due volte. Il totale consolidato li conta una volta.</>}</Note></div>
+            : <>La somma dei quattro livelli fa {chf(levelSum, { digits: 0 })}, più del totale di {chf(total, { digits: 0 })}: i trasferimenti da un livello all’altro compaiono due volte. Il totale consolidato li conta una volta.</>}</Note></div>
         </div>
         <div className="md:col-span-3 grid sm:grid-cols-2 gap-3 md:gap-4" data-reveal="bars">
           {levels.map((l, i) => (
@@ -186,8 +186,8 @@ export default function Home() {
 
       <Path kicker={T("Comuni", "Municipalities")} title={T("Ticino e Zurigo, Comune per Comune", "Ticino and Zurich, municipality by municipality")} href="/cantoni/ti/#comuni" cta={T("Apri la mappa del Ticino", "Open the map of Ticino")}
         text={en
-          ? <>The Confederation publishes the accounts of single municipalities only above 5,000 inhabitants. Ticino and Zurich publish those of all of them: spending, debt, tax multiplier, investment. In all, {num(nProfiles)} municipalities have a page.</>
-          : <>La Confederazione pubblica i conti dei singoli Comuni solo sopra i 5 000 abitanti. Ticino e Zurigo pubblicano quelli di tutti: spese, debito, moltiplicatore, investimenti. In tutto {num(nProfiles)} Comuni hanno una scheda.</>}
+          ? <>The Confederation publishes the accounts of single municipalities only above {num(5000)} inhabitants. Ticino and Zurich publish those of all of them: spending, debt, tax multiplier, investment. In all, {num(nProfiles)} municipalities have a page.</>
+          : <>La Confederazione pubblica i conti dei singoli Comuni solo sopra i {num(5000)} abitanti. Ticino e Zurigo pubblicano quelli di tutti: spese, debito, moltiplicatore, investimenti. In tutto {num(nProfiles)} Comuni hanno una scheda.</>}
         links={[{ href: "/cantoni/zh/#comuni", label: T("Mappa di Zurigo", "Map of Zurich") }, { href: "/comuni/", label: T("Tutti i Comuni con dati", "All municipalities with data") }]}>
         <div className="eyebrow mb-3">{T("Spese operative per abitante, Comuni ticinesi", "Operating expenses per inhabitant, municipalities in Ticino")}, {ti.data.year}</div>
         <div className="max-w-md mx-auto"><GeoMap viewBox={tiMap.viewBox} shapes={tiMap.shapes} data={tiData} legendTitle={T("Spese operative per abitante", "Operating expenses per inhabitant")} lakes={tiMap.lakes} context={tiMap.context} stroke={0.6} /></div>
@@ -198,15 +198,15 @@ export default function Home() {
         <Link href="/assicurazioni-sociali/" className="card card-link p-6 md:p-8 block" data-reveal="up">
           <div className="kicker">{T("Assicurazioni sociali", "Social insurance")}</div>
           <h2 className="mt-3 text-3xl md:text-4xl leading-[1.08] text-balance">{en ? `${chf(sv.total_ausgaben[ySV], { digits: 1 })} in ${ySV} across AHV, IV, EO and ALV` : `${chf(sv.total_ausgaben[ySV], { digits: 1 })} nel ${ySV} tra AVS, AI, IPG e AD`}</h2>
-          <p className="mt-4 text-muted leading-relaxed">{en ? `The AHV (old-age insurance) alone spent ${chf(H["sv_ahv"].total_ausgaben[ySV], { digits: 1 })}. Pension funds and health insurers are not public accounts and are not included.` : `L'AVS da sola ha speso ${chf(H["sv_ahv"].total_ausgaben[ySV], { digits: 1 })}. Casse pensioni e casse malati non sono conti pubblici e non sono incluse.`}</p>
+          <p className="mt-4 text-muted leading-relaxed">{en ? `The AHV (old-age insurance) alone spent ${chf(H["sv_ahv"].total_ausgaben[ySV], { digits: 1 })}. Pension funds and health insurers are not public accounts and are not included.` : `L’AVS da sola ha speso ${chf(H["sv_ahv"].total_ausgaben[ySV], { digits: 1 })}. Casse pensioni e casse malati non sono conti pubblici e non sono incluse.`}</p>
           <span className="btn mt-6">{T("Apri le assicurazioni sociali", "Open social insurance")} <span aria-hidden>→</span></span>
         </Link>
         <Link href="/appalti/" className="card card-link p-6 md:p-8 block" data-reveal="up" style={{ ["--d" as string]: 1 }}>
           <div className="kicker">{T("Appalti federali", "Federal procurement")}</div>
           <h2 className="mt-3 text-3xl md:text-4xl leading-[1.08] text-balance">{en ? `${num(lp.n)} contracts signed in ${py}` : `${num(lp.n)} contratti firmati nel ${py}`}</h2>
           <p className="mt-4 text-muted leading-relaxed">{en
-            ? <>They are worth {chf(lp.total_chf, { digits: 1 })} over their whole duration, not in {py} alone. The largest: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` for ${objectName(lp.largest.object)}` : ""}. The list covers contracts of 50,000 francs and above of the central Federal Administration.</>
-            : <>Valgono {chf(lp.total_chf, { digits: 1 })} sull&apos;intera durata, non sul solo {py}. Il più grande: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` per ${objectName(lp.largest.object)}` : ""}. L&apos;elenco copre i contratti da 50 000 franchi in su dell&apos;Amministrazione federale centrale.</>}</p>
+            ? <>They are worth {chf(lp.total_chf, { digits: 1 })} over their whole duration, not in {py} alone. The largest: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` for ${objectName(lp.largest.object)}` : ""}. The list covers contracts of {num(50000)}&nbsp;francs and above of the central Federal Administration.</>
+            : <>Valgono {chf(lp.total_chf, { digits: 1 })} sull’intera durata, non sul solo {py}. Il più grande: {lp.largest.supplier}, {chf(lp.largest.chf)}{objectName(lp.largest.object) ? ` per ${objectName(lp.largest.object)}` : ""}. L’elenco copre i contratti da {num(50000)}&nbsp;franchi in su dell’Amministrazione federale centrale.</>}</p>
           <span className="btn mt-6">{T("Cerca tra i contratti", "Search the contracts")} <span aria-hidden>→</span></span>
         </Link>
       </section>
@@ -214,18 +214,18 @@ export default function Home() {
       <section className="py-14 md:py-20">
         <div data-reveal="up">
           <div className="kicker">{T("Limiti", "Limits")}</div>
-          <h2 className="mt-3 text-4xl md:text-[2.75rem] leading-[1.05]">{T("Cosa non c'è", "What is missing")}</h2>
+          <h2 className="mt-3 text-4xl md:text-[2.75rem] leading-[1.05]">{T("Cosa non c’è", "What is missing")}</h2>
         </div>
         <ul className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-sm text-muted leading-relaxed">
           {(en ? [
             ["Federal subsidies by recipient", "The FFA shows them in a dashboard, with no downloadable file."],
             ["Contracts of cantons and municipalities", "simap.ch gives access to the data only on request."],
-            ["Municipalities below 5,000 inhabitants outside Ticino and Zurich", "Here there are only the totals by canton. Some cantons publish the accounts of every municipality (Thurgau, Lucerne): they are not included yet."],
+            [`Municipalities below ${num(5000)} inhabitants outside Ticino and Zurich`, "Here there are only the totals by canton. Some cantons publish the accounts of every municipality (Thurgau, Lucerne): they are not included yet."],
             ["Public companies", "SBB, Swiss Post, Swisscom and the cantonal companies have no structured list of accounts."],
           ] : [
-            ["Sussidi federali per beneficiario", "L'AFF li mostra in una dashboard, senza file scaricabile."],
+            ["Sussidi federali per beneficiario", "L’AFF li mostra in una dashboard, senza file scaricabile."],
             ["Appalti di Cantoni e Comuni", "simap.ch dà accesso ai dati solo su richiesta."],
-            ["Comuni sotto i 5 000 abitanti fuori da Ticino e Zurigo", "Qui ci sono solo i totali per Cantone. Alcuni Cantoni pubblicano i conti di ogni Comune (Turgovia, Lucerna): non sono ancora inclusi."],
+            [`Comuni sotto i ${num(5000)} abitanti fuori da Ticino e Zurigo`, "Qui ci sono solo i totali per Cantone. Alcuni Cantoni pubblicano i conti di ogni Comune (Turgovia, Lucerna): non sono ancora inclusi."],
             ["Aziende pubbliche", "FFS, Posta, Swisscom e le aziende cantonali non hanno un elenco strutturato dei conti."],
           ]).map(([t, d], i) => (
             <li key={t} className="tile !p-5" data-reveal="up" style={{ ["--d" as string]: i }}>

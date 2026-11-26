@@ -22,6 +22,8 @@ export function Shell({ lang, children }: { lang: Lang; children: ReactNode }) {
       <body className="min-h-full flex flex-col">
         <div id="app" className="flex-1 flex flex-col" suppressHydrationWarning>
           <script dangerouslySetInnerHTML={{ __html: boot }} />
+          {/* without scripts nothing can be opened: folded cards are shown whole */}
+          <noscript><style>{`.fold .fold-body{display:block!important;content-visibility:visible!important}.fold .fold-cue{display:none}`}</style></noscript>
           <Nav />
           <div className="flex-1">{children}</div>
           <Footer />

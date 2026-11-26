@@ -23,7 +23,7 @@ export function FlowSankey({ nodes, links, height = 620 }: { nodes: FlowNode[]; 
     return (
       <Layer>
         <Rectangle x={x} y={y} width={width} height={h} fill={left ? IN : OUT} radius={2} />
-        <text x={tx} y={y + h / 2} textAnchor={left ? "end" : "start"} dominantBaseline="middle" style={{ fontSize: 12.5, fill: "var(--foreground)" }}>
+        <text x={tx} y={y + h / 2} textAnchor={left ? "end" : "start"} dominantBaseline="middle" style={{ fontSize: 13, fill: "var(--foreground)" }}>
           <tspan x={two ? tx : undefined} dy={two ? -8 : 0} style={{ fontWeight: 600 }}>{clip(payload.name, 52)}</tspan>
           <tspan x={two ? tx : undefined} dy={two ? 16 : 0} style={{ fill: "var(--muted)" }}>{two ? "" : "  "}{chf(payload.amount)}</tspan>
         </text>

@@ -20,7 +20,7 @@ dev:
 build:
 	cd web && pnpm build
 
-## Type-check + lint. tsc needs the route types (PageProps, LayoutProps) that Next writes into web/.next/types:
+## Type-check + lint + the table of cases of the number formatter (web/scripts/test-format.mjs). tsc needs the route types (PageProps, LayoutProps) that Next writes into web/.next/types:
 ## they are not in git, so they are generated first.
 check:
-	cd web && pnpm lint && pnpm exec next typegen && npx tsc --noEmit
+	cd web && pnpm lint && pnpm exec next typegen && npx tsc --noEmit && pnpm test

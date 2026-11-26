@@ -10,7 +10,7 @@ import { BarList } from "@/components/charts/BarList";
 import { TimeSeries } from "@/components/charts/TimeSeries";
 import { Card, Note, Page, Stat, StatGrid } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Appalti della Confederazione ≥ 50 000 CHF" };
+export const metadata: Metadata = { title: "Appalti della Confederazione ≥ 50\u202f000\u00a0CHF" };
 
 export default function Appalti() {
   const en = getLang() === "en";
@@ -39,8 +39,8 @@ export default function Appalti() {
   if (big.length !== 2 || big.some((s) => !/^US .* FMS$/.test(s.name))) throw new Error(`[appalti] the note on ${maxY} no longer matches the data: ${JSON.stringify(big)}`);
   return (
     <Page kicker={T("Appalti", "Procurement")} title={T("I contratti della Confederazione", "The Confederation's contracts")} lead={en
-      ? <p>Every year the central Federal Administration publishes the list of contracts of 50,000 francs and above: buyer, supplier, object, procedure and value. Over {years.length} years that is {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contracts worth {chf(totalAll, { digits: 1 })}.</p>
-      : <p>Ogni anno l&apos;Amministrazione federale centrale pubblica l&apos;elenco dei contratti da 50 000 franchi in su: committente, fornitore, oggetto, procedura e valore. In {years.length} anni sono {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contratti per {chf(totalAll, { digits: 1 })}.</p>}>
+      ? <p>Every year the central Federal Administration publishes the list of contracts of {num(50000)}&nbsp;francs and above: buyer, supplier, object, procedure and value. Over {years.length} years that is {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contracts worth {chf(totalAll, { digits: 1 })}.</p>
+      : <p>Ogni anno l’Amministrazione federale centrale pubblica l’elenco dei contratti da {num(50000)}&nbsp;franchi in su: committente, fornitore, oggetto, procedura e valore. In {years.length} anni sono {num(years.reduce((s, y) => s + p.data.years[String(y)].n, 0))} contratti per {chf(totalAll, { digits: 1 })}.</p>}>
       <StatGrid>
         {years.map((y) => (
           <Stat key={y} label={en ? `Contracts signed in ${y}` : `Contratti firmati nel ${y}`} value={chf(p.data.years[String(y)].total_chf, { digits: 1 })} sub={<Link className="link" href={`/appalti/${y}/`}>{num(p.data.years[String(y)].n)} {T("contratti", "contracts")}, {num(p.data.years[String(y)].n_suppliers)} {T("nomi di fornitori", "supplier names")} →</Link>} />
@@ -49,7 +49,7 @@ export default function Appalti() {
       <div data-reveal="up"><SourceBadge meta={p.meta} /></div>
       <Note>{en
         ? <>The value is that of the contract over its whole duration, recorded in the year of signature: it is not the spending of that year. {maxY} is so high because of {big.length === 2 ? "two contracts" : `${big.length} contracts`} with the US government: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" and ")}. <Link className="link" href="/metodo/">Other limits of the list</Link>.</>
-        : <>Il valore è quello del contratto sull&apos;intera durata, registrato nell&apos;anno della firma: non è la spesa dell&apos;anno. Il {maxY} è così alto per {big.length === 2 ? "due contratti" : `${big.length} contratti`} con il governo statunitense: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" e ")}. <Link className="link" href="/metodo/">Altri limiti dell&apos;elenco</Link>.</>}</Note>
+        : <>Il valore è quello del contratto sull’intera durata, registrato nell’anno della firma: non è la spesa dell’anno. Il {maxY} è così alto per {big.length === 2 ? "due contratti" : `${big.length} contratti`} con il governo statunitense: {big.map((s) => `${s.name} (${chf(s.chf, { digits: 1 })})`).join(" e ")}. <Link className="link" href="/metodo/">Altri limiti dell’elenco</Link>.</>}</Note>
 
       <Card title={T("Come sono stati assegnati i contratti", "How the contracts were awarded")} subtitle={T("Valore dei contratti firmati in ogni anno, per tipo di procedura. Nel 2022 i due grandi contratti per sistemi aeronautici con il governo statunitense (US Air Force e US Army) sono registrati come procedura mediante invito.", "Value of the contracts signed in each year, by type of procedure. In 2022 the two large contracts for aviation systems with the US government (US Air Force and US Army) are recorded as invitation procedure.")}>
         <TimeSeries rows={procRows} series={procNames.map((n) => verfahren(n))} kind="stacked" height={300} />

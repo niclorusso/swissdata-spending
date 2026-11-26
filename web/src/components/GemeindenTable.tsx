@@ -6,7 +6,7 @@ export type GemRow = { bfs: number; kt: string; name: string; year: string; pop:
 type Key = "pc" | "aufwand" | "pop" | "name" | "inv";
 
 export function GemeindenTable({ rows, more = {} }: { rows: GemRow[]; more?: Record<string, { n: number; href: string }> }) {
-  const { chf, num, T, h, en } = useL();
+  const { chf, num, pct, T, h, en } = useL();
   const [all, setAll] = useState(false);
   const [q, setQ] = useState("");
   const [kt, setKt] = useState("all");
@@ -15,8 +15,9 @@ export function GemeindenTable({ rows, more = {} }: { rows: GemRow[]; more?: Rec
   const list = useMemo(() => rows
     .filter((r) => (kt === "all" || r.kt === kt) && (!q || r.name.toLowerCase().includes(q.toLowerCase())))
     .sort((a, b) => sort === "name" ? a.name.localeCompare(b.name) : ((b[sort] ?? -1) as number) - ((a[sort] ?? -1) as number)), [rows, q, kt, sort]);
-  const th = (k: Key, label: string, right = true, wide = false) => (
-    <th className={`py-2 pr-3 font-medium ${right ? "text-right" : ""} ${wide ? "hidden md:table-cell" : ""}`}><button type="button" onClick={() => setSort(k)} className={sort === k ? "underline text-foreground" : ""}>{label}</button></th>
+  /** `from`: the column is shown from that width up; on narrower screens its figure is under the name or left out. */
+  const th = (k: Key, label: string, right = true, from: "" | "sm" | "md" = "") => (
+    <th className={`py-2 pr-3 font-medium ${right ? "text-right" : ""} ${from === "md" ? "hidden md:table-cell" : from === "sm" ? "hidden sm:table-cell" : ""}`}><button type="button" onClick={() => setSort(k)} className={sort === k ? "underline text-foreground" : ""}>{label}</button></th>
   );
   return (
     <div>
@@ -32,17 +33,17 @@ export function GemeindenTable({ rows, more = {} }: { rows: GemRow[]; more?: Rec
       <div className="mt-4 overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="text-left eyebrow">
-            <tr>{th("name", T("Comune", "Municipality"), false)}{th("pop", T("Abitanti", "Inhabitants"))}{th("aufwand", T("Spese correnti", "Current spending"))}{th("pc", T("Per abitante", "Per inhabitant"))}{th("inv", T("Investimenti", "Investment"), true, true)}<th className="py-2 pr-3 font-medium hidden md:table-cell">{T("Prima funzione", "Largest function")}</th></tr>
+            <tr>{th("name", T("Comune", "Municipality"), false)}{th("pop", T("Abitanti", "Inhabitants"), true, "sm")}{th("aufwand", T("Spese correnti", "Current spending"))}{th("pc", T("Per abitante", "Per inhabitant"))}{th("inv", T("Investimenti", "Investment"), true, "md")}<th className="py-2 pr-3 font-medium hidden md:table-cell">{T("Prima funzione", "Largest function")}</th></tr>
           </thead>
           <tbody>
             {(all || q || kt !== "all" ? list : list.slice(0, 30)).map((r) => (
               <tr key={r.bfs} id={`g${r.bfs}`} className="border-t border-border">
-                <td className="py-1.5 pr-3"><a className="link" href={h(`/comuni/${r.bfs}/`)}>{r.name}</a> <span className="text-faint">{r.kt}</span></td>
-                                <td className="py-1.5 pr-3 text-right tabular">{num(r.pop)}</td>
+                <td className="py-1.5 pr-3"><a className="link" href={h(`/comuni/${r.bfs}/`)}>{r.name}</a> <span className="text-faint">{r.kt}</span>{r.pop !== null && <span className="block sm:hidden text-xs text-muted">{num(r.pop)} {T("abitanti", "inhabitants")}</span>}</td>
+                                <td className="py-1.5 pr-3 text-right tabular hidden sm:table-cell">{num(r.pop)}</td>
                 <td className="py-1.5 pr-3 text-right tabular">{chf(r.aufwand)}</td>
                 <td className="py-1.5 pr-3 text-right tabular font-medium">{chf(r.pc)}</td>
                 <td className="py-1.5 pr-3 text-right tabular hidden md:table-cell">{chf(r.inv)}</td>
-                <td className="py-1.5 pr-3 text-muted hidden md:table-cell">{r.top} <span className="text-faint">· {num(r.topShare * 100, 0)} %</span></td>
+                <td className="py-1.5 pr-3 text-muted hidden md:table-cell">{r.top} <span className="text-faint">· {pct(r.topShare * 100, 0)}</span></td>
               </tr>
             ))}
           </tbody>

@@ -8,7 +8,7 @@ export function Page({ title, lead, kicker, back, children }: { title: string; l
     <main className="mx-auto max-w-6xl px-4 pt-10 md:pt-14 pb-4">
       <div data-reveal="up">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          {back && <Link href={back.href} className="chip text-muted !py-1 !text-xs">← {back.label}</Link>}
+          {back && <Link href={back.href} className="chip text-muted !py-1">← {back.label}</Link>}
           {kicker && <span className="kicker">{kicker}</span>}
         </div>
         <h1 className="mt-4 text-[2.6rem] md:text-6xl leading-[1.02] max-w-4xl text-balance">{title}</h1>

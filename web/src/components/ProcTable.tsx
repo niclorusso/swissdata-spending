@@ -8,7 +8,7 @@ import { categoryIt, unitCodeIt } from "@/lib/labels-bund";
 
 type SortKey = "chf" | "start" | "supplier" | "unit";
 type Row = ProcRow & { unitIt: string; cat: string; hay: string };
-const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\u2019/g, "'").toLowerCase(); // dell'ambiente finds dell’ambiente
 
 /** Client-side search over the full per-year contract list (fetched from /data/…json). Searches Italian and German.
  *  `groups`: spellings of the same supplier (data/supplier-aliases.json); a search for one finds the contracts written with the others.
@@ -48,7 +48,8 @@ export function ProcTable({ year, groups = [] }: { year: number; groups?: string
   );
 
   if (err) return <p className="text-sm text-muted">{T("I dati non si sono caricati. Ricarica la pagina.", "The data did not load. Reload the page.")}</p>;
-  if (!rows) return <p className="text-sm text-muted">{T("Carico i contratti del", "Loading the contracts of")} {year}…</p>;
+  // while the list loads the block keeps the height of a screen: what comes after it is not pushed down when the table appears
+  if (!rows) return <p className="text-sm text-muted min-h-screen">{T("Carico i contratti del", "Loading the contracts of")} {year}…</p>;
   return (
     <div>
       <div className="flex flex-wrap gap-3 items-center text-sm">

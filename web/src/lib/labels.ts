@@ -1,5 +1,6 @@
 import { BUDGET_IT } from "@/lib/labels-bund";
 import * as EN from "@/lib/labels-en";
+import { apos } from "@/lib/format";
 import { currentLang, type Lang } from "@/lib/lang";
 /** Italian labels for the official German category names (official EFV Italian terminology where it exists). */
 export const AUFGABENGEBIET_IT: Record<string, string> = {
@@ -19,11 +20,11 @@ export const AUFGABENGEBIET_IT: Record<string, string> = {
   // Ausgaben nach Art
   "Ausgaben nach Art": "Spese per natura",
   "Laufende Ausgaben": "Spese correnti",
-  "Investitionsausgaben": "Spese d'investimento",
+  "Investitionsausgaben": "Spese d’investimento",
   "Eigenausgaben": "Spese proprie",
   "Personalausgaben": "Spese per il personale",
-  "Sach- und Betriebsausgaben": "Spese per beni e servizi e d'esercizio",
-  "Rüstungsausgaben": "Spese per l'armamento",
+  "Sach- und Betriebsausgaben": "Spese per beni e servizi e d’esercizio",
+  "Rüstungsausgaben": "Spese per l’armamento",
   "Laufende Transferausgaben": "Spese correnti di trasferimento",
   "Finanzausgaben": "Spese finanziarie",
   "Anteile Dritter an Bundeseinnahmen": "Quote di terzi alle entrate della Confederazione",
@@ -43,17 +44,17 @@ export const AUFGABENGEBIET_IT: Record<string, string> = {
   "Direkte Bundessteuer und Ergänzungssteuer": "Imposta federale diretta",
   "Übrige Fiskaleinnahmen": "Altre entrate fiscali",
   "Spielbankenabgabe": "Tassa sulle case da gioco",
-  "Lenkungsabgaben": "Tasse d'incentivazione",
+  "Lenkungsabgaben": "Tasse d’incentivazione",
   "Schwerverkehrsabgabe": "Tassa sul traffico pesante",
   "Nationalstrassenabgabe": "Contrassegno autostradale",
   "Automobilsteuer": "Imposta sugli autoveicoli",
   "Biersteuer": "Imposta sulla birra",
-  "Alkoholsteuer": "Imposta sull'alcol",
+  "Alkoholsteuer": "Imposta sull’alcol",
   "Übrige Einnahmen": "Altre entrate",
-  "Wehrpflichtersatzabgabe": "Tassa d'esenzione dall'obbligo militare",
+  "Wehrpflichtersatzabgabe": "Tassa d’esenzione dall’obbligo militare",
   "Ausserordentliche Einnahmen": "Entrate straordinarie",
   "Konzessionsabgaben (inkl. Anteil am RG der EAV bis 2024)": "Tasse di concessione",
-  "Gewinnausschüttung SNB": "Distribuzione dell'utile BNS",
+  "Gewinnausschüttung SNB": "Distribuzione dell’utile BNS",
   "Beteiligungseinnahmen": "Entrate da partecipazioni",
   "Zinseinnahmen": "Entrate da interessi",
   "Gebühren": "Emolumenti",
@@ -112,8 +113,12 @@ export const svName = (key: string, lang: Lang = currentLang()) => (lang === "en
 export const objectName = (object: string, lang: Lang = currentLang()): string | undefined => (lang === "en" ? EN.OBJECT_EN[object] : OBJECT_IT[object]);
 /** Label and reading note of a municipal measure (the snapshots carry the Italian ones). */
 /** Labels the snapshot will carry from the next run of the pipeline (pipeline/etl/kt_gemeinden.py already writes them). */
-const MEASURE_IT: Record<string, { label: string }> = { "zh:steuerfuss": { label: "Moltiplicatore d'imposta (persone fisiche)" } };
-export const measureText = (kt: string, m: { key: string; label: string; note: string }, lang: Lang = currentLang()) => (lang === "en" ? EN.MEASURE_EN[`${kt}:${m.key}`] ?? m : { ...m, ...MEASURE_IT[`${kt}:${m.key}`] });
+const MEASURE_IT: Record<string, { label: string }> = { "zh:steuerfuss": { label: "Moltiplicatore d’imposta (persone fisiche)" } };
+export const measureText = (kt: string, m: { key: string; label: string; note: string }, lang: Lang = currentLang()) => {
+  if (lang === "en") return EN.MEASURE_EN[`${kt}:${m.key}`] ?? m;
+  const t = { ...m, ...MEASURE_IT[`${kt}:${m.key}`] };
+  return { ...t, label: apos(t.label), note: apos(t.note) };
+};
 
 /** The statistical office of the Canton of Zurich under its current name (the files of 2026 still carry «Statistisches Amt»):
  *  https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten.html */
@@ -135,7 +140,7 @@ export const kantonName = (id: string, lang: Lang = currentLang()) => (lang === 
 
 export const SV_IT: Record<string, string> = {
   sv_ahv: "AVS – assicurazione vecchiaia e superstiti", sv_iv: "AI – assicurazione invalidità", sv_eo: "IPG – indennità di perdita di guadagno",
-  sv_alv: "AD – assicurazione contro la disoccupazione", sv_fl: "Assegni familiari nell'agricoltura", sv_mat_ge: "Assicurazione maternità (Ginevra)", sv: "Assicurazioni sociali (totale)",
+  sv_alv: "AD – assicurazione contro la disoccupazione", sv_fl: "Assegni familiari nell’agricoltura", sv_mat_ge: "Assicurazione maternità (Ginevra)", sv: "Assicurazioni sociali (totale)",
 };
 
 /** Oggetto dei contratti più grandi, per dire in italiano che cosa è stato comprato. */
@@ -149,12 +154,12 @@ export const OBJECT_IT: Record<string, string> = {
 const PLAIN: Record<string, string> = {
   "Economia nazionale": "Economia (agricoltura, turismo, energia)", "Economia pubblica": "Economia (agricoltura, turismo, energia)",
   "Uscite": "Spese correnti", "Uscite per investimenti": "Investimenti",
-  "Uscite per il personale": "Personale", "Uscite per beni e servizi e altre uscite d’esercizio": "Beni, servizi e spese d'esercizio",
+  "Uscite per il personale": "Personale", "Uscite per beni e servizi e altre uscite d’esercizio": "Beni, servizi e spese d’esercizio",
   "Uscite finanziarie": "Interessi e spese finanziarie", "Uscite di riversamento": "Contributi versati ad altri (Comuni, enti, persone)",
   "Uscite straordinarie": "Spese straordinarie", "Investimenti materiali": "Opere e beni durevoli", "Contributi agli investimenti": "Contributi a investimenti di altri",
   "Traffico e telecomunicazioni": "Trasporti e comunicazione",
 };
-export const plain = (s: string | null | undefined, fallback = ""): string => (s ? PLAIN[s] ?? s : fallback);
+export const plain = (s: string | null | undefined, fallback = ""): string => (s ? PLAIN[s] ?? apos(s) : fallback);
 /** Name of a category of the financial statistics (function or type of spending) in the language of the page. */
 export const codedName = (c: { code: string; de?: string | null; it?: string | null }, lang: Lang = currentLang()): string =>
   lang === "en" ? (c.de ? EN.FS_EN[c.de] ?? c.de : c.code) : plain(c.it, c.de ?? c.code);

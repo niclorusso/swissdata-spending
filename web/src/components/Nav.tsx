@@ -1,8 +1,8 @@
 import Link from "@/components/L";
-import { LangSwitch, NavLinks } from "@/components/NavLinks";
+import { Chevron, LangMenu, Menu, NavLinks } from "@/components/NavLinks";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { T } from "@/lib/lang-server";
-import { SITE } from "@/lib/site";
+import { getLang, T } from "@/lib/lang-server";
+import { FAMILY, THIS_SITE, familyHref } from "@/lib/site";
 
 const links = [
   { href: "/confederazione/", it: "Confederazione", en: "Confederation" },
@@ -13,52 +13,77 @@ const links = [
   { href: "/metodo/", it: "Metodo e fonti", en: "Method and sources" },
 ];
 
-/** The SwissData mark: the four operations on a red square. */
-function Mark({ size = 28 }: { size?: number }) {
+/** The SwissData mark, drawn: the four operations on a red square. The same drawing in the three sites. */
+export function Mark({ size = 28 }: { size?: number }) {
   return (
-    <span className="grid grid-cols-2 bg-[#dc2626] rounded-[5px] shrink-0 text-white font-bold leading-none" style={{ width: size, height: size, fontSize: size * 0.4 }} aria-hidden>
-      {["+", "−", "×", "÷"].map((c) => <span key={c} className="flex items-center justify-center">{c}</span>)}
-    </span>
+    <svg className="sdf-mark" width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="5.5" fill="#D82525" />
+      <g fill="none" stroke="#fff" strokeWidth="2">
+        <path d="M8 4.3v7.4M4.3 8h7.4" /><path d="M20.3 8h7.4" /><path d="M5.4 21.4l5.2 5.2M10.6 21.4l-5.2 5.2" /><path d="M20.3 24h7.4" />
+        <circle cx="24" cy="20.7" r="1.2" fill="#fff" stroke="none" /><circle cx="24" cy="27.3" r="1.2" fill="#fff" stroke="none" />
+      </g>
+    </svg>
   );
 }
-/** "SwissData" goes to the main site, the section name to the first page of this one. */
-function Brand({ size }: { size?: number }) {
+const Word = () => <span className="sdf-word">Swiss<span className="sdf-data">Data</span></span>;
+
+/** Mark, "SwissData", slash, the name of this site. The name opens the list of the three sites. */
+function Lockup() {
+  const lang = getLang();
+  const me = FAMILY.find((s) => s.id === THIS_SITE)!;
   return (
-    <span className="flex items-center gap-2.5">
-      <a href={SITE.parentUrl} className="flex items-center gap-2 font-bold tracking-tight" title={T("Vai a SwissData", "Go to SwissData")}><Mark size={size} /><span>Swiss<span className="text-[#dc2626]">Data</span></span></a>
-      <span className="text-border" aria-hidden>/</span>
-      <Link href="/" className="font-medium text-muted hover:text-foreground transition-colors">{T(SITE.section, SITE.sectionEn)}</Link>
-    </span>
+    <div className="sdf-lockup">
+      <Link className="sdf-lockup-brand" href="/" aria-label={T("SwissData Spesa pubblica: pagina iniziale", "SwissData Public spending: home page")}><Mark /><Word /></Link>
+      <span className="sdf-slash" aria-hidden="true">/</span>
+      <Menu className="sdf-switch" label={<>{me[lang]}<Chevron /></>} summaryLabel={T(`${me.it}: cambia sito SwissData`, `${me.en}: switch SwissData site`)} listLabel={T("I siti SwissData", "The SwissData sites")}>
+        {FAMILY.map((s) => (
+          <li key={s.id}>{s.id === THIS_SITE
+            ? <Link href="/" aria-current="true"><Word /> <span>/ {s[lang]}</span></Link>
+            : <a href={familyHref(s, lang)} hrefLang={lang}><Word /> <span>/ {s[lang]}</span></a>}</li>
+        ))}
+      </Menu>
+    </div>
   );
 }
 
 export function Nav() {
   return (
-    <header className="site-nav md:sticky top-0 z-40">
-      <div className="mx-auto max-w-6xl px-4 py-2.5 flex flex-wrap items-center gap-x-5 gap-y-1.5">
-        <div className="text-[1.1rem] mr-auto"><Brand /></div>
-        <div className="order-3 md:order-2 w-full md:w-auto"><NavLinks links={links.map((l) => ({ href: l.href, label: T(l.it, l.en) }))} /></div>
-        <div className="order-2 md:order-3 flex items-center gap-2"><LangSwitch /><ThemeToggle /></div>
+    <header className="site-nav">
+      <div className="site-nav-in mx-auto max-w-6xl px-4">
+        <Lockup />
+        <NavLinks links={links.map((l) => ({ href: l.href, label: T(l.it, l.en) }))} />
+        <LangMenu />
       </div>
     </header>
   );
 }
 
 export function Footer() {
+  const lang = getLang();
   return (
-    <footer className="mt-24 text-sm" data-theme="dark" style={{ background: "#0b0c0e" }}>
-      <div className="mx-auto max-w-6xl px-4 py-14 grid md:grid-cols-3 gap-10 text-muted">
-        <div className="md:col-span-2 space-y-3 max-w-2xl">
-          <div className="text-xl text-foreground"><Brand size={30} /></div>
-          <p>{T("La spesa pubblica svizzera dai file ufficiali di AFF, UST, della Conferenza degli acquisti della Confederazione e dei Cantoni Ticino e Zurigo. Sotto ogni grafico: fonte e data dell'ultimo controllo.", "Swiss public spending from the official files of the Federal Finance Administration, the Federal Statistical Office, the Federal Procurement Conference and the cantons of Ticino and Zurich. Under every chart: source and date of the last check.")}</p>
-          <p>{T("Progetto indipendente, non è un sito ufficiale della Confederazione.", "Independent project, not an official website of the Confederation.")}</p>
+    <footer className="site-foot mt-24" data-theme="dark">
+      <div className="mx-auto max-w-6xl px-4 pt-10 pb-12">
+        <div className="sdf-foot">
+          <div className="sdf-foot-brand"><Mark size={26} /><Word /></div>
+          <nav className="sdf-foot-sites" aria-label={T("I siti SwissData", "The SwissData sites")}>
+            {FAMILY.map((s) => (
+              s.id === THIS_SITE
+                ? <Link key={s.id} className="sdf-foot-site" href="/" aria-current="true"><strong>{s.long[lang]}</strong><span>{s.text[lang]}</span></Link>
+                : <a key={s.id} className="sdf-foot-site" href={familyHref(s, lang)} hrefLang={lang}><strong>{s.long[lang]}</strong><span>{s.text[lang]}</span></a>
+            ))}
+          </nav>
+          <p className="sdf-foot-indep">{T("Progetto indipendente di Nicola Lo Russo. Non è un sito ufficiale della Confederazione.", "Independent project by Nicola Lo Russo. Not an official website of the Confederation.")}</p>
         </div>
-        <ul className="space-y-2">
-          <li><Link className="hover:text-accent transition-colors" href="/metodo/">{T("Come leggere i numeri", "How to read the figures")}</Link></li>
-          <li><Link className="hover:text-accent transition-colors" href="/fonti/">{T("Registro delle fonti", "Register of sources")}</Link></li>
-          <li><Link className="hover:text-accent transition-colors" href="/confederazione/unita/">{T("Uffici federali", "Federal offices")}</Link></li>
-          <li><a className="hover:text-accent transition-colors" href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Powered by Netlify</a></li>
-        </ul>
+        <div className="pt-9 grid md:grid-cols-3 gap-x-10 gap-y-6">
+          <p className="md:col-span-2 max-w-2xl leading-relaxed">{T("La spesa pubblica svizzera dai file ufficiali di AFF, UST, della Conferenza degli acquisti della Confederazione e dei Cantoni Ticino e Zurigo. Sotto ogni grafico: fonte e data dell’ultimo controllo.", "Swiss public spending from the official files of the Federal Finance Administration, the Federal Statistical Office, the Federal Procurement Conference and the cantons of Ticino and Zurich. Under every chart: source and date of the last check.")}</p>
+          <ul className="site-foot-links">
+            <li><Link href="/metodo/">{T("Come leggere i numeri", "How to read the figures")}</Link></li>
+            <li><Link href="/fonti/">{T("Registro delle fonti", "Register of sources")}</Link></li>
+            <li><Link href="/confederazione/unita/">{T("Uffici federali", "Federal offices")}</Link></li>
+            <li><a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Powered by Netlify</a></li>
+            <li><ThemeToggle /></li>
+          </ul>
+        </div>
       </div>
     </footer>
   );

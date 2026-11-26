@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/L";
 import { geo, lastRechnung, loadLedger, units, type Meta } from "@/lib/data";
-import { date, dateTime, num } from "@/lib/format";
+import { apos, date, dateTime, num } from "@/lib/format";
 import { Card, Page } from "@/components/ui";
 import { getLang, T } from "@/lib/lang-server";
 import { ZH_OFFICE } from "@/lib/labels";
@@ -12,13 +12,13 @@ const LEVELS: [string, string, string][] = [["gesamt", "Tutti i livelli", "All l
 /** English text of each entry. {0}, {1}… are the numbers of the Italian text, in order, so counts and years follow the data. */
 type En = { title: string; coverage: string; notes?: string };
 const STATUS_NOTE = "up to {0}: actuals; {1}: budget; from {2}: financial plan";
-const PROC: En = { title: "Confederation – contracts ≥ 50,000 CHF, {2} contracts", coverage: "{0} contracts of the central Federal Administration, year {1}", notes: "Art. 27 Public Procurement Ordinance: publication of contracts ≥ 50,000 CHF; the following file can contain later publications (sheet 'Nachpublikationen', not included)." };
+const PROC: En = { title: "Confederation – contracts ≥ CHF\u00a050,000, {2} contracts", coverage: "{0} contracts of the central Federal Administration, year {1}", notes: "Art. 27 Public Procurement Ordinance: publication of contracts ≥ CHF\u00a050,000; the following file can contain later publications (sheet 'Nachpublikationen', not included)." };
 const EN: Record<string, En> = {
   "bfs-bevoelkerung-gemeinden": { title: "Permanent resident population on 31 December by municipality", coverage: "{0} municipalities (municipal boundaries of {1}.{2}), {3}", notes: "Same STAT-TAB database as the cantons; key = FSO number of the municipality. All years refer to the boundaries of {0}.{1}: for a municipality merged later, the figure of an earlier year is the sum of the merged municipalities; the mergers come from the FSO list of mutations. The values are read through the API of the same STAT-TAB table; the file given is the full table in PX format and the fingerprint is its own." },
   "bfs-bevoelkerung-kantone": { title: "Permanent resident population on 31 December, Switzerland and cantons", coverage: "Switzerland + 26 cantons, STATPOP/ESPOP, used for per-inhabitant values", notes: "STAT-TAB database; component «Population on 31 December», all nationalities and sexes. The values are read through the API of the same STAT-TAB table; the file given is the full table in PX format and the fingerprint is its own." },
   "bund-ausgaben-art": { title: "Confederation – spending by type", coverage: "Current and investment spending by economic type (staff, goods and services, transfers…), {0}", notes: STATUS_NOTE },
   "bund-ausgaben-aufgabengebiet": { title: "Confederation – spending by task area", coverage: "Spending of the Confederation in {0} task areas and sub-areas, {1}", notes: STATUS_NOTE },
-  "bund-beschaffungen": { title: "Confederation – contracts ≥ 50,000 CHF (summary)", coverage: "{0} contracts, {1} suppliers, {2} bn CHF in {3} years", notes: "One file per contract year; on opendata.swiss each year has its own dataset, with the year of the contracts in the title. In the supplier rankings the spellings of the same company are counted together (data/supplier-aliases.json); contracts keep the name written in the list. List of the files on the website of the Federal Procurement Conference: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken" },
+  "bund-beschaffungen": { title: "Confederation – contracts ≥ CHF\u00a050,000 (summary)", coverage: "{0} contracts, {1} suppliers, CHF\u00a0{2}\u00a0bn in {3} years", notes: "One file per contract year; on opendata.swiss each year has its own dataset, with the year of the contracts in the title. In the supplier rankings the spellings of the same company are counted together (data/supplier-aliases.json); contracts keep the name written in the list. List of the files on the website of the Federal Procurement Conference: https://www.bkb.admin.ch/de/bekanntgabe-der-beschaffungen-ab-50-000-franken" },
   "bund-einnahmen": { title: "Confederation – revenue", coverage: "Revenue of the Confederation by type (direct federal tax, VAT, withholding tax…), {0}", notes: STATUS_NOTE },
   "bund-kennzahlen": { title: "Confederation – indicators and debt brake", coverage: "Spending ratio, tax ratio, gross/net debt, financing balance, nominal GDP, {0}", notes: STATUS_NOTE },
   "bund-verwaltungseinheiten": { title: "Confederation – staff, consultancy and IT by administrative unit", coverage: "{0} administrative units in {1} groups ({2} departments plus authorities and courts): staff costs, external consultancy, IT and full-time positions, {3}", notes: STATUS_NOTE },
@@ -32,7 +32,9 @@ const EN: Record<string, En> = {
 const FILE_EN: [RegExp, string][] = [[/^Indicatore/, "Indicator"], [/patrimonio netto/, "net assets"], [/investimenti netti/, "net investment"], [/risultato d'esercizio/, "annual result"], [/forza fiscale/, "tax strength"], [/Nettoaufwand, /, "net cost, "], [/moltiplicatori d'imposta\), serie storica/, "tax multipliers), time series"], [/Tabella STAT-TAB completa \(PX\)/, "Full STAT-TAB table (PX)"], [/Elenco delle mutazioni dei Comuni \(AGVCH\)/, "List of municipal mutations (AGVCH)"],
   [/Amministrazione generale/, "general administration"], [/Formazione/, "education"], [/Sanità/, "health"], [/Cultura, sport e tempo libero/, "culture, sport and leisure"], [/Ordine pubblico e sicurezza/, "public order and safety"], [/Sicurezza sociale/, "social security"], [/Ambiente e territorio/, "environment and planning"], [/Trasporti/, "transport"], [/Economia/, "economy"]];
 const nums = (s?: string | null) => (s ?? "").match(/\d+(?:[.,]\d+)?(?:–\d+)?/g) ?? [];
-const fill = (tpl: string, src?: string | null) => { const n = nums(src); return tpl.replace(/\{(\d)\}/g, (_, i) => n[Number(i)] ?? ""); };
+/** A count taken from the Italian text, written the English way (47706 -> 47,706); years and ranges stay as they are. */
+const enNum = (t?: string) => (t && /^\d{4,}$/.test(t) && !(Number(t) >= 1900 && Number(t) <= 2100) ? num(Number(t)) : t ?? "");
+const fill = (tpl: string, src?: string | null) => { const n = nums(src); return tpl.replace(/\{(\d)\}/g, (_, i) => enNum(n[Number(i)])); };
 const FREQ: [RegExp, string][] = [[/2 volte l'anno/, "twice a year"], [/annuale/, "yearly"], [/marzo: consuntivo; agosto: preventivo e piano finanziario/, "March: actuals; August: budget and financial plan"], [/febbraio\/marzo e agosto\/settembre/, "February/March and August/September"], [/marzo, agosto/, "March, August"], [/settembre dell'anno successivo/, "September of the following year"], [/agosto/, "August"]];
 const PERIOD: [RegExp, string][] = [[/Rechnung/g, "actuals"], [/Voranschlag/g, "budget"], [/Finanzplan/g, "financial plan"], [/consuntivi: Confederazione/, "actuals: Confederation"], [/stato dei Comuni/, "municipal boundaries of"], [/Cantoni/, "cantons"], [/Comuni/, "municipalities"], [/assicurazioni sociali/, "social insurance"], [/anni successivi = dati parziali o previsioni AFF/, "later years = partial data or FFA forecasts"], [/Steuerfuss fino al/, "tax multiplier up to"]];
 const LICENSE: [RegExp, string][] = [[/opendata\.swiss: Freie Nutzung\. Quellenangabe ist Pflicht.*/, "Free use, the source must be cited (opendata.swiss)"], [/opendata\.swiss: Freie Nutzung \(terms_open\)/, "Free use (opendata.swiss)"], [/nessuna licenza indicata dalla fonte; citazione della fonte/, "no licence stated by the source; source cited"], [/Geodati: fonte/, "Geodata: source"], [/codice swiss-maps/, "swiss-maps code"]];
@@ -44,7 +46,7 @@ const IT: [RegExp, string][] = [
   [/opendata\.swiss: Freie Nutzung \(terms_open\)/g, "Uso libero (opendata.swiss)"],
   [/Rechnung \(consuntivo\)/g, "consuntivo"], [/Voranschlag \(preventivo\)/g, "preventivo"], [/Finanzplan \(piano finanziario\)/g, "piano finanziario"],
   [/Rechnung/g, "consuntivo"], [/Voranschlag/g, "preventivo"], [/Finanzplan/g, "piano finanziario"],
-  [/degli Steuerfüsse/g, "dei moltiplicatori d'imposta"], [/anno <= /g, "fino al "], [/>= /g, "dal "], [/«Steuerfuss»|Steuerfüsse|Steuerfuss/g, "moltiplicatore d'imposta"],
+  [/degli Steuerfüsse/g, "dei moltiplicatori d’imposta"], [/anno <= /g, "fino al "], [/>= /g, "dal "], [/«Steuerfuss»|Steuerfüsse|Steuerfuss/g, "moltiplicatore d’imposta"],
   [/«Konsolidierte Gemeinde»/g, "«Comune consolidato»"], [/\(Aufwand\)/g, ""], [/Conto economico HRM2 \(Aufwand\/Ertrag\)/g, "Conto economico (spese e ricavi correnti)"],
   [/modello FS \(statistica finanziaria svizzera\)/gi, "statistica finanziaria svizzera"], [/ \(modello FS\)/g, ""], [/ \(modello GFS\)/g, ""], [/cubo STAT-TAB/g, "banca dati STAT-TAB"],
   [/«Rechnung \/ Vorhandene Daten \/ Prognosen»|\(Rechnung \/ Vorhandene Daten \/ Prognosen\)/g, "(consuntivo, dati parziali, previsione)"],
@@ -53,7 +55,15 @@ const PUB: Record<string, string> = {
   "Statistisches Amt des Kantons Zürich": ZH_OFFICE.it, "Amt für Statistik und Daten des Kantons Zürich": ZH_OFFICE.it,
   "Bundesamt für Statistik (BFS)": "Ufficio federale di statistica (UST)",
 };
-const tr = (s?: string | null) => IT.reduce((t, [re, to]) => t.replace(re, to), s ?? "").replace(/\b(\d{2,3})(\d{3})(?= (contratti|fornitori|Comuni))/g, "$1’$2");
+/** The pipeline writes figures plainly ("47706 contratti", "50 000 CHF", "35.9 mld"): the page writes them like every other figure of the site. */
+const figures = (s: string) => s
+  .replace(/(?<![\d.,–])(\d{1,3}) (\d{3})(?![\d.])/g, (_, a, b) => num(Number(a + b)))
+  .replace(/(?<![\d.,–/=_-])\d{5,}(?![\d.–]|\w)/g, (m) => num(Number(m)))
+  .replace(/(\d+)\.(\d+)(?= (mld|mio)\b)/g, (_, a, b) => num(Number(`${a}.${b}`), b.length))
+  .replace(/(\d) (mld|mio|CHF)\b/g, "$1\u00a0$2").replace(/\b(mld|mio) CHF\b/g, "$1\u00a0CHF");
+/** …and with the Italian marks: «…» for a quotation ('Nachpublikationen'), the typographic apostrophe (dell’anno). */
+const marks = (s: string) => apos(s.replace(/(?<!\p{L})'([^'\n]+)'(?!\p{L})/gu, "«$1»"));
+const tr = (s?: string | null) => marks(figures(IT.reduce((t, [re, to]) => t.replace(re, to), s ?? "")));
 const PUB_EN: [string, string][] = [["EFV", "Federal Finance Administration (FFA)"], ["BFS", "Federal Statistical Office (FSO)"], ["BKB", "Federal Procurement Conference (BKB)"], ["Sezione degli enti locali", "Canton Ticino, Local Authorities Section (SEL)"], ["Statistisches Amt des Kantons Zürich", ZH_OFFICE.en], ["Amt für Statistik und Daten des Kantons Zürich", ZH_OFFICE.en], ["GEOSTAT", "Federal Statistical Office (FSO), GEOSTAT / swisstopo"]];
 const publisherEn = (p: string) => PUB_EN.find(([k]) => p.includes(k))?.[1] ?? p;
 const publisher = (p: string) => { const parts = p.split(" / "); const it = (parts.length > 1 ? parts[parts.length - 1] : p).replace(/, via .*$/, ""); return PUB[it] ?? PUB[parts[0]] ?? it; };
@@ -98,7 +108,7 @@ function Row({ m }: { m: Meta }) {
           <div className="font-semibold">{title}</div>
           <p className="text-sm text-muted mt-0.5">{coverage}</p>
           {notes && (
-            <details className="mt-1.5 text-sm text-muted"><summary className="cursor-pointer text-foreground/80">{T("Note", "Notes")}</summary><p className="mt-1">{notes}</p></details>
+            <details className="mt-1.5 text-sm text-muted"><summary className="cursor-pointer text-muted tap">{T("Note", "Notes")}</summary><p className="mt-1">{notes}</p></details>
           )}
         </div>
         <dl className="md:col-span-2 text-sm grid grid-cols-[7.5rem_1fr] gap-x-3 gap-y-0.5 content-start">
@@ -107,15 +117,15 @@ function Row({ m }: { m: Meta }) {
           {m.published_at && <><dt className="text-muted">{T("Pubblicato", "Published")}</dt><dd>{date(m.published_at)}</dd></>}
           <dt className="text-muted">{T("Scaricato", "Downloaded")}</dt><dd>{date(m.retrieved_at)}</dd>
           <dt className="text-muted">{T("Verificato", "Checked")}</dt><dd title={dateTime(m.checked_at)}>{date(m.checked_at)}</dd>
-          <dt className="text-muted">{T("Aggiornamento", "Updated")}</dt><dd>{en ? map(FREQ, m.frequency) : m.frequency}</dd>
+          <dt className="text-muted">{T("Aggiornamento", "Updated")}</dt><dd>{en ? map(FREQ, m.frequency) : marks(m.frequency)}</dd>
           <dt className="text-muted">{T("Licenza", "Licence")}</dt><dd>{en ? map(LICENSE, m.license) : tr(m.license)}</dd>
-          <dt className="text-muted">File</dt><dd>{m.files ? <a className="link" href={`#${m.id}-files`}>{en ? `${m.files.length} files, listed below` : `${m.files.length} file, elencati sotto`}</a> : <a className="link" href={m.source_url}>{T("scarica l'originale", "download the original")}</a>} · <a className="link" href={m.landing_url}>{T("pagina della fonte", "source page")}</a></dd>
+          <dt className="text-muted">File</dt><dd>{m.files ? <a className="link" href={`#${m.id}-files`}>{en ? `${m.files.length} files, listed below` : `${m.files.length} file, elencati sotto`}</a> : <a className="link" href={m.source_url}>{T("scarica l’originale", "download the original")}</a>} · <a className="link" href={m.landing_url}>{T("pagina della fonte", "source page")}</a></dd>
           {m.sha256 && !m.files && <><dt className="text-muted">{T("Impronta", "Fingerprint")}</dt><dd className="font-mono text-xs text-faint break-all" title={T("SHA-256 del file scaricato", "SHA-256 of the downloaded file")}>{m.sha256.slice(0, 16)}…</dd></>}
         </dl>
         {m.files && (
           <ul id={`${m.id}-files`} className="md:col-span-5 mt-2 text-sm text-muted space-y-1 scroll-mt-6">
             {m.files.map((f) => (
-              <li key={f.url}><a className="link" href={f.url}>{en ? FILE_EN.reduce((t, [re, to]) => t.replace(re, to), f.label) : f.label}</a>{f.published_at ? <> · {T("pubblicato", "published")} {date(f.published_at)}</> : null} · {T("scaricato", "downloaded")} {date(f.retrieved_at)} · <span className="font-mono text-xs text-faint" title={T("SHA-256 del file scaricato", "SHA-256 of the downloaded file")}>{f.sha256.slice(0, 16)}…</span></li>
+              <li key={f.url}><a className="link" href={f.url}>{en ? FILE_EN.reduce((t, [re, to]) => t.replace(re, to), f.label) : marks(f.label)}</a>{f.published_at ? <> · {T("pubblicato", "published")} {date(f.published_at)}</> : null} · {T("scaricato", "downloaded")} {date(f.retrieved_at)} · <span className="font-mono text-xs text-faint" title={T("SHA-256 del file scaricato", "SHA-256 of the downloaded file")}>{f.sha256.slice(0, 16)}…</span></li>
             ))}
           </ul>
         )}
@@ -130,7 +140,7 @@ export default function Fonti() {
   return (
     <Page kicker={T("Metodo", "Method")} back={{ href: "/metodo/", label: T("Come leggere i numeri", "How to read the figures") }} title={T("Registro delle fonti", "Register of sources")} lead={en
       ? <p>The data of the site come from official files, listed here with who publishes them, the period they cover, when they were downloaded and when they were last checked against the source. Values per inhabitant, shares, ranks, medians and the sums for merged municipalities are not in any official file: the site computes them from these files. The fingerprint (SHA-256) lets you verify that the file is the same. The pages of the federal sources are in German.</p>
-      : <p>I dati del sito vengono da file ufficiali, elencati qui con chi li pubblica, il periodo che coprono, quando sono stati scaricati e quando sono stati confrontati l&apos;ultima volta con la fonte. Valori per abitante, quote, posizioni, mediane e le somme per i Comuni aggregati non sono in nessun file ufficiale: li calcola il sito a partire da questi file. L&apos;impronta (SHA-256) permette di verificare che il file sia lo stesso. Le pagine delle fonti federali sono in tedesco.</p>}>
+      : <p>I dati del sito vengono da file ufficiali, elencati qui con chi li pubblica, il periodo che coprono, quando sono stati scaricati e quando sono stati confrontati l’ultima volta con la fonte. Valori per abitante, quote, posizioni, mediane e le somme per i Comuni aggregati non sono in nessun file ufficiale: li calcola il sito a partire da questi file. L’impronta (SHA-256) permette di verificare che il file sia lo stesso. Le pagine delle fonti federali sono in tedesco.</p>}>
       {LEVELS.map(([lvl, labelIt, labelEn]) => {
         const label = en ? labelEn : labelIt;
         const rows = ledger.filter((m) => m.level === lvl).sort((a, b) => a.title.localeCompare(b.title, "it"));
@@ -143,7 +153,7 @@ export default function Fonti() {
       })}
       <Card title={T("Fonti che mancano", "Missing sources")}>
         <ul className="text-sm list-disc pl-5 space-y-1.5 text-muted">
-          <li>{T("Sussidi federali per beneficiario: l'AFF li mostra in una dashboard, senza file scaricabile.", "Federal subsidies by recipient: the FFA shows them in a dashboard, with no downloadable file.")}</li>
+          <li>{T("Sussidi federali per beneficiario: l’AFF li mostra in una dashboard, senza file scaricabile.", "Federal subsidies by recipient: the FFA shows them in a dashboard, with no downloadable file.")}</li>
           <li>{T("Appalti di Cantoni e Comuni: simap.ch dà accesso ai dati solo su richiesta.", "Contracts of cantons and municipalities: simap.ch gives access to the data only on request.")}</li>
           <li>{T("Aziende partecipate della Confederazione e dei Cantoni: non esiste un elenco strutturato.", "Companies owned by the Confederation and the cantons: there is no structured list.")}</li>
           <li>{T("Conti dei singoli Comuni negli altri Cantoni: alcuni portali cantonali li pubblicano (Turgovia, Lucerna), non sono ancora integrati.", "Accounts of single municipalities in the other cantons: some cantonal portals publish them (Thurgau, Lucerne), they are not integrated yet.")}</li>

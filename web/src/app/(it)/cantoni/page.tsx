@@ -40,7 +40,7 @@ export default function Cantoni() {
   return (
     <Page kicker={T("Cantoni e Comuni", "Cantons and municipalities")} title={T("I 26 Cantoni a confronto", "The 26 cantons compared")} lead={en
       ? <p>Spending of each canton and its municipalities according to the financial statistics of the Federal Finance Administration (FFA), which bring all accounts to the same scheme. Latest closed accounts: cantons {yK}, municipalities {yG}.</p>
-      : <p>Spese di ogni Cantone e dei suoi Comuni secondo la statistica finanziaria dell&apos;AFF, che riporta tutti i conti allo stesso schema. Ultimo consuntivo: Cantoni {yK}, Comuni {yG}.</p>}>
+      : <p>Spese di ogni Cantone e dei suoi Comuni secondo la statistica finanziaria dell’AFF, che riporta tutti i conti allo stesso schema. Ultimo consuntivo: Cantoni {yK}, Comuni {yG}.</p>}>
       <StatGrid cols={5}>
         <Stat label={`${T("Spesa pubblica totale", "Total public spending")} ${yS}`} value={chf(staat.total_ausgaben[yS])} sub={T("tutti i livelli insieme", "all levels together")} />
         {levels.map(([k, l]) => <Stat key={k} label={`${l} ${yS}`} value={chf(H[k].total_ausgaben[yS])} sub={`${T("entrate", "revenue")} ${chf(H[k].total_einnahmen[yS])}`} />)}
@@ -60,7 +60,7 @@ export default function Cantoni() {
         <SourceBadge meta={fs.meta} also={pop.meta} />
       </Card>
 
-      <Card title={T("I quattro livelli dal 1990", "The four levels since 1990")} subtitle={T("Spese di ogni livello. I versamenti da un livello all'altro sono contati in entrambi.", "Spending of each level. Payments from one level to another are counted in both.")}>
+      <Card title={T("I quattro livelli dal 1990", "The four levels since 1990")} subtitle={T("Spese di ogni livello. I versamenti da un livello all’altro sono contati in entrambi.", "Spending of each level. Payments from one level to another are counted in both.")}>
         <TimeSeries rows={levelRows} series={levels.map(([, l]) => l)} yearStatus={ys} kind="stacked" height={320} />
         <SourceBadge meta={fs.meta} compact />
       </Card>

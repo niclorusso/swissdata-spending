@@ -1,4 +1,4 @@
-import { chf, num, share as fmtShare } from "@/lib/format";
+import { chf, num, sharePct } from "@/lib/format";
 import { ha } from "@/lib/lang-server";
 
 export type BarItem = { label: string; value: number; sub?: string; href?: string; color?: string };
@@ -18,7 +18,7 @@ export function BarList({ items, total, max, unit = "chf", showShare = true, neg
               <span className="min-w-0">{label}{i.sub && <span className="text-faint"> · {i.sub}</span>}{i.value < 0 && negativeNote && <span className="text-faint"> · {negativeNote}</span>}</span>
               <span className="tabular whitespace-nowrap shrink-0 text-muted">
                 {unit === "chf" ? chf(i.value) : num(i.value)}
-                {showShare && share !== null && <span className="text-faint"> · {fmtShare(share)} %</span>}
+                {showShare && share !== null && <span className="text-faint"> · {sharePct(share)}</span>}
               </span>
             </div>
             <div className="bar mt-1.5">
