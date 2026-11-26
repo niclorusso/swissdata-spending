@@ -6,14 +6,21 @@ object, procedure, start/end, volume incl. VAT.
 Produces:
   bund-beschaffungen           aggregates per year (by department, procedure, top suppliers, top objects)
   bund-beschaffungen-<year>    full row-level detail for the client-side search table
+
+The lists write some suppliers in more than one way ("NOVO Business Consultants AG" / "Novo Business Consultants AG").
+data/supplier-aliases.json groups the spellings of the same company (checked in the commercial register, one UID per group):
+the supplier rankings count each group under one name. The row-level files keep the name as written in each contract.
 """
 from __future__ import annotations
 
+import json
 import re
 
 import pandas as pd
 
-from etl.common import Source, fetch, to_num, write_snapshot
+from etl.common import ROOT, Source, fetch, to_num, write_snapshot
+
+ALIASES = ROOT / "data" / "supplier-aliases.json"
 
 PUBLISHER = "Beschaffungskonferenz des Bundes (BKB) / Conferenza degli acquisti della Confederazione (CA)"
 PUBLISHER_URL = "https://www.bkb.admin.ch"
@@ -84,7 +91,51 @@ def top(df: pd.DataFrame, col: str, n: int = 25) -> list[dict]:
     return [{"name": (None if pd.isna(k) else str(k)), "chf": round(float(r.chf)), "n": int(r.n)} for k, r in g.head(n).iterrows()]
 
 
+def supplier_aliases() -> dict[str, str]:
+    """Name as written in a list -> name of its group (data/supplier-aliases.json). Each spelling belongs to one group only."""
+    out: dict[str, str] = {}
+    groups = json.loads(ALIASES.read_text())["groups"]
+    if len({g["name"] for g in groups}) != len(groups):
+        raise ValueError("[aliases] two groups have the same name")
+    for g in groups:
+        if g["name"] not in [v["name"] for v in g["variants"]]:
+            raise ValueError(f"[aliases] the name of the group {g['name']!r} is not one of its spellings")
+        for v in g["variants"]:
+            if v["name"] in out:
+                raise ValueError(f"[aliases] {v['name']!r} is in two groups")
+            out[v["name"]] = g["name"]
+    return out
+
+
+def top_suppliers(df: pd.DataFrame, aliases: dict[str, str], n: int) -> list[dict]:
+    """Ranking by supplier, the spellings of a group counted together; a merged row lists its spellings with their own sums."""
+    d = df.assign(group=df.supplier.map(lambda s: aliases.get(s, s) if isinstance(s, str) else s))
+    out = top(d, "group", n)
+    for t in out:
+        rows = d[d.group == t["name"]]
+        if rows.supplier.nunique() > 1:
+            t["variants"] = top(rows, "supplier", 20)
+    return out
+
+
+def supplier_groups(allc: pd.DataFrame, aliases: dict[str, str]) -> list[dict]:
+    """For the page that lists the groups: each spelling of each group with its contracts and value per year."""
+    used = allc[allc.supplier.isin(list(aliases))]
+    missing = sorted(set(aliases) - set(used.supplier))
+    if missing:  # a spelling that is in no list is a typo in the file, or a list that changed
+        raise ValueError(f"[aliases] not in any list: {missing}")
+    out = []
+    for name in dict.fromkeys(aliases.values()):
+        variants = []
+        for v in [k for k, g in aliases.items() if g == name]:
+            r = used[used.supplier == v].groupby("year").agg(chf=("chf", "sum"), n=("chf", "size"))
+            variants.append({"name": v, "years": {str(y): {"chf": round(float(x.chf)), "n": int(x.n)} for y, x in r.iterrows()}})
+        out.append({"name": name, "variants": variants})
+    return out
+
+
 def main() -> None:
+    aliases = supplier_aliases()
     years = {}
     all_rows = []
     for year, ds, url in FILES:
@@ -98,7 +149,7 @@ def main() -> None:
             "late_additions": {k: v for k, v in late.items() if k != "no_amount"}, "no_amount": late["no_amount"],
             "largest": {"supplier": str(df.loc[df.chf.idxmax(), "supplier"]), "object": str(df.loc[df.chf.idxmax(), "object"]), "chf": round(float(df.chf.max()))},
             "by_department": top(df, "dep", 20), "by_procedure": top(df, "procedure", 10),
-            "top_suppliers": top(df, "supplier", 50), "top_units": top(df, "unit", 30), "top_objects": top(df, "object", 30),
+            "top_suppliers": top_suppliers(df, aliases, 50), "top_units": top(df, "unit", 30), "top_objects": top(df, "object", 30),
             "source_url": url, "dataset_url": ds, "retrieved_at": f.retrieved_at, "published_at": f.last_modified, "sha256": f.sha256,
         }
         rows = df[["dep", "unit", "supplier", "plz", "ort", "object", "procedure", "start", "end", "chf"]].copy()
@@ -116,8 +167,10 @@ def main() -> None:
                           frequency="annuale (settembre dell'anno successivo)", level="bund", unit="CHF (IVA inclusa)",
                           data_date=f"{min(years)}–{max(years)}",
                           coverage=f"{len(allc)} contratti, {allc.supplier.nunique()} fornitori, {allc.chf.sum()/1e9:.1f} mld CHF in {len(years)} anni",
-                          notes=f"Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. Elenco dei file sul sito della CA: {PUBLISHER_PAGE}"),
-                   None, {"years": years, "top_suppliers_all": top(allc, "supplier", 100)},
+                          notes="Un file per anno di contratto; su opendata.swiss ogni anno ha il suo dataset, con l'anno dei contratti nel titolo. "
+                                "Nelle classifiche dei fornitori le grafie della stessa ditta sono contate insieme (data/supplier-aliases.json); i contratti restano con il nome scritto nell'elenco. "
+                                f"Elenco dei file sul sito della CA: {PUBLISHER_PAGE}"),
+                   None, {"years": years, "top_suppliers_all": top_suppliers(allc, aliases, 100), "supplier_groups": supplier_groups(allc, aliases)},
                    extra_meta={"retrieved_at": max(v["retrieved_at"] for v in years.values()),
                                "checked_at": max(v["retrieved_at"] for v in years.values())})
 
