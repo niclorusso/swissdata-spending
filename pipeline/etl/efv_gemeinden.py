@@ -15,6 +15,10 @@ from etl.efv_finanzstatistik import H, LANDING, LICENSE, PUBLISHER, PUBLISHER_UR
 URL = "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/gdn_ab_5000-d.csv"
 KT_BY_CODE = {1: "ZH", 2: "BE", 3: "LU", 4: "UR", 5: "SZ", 6: "OW", 7: "NW", 8: "GL", 9: "ZG", 10: "FR", 11: "SO", 12: "BS", 13: "BL",
               14: "SH", 15: "AR", 16: "AI", 17: "SG", 18: "GR", 19: "AG", 20: "TG", 21: "TI", 22: "VD", 23: "VS", 24: "NE", 25: "GE", 26: "JU"}
+# Official names of the HRM2 functions (first level), as in the FS code list used for fs-haushalte: the site names them from the German one.
+FUNK1_DE = {"0": "Allgemeine Verwaltung", "1": "Öffentliche Ordnung und Sicherheit, Verteidigung", "2": "Bildung", "3": "Kultur, Sport und Freizeit, Kirche",
+            "4": "Gesundheit", "5": "Soziale Sicherheit", "6": "Verkehr und Nachrichtenübermittlung", "7": "Umweltschutz und Raumordnung",
+            "8": "Volkswirtschaft", "9": "Finanzen und Steuern"}
 FUNK1_IT = {"0": "Amministrazione generale", "1": "Ordine pubblico e sicurezza, difesa", "2": "Educazione", "3": "Cultura, sport e ricreazione, religione",
             "4": "Sanità", "5": "Sicurezza sociale", "6": "Traffico e telecomunicazioni", "7": "Protezione dell'ambiente e assetto del territorio",
             "8": "Economia pubblica", "9": "Finanze e imposte"}
@@ -37,7 +41,7 @@ def main() -> None:
         byf = g[g.k1 == "3"].groupby(["f1", "jahr"]).betrag.sum()
         funk1 = {}
         for code in sorted(set(byf.index.get_level_values(0))):
-            funk1[code] = {"code": code, "it": FUNK1_IT.get(code, code), "values": {int(y): round(float(v)) for (c, y), v in byf.items() if c == code}}
+            funk1[code] = {"code": code, "de": FUNK1_DE.get(code), "it": FUNK1_IT.get(code, code), "values": {int(y): round(float(v)) for (c, y), v in byf.items() if c == code}}
         out[nr] = {"bfs_nr": bfs, "kanton": kt, "name": name, "years": sorted(int(y) for y in g.jahr.unique()),
                    "aufwand": {int(y): round(float(v)) for y, v in aufwand.items()},
                    "ertrag": {int(y): round(float(v)) for y, v in ertrag.items()},
