@@ -15,16 +15,19 @@ pnpm lint
 npx tsc --noEmit
 ```
 
-Dalla radice del repository gli stessi comandi sono `make web`, `make dev`, `make build` e `make check` (lint + tsc).
+Dalla radice del repository gli stessi comandi sono `make web`, `make dev`, `make build` e `make check` (lint, `next typegen`, tsc).
 
 ## Dati
 
 Il sito non ha database. Le pagine leggono in fase di build i file `../data/snapshots/*.json` e `../data/source-ledger.json`, generati da `../pipeline/etl` (`make etl`); vedi `src/lib/data.ts`.
 
-Il browser scarica solo due tipi di file, che `scripts/sync-data.mjs` copia in `public/data/` prima di `pnpm dev` e `pnpm build`:
+`scripts/sync-data.mjs` copia in `public/data/`, prima di `pnpm dev` e `pnpm build`, solo questi file:
 
-- `bund-beschaffungen-<anno>.json`: l'elenco dei contratti di un anno (`src/components/ProcTable.tsx`);
-- `geo-grenzen.json`: i confini per la mappa dei Comuni (`src/components/MuniMapCH.tsx`).
+- `bund-beschaffungen-<anno>.json`: l'elenco dei contratti di un anno, che il browser scarica (`src/components/ProcTable.tsx`);
+- `geo-grenzen.json`: i confini per la mappa dei Comuni, che il browser scarica (`src/components/MuniMapCH.tsx`);
+- `source-ledger.json`: il registro delle fonti, pubblico all'indirizzo `/data/source-ledger.json`.
+
+Se uno di questi file manca, lo script si ferma con un errore e la build fallisce. Gli altri snapshot non sono pubblicati come file: sono in `../data/snapshots`.
 
 `public/data/` non è sotto git.
 
