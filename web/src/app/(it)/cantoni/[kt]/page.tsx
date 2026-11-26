@@ -65,7 +65,7 @@ export default async function Kanton({ params }: PageProps<"/cantoni/[kt]">) {
       {all && map && (
         <div id="comuni" className="scroll-mt-6">
           <Card title={en ? `All ${allRows.length} municipalities` : `Tutti i ${allRows.length} Comuni`} subtitle={T("Scegli una misura: mappa, classifica e tabella cambiano insieme. Clicca un Comune per la sua scheda.", "Pick a measure: map, ranking and table change together. Click a municipality for its page.")}>
-            <GemeindenExplorer viewBox={map.viewBox} shapes={map.shapes} lakes={map.lakes} context={map.context} measures={all.data.measures.map((m) => ({ ...m, ...measureText(kt, m) }))} rows={allRows} />
+            <GemeindenExplorer viewBox={map.viewBox} shapes={map.shapes} lakes={map.lakes} context={map.context} measures={all.data.measures.map((m) => ({ ...m, ...measureText(kt, m) }))} rows={allRows} source={<SourceBadge meta={all.meta} />} />
             {kt === "ti" && <div className="mt-5"><Note>{en
               ? <>In {allRows.filter((r) => all.data.gemeinden[r.id].water_included).length} municipalities the accounts include drinking water, which the others keep separately: spending per inhabitant is not fully comparable. Lema, Giornico and Quinto add up the municipalities that merged into them after 2024.</>
               : <>In {allRows.filter((r) => all.data.gemeinden[r.id].water_included).length} Comuni i conti comprendono l&apos;acqua potabile, che negli altri è tenuta a parte: le spese per abitante non sono del tutto confrontabili. Lema, Giornico e Quinto sommano i Comuni che vi sono confluiti dopo il 2024.</>}</Note></div>}

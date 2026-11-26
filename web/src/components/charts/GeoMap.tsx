@@ -29,15 +29,18 @@ const TIP_W = 240;
 export type Shape = { id: string; d: string };
 export type MapDatum = { name: string; value: number | null; sub?: string; href?: string };
 export type { MapUnit };
+/** Name of a measure with its unit, as written above the legend: "Debito netto per abitante, in CHF". */
+export const titleWithUnit = (title: string, unit: MapUnit) => `${title}${/CHF|%/.test(title) ? "" : unit === "chf" ? ", in CHF" : unit === "pct" ? ", in %" : ""}`;
 
 /**
  * Choropleth: five equal-count classes of one hue (light = low, dark = high).
  * Shapes without a value stay neutral, so missing data never reads as "low".
  * Mouse: hover shows the value, click opens the page. Touch: first tap shows the value and a link.
+ * `highlight` outlines a shape chosen elsewhere on the page (a table row, a dot); `onActive` says which shape the reader is on.
  */
-export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, context = [], lakes = [], labels, stroke = 1, credit = true, diverging = false }: {
+export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, context = [], lakes = [], labels, stroke = 1, credit = true, diverging = false, highlight = null, onActive }: {
   viewBox: number[]; shapes: Shape[]; data: Record<string, MapDatum>; unit?: MapUnit; legendTitle: string;
-  context?: string[]; lakes?: string[]; labels?: Record<string, number[]>; stroke?: number; credit?: boolean; diverging?: boolean;
+  context?: string[]; lakes?: string[]; labels?: Record<string, number[]>; stroke?: number; credit?: boolean; diverging?: boolean; highlight?: string | null; onActive?: (id: string | null) => void;
 }) {
   const { formatUnit, T, h: href } = useL();
   const box = useRef<HTMLDivElement>(null);
@@ -49,11 +52,11 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
   const missing = shapes.some((s) => data[s.id]?.value === null || data[s.id]?.value === undefined);
   const h = hover ? data[hover.id] : null;
   const pin = pinned ? data[pinned] : null;
-  const active = hover?.id ?? pinned;
+  const active = hover?.id ?? highlight ?? pinned;
 
   return (
     <div className="relative" ref={box}>
-      <svg data-reveal="map" viewBox={viewBox.join(" ")} className="w-full h-auto max-h-[640px]" role="img" aria-label={legendTitle} onMouseLeave={() => setHover(null)}>
+      <svg data-reveal="map" viewBox={viewBox.join(" ")} className="w-full h-auto max-h-[640px]" role="img" aria-label={legendTitle} onMouseLeave={() => { setHover(null); onActive?.(null); }}>
         {context.map((d, i) => <path key={`c${i}`} d={d} vectorEffect="non-scaling-stroke" style={{ fill: "var(--background)", stroke: "var(--border)", strokeWidth: 0.6 }} />)}
         {shapes.map((s) => {
           const datum = data[s.id];
@@ -61,12 +64,12 @@ export function GeoMap({ viewBox, shapes, data, unit = "chf", legendTitle, conte
           const path = (
             <path key={s.id} d={s.d} vectorEffect="non-scaling-stroke" className="map-shape"
               style={{ fill: v === null ? "var(--surface-2)" : clsOf(v).color, stroke: "var(--surface)", strokeWidth: stroke, cursor: datum?.href ? "pointer" : "default" }}
-              onMouseMove={(e) => { if (window.matchMedia("(hover: none)").matches) return; const b = box.current!.getBoundingClientRect(); if (datum) setHover({ id: s.id, x: e.clientX - b.left, y: e.clientY - b.top, w: b.width }); }} />
+              onMouseMove={(e) => { if (window.matchMedia("(hover: none)").matches) return; const b = box.current!.getBoundingClientRect(); if (datum) { setHover({ id: s.id, x: e.clientX - b.left, y: e.clientY - b.top, w: b.width }); if (hover?.id !== s.id) onActive?.(s.id); } }} />
           );
           if (!datum?.href) return path;
           return (
             <a key={s.id} href={href(datum.href)} aria-label={`${datum.name}: ${v === null ? T("nessun dato", "no data") : formatUnit(v, unit)}`}
-              onClick={(e) => { if (window.matchMedia("(hover: none)").matches && pinned !== s.id) { e.preventDefault(); setPinned(s.id); } }}>{path}</a>
+              onClick={(e) => { if (window.matchMedia("(hover: none)").matches && pinned !== s.id) { e.preventDefault(); setPinned(s.id); onActive?.(s.id); } }}>{path}</a>
           );
         })}
         {lakes.map((d, i) => <path key={`l${i}`} d={d} style={{ fill: "var(--water)", pointerEvents: "none" }} />)}
@@ -110,7 +113,7 @@ function Legend({ title, classes, unit, missing }: { title: string; classes: Cls
   const short = (v: number) => formatUnit(Math.round(v), unit).replace(" CHF", "").replace(" %", "");
   return (
     <div className="mt-3 text-xs text-muted">
-      <div className="font-medium text-foreground">{title}{/CHF|%/.test(title) ? "" : unit === "chf" ? ", in CHF" : unit === "pct" ? ", in %" : ""}</div>
+      <div className="font-medium text-foreground">{titleWithUnit(title, unit)}</div>
       <div className="mt-1.5 flex items-start gap-4 flex-wrap">
         <div className="w-full max-w-[340px]">
           <div className="flex h-2.5 gap-[2px]">{classes.map((c, i) => <span key={i} className="flex-1 first:rounded-l-[2px] last:rounded-r-[2px]" style={{ background: c.color }} />)}</div>
